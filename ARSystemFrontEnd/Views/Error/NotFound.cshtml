@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Page Not Found";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/global/css/error.min.css")" rel="stylesheet" type="text/css" />
+
+<section id="pnlError">
+    <div class="row">
+        <div class="col-md-12 page-500">
+            <div class="number font-green"> 404 </div>
+            <div class="details">
+                <h3>Oops! You're lost.</h3>
+                <p>
+                    We can not find the page you're looking for.
+                    <br />
+                </p>
+                <p>
+                    <a href="/" class="btn green btn-outline"> Return home </a>
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

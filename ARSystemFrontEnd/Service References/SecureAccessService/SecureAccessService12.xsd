@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:complexType name="vmUpdateAuthorization">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q1:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="RoleActions" nillable="true" type="q2:ArrayOfidxRoleActionNew" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="RoleMenus" nillable="true" type="q3:ArrayOfidxRoleMenu" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="RoleTaskToDos" nillable="true" type="q4:ArrayOfidxRoleTaskToDoNew" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUpdateAuthorization" nillable="true" type="tns:vmUpdateAuthorization" />
+</xs:schema>

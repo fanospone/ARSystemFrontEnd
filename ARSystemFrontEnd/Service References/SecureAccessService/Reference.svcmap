@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f1fddd9d-6b1b-4144-9e61-cbe0f1e901e4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.8.0.166:8801/SecureAccessService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecureAccessService.xsd" MetadataType="Schema" ID="30da5bd7-0b81-4de5-8599-5ccd16cef40d" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd13" />
+    <MetadataFile FileName="SecureAccessService1518.xsd" MetadataType="Schema" ID="b19a8f32-0988-4436-9d26-0090143538d9" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd15" />
+    <MetadataFile FileName="SecureAccessService1.xsd" MetadataType="Schema" ID="3e625686-bac2-4d0a-a30e-d8adafa4e041" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SecureAccessService2.xsd" MetadataType="Schema" ID="e4935dc2-08d8-4f71-82cb-645e94f4bc61" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SecureAccessService1519.xsd" MetadataType="Schema" ID="af57509d-e898-4179-8928-5bb1f8d6063a" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd16" />
+    <MetadataFile FileName="SecureAccessService.wsdl" MetadataType="Wsdl" ID="f8aad582-a6e8-41c6-9591-47bb7a8f204d" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?wsdl" />
+    <MetadataFile FileName="SecureAccessService3.xsd" MetadataType="Schema" ID="2b0b9d24-1074-433a-bd6f-725c8eb55cfa" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd6" />
+    <MetadataFile FileName="SecureAccessService4.xsd" MetadataType="Schema" ID="612bf906-17d9-429b-94ea-917391e40688" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd14" />
+    <MetadataFile FileName="SecureAccessService.disco" MetadataType="Disco" ID="479e6ff0-5ae8-4822-971d-f7e8bb0ce6bd" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?disco" />
+    <MetadataFile FileName="SecureAccessService5.xsd" MetadataType="Schema" ID="c7adad39-7bc0-4533-a4ae-c208fe2a4113" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd12" />
+    <MetadataFile FileName="SecureAccessService6.xsd" MetadataType="Schema" ID="c0ac5936-85b2-4f63-9680-5db6f027757d" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecureAccessService7.xsd" MetadataType="Schema" ID="4cffe011-56e8-4ff8-b68a-833c0026eb23" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd10" />
+    <MetadataFile FileName="SecureAccessService8.xsd" MetadataType="Schema" ID="7ec9bddc-e53a-4813-b936-78f9e2c63c3b" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SecureAccessService9.xsd" MetadataType="Schema" ID="aa1e0bcf-ed81-43da-806c-11993ad39ab5" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SecureAccessService10.xsd" MetadataType="Schema" ID="0b40ff44-160e-4858-af5d-241f423d8a94" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd11" />
+    <MetadataFile FileName="SecureAccessService11.xsd" MetadataType="Schema" ID="17cf7121-54b8-4a77-b183-b5bae674da1d" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd9" />
+    <MetadataFile FileName="SecureAccessService12.xsd" MetadataType="Schema" ID="82541c06-a672-4374-846b-7565592da145" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd8" />
+    <MetadataFile FileName="SecureAccessService13.xsd" MetadataType="Schema" ID="e7e17614-dc24-4215-8bb4-d3a5f90f35f3" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd7" />
+    <MetadataFile FileName="SecureAccessService14.xsd" MetadataType="Schema" ID="388906c2-25b1-4e25-b9d6-3dda2f2ab61f" SourceId="1" SourceUrl="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

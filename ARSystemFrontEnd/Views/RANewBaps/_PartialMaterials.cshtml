@@ -1,0 +1,76 @@
+﻿@*Filter*@
+<div class="row filter">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-filter"></i>
+                    <span class="caption-subject">Filter</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSearch" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Operator</label>
+                                    <div class="col-md-8">
+                                        <select id="slSearchOperator" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Company</label>
+                                    <div class="col-md-8">
+                                        <select id="slSearchCompanyName" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group BapsType">
+                                    <label class="col-md-3 control-label">BAPS Type</label>
+                                    <div class="col-md-8">
+                                        <select id="slsBapsType" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Produc Type</label>
+                                    <div class="col-md-8">
+                                        <select id="slProductType" class="form-control select2"></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Group By</label>
+                                    <div class="col-md-8">
+                                        <select id="slGroupBy" class="form-control select2"></select>
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group">
+                                        <label class="col-md-3 control-label">Colo Type</label>
+                                        <div class="col-md-6">
+                                            <select id="slColoType" class="form-control select2"></select>
+                                        </div>
+                                    </div>*@
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                        <button type="button" id="btReset" class="btn blue-oleo">
+                            <i class="fa fa-refresh"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

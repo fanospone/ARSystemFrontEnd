@@ -1,0 +1,3063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TBGSysService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" />
+      <xsd:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentHeaderCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentHeaderCount" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentHeaderCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentHeaderCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentHeaderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentHeaderList" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentHeaderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentHeaderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentDetailCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentDetailCount" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentDetailCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentDetailCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentDetailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentDetailList" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_GetMarketingDocumentDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_MarketingDocumentTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarketingDocumentTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_MarketingDocumentTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarketingDocumentTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_UploadMarketingDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMarketingDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_UploadMarketingDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadMarketingDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_DeleteMarketingDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMarketingDocument" />
+  </wsdl:message>
+  <wsdl:message name="IDocumentService_DeleteMarketingDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMarketingDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetAdditionalRelocationInputCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdditionalRelocationInputCount" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetAdditionalRelocationInputCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdditionalRelocationInputCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetAdditionalRelocationInputList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdditionalRelocationInputList" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetAdditionalRelocationInputList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdditionalRelocationInputListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_CreateRelocationForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRelocationForm" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_CreateRelocationForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRelocationFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetTenantRelocationInputCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationInputCount" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetTenantRelocationInputCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationInputCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetTenantRelocationInputList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationInputList" />
+  </wsdl:message>
+  <wsdl:message name="IMarketingFormService_GetTenantRelocationInputList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationInputListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateAccountManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateAccountManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerCustomerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerCustomerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAccountManagerCustomerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountManagerCustomerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateAccountManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateAccountManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAccountManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateAreaOperation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAreaOperation" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateAreaOperation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAreaOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAreaOperationCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaOperationCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAreaOperationCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaOperationCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAreaOperationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaOperationList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetAreaOperationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAreaOperationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateAreaOperation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAreaOperation" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateAreaOperation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAreaOperationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBatch" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBatchCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBatchCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBatchCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBatchCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBatchList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBatchList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBatchList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBatchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateBatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBatch" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateBatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBTSHotelStatusList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBTSHotelStatusList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetBTSHotelStatusList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBTSHotelStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCAFNumberList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCAFNumberList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCAFNumberList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCAFNumberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompanyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompanyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateCompensationItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompensationItem" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateCompensationItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompensationItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompensationItemCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompensationItemCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompensationItemCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompensationItemCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompensationItemList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompensationItemList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCompensationItemList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompensationItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateCompensationItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompensationItem" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateCompensationItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompensationItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateCustomerNonTelco_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerNonTelco" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateCustomerNonTelco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerNonTelcoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerNonTelcoCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerNonTelcoCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerNonTelcoCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerNonTelcoCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerNonTelcoList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerNonTelcoList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetCustomerNonTelcoList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerNonTelcoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateCustomerNonTelco_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerNonTelco" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateCustomerNonTelco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerNonTelcoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetFPRelocationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFPRelocationList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetFPRelocationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFPRelocationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadAccountManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadAccountManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadAccountManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadAccountManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadAccountManagerCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadAccountManagerCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadAccountManagerCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadAccountManagerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadAccountManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadAccountManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadAccountManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadAccountManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadAccountManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadAccountManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadAccountManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadAccountManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerRegionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerRegionList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerRegionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerRegionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManagerAsset_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManagerAsset" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManagerAsset_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManagerAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerAssetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerAssetCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerAssetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerAssetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerAssetList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerAssetList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerAssetList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerAssetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManagerAsset_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManagerAsset" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManagerAsset_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManagerAssetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManagerPDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManagerPDI" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateLeadProjectManagerPDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLeadProjectManagerPDIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerPDICount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerPDICount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerPDICount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerPDICountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerPDIList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerPDIList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeadProjectManagerPDIList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeadProjectManagerPDIListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManagerPDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManagerPDI" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateLeadProjectManagerPDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLeadProjectManagerPDIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeaseAgreementList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeaseAgreementList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetLeaseAgreementList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLeaseAgreementListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMarketingDocumentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetMarketingDocumentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketingDocumentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetOrderCompensationItemList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCompensationItemList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetOrderCompensationItemList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderCompensationItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPriceCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPriceCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPriceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetPriceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByProductSiteList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByProductSiteList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProductByProductSiteList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByProductSiteListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateProjectManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProjectManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateProjectManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProjectManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerRegionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerRegionList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetProjectManagerRegionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProjectManagerRegionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateProjectManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateProjectManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProjectManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateRegionalManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRegionalManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_CreateRegionalManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRegionalManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerCount" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerRegionList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerRegionList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetRegionalManagerRegionList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionalManagerRegionListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateRegionalManager_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegionalManager" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_UpdateRegionalManager_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRegionalManagerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetShelterTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShelterTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetShelterTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShelterTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignature" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SignatureTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignatureTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_SignatureTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SignatureTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSiteTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSiteTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSTIPList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSTIPList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSTIPProductPICList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPProductPICList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetSTIPProductPICList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPProductPICListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTeritoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeritoryList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTeritoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeritoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTeritoryVillageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeritoryVillageList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTeritoryVillageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeritoryVillageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTowerHeightList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowerHeightList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTowerHeightList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowerHeightListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTowerTypeList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowerTypeList" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetTowerTypeList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTowerTypeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListStatusAquisition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListStatusAquisition" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListStatusAquisition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListStatusAquisitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListSiteAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteAvailability" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListSiteAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListTenantType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListTenantType" />
+  </wsdl:message>
+  <wsdl:message name="IMasterService_GetListTenantType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListTenantTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSTIPInputCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSTIPInputCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSTIPInputCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSTIPInputCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSTIPInputList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSTIPInputList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSTIPInputList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSTIPInputListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSurveyCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSurveyCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSurveyCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSurveyCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSurveyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSurveyList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSiteSurveyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSiteSurveyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTrxSiteSurveyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrxSiteSurveyList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTrxSiteSurveyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrxSiteSurveyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalDetail" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_UpdateSTIPApprovalDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSTIPApprovalDetail" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_UpdateSTIPApprovalDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSTIPApprovalDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalReport" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalHistory" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPApprovalHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPApprovalHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPApprovalAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPApprovalAction" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPApprovalAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPApprovalActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputMain_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputMain" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputMain_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputMainResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputAssetSupport_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputAssetSupport" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputAssetSupport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputAssetSupportResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputAdditional_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputAdditional" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputAdditional_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputAdditionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewProduct" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurvey_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurvey" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputRepeatOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputRepeatOrder" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputRepeatOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputRepeatOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputCompensation_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputCompensation" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputCompensation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputCompensationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalHeaderCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalHeaderCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalHeaderCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalHeaderCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalHeaderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalHeaderList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalHeaderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalHeaderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailSurveyCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailSurveyCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailSurveyCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailSurveyCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailSurveyList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailSurveyList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailSurveyList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailSurveyListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPApprovalBulkyAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPApprovalBulkyAction" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPApprovalBulkyAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPApprovalBulkyActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetSTIPUploadApprovalDetailList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSTIPUploadApprovalDetailListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewMacroValidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewMacroValidate" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewMacroValidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewMacroValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewMacroBulky_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewMacroBulky" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputNewMacroBulky_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputNewMacroBulkyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputColocationMacroValidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputColocationMacroValidate" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputColocationMacroValidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputColocationMacroValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputColocationMacroBulky_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputColocationMacroBulky" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputColocationMacroBulky_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputColocationMacroBulkyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurveyValidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurveyValidate" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurveyValidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurveyValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurveyBulky_InputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurveyBulky" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_STIPInputSiteSurveyBulky_OutputMessage">
+    <wsdl:part name="parameters" element="tns:STIPInputSiteSurveyBulkyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPInputCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPInputCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPInputCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPInputCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPInputList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPInputList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPInputList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPInputListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPRelocationInputCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPRelocationInputCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPRelocationInputCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPRelocationInputCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPRelocationInputList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPRelocationInputList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantSTIPRelocationInputList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantSTIPRelocationInputListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRelocationCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRelocationCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRelocationList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRelocationList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRelocationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRepeatOrderCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRepeatOrderCount" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRepeatOrderCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRepeatOrderCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRepeatOrderList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRepeatOrderList" />
+  </wsdl:message>
+  <wsdl:message name="ISTIPService_GetTenantRepeatOrderList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTenantRepeatOrderListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CheckUserToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserToken" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CheckUserToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUserTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserTaskToDo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTaskToDo" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserTaskToDo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserTaskToDoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSite_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSite" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListBAKDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBAKDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListBAKDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBAKDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKS" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_getPKSPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPKSPaged" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_getPKSPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPKSPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_getPKSPagedCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:getPKSPagedCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_getPKSPagedCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getPKSPagedCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSLeased_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSLeased" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSLeased_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSLeasedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSLeasedCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSLeasedCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSLeasedCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSLeasedCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSOwned_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSOwned" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSOwned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSOwnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSOwnedCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSOwnedCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSOwnedCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSOwnedCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_CreatePKSLeased_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePKSLeased" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_CreatePKSLeased_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePKSLeasedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_CreatePKSOwned_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePKSOwned" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_CreatePKSOwned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePKSOwnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_UpdatePKSLeased_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePKSLeased" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_UpdatePKSLeased_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePKSLeasedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_UpdatePKSOwned_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePKSOwned" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_UpdatePKSOwned_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePKSOwnedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSiteCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSiteCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSiteCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSiteCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListDataSonumb_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDataSonumb" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListDataSonumb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDataSonumbResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetCountDataSonumb_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountDataSonumb" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetCountDataSonumb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountDataSonumbResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListDataBAKLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDataBAKLog" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListDataBAKLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListDataBAKLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryStatistic_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryStatistic" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryStatistic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryStatisticResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerCompany" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerRegion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerRegion" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerRegion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerRegionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSAverageLeasePricePerResidence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSAverageLeasePricePerResidence" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSAverageLeasePricePerResidence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSAverageLeasePricePerResidenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSitePerReportGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSitePerReportGroup" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSitePerReportGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSitePerReportGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSitePerReportGroupCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSitePerReportGroupCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSSitePerReportGroupCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSSitePerReportGroupCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetOrdersByTenantType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByTenantType" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetOrdersByTenantType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByTenantTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetOrdersByTenantTypeCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByTenantTypeCount" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetOrdersByTenantTypeCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByTenantTypeCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerProduct" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSExpiryPerProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSExpiryPerProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListPKSType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListPKSType" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListPKSType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListPKSTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListSiteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListSiteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListSiteAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListSiteAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListSiteAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListBankName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBankName" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetListBankName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListBankNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSEditReason_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSEditReason" />
+  </wsdl:message>
+  <wsdl:message name="IAssetService_GetPKSEditReason_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPKSEditReasonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDocumentService">
+    <wsdl:operation name="GetMarketingDocumentHeaderCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderCount" message="tns:IDocumentService_GetMarketingDocumentHeaderCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderCountResponse" message="tns:IDocumentService_GetMarketingDocumentHeaderCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentHeaderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderList" message="tns:IDocumentService_GetMarketingDocumentHeaderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderListResponse" message="tns:IDocumentService_GetMarketingDocumentHeaderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentDetailCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailCount" message="tns:IDocumentService_GetMarketingDocumentDetailCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailCountResponse" message="tns:IDocumentService_GetMarketingDocumentDetailCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentDetailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailList" message="tns:IDocumentService_GetMarketingDocumentDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailListResponse" message="tns:IDocumentService_GetMarketingDocumentDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarketingDocumentTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/MarketingDocumentTransaction" message="tns:IDocumentService_MarketingDocumentTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/MarketingDocumentTransactionResponse" message="tns:IDocumentService_MarketingDocumentTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadMarketingDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/UploadMarketingDocument" message="tns:IDocumentService_UploadMarketingDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/UploadMarketingDocumentResponse" message="tns:IDocumentService_UploadMarketingDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMarketingDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDocumentService/DeleteMarketingDocument" message="tns:IDocumentService_DeleteMarketingDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDocumentService/DeleteMarketingDocumentResponse" message="tns:IDocumentService_DeleteMarketingDocument_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMarketingFormService">
+    <wsdl:operation name="GetAdditionalRelocationInputCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputCount" message="tns:IMarketingFormService_GetAdditionalRelocationInputCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputCountResponse" message="tns:IMarketingFormService_GetAdditionalRelocationInputCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdditionalRelocationInputList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputList" message="tns:IMarketingFormService_GetAdditionalRelocationInputList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputListResponse" message="tns:IMarketingFormService_GetAdditionalRelocationInputList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRelocationForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketingFormService/CreateRelocationForm" message="tns:IMarketingFormService_CreateRelocationForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketingFormService/CreateRelocationFormResponse" message="tns:IMarketingFormService_CreateRelocationForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationInputCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputCount" message="tns:IMarketingFormService_GetTenantRelocationInputCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputCountResponse" message="tns:IMarketingFormService_GetTenantRelocationInputCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationInputList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputList" message="tns:IMarketingFormService_GetTenantRelocationInputList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputListResponse" message="tns:IMarketingFormService_GetTenantRelocationInputList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IMasterService">
+    <wsdl:operation name="CreateAccountManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateAccountManager" message="tns:IMasterService_CreateAccountManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateAccountManagerResponse" message="tns:IMasterService_CreateAccountManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerCount" message="tns:IMasterService_GetAccountManagerCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerCountResponse" message="tns:IMasterService_GetAccountManagerCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerList" message="tns:IMasterService_GetAccountManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerListResponse" message="tns:IMasterService_GetAccountManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerCustomerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerCustomerList" message="tns:IMasterService_GetAccountManagerCustomerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAccountManagerCustomerListResponse" message="tns:IMasterService_GetAccountManagerCustomerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateAccountManager" message="tns:IMasterService_UpdateAccountManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateAccountManagerResponse" message="tns:IMasterService_UpdateAccountManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAreaOperation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateAreaOperation" message="tns:IMasterService_CreateAreaOperation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateAreaOperationResponse" message="tns:IMasterService_CreateAreaOperation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaOperationCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAreaOperationCount" message="tns:IMasterService_GetAreaOperationCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAreaOperationCountResponse" message="tns:IMasterService_GetAreaOperationCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaOperationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetAreaOperationList" message="tns:IMasterService_GetAreaOperationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetAreaOperationListResponse" message="tns:IMasterService_GetAreaOperationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAreaOperation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateAreaOperation" message="tns:IMasterService_UpdateAreaOperation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateAreaOperationResponse" message="tns:IMasterService_UpdateAreaOperation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateBatch" message="tns:IMasterService_CreateBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateBatchResponse" message="tns:IMasterService_CreateBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBatchCount" message="tns:IMasterService_GetBatchCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBatchCountResponse" message="tns:IMasterService_GetBatchCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBatchList" message="tns:IMasterService_GetBatchList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBatchListResponse" message="tns:IMasterService_GetBatchList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateBatch" message="tns:IMasterService_UpdateBatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateBatchResponse" message="tns:IMasterService_UpdateBatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBTSHotelStatusList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetBTSHotelStatusList" message="tns:IMasterService_GetBTSHotelStatusList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetBTSHotelStatusListResponse" message="tns:IMasterService_GetBTSHotelStatusList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCAFNumberList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCAFNumberList" message="tns:IMasterService_GetCAFNumberList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCAFNumberListResponse" message="tns:IMasterService_GetCAFNumberList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCompanyList" message="tns:IMasterService_GetCompanyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCompanyListResponse" message="tns:IMasterService_GetCompanyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCompensationItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateCompensationItem" message="tns:IMasterService_CreateCompensationItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateCompensationItemResponse" message="tns:IMasterService_CreateCompensationItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompensationItemCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCompensationItemCount" message="tns:IMasterService_GetCompensationItemCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCompensationItemCountResponse" message="tns:IMasterService_GetCompensationItemCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompensationItemList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCompensationItemList" message="tns:IMasterService_GetCompensationItemList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCompensationItemListResponse" message="tns:IMasterService_GetCompensationItemList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompensationItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateCompensationItem" message="tns:IMasterService_UpdateCompensationItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateCompensationItemResponse" message="tns:IMasterService_UpdateCompensationItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCustomerList" message="tns:IMasterService_GetCustomerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCustomerListResponse" message="tns:IMasterService_GetCustomerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerNonTelco">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateCustomerNonTelco" message="tns:IMasterService_CreateCustomerNonTelco_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateCustomerNonTelcoResponse" message="tns:IMasterService_CreateCustomerNonTelco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNonTelcoCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCustomerNonTelcoCount" message="tns:IMasterService_GetCustomerNonTelcoCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCustomerNonTelcoCountResponse" message="tns:IMasterService_GetCustomerNonTelcoCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNonTelcoList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetCustomerNonTelcoList" message="tns:IMasterService_GetCustomerNonTelcoList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetCustomerNonTelcoListResponse" message="tns:IMasterService_GetCustomerNonTelcoList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerNonTelco">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateCustomerNonTelco" message="tns:IMasterService_UpdateCustomerNonTelco_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateCustomerNonTelcoResponse" message="tns:IMasterService_UpdateCustomerNonTelco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFPRelocationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetFPRelocationList" message="tns:IMasterService_GetFPRelocationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetFPRelocationListResponse" message="tns:IMasterService_GetFPRelocationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadAccountManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateLeadAccountManager" message="tns:IMasterService_CreateLeadAccountManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateLeadAccountManagerResponse" message="tns:IMasterService_CreateLeadAccountManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadAccountManagerCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadAccountManagerCount" message="tns:IMasterService_GetLeadAccountManagerCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadAccountManagerCountResponse" message="tns:IMasterService_GetLeadAccountManagerCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadAccountManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadAccountManagerList" message="tns:IMasterService_GetLeadAccountManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadAccountManagerListResponse" message="tns:IMasterService_GetLeadAccountManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadAccountManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadAccountManager" message="tns:IMasterService_UpdateLeadAccountManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadAccountManagerResponse" message="tns:IMasterService_UpdateLeadAccountManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManager" message="tns:IMasterService_CreateLeadProjectManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManagerResponse" message="tns:IMasterService_CreateLeadProjectManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerCount" message="tns:IMasterService_GetLeadProjectManagerCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerCountResponse" message="tns:IMasterService_GetLeadProjectManagerCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerList" message="tns:IMasterService_GetLeadProjectManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerListResponse" message="tns:IMasterService_GetLeadProjectManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerRegionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerRegionList" message="tns:IMasterService_GetLeadProjectManagerRegionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerRegionListResponse" message="tns:IMasterService_GetLeadProjectManagerRegionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManager" message="tns:IMasterService_UpdateLeadProjectManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManagerResponse" message="tns:IMasterService_UpdateLeadProjectManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManagerAsset">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManagerAsset" message="tns:IMasterService_CreateLeadProjectManagerAsset_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManagerAssetResponse" message="tns:IMasterService_CreateLeadProjectManagerAsset_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerAssetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetCount" message="tns:IMasterService_GetLeadProjectManagerAssetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetCountResponse" message="tns:IMasterService_GetLeadProjectManagerAssetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerAssetList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetList" message="tns:IMasterService_GetLeadProjectManagerAssetList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetListResponse" message="tns:IMasterService_GetLeadProjectManagerAssetList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManagerAsset">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManagerAsset" message="tns:IMasterService_UpdateLeadProjectManagerAsset_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManagerAssetResponse" message="tns:IMasterService_UpdateLeadProjectManagerAsset_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManagerPDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManagerPDI" message="tns:IMasterService_CreateLeadProjectManagerPDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateLeadProjectManagerPDIResponse" message="tns:IMasterService_CreateLeadProjectManagerPDI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerPDICount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerPDICount" message="tns:IMasterService_GetLeadProjectManagerPDICount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerPDICountResponse" message="tns:IMasterService_GetLeadProjectManagerPDICount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerPDIList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerPDIList" message="tns:IMasterService_GetLeadProjectManagerPDIList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeadProjectManagerPDIListResponse" message="tns:IMasterService_GetLeadProjectManagerPDIList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManagerPDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManagerPDI" message="tns:IMasterService_UpdateLeadProjectManagerPDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateLeadProjectManagerPDIResponse" message="tns:IMasterService_UpdateLeadProjectManagerPDI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaseAgreementList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetLeaseAgreementList" message="tns:IMasterService_GetLeaseAgreementList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetLeaseAgreementListResponse" message="tns:IMasterService_GetLeaseAgreementList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetMarketingDocumentList" message="tns:IMasterService_GetMarketingDocumentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetMarketingDocumentListResponse" message="tns:IMasterService_GetMarketingDocumentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCompensationItemList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetOrderCompensationItemList" message="tns:IMasterService_GetOrderCompensationItemList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetOrderCompensationItemListResponse" message="tns:IMasterService_GetOrderCompensationItemList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetPriceCount" message="tns:IMasterService_GetPriceCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetPriceCountResponse" message="tns:IMasterService_GetPriceCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetPriceList" message="tns:IMasterService_GetPriceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetPriceListResponse" message="tns:IMasterService_GetPriceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByProductSiteList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProductByProductSiteList" message="tns:IMasterService_GetProductByProductSiteList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProductByProductSiteListResponse" message="tns:IMasterService_GetProductByProductSiteList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProjectManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateProjectManager" message="tns:IMasterService_CreateProjectManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateProjectManagerResponse" message="tns:IMasterService_CreateProjectManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerCount" message="tns:IMasterService_GetProjectManagerCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerCountResponse" message="tns:IMasterService_GetProjectManagerCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerList" message="tns:IMasterService_GetProjectManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerListResponse" message="tns:IMasterService_GetProjectManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerRegionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerRegionList" message="tns:IMasterService_GetProjectManagerRegionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetProjectManagerRegionListResponse" message="tns:IMasterService_GetProjectManagerRegionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateProjectManager" message="tns:IMasterService_UpdateProjectManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateProjectManagerResponse" message="tns:IMasterService_UpdateProjectManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegionalManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/CreateRegionalManager" message="tns:IMasterService_CreateRegionalManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/CreateRegionalManagerResponse" message="tns:IMasterService_CreateRegionalManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerCount" message="tns:IMasterService_GetRegionalManagerCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerCountResponse" message="tns:IMasterService_GetRegionalManagerCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerList" message="tns:IMasterService_GetRegionalManagerList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerListResponse" message="tns:IMasterService_GetRegionalManagerList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerRegionList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerRegionList" message="tns:IMasterService_GetRegionalManagerRegionList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetRegionalManagerRegionListResponse" message="tns:IMasterService_GetRegionalManagerRegionList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegionalManager">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/UpdateRegionalManager" message="tns:IMasterService_UpdateRegionalManager_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/UpdateRegionalManagerResponse" message="tns:IMasterService_UpdateRegionalManager_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShelterTypeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetShelterTypeList" message="tns:IMasterService_GetShelterTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetShelterTypeListResponse" message="tns:IMasterService_GetShelterTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetSignature" message="tns:IMasterService_GetSignature_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetSignatureResponse" message="tns:IMasterService_GetSignature_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignatureTransaction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/SignatureTransaction" message="tns:IMasterService_SignatureTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/SignatureTransactionResponse" message="tns:IMasterService_SignatureTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTypeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetSiteTypeList" message="tns:IMasterService_GetSiteTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetSiteTypeListResponse" message="tns:IMasterService_GetSiteTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetSTIPList" message="tns:IMasterService_GetSTIPList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetSTIPListResponse" message="tns:IMasterService_GetSTIPList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPProductPICList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetSTIPProductPICList" message="tns:IMasterService_GetSTIPProductPICList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetSTIPProductPICListResponse" message="tns:IMasterService_GetSTIPProductPICList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeritoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTeritoryList" message="tns:IMasterService_GetTeritoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTeritoryListResponse" message="tns:IMasterService_GetTeritoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeritoryVillageList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTeritoryVillageList" message="tns:IMasterService_GetTeritoryVillageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTeritoryVillageListResponse" message="tns:IMasterService_GetTeritoryVillageList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTowerHeightList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTowerHeightList" message="tns:IMasterService_GetTowerHeightList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTowerHeightListResponse" message="tns:IMasterService_GetTowerHeightList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTowerTypeList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetTowerTypeList" message="tns:IMasterService_GetTowerTypeList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetTowerTypeListResponse" message="tns:IMasterService_GetTowerTypeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListStatusAquisition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetListStatusAquisition" message="tns:IMasterService_GetListStatusAquisition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetListStatusAquisitionResponse" message="tns:IMasterService_GetListStatusAquisition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetListSiteAvailability" message="tns:IMasterService_GetListSiteAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetListSiteAvailabilityResponse" message="tns:IMasterService_GetListSiteAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListTenantType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterService/GetListTenantType" message="tns:IMasterService_GetListTenantType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterService/GetListTenantTypeResponse" message="tns:IMasterService_GetListTenantType_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISTIPService">
+    <wsdl:operation name="GetSiteSTIPInputCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSTIPInputCount" message="tns:ISTIPService_GetSiteSTIPInputCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSTIPInputCountResponse" message="tns:ISTIPService_GetSiteSTIPInputCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSTIPInputList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSTIPInputList" message="tns:ISTIPService_GetSiteSTIPInputList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSTIPInputListResponse" message="tns:ISTIPService_GetSiteSTIPInputList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSurveyCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSurveyCount" message="tns:ISTIPService_GetSiteSurveyCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSurveyCountResponse" message="tns:ISTIPService_GetSiteSurveyCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSurveyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSurveyList" message="tns:ISTIPService_GetSiteSurveyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSiteSurveyListResponse" message="tns:ISTIPService_GetSiteSurveyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrxSiteSurveyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTrxSiteSurveyList" message="tns:ISTIPService_GetTrxSiteSurveyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTrxSiteSurveyListResponse" message="tns:ISTIPService_GetTrxSiteSurveyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalCount" message="tns:ISTIPService_GetSTIPApprovalCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalCountResponse" message="tns:ISTIPService_GetSTIPApprovalCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalList" message="tns:ISTIPService_GetSTIPApprovalList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalListResponse" message="tns:ISTIPService_GetSTIPApprovalList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalDetail" message="tns:ISTIPService_GetSTIPApprovalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalDetailResponse" message="tns:ISTIPService_GetSTIPApprovalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSTIPApprovalDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/UpdateSTIPApprovalDetail" message="tns:ISTIPService_UpdateSTIPApprovalDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/UpdateSTIPApprovalDetailResponse" message="tns:ISTIPService_UpdateSTIPApprovalDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalReport" message="tns:ISTIPService_GetSTIPApprovalReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalReportResponse" message="tns:ISTIPService_GetSTIPApprovalReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalHistory" message="tns:ISTIPService_GetSTIPApprovalHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPApprovalHistoryResponse" message="tns:ISTIPService_GetSTIPApprovalHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPApprovalAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPApprovalAction" message="tns:ISTIPService_STIPApprovalAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPApprovalActionResponse" message="tns:ISTIPService_STIPApprovalAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputMain">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputMain" message="tns:ISTIPService_STIPInputMain_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputMainResponse" message="tns:ISTIPService_STIPInputMain_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputAssetSupport">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputAssetSupport" message="tns:ISTIPService_STIPInputAssetSupport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputAssetSupportResponse" message="tns:ISTIPService_STIPInputAssetSupport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputAdditional">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputAdditional" message="tns:ISTIPService_STIPInputAdditional_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputAdditionalResponse" message="tns:ISTIPService_STIPInputAdditional_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewProduct" message="tns:ISTIPService_STIPInputNewProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewProductResponse" message="tns:ISTIPService_STIPInputNewProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurvey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurvey" message="tns:ISTIPService_STIPInputSiteSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurveyResponse" message="tns:ISTIPService_STIPInputSiteSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputRepeatOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputRepeatOrder" message="tns:ISTIPService_STIPInputRepeatOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputRepeatOrderResponse" message="tns:ISTIPService_STIPInputRepeatOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputCompensation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputCompensation" message="tns:ISTIPService_STIPInputCompensation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputCompensationResponse" message="tns:ISTIPService_STIPInputCompensation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalHeaderCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderCount" message="tns:ISTIPService_GetSTIPUploadApprovalHeaderCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderCountResponse" message="tns:ISTIPService_GetSTIPUploadApprovalHeaderCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalHeaderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderList" message="tns:ISTIPService_GetSTIPUploadApprovalHeaderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderListResponse" message="tns:ISTIPService_GetSTIPUploadApprovalHeaderList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailSurveyCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyCount" message="tns:ISTIPService_GetSTIPUploadApprovalDetailSurveyCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyCountResponse" message="tns:ISTIPService_GetSTIPUploadApprovalDetailSurveyCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailSurveyList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyList" message="tns:ISTIPService_GetSTIPUploadApprovalDetailSurveyList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyListResponse" message="tns:ISTIPService_GetSTIPUploadApprovalDetailSurveyList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPApprovalBulkyAction">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPApprovalBulkyAction" message="tns:ISTIPService_STIPApprovalBulkyAction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPApprovalBulkyActionResponse" message="tns:ISTIPService_STIPApprovalBulkyAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailCount" message="tns:ISTIPService_GetSTIPUploadApprovalDetailCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailCountResponse" message="tns:ISTIPService_GetSTIPUploadApprovalDetailCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailList" message="tns:ISTIPService_GetSTIPUploadApprovalDetailList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailListResponse" message="tns:ISTIPService_GetSTIPUploadApprovalDetailList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewMacroValidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewMacroValidate" message="tns:ISTIPService_STIPInputNewMacroValidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewMacroValidateResponse" message="tns:ISTIPService_STIPInputNewMacroValidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewMacroBulky">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewMacroBulky" message="tns:ISTIPService_STIPInputNewMacroBulky_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputNewMacroBulkyResponse" message="tns:ISTIPService_STIPInputNewMacroBulky_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputColocationMacroValidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputColocationMacroValidate" message="tns:ISTIPService_STIPInputColocationMacroValidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputColocationMacroValidateResponse" message="tns:ISTIPService_STIPInputColocationMacroValidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputColocationMacroBulky">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputColocationMacroBulky" message="tns:ISTIPService_STIPInputColocationMacroBulky_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputColocationMacroBulkyResponse" message="tns:ISTIPService_STIPInputColocationMacroBulky_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurveyValidate">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurveyValidate" message="tns:ISTIPService_STIPInputSiteSurveyValidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurveyValidateResponse" message="tns:ISTIPService_STIPInputSiteSurveyValidate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurveyBulky">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurveyBulky" message="tns:ISTIPService_STIPInputSiteSurveyBulky_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/STIPInputSiteSurveyBulkyResponse" message="tns:ISTIPService_STIPInputSiteSurveyBulky_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPInputCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPInputCount" message="tns:ISTIPService_GetTenantSTIPInputCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPInputCountResponse" message="tns:ISTIPService_GetTenantSTIPInputCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPInputList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPInputList" message="tns:ISTIPService_GetTenantSTIPInputList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPInputListResponse" message="tns:ISTIPService_GetTenantSTIPInputList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPRelocationInputCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputCount" message="tns:ISTIPService_GetTenantSTIPRelocationInputCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputCountResponse" message="tns:ISTIPService_GetTenantSTIPRelocationInputCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPRelocationInputList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputList" message="tns:ISTIPService_GetTenantSTIPRelocationInputList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputListResponse" message="tns:ISTIPService_GetTenantSTIPRelocationInputList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRelocationCount" message="tns:ISTIPService_GetTenantRelocationCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRelocationCountResponse" message="tns:ISTIPService_GetTenantRelocationCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRelocationList" message="tns:ISTIPService_GetTenantRelocationList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRelocationListResponse" message="tns:ISTIPService_GetTenantRelocationList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRepeatOrderCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRepeatOrderCount" message="tns:ISTIPService_GetTenantRepeatOrderCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRepeatOrderCountResponse" message="tns:ISTIPService_GetTenantRepeatOrderCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRepeatOrderList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRepeatOrderList" message="tns:ISTIPService_GetTenantRepeatOrderList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISTIPService/GetTenantRepeatOrderListResponse" message="tns:ISTIPService_GetTenantRepeatOrderList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="CheckUserToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/CheckUserToken" message="tns:IUserService_CheckUserToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/CheckUserTokenResponse" message="tns:IUserService_CheckUserToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTaskToDo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserTaskToDo" message="tns:IUserService_GetUserTaskToDo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserTaskToDoResponse" message="tns:IUserService_GetUserTaskToDo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IAssetService">
+    <wsdl:operation name="GetPKSSite">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSSite" message="tns:IAssetService_GetPKSSite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSSiteResponse" message="tns:IAssetService_GetPKSSite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListBAKDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListBAKDetail" message="tns:IAssetService_GetListBAKDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListBAKDetailResponse" message="tns:IAssetService_GetListBAKDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKS" message="tns:IAssetService_GetPKS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSResponse" message="tns:IAssetService_GetPKS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPKSPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/getPKSPaged" message="tns:IAssetService_getPKSPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/getPKSPagedResponse" message="tns:IAssetService_getPKSPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPKSPagedCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/getPKSPagedCount" message="tns:IAssetService_getPKSPagedCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/getPKSPagedCountResponse" message="tns:IAssetService_getPKSPagedCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSCount" message="tns:IAssetService_GetPKSCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSCountResponse" message="tns:IAssetService_GetPKSCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSLeased">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSLeased" message="tns:IAssetService_GetPKSLeased_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSLeasedResponse" message="tns:IAssetService_GetPKSLeased_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSLeasedCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSLeasedCount" message="tns:IAssetService_GetPKSLeasedCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSLeasedCountResponse" message="tns:IAssetService_GetPKSLeasedCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSOwned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSOwned" message="tns:IAssetService_GetPKSOwned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSOwnedResponse" message="tns:IAssetService_GetPKSOwned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSOwnedCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSOwnedCount" message="tns:IAssetService_GetPKSOwnedCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSOwnedCountResponse" message="tns:IAssetService_GetPKSOwnedCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePKSLeased">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/CreatePKSLeased" message="tns:IAssetService_CreatePKSLeased_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/CreatePKSLeasedResponse" message="tns:IAssetService_CreatePKSLeased_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePKSOwned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/CreatePKSOwned" message="tns:IAssetService_CreatePKSOwned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/CreatePKSOwnedResponse" message="tns:IAssetService_CreatePKSOwned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePKSLeased">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/UpdatePKSLeased" message="tns:IAssetService_UpdatePKSLeased_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/UpdatePKSLeasedResponse" message="tns:IAssetService_UpdatePKSLeased_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePKSOwned">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/UpdatePKSOwned" message="tns:IAssetService_UpdatePKSOwned_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/UpdatePKSOwnedResponse" message="tns:IAssetService_UpdatePKSOwned_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSiteCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSSiteCount" message="tns:IAssetService_GetPKSSiteCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSSiteCountResponse" message="tns:IAssetService_GetPKSSiteCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDataSonumb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListDataSonumb" message="tns:IAssetService_GetListDataSonumb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListDataSonumbResponse" message="tns:IAssetService_GetListDataSonumb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountDataSonumb">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetCountDataSonumb" message="tns:IAssetService_GetCountDataSonumb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetCountDataSonumbResponse" message="tns:IAssetService_GetCountDataSonumb_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListDataBAKLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListDataBAKLog" message="tns:IAssetService_GetListDataBAKLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListDataBAKLogResponse" message="tns:IAssetService_GetListDataBAKLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryStatistic">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryStatistic" message="tns:IAssetService_GetPKSExpiryStatistic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryStatisticResponse" message="tns:IAssetService_GetPKSExpiryStatistic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerCompany" message="tns:IAssetService_GetPKSExpiryPerCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerCompanyResponse" message="tns:IAssetService_GetPKSExpiryPerCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerRegion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerRegion" message="tns:IAssetService_GetPKSExpiryPerRegion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerRegionResponse" message="tns:IAssetService_GetPKSExpiryPerRegion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSAverageLeasePricePerResidence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSAverageLeasePricePerResidence" message="tns:IAssetService_GetPKSAverageLeasePricePerResidence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSAverageLeasePricePerResidenceResponse" message="tns:IAssetService_GetPKSAverageLeasePricePerResidence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSitePerReportGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSSitePerReportGroup" message="tns:IAssetService_GetPKSSitePerReportGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSSitePerReportGroupResponse" message="tns:IAssetService_GetPKSSitePerReportGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSitePerReportGroupCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSSitePerReportGroupCount" message="tns:IAssetService_GetPKSSitePerReportGroupCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSSitePerReportGroupCountResponse" message="tns:IAssetService_GetPKSSitePerReportGroupCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByTenantType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetOrdersByTenantType" message="tns:IAssetService_GetOrdersByTenantType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetOrdersByTenantTypeResponse" message="tns:IAssetService_GetOrdersByTenantType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByTenantTypeCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetOrdersByTenantTypeCount" message="tns:IAssetService_GetOrdersByTenantTypeCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetOrdersByTenantTypeCountResponse" message="tns:IAssetService_GetOrdersByTenantTypeCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerProduct" message="tns:IAssetService_GetPKSExpiryPerProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSExpiryPerProductResponse" message="tns:IAssetService_GetPKSExpiryPerProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListPKSType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListPKSType" message="tns:IAssetService_GetListPKSType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListPKSTypeResponse" message="tns:IAssetService_GetListPKSType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListSiteCategory" message="tns:IAssetService_GetListSiteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListSiteCategoryResponse" message="tns:IAssetService_GetListSiteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListSiteAvailable" message="tns:IAssetService_GetListSiteAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListSiteAvailableResponse" message="tns:IAssetService_GetListSiteAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListBankName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetListBankName" message="tns:IAssetService_GetListBankName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetListBankNameResponse" message="tns:IAssetService_GetListBankName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSEditReason">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAssetService/GetPKSEditReason" message="tns:IAssetService_GetPKSEditReason_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAssetService/GetPKSEditReasonResponse" message="tns:IAssetService_GetPKSEditReason_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDocumentService" type="tns:IDocumentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMarketingDocumentHeaderCount">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentHeaderList">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/GetMarketingDocumentHeaderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentDetailCount">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentDetailList">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/GetMarketingDocumentDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarketingDocumentTransaction">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/MarketingDocumentTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadMarketingDocument">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/UploadMarketingDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMarketingDocument">
+      <soap:operation soapAction="http://tempuri.org/IDocumentService/DeleteMarketingDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMarketingFormService" type="tns:IMarketingFormService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAdditionalRelocationInputCount">
+      <soap:operation soapAction="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdditionalRelocationInputList">
+      <soap:operation soapAction="http://tempuri.org/IMarketingFormService/GetAdditionalRelocationInputList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRelocationForm">
+      <soap:operation soapAction="http://tempuri.org/IMarketingFormService/CreateRelocationForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationInputCount">
+      <soap:operation soapAction="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationInputList">
+      <soap:operation soapAction="http://tempuri.org/IMarketingFormService/GetTenantRelocationInputList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IMasterService" type="tns:IMasterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAccountManagerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAccountManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountManagerCustomerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAccountManagerCustomerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAreaOperation">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateAreaOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaOperationCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAreaOperationCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAreaOperationList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetAreaOperationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAreaOperation">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateAreaOperation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBatch">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBatchCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBatchList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBatch">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBTSHotelStatusList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetBTSHotelStatusList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCAFNumberList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCAFNumberList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCompanyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCompensationItem">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateCompensationItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompensationItemCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCompensationItemCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompensationItemList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCompensationItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompensationItem">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateCompensationItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCustomerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerNonTelco">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateCustomerNonTelco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNonTelcoCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCustomerNonTelcoCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNonTelcoList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetCustomerNonTelcoList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerNonTelco">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateCustomerNonTelco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFPRelocationList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetFPRelocationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateLeadAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadAccountManagerCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadAccountManagerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadAccountManagerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadAccountManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadAccountManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateLeadAccountManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateLeadProjectManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerRegionList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerRegionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateLeadProjectManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManagerAsset">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateLeadProjectManagerAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerAssetCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerAssetList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerAssetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManagerAsset">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateLeadProjectManagerAsset" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLeadProjectManagerPDI">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateLeadProjectManagerPDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerPDICount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerPDICount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeadProjectManagerPDIList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeadProjectManagerPDIList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLeadProjectManagerPDI">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateLeadProjectManagerPDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaseAgreementList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetLeaseAgreementList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMarketingDocumentList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetMarketingDocumentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderCompensationItemList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetOrderCompensationItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetPriceCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetPriceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductByProductSiteList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProductByProductSiteList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProjectManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateProjectManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProjectManagerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProjectManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectManagerRegionList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetProjectManagerRegionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProjectManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateProjectManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRegionalManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/CreateRegionalManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerCount">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetRegionalManagerCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetRegionalManagerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionalManagerRegionList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetRegionalManagerRegionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegionalManager">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/UpdateRegionalManager" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShelterTypeList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetShelterTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSignature">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignatureTransaction">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/SignatureTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteTypeList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetSiteTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetSTIPList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPProductPICList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetSTIPProductPICList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeritoryList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTeritoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeritoryVillageList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTeritoryVillageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowerHeightList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTowerHeightList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTowerTypeList">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetTowerTypeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListStatusAquisition">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetListStatusAquisition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteAvailability">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetListSiteAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListTenantType">
+      <soap:operation soapAction="http://tempuri.org/IMasterService/GetListTenantType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISTIPService" type="tns:ISTIPService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSiteSTIPInputCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSiteSTIPInputCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSTIPInputList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSiteSTIPInputList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSurveyCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSiteSurveyCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSiteSurveyList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSiteSurveyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrxSiteSurveyList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTrxSiteSurveyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPApprovalCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPApprovalList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalDetail">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPApprovalDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSTIPApprovalDetail">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/UpdateSTIPApprovalDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalReport">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPApprovalReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPApprovalHistory">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPApprovalHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPApprovalAction">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPApprovalAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputMain">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputMain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputAssetSupport">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputAssetSupport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputAdditional">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputAdditional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewProduct">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputNewProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurvey">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputSiteSurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputRepeatOrder">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputRepeatOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputCompensation">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputCompensation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalHeaderCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalHeaderList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalHeaderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailSurveyCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailSurveyList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailSurveyList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPApprovalBulkyAction">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPApprovalBulkyAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSTIPUploadApprovalDetailList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetSTIPUploadApprovalDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewMacroValidate">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputNewMacroValidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputNewMacroBulky">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputNewMacroBulky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputColocationMacroValidate">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputColocationMacroValidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputColocationMacroBulky">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputColocationMacroBulky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurveyValidate">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputSiteSurveyValidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="STIPInputSiteSurveyBulky">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/STIPInputSiteSurveyBulky" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPInputCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantSTIPInputCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPInputList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantSTIPInputList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPRelocationInputCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantSTIPRelocationInputList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantSTIPRelocationInputList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantRelocationCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRelocationList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantRelocationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRepeatOrderCount">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantRepeatOrderCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTenantRepeatOrderList">
+      <soap:operation soapAction="http://tempuri.org/ISTIPService/GetTenantRepeatOrderList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckUserToken">
+      <soap:operation soapAction="http://tempuri.org/IUserService/CheckUserToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserTaskToDo">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserTaskToDo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAssetService" type="tns:IAssetService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPKSSite">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListBAKDetail">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListBAKDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKS">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPKSPaged">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/getPKSPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPKSPagedCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/getPKSPagedCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSLeased">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSLeased" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSLeasedCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSLeasedCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSOwned">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSOwned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSOwnedCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSOwnedCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePKSLeased">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/CreatePKSLeased" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePKSOwned">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/CreatePKSOwned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePKSLeased">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/UpdatePKSLeased" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePKSOwned">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/UpdatePKSOwned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSiteCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSSiteCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDataSonumb">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListDataSonumb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountDataSonumb">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetCountDataSonumb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListDataBAKLog">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListDataBAKLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryStatistic">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSExpiryStatistic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerCompany">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSExpiryPerCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerRegion">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSExpiryPerRegion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSAverageLeasePricePerResidence">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSAverageLeasePricePerResidence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSitePerReportGroup">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSSitePerReportGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSSitePerReportGroupCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSSitePerReportGroupCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByTenantType">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetOrdersByTenantType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersByTenantTypeCount">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetOrdersByTenantTypeCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSExpiryPerProduct">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSExpiryPerProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListPKSType">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListPKSType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteCategory">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListSiteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListSiteAvailable">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListSiteAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListBankName">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetListBankName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPKSEditReason">
+      <soap:operation soapAction="http://tempuri.org/IAssetService/GetPKSEditReason" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TBGSysService">
+    <wsdl:port name="BasicHttpBinding_IDocumentService" binding="tns:BasicHttpBinding_IDocumentService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMarketingFormService" binding="tns:BasicHttpBinding_IMarketingFormService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IMasterService" binding="tns:BasicHttpBinding_IMasterService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISTIPService" binding="tns:BasicHttpBinding_ISTIPService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAssetService" binding="tns:BasicHttpBinding_IAssetService">
+      <soap:address location="http://10.8.0.222:8809/TBGSysService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

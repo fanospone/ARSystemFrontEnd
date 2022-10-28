@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Quarterly";
+}
+<style>
+  .tables.dataTable  {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+</style>
+<div id="Main">
+    <section id="pnlSummary">
+        <div class="row panelFilter">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption font-white">
+                            <i class="fa fa-filter"></i>
+                            <span class="caption-subject">FILTER</span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse"> </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form id="formSearch" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Periode</label>
+                                            <div class="col-md-5">
+                                                <select id="slSearchYear" class="form-control select2"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Quarterly</label>
+                                            <div class="col-md-5">
+                                                <select id="slSearchQuarter" class="form-control select2"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-actions text-center">
+                                <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+                                <button type="button" id="btReset" class="btn blue-oleo" onclick="Form.Reset();">
+                                    <i class="fa fa-refresh"></i> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <div class="row pnlDetail portlet-Main" style="display:none;">
+
+
+
+
+        <div class="col-md-12">
+            <table class="tables table-bordered" id="tblSummaryMonthlys" style="width:100%">
+
+                <thead id="tblSummaryHead">
+                    <tr role="row">
+                        <th colspan='5' style='vertical-align:middle;text-align:center;' id="thTitleOfWeek">FC PRODUCE LAST MONTH</th>
+                        <th colspan='6' style='vertical-align:middle;text-align:center;' id="thTitleOfWeek">FC PRODUCE CURRENT MONTH</th>
+                    </tr>
+                    <tr role="row">
+                        <th rowspan='2' style='vertical-align:middle;text-align:center;'>Customer </th>
+                        <th style='vertical-align:middle;text-align:center;' id="thA1">Jan-21</th>
+                        <th style='vertical-align:middle;text-align:center;' id="thB1">Feb-21</th>
+                        <th style='vertical-align:middle;text-align:center;' id="thC1">Mar-21</th>
+                        <th rowspan='2' style='vertical-align:middle;text-align:center;' id="th1">TOTAL Q1 2021 </th>
+                        <th style='vertical-align:middle;text-align:center;' id="thA2">Jan-21</th>
+                        <th style='vertical-align:middle;text-align:center;' id="thB2">Feb-21</th>
+                        <th style='vertical-align:middle;text-align:center;' id="thC2">Mar-21</th>
+                        <th rowspan='2' style='vertical-align:middle;text-align:center;' id="th2">TOTAL Q1 2021 </th>
+                        <th rowspan='2' style='vertical-align:middle;text-align:center;' id="thVariance">VARIANCE Q1  2021</th>
+                        <th rowspan='2' width="25%" style='vertical-align:middle;text-align:center;'>REMARKS </th>
+                    </tr>
+                    <tr role="row">
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                        <td class='text-center'>
+                            <b>IDR</b>
+                        </td>
+                    </tr>
+
+                </thead>
+            </table>
+        </div>
+        <div class="col-md-12 text-center">
+            <button type="submit" id="btSubmit" class="btn green ladda-button" data-style="zoom-in" onclick="Form.Submit();">
+                <i class="fa fa-check"></i> Submit
+            </button>
+        </div>
+    </div>
+    <div class="modal fade" id="MdAddRemark" style="padding-top:5%;" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Remark</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="Fm" style="padding:5px" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label class="control-label">Customer</label>
+                                        <label class="form-control" id="MdLblCustomer"></label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                        <textarea class="form-control" rows="3" id="MdTxtRemark" placeholder="Remarks" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="submit" id="btSaveRemark" class="btn blue ladda-button" data-style="zoom-in" onclick="Form.EditRemark();">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btCloseUpload" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="MdApproval" style="padding-top:5%;" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Approval</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="FmApprovalDGA" style="padding:5px" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label class="control-label">Action<i class="font-red">*</i></label>
+                                        <select id="slApprovalDGA" class="form-control select2" required></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                        <textarea class="form-control" rows="3" id="tbRemarkApprovalDGA" placeholder="Remarks" required></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="submit" id="btSaveApprovalDGA" class="btn blue ladda-button" data-style="zoom-in" onclick="Form.SaveReceived();">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btCloseUpload" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a id="dlink" style="display:none;"></a>
+<script src="@Url.Content("~/scripts/ARRMonitoringCashIn/Quarterly.js")" type="text/javascript"></script>
+
+
+
+

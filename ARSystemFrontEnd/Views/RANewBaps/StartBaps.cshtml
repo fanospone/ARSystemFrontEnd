@@ -1,0 +1,544 @@
+﻿
+@{
+    ViewBag.Title = "Start BAPS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .border {
+        display: inline-block;
+        width: 400px;
+        height: 125px;
+        margin: 6px;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<section id="pnlSummary">
+    @*Filter*@
+
+    @*@Html.Partial("_PartialFilter")*@
+
+    <div class="row filter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group fCustomer">
+                                        <label class="col-md-3 control-label">Customer</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchCustomerID" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group fsSiteID">
+                                        <label class="col-md-3 control-label">Site ID Company</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control select2" id="slSearchSiteID" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group fSoNumber">
+                                        <label class="col-md-3 control-label">SO Number</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control select2" id="slSearchSoNumber" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group fBuklyNumber">
+                                        <label class="col-md-3 control-label">Bulky Number</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control select2" id="slBulkyNumber" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group fCompany">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchCompanyID" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group fProductType">
+                                        <label class="col-md-3 control-label">Product Type</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchProductID" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group fStip">
+                                        <label class="col-md-3 control-label">STIP</label>
+                                        <div class="col-md-8">
+                                            <select id="slStipCategory" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button NeedRounding" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelTab">
+        <div class="col-md-12">
+
+            <div class="portlet-body">
+                <div class="tabbable tabbable-tabdrop" id="tabStartBaps">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tabDataValidation" data-toggle="tab" id="printBapsTab">Print BAPS</a>
+                        </li>
+                        <li>
+                            <a href="#tabDataValidationBulky" data-toggle="tab" id="printBapsBulkyTab">Print BAPS Bulky</a>
+                        </li>
+                        <li>
+                            <a href="#tabPica" data-toggle="tab" id="picaTab">PICA Input</a>
+                        </li>
+                        <li>
+                            <a href="#tabBaukDoc" data-toggle="tab" id="baukDoc">View Doc. BAUKs</a>
+                        </li>
+                    </ul>
+                    <div class="row panelSearchResult">
+                        <div class="row panelDataValidationPrint">
+                            <div class="col-md-12">
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption font-blue">
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="tabDataValidation">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblValidationListPrint">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="datatable-col-25">No.</th>
+                                                            <th class="datatable-col-100">Action</th>
+                                                            <th class="datatable-col-100">SO Number</th>
+                                                            <th class="datatable-col-100">Activity</th>
+                                                            <th class="datatable-col-100">Customer ID</th>
+                                                            <th class="datatable-col-150">Site ID</th>
+                                                            <th class="datatable-col-200">Site Name </th>
+                                                            <th class="datatable-col-100">Site ID Cust</th>
+                                                            <th class="datatable-col-400">Site Name Cust</th>
+                                                            <th class="datatable-col-250">Company</th>
+                                                            <th class="datatable-col-25">Siro</th>
+                                                            <th class="datatable-col-350">STIP Number</th>
+                                                            <th class="datatable-col-250">Product</th>
+                                                            <th class="datatable-col-50">STIP Code</th>
+                                                            <th class="datatable-col-100">MLA Date</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th class="datatable-col-150">Region</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        @* Data Baps Print Bulky *@
+                        <div class="row panelDataValidationBulkyPrint">
+                            <div class="col-md-12">
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="tabDataValidationBulky">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblValidationListBulkyPrint">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="datatable-col-25">No.</th>
+                                                            <th class="datatable-col-150" style="text-align:center">Action</th>
+                                                            <th class="datatable-col-200">Bulky Number</th>
+                                                            <th class="datatable-col-100">Activity</th>
+                                                            <th class="datatable-col-100">Category</th>
+                                                            <th class="datatable-col-50">Company</th>
+                                                            <th class="datatable-col-50">Customer</th>
+                                                            <th class="datatable-col-100">Create Date</th>
+                                                            <th class="datatable-col-200">Remarks</th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" data-dismiss="modal" id="btnAddBulky" class="btn green">
+                                            <i class="glyphicon glyphicon-th-list"></i> add bulky
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        @* Pica input *@
+                        <div class="row panelPicaInput ">
+                            <div class="col-md-12">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption font-blue-steel">
+                                            <i class="fa fa-table"></i>
+                                            <span class="caption-subject">PICA Input</span>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="tabPica">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblPicaList">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="datatable-col-25">#Row</th>
+                                                            <th class="datatable-col-50">Action</th>
+                                                            <th class="datatable-col-100">SO Number</th>
+                                                            <th class="datatable-col-150">Customer</th>
+                                                            <th class="datatable-col-100">Site ID Operator</th>
+                                                            <th class="datatable-col-200">Site Name Operator</th>
+                                                            <th class="datatable-col-150">Company</th>
+                                                            <th class="datatable-col-50">BAUK Done</th>
+                                                            <th class="datatable-col-50">FRI Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row panelBaukDocument">
+                            <div class="col-md-12">
+                                <div class="portlet box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption font-blue">
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="tabBaukDoc">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblBaukDocument">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="datatable-col-25">No.</th>
+                                                            <th class="datatable-col-100">View Doc.</th>
+                                                            <th class="datatable-col-100">SO Number</th>
+                                                            <th class="datatable-col-100">Activity</th>
+                                                            <th class="datatable-col-100">Customer ID</th>
+                                                            <th class="datatable-col-150">Site ID</th>
+                                                            <th class="datatable-col-200">Site Name </th>
+                                                            <th class="datatable-col-100">Site ID Cust</th>
+                                                            <th class="datatable-col-400">Site Name Cust</th>
+                                                            <th class="datatable-col-250">Company</th>
+                                                            <th class="datatable-col-25">Siro</th>
+                                                            <th class="datatable-col-350">STIP Number</th>
+                                                            <th class="datatable-col-250">Product</th>
+                                                            <th class="datatable-col-50">STIP Code</th>
+                                                            <th class="datatable-col-100">MLA Date</th>
+                                                            <th class="datatable-col-150">Region</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+    <div id="panelHeaderInfo">
+        @Html.Partial("_PartialHeaderInfo")
+    </div>
+    <div class="row panelValidationForm">
+        <div class="col-md-12">
+            @*<div class="portlet light bordered">
+                <div class="portlet-body">*@
+            <div id="partialBulkyForm">
+                @Html.Partial("_PartialBulkyForm")
+            </div>
+            <div id="partialHcptForm">
+                @Html.Partial("_PartialHcptForm")
+            </div>
+            <div id="partialSfIBSForm">
+                @Html.Partial("_PartialSfIBSForm")
+            </div>
+            <div id="partialSfAddForm">
+                @Html.Partial("_PartialSfAddForm")
+            </div>
+            <div id="partialXlSiteAccessForm">
+                @Html.Partial("_PartialXLSiteAccessForm")
+            </div>
+            <div id="partialSmartSiroForm">
+                @Html.Partial("_PartialSmartSiroForm")
+            </div>
+            <div id="partialiSatForm">
+                @Html.Partial("_PartialiSatForm")
+            </div>
+            <div id="partialXLSiroForm">
+                @Html.Partial("_PartialXLSiroForm")
+            </div>
+            <div id="partialXLRelocForm">
+                @Html.Partial("_PartialXLRelocForm")
+            </div>
+            <div id="partialXLNewForm">
+                @Html.Partial("_PartialXLNewForm")
+            </div>
+            <div id="partialSTIForm">
+                @Html.Partial("_PartialSTIForm")
+            </div>
+            <div id="partialINUXForm">
+                @Html.Partial("_PartialinternuxForm")
+            </div>
+            <div id="partialSFNewForm">
+                @Html.Partial("_PartialSfNewForm")
+            </div>
+            <div id="partialSFSIROForm">
+                @Html.Partial("_PartialSfSIROForm")
+            </div>
+            <div id="partialBAUKDocument">
+                @Html.Partial("_PartialBAUKDocument")
+            </div>
+            <br />
+            @*</div>
+                </div>*@
+        </div>
+
+
+        <div id="panelPrintViewPDF">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+                <div style="width:210mm; height:297mm; border: 1px solid black" id="testPRint">
+
+                    <div style="width:100%; text-align:center">
+                        <h4>PERJANJIAN SEWA</h4>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnPrintPDF" class="btn blue">
+                            <i class="fa fa-save"></i> Print
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnCancelPrint" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+@*Confirm Next Process*@
+<div class="modal fade" id="mdlSubmitToCust" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:25%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formTrxCheckDoc" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                Are you sure you want to submit?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnSubmitCustOK" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> Yes
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnSubmitCustCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*Confirm Next Process*@
+<div class="modal fade" id="mdlConfirmNextProcess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:35%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formTrxCheckDoc" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label">Choose Process</label>
+                                    <div class="col-md-6">
+                                        <select id="slStatusAppr" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnSubmitApprOk" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> OK
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnSubmitApprCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Confirm Next Process*@
+<div class="modal fade" id="mdlSubmitToCustBulky" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:25%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSubmitApprBulky" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                Are you sure you want to submit?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnSubmitCustOKBulky" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> Yes
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnSubmitCustCancelBulky" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*Confirm Next Process*@
+<div class="modal fade" id="mdlConfirmNextProcessBulky" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:35%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirm</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formApprovalBulky" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label">Choose Process</label>
+                                    <div class="col-md-6">
+                                        <select id="slStatusApprBulky" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnSubmitApprOkBulky" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> OK
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnSubmitApprCancelBulky" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/RaNewBaps/NewBapsStartBaps.js")" type="text/javascript"></script>

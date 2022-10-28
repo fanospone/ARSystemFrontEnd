@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGMDM" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGMDM" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:complexType name="ArrayOfSyncStagingMstEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SyncStagingMstEmployee" nillable="true" type="tns:SyncStagingMstEmployee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSyncStagingMstEmployee" nillable="true" type="tns:ArrayOfSyncStagingMstEmployee" />
+  <xs:complexType name="SyncStagingMstEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q1:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DivisionCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstLayer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GenderCode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="JobsTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobsTitleID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JoinDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LevelPositionId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LevelPositionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifieDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PositionCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PositionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReligionId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResignDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SecondLayer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StatusResign" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SyncDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WorkLocationId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WorkLocationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="birthdate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="birthplace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="department" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="directorate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="division" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="effectiveDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="emp_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="employ_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="full_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="grade_code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="grade_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="identity_no" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="maritalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="maritalStatusId" type="xs:boolean" />
+          <xs:element minOccurs="0" name="married_date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="married_place" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="photo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="photo_path" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="religion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="taxno" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SyncStagingMstEmployee" nillable="true" type="tns:SyncStagingMstEmployee" />
+</xs:schema>

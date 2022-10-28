@@ -1,0 +1,106 @@
+﻿<div class="modal fade mdlCNARData" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">CN Invoice</h4>
+            </div>
+            <form id="formCNARData">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label text-center">Do You Want to CN This Data?</label>
+                            <div class="form-group">
+                                <label class="control-label">PICA Type<i class="font-red">*</i></label>
+                                <select id="slPicaTypeARData" class="form-control select2 disabledCtrl" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">PICA Detail<i class="font-red">*</i></label>
+                                <select id="slPicaDetailARData" class="form-control select2 disabledCtrl" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                <textarea class="form-control disabledCtrl" rows="3" id="tbRemarksARData" placeholder="Remarks" required></textarea>
+                            </div>
+                            <button type="submit" id="btYesCNARData" class="btn green">
+                                <i class="fa fa-check"></i> Yes
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btNoCNARData" class="btn red">
+                                <i class="fa fa-times"></i> No
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    jQuery(document).ready(function () {
+        CNARData.BindingSelectPICAType();
+        CNARData.BindingSelectPICADetail();
+
+        $("#formCNARData").parsley();
+    });
+
+    var CNARData = {
+
+        BindingSelectPICAType: function () {
+            $.ajax({
+                url: "/api/MstDataSource/PICATypeARData",
+                type: "GET",
+                async: false,
+
+            })
+            .done(function (data, textStatus, jqXHR) {
+                $("#slPicaTypeARData").html("<option></option>")
+                if (Common.CheckError.List(data)) {
+                    $.each(data, function (i, item) {
+                        $("#slPicaTypeARData").append("<option value='" + item.mstPICATypeID + "'>" + item.Description + "</option>");
+                    })
+                }
+
+                $("#slPicaTypeARData").select2({ placeholder: "Select PICA Type", width: null }).on("change", function (e) {
+                    CNARData.BindingSelectPICADetail();
+                });
+
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                Common.Alert.Error(errorThrown);
+            });
+        },
+        BindingSelectPICADetail: function () {
+            var params = {
+                HdrId: $("#slPicaTypeARData").val() == null || $("#slPicaTypeARData").val() == "" ? 0 : $("#slPicaTypeARData").val()
+            };
+            $.ajax({
+                url: "/api/BapsData/RejectDtl",
+                type: "GET",
+                async: false,
+                data: params
+            })
+            .done(function (data, textStatus, jqXHR) {
+                $("#slPicaDetailARData").html("<option></option>")
+
+                if (Common.CheckError.List(data)) {
+                    $.each(data, function (i, item) {
+                        $("#slPicaDetailARData").append("<option value='" + item.mstPICADetailID + "'>" + item.Description + "</option>");
+                    })
+                }
+
+                $("#slPicaDetailARData").select2({ placeholder: "Select PICA Detail", width: null });
+
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                Common.Alert.Error(errorThrown);
+            });
+        }
+    }
+</script>

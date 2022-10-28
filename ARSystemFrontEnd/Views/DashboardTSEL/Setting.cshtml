@@ -1,0 +1,1632 @@
+﻿
+@{
+    ViewBag.Title = "Setting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+    table tbody tr td {
+        font-size: 12px !important;
+    }
+
+    th {
+        font-size: 12px !important;
+        text-align: center;
+    }
+
+    .uploadTargetErrorLog {
+        max-height: 520px;
+        overflow: auto;
+    }
+
+    .portlet.light .dataTables_wrapper .dt-buttons {
+        position: absolute;
+        right: 20px;
+        margin-top: 0;
+    }
+</style>
+
+<section id="pnlSummary">
+    <input type="text" id="hdUserToken" value="@ViewBag.UserToken" style="display:none;" />
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tools">
+                <a href="" class="collapse"> </a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form id="formSearch" class="form-horizontal" role="form"></form>
+        </div>
+    </div>
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet-title">
+            </div>
+            <div class="portlet-body">
+                <div class="tabbable tabbable-tabdrop" id="tabDasboard">
+                    <ul class="nav nav-tabs">
+                        @if (ViewBag.IsTselAccessible)
+                        {
+                            <li class="active">
+                                <a href="#tabTarget" data-toggle="tab">Rec. TSEL</a>
+                            </li>
+                        }
+                        @if (ViewBag.IsNonTselAccessible)
+                        {
+                            <li>
+                                <a href="#tabRecNonTsel" data-toggle="tab">Rec. non-TSEL</a>
+                            </li>
+                        }
+                        @if (ViewBag.IsNewBapsAccessible)
+                        {
+                            <li>
+                                <a href="#tabRecBaps" data-toggle="tab">New BAPS</a>
+                            </li>
+                        }
+                        @if (ViewBag.IsNewProductAccessible)
+                        {
+                            <li>
+                                <a href="#tabRecNewProduct" data-toggle="tab">Rec. New Product & Others</a>
+                            </li>
+                        }
+                        <li>
+                            <a href="#tabHistory" data-toggle="tab">History</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        @if (ViewBag.IsTselAccessible)
+                        {
+                            <div class="tab-pane" id="tabTarget">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet-body form">
+                                            <!--FORM SEARCH TSEL -->
+                                            <form id="formSearchOne" class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCompanyInvoice" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Customer Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCustomerInvoice" class="form-control select2" disabled></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Section</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slSection" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">SOW</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slSow" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterBapsType" class="form-control select2" required></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Regional</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slRegional" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Province</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slProvince" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Tenant Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slTenantType" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Power Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterPowerType" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3 control-label">Period</label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterStartDateTsel" aria-describedby="baukSdate-addon">
+                                                                                    <span class="input-group-addon" id="tselSdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterEndDateTsel" aria-describedby="baukEdate-addon">
+                                                                                    <span class="input-group-addon" id="tselEdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div></div>
+
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="submit" id="btnSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btReset" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.Partial("_PanelSearchBegin")
+                                @Html.Partial("_PanelSearchZero")
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+
+                                            <div class="portlet-body">
+                                                <!--TABLE SUMMARY TSEL -->
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th class="datatable-col-10 select-all-raw"></th>
+                                                            <th class="datatable-col-70">SO Number</th>
+                                                            <th class="datatable-col-70">Site ID </th>
+                                                            <th class="datatable-col-70">Site Name</th>
+                                                            <th class="datatable-col-70">Customer Site ID</th>
+                                                            <th class="datatable-col-200">Customer Site Name</th>
+                                                            <th class="datatable-col-70">Customer ID</th>
+                                                            <th class="datatable-col-100">Regional Name</th>
+                                                            <th class="datatable-col-100">Start Period</th>
+                                                            <th class="datatable-col-100">End Period</th>
+                                                            <th class="datatable-col-100">Amount</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="datatable-col-40"></th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSONumber" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteID" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteName" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteID" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteName" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schRegionName" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistory" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                @if (ViewBag.IsAllowToInputTarget)
+                                                {   <button type="button" id="btAddSite" class="btn green">
+                                                    <i class="fa fa-check"></i> Add Site
+                                                </button>
+                                                <button type="button" id="btUploadSiteTsel" class="btn blue">
+                                                    <i class="fa fa-upload"></i> Upload Target
+                                                </button>
+                                                    <a href="@Url.Action("DownloadUploadInputTargetTemplate")" class="btn yellow"><i class="fa fa-download"></i> Download Template</a>
+
+                                                }
+                                                else
+                                                {
+                                                    <span class="alert alert-warning">@ViewBag.IsAllowToInputTargetMessage</span>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="height59">
+                                    <span></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <section id="pnlHistory">
+                                            @*Filter*@
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="portlet box blue">
+                                                        <div class="portlet-title">
+
+                                                        </div>
+                                                        <div class="portlet-body form">
+                                                            <!--FORM SEARCH HISTORY TSEL -->
+                                                            <form id="formSearchTwo" class="form-horizontal" role="form">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Year Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slYearTarget" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Month Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slMonthTarget" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slReconcileType" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Type Power</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slTypeTower" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*Search Result Two*@
+                                            <div class="row panelAddSiteHistory ">
+                                                <div class="col-md-12">
+                                                    <div class="portlet light bordered">
+
+                                                        <div class="portlet-body">
+                                                            <div class="tabbable tabbable-tabdrop" id="tabAddSite">
+                                                                <ul class="nav nav-tabs">
+                                                                    <li class="active">
+                                                                        <a href="#tabAddSite" data-toggle="tab">Target</a>
+                                                                    </li>
+
+                                                                </ul>
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tabAddSite">
+                                                                        <!--TABLE HISTORY TSEL -->
+                                                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblAddSite">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="datatable-col-10 select-all-receive">
+                                                                                    </th>
+                                                                                    <th class="datatable-col-70">SO Number</th>
+                                                                                    <th class="datatable-col-70">Site ID </th>
+                                                                                    <th class="datatable-col-200">Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer Site ID</th>
+                                                                                    <th class="datatable-col-200">Customer Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer ID</th>
+                                                                                    <th class="datatable-col-100">Regional Name</th>
+                                                                                    <th class="datatable-col-100">Start Period</th>
+                                                                                    <th class="datatable-col-100">End Period</th>
+                                                                                    <th class="datatable-col-100">Amount</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions text-center">
+                                                                <button type="button" id="btnSubmit" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                    <i class="fa fa-save"></i> Submit
+                                                                </button>
+                                                                <button type="button" id="btnCancel" class="btn blue-oleo">
+                                                                    <i class="fa fa-refresh"></i> Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                        @if (ViewBag.IsNonTselAccessible)
+                        {
+                            <div class="tab-pane" id="tabRecNonTsel">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet-body form">
+                                            <form id="formSearchNonTsel" class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCompanyInvoiceNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Customer Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCustomerInvoiceNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Section</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slSectionNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">SOW</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slSowNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterBapsTypeNonTsel" class="form-control select2" required></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Regional</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slRegionalNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Province</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slProvinceNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Tenant Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slTenantTypeNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Power Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterPowerTypeNonTsel" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3 control-label">Period</label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterStartDateNonTsel" aria-describedby="nontselSdate-addon">
+                                                                                    <span class="input-group-addon" id="nontselSdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterEndDateNonTsel" aria-describedby="nontselEdate-addon">
+                                                                                    <span class="input-group-addon" id="nontselEdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div></div>
+
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="submit" id="btnSearchNonTsel" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetNonTsel" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.Partial("_PanelSearchBegin")
+                                @Html.Partial("_PanelSearchZero")
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+
+                                            <div class="portlet-body">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataNonTsel">
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th class="datatable-col-10 select-all-raw"></th>
+                                                            <th class="datatable-col-70">SO Number</th>
+                                                            <th class="datatable-col-70">Site ID </th>
+                                                            <th class="datatable-col-70">Site Name</th>
+                                                            <th class="datatable-col-70">Customer Site ID</th>
+                                                            <th class="datatable-col-200">Customer Site Name</th>
+                                                            <th class="datatable-col-70">Customer ID</th>
+                                                            <th class="datatable-col-100">Regional Name</th>
+                                                            <th class="datatable-col-100">Start Invoice</th>
+                                                            <th class="datatable-col-100">End Invoice</th>
+                                                            <th class="datatable-col-100">Amount</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="datatable-col-40"></th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSONumberNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteIDNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteNameNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteIDNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteNameNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schRegionNameNonTsel" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryNonTsel" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                            <th class="datatable-col-200">
+
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            @if (ViewBag.IsAllowToInputTarget)
+                                            {
+                                                <div class="col-md-12">
+                                                    <button type="button" id="btAddSiteNonTsel" class="btn green">
+                                                        <i class="fa fa-check"></i> Add Site
+                                                    </button>
+                                                    <button type="button" id="btUploadSiteNonTsel" class="btn blue">
+                                                        <i class="fa fa-upload"></i> Upload Target
+                                                    </button>
+                                                    <a href="@Url.Action("DownloadUploadInputTargetTemplate")" class="btn yellow"><i class="fa fa-download"></i> Download Template</a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <span class="alert alert-warning">@ViewBag.IsAllowToInputTargetMessage</span>
+
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="height59">
+                                    <span></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <section id="pnlHistoryNonTsel">
+                                            @*Filter*@
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="portlet box blue">
+                                                        <div class="portlet-title">
+
+                                                        </div>
+                                                        <div class="portlet-body form">
+                                                            <form id="formSearchTwo" class="form-horizontal" role="form">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Year Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slYearTargetNonTsel" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Month Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slMonthTargetNonTsel" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slReconcileTypeNonTsel" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Type Power</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slTypeTowerNonTsel" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*Search Result Two*@
+                                            <div class="row panelAddSiteHistory ">
+                                                <div class="col-md-12">
+                                                    <div class="portlet light bordered">
+
+                                                        <div class="portlet-body">
+                                                            <div class="tabbable tabbable-tabdrop" id="tabAddSiteNonTsel">
+                                                                <ul class="nav nav-tabs">
+                                                                    <li class="active">
+                                                                        <a href="#tabAddSiteNonTsel" data-toggle="tab">Target</a>
+                                                                    </li>
+
+                                                                </ul>
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tabAddSiteNonTsel">
+                                                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblAddSiteNonTsel">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="datatable-col-10 select-all-receive">
+                                                                                    </th>
+                                                                                    <th class="datatable-col-70">SO Number</th>
+                                                                                    <th class="datatable-col-70">Site ID </th>
+                                                                                    <th class="datatable-col-200">Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer Site ID</th>
+                                                                                    <th class="datatable-col-200">Customer Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer ID</th>
+                                                                                    <th class="datatable-col-100">Regional Name</th>
+                                                                                    <th class="datatable-col-100">Start Invoice</th>
+                                                                                    <th class="datatable-col-100">End Invoice</th>
+                                                                                    <th class="datatable-col-100">Amount</th>
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions text-center">
+                                                                <button type="button" id="btnSubmitNonTsel" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                    <i class="fa fa-save"></i> Submit
+                                                                </button>
+                                                                <button type="button" id="btnCancelNonTsel" class="btn blue-oleo">
+                                                                    <i class="fa fa-refresh"></i> Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (ViewBag.IsNewBapsAccessible)
+                        {
+                            <div class="tab-pane" id="tabRecBaps">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet-body form">
+                                            <!--FORM SEARCH BAPS -->
+                                            <form id="formSearchOneBaps" class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCompanyInvoiceBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Customer Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCustomerInvoiceBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterBapsTypeBaps" class="form-control select2" required></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Power Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterPowerTypeBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">STIP SIRO</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterStipSiroBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Regional</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slRegionalBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Province</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slProvinceBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Tenant Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slTenantTypeBaps" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3 control-label">Period</label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterStartDateBaps" aria-describedby="bapsSdate-addon">
+                                                                                    <span class="input-group-addon" id="bapsSdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterEndDateBaps" aria-describedby="bapsEdate-addon">
+                                                                                    <span class="input-group-addon" id="bapsEdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div></div>
+
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="submit" id="btnSearchBaps" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetBaps" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.Partial("_PanelSearchBegin")
+                                @Html.Partial("_PanelSearchZero")
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+
+                                            <div class="portlet-body">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataBaps">
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th class="datatable-col-10 select-all-raw"></th>
+                                                            <th class="datatable-col-70">SO Number</th>
+                                                            <th class="datatable-col-70">Site ID </th>
+                                                            <th class="datatable-col-70">Site Name</th>
+                                                            <th class="datatable-col-70">Customer Site ID</th>
+                                                            <th class="datatable-col-200">Customer Site Name</th>
+                                                            <th class="datatable-col-70">Customer ID</th>
+                                                            <th class="datatable-col-100">Company ID</th>
+                                                            <th class="datatable-col-100">Regional Name</th>
+                                                            <th class="datatable-col-100">Start Period</th>
+                                                            <th class="datatable-col-100">End Period</th>
+                                                            <th class="datatable-col-100">Amount</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="datatable-col-40"></th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSONumberBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteIDBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteNameBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteIDBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteNameBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200"></th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schRegionNameBaps" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryBaps" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200"></th>
+                                                            <th class="datatable-col-200"></th>
+                                                            <th class="datatable-col-200"></th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+            @if (ViewBag.IsAllowToInputTarget)
+            {
+
+                <div class="col-md-12">
+                    <button type="button" id="btAddSiteNewBaps" class="btn green">
+                        <i class="fa fa-check"></i> Add Site
+                    </button>
+                    <button type="button" id="btUploadSiteNewBaps" class="btn blue">
+                        <i class="fa fa-upload"></i> Upload Target
+                    </button>
+                    <a href="@Url.Action("DownloadUploadInputTargetTemplate")" class="btn yellow"><i class="fa fa-download"></i> Download Template</a>
+
+                </div>
+            }
+            else
+            {
+                <span class="alert alert-warning">@ViewBag.IsAllowToInputTargetMessage</span>
+            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="height59">
+                                        <span></span>
+                                    </div>*@
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <section id="pnlHistoryNewBaps">
+                                            @*Filter*@
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="portlet box blue">
+                                                        <div class="portlet-title">
+
+                                                        </div>
+                                                        <div class="portlet-body form">
+                                                            <!--FORM SEARCH HISTORY BAPS -->
+                                                            <form id="formSearchTwoBaps" class="form-horizontal" role="form">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Year Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slYearTargetBaps" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Month Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slMonthTargetBaps" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slReconcileTypeBaps" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Type Power</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slTypeTowerBaps" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*Search Result Two*@
+                                            <div class="row panelAddSiteHistoryBaps">
+                                                <div class="col-md-12">
+                                                    <div class="portlet light bordered">
+
+                                                        <div class="portlet-body">
+                                                            <div class="tabbable tabbable-tabdrop" id="_tabAddSiteBaps">
+                                                                <ul class="nav nav-tabs">
+                                                                    <li class="active">
+                                                                        <a href="#tabAddSiteBaps" data-toggle="tab">Target</a>
+                                                                    </li>
+                                                                </ul>
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tabAddSiteBaps">
+                                                                        <!--TABLE ADD SITE BAPS -->
+                                                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblAddSiteBaps">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="datatable-col-10 select-all-receive">
+                                                                                    </th>
+                                                                                    <th class="datatable-col-70">SO Number</th>
+                                                                                    <th class="datatable-col-70">Site ID </th>
+                                                                                    <th class="datatable-col-200">Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer Site ID</th>
+                                                                                    <th class="datatable-col-200">Customer Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer ID</th>
+                                                                                    <th class="datatable-col-70">Company ID</th>
+                                                                                    <th class="datatable-col-100">Regional Name</th>
+                                                                                    <th class="datatable-col-100">Start Period</th>
+                                                                                    <th class="datatable-col-100">End Period</th>
+                                                                                    <th class="datatable-col-100">Amount</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions text-center">
+                                                                <button type="button" id="btnSubmitBaps" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                    <i class="fa fa-save"></i> Submit
+                                                                </button>
+                                                                <button type="button" id="btnCancelBaps" class="btn blue-oleo">
+                                                                    <i class="fa fa-refresh"></i> Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (ViewBag.IsNewProductAccessible)
+                        {
+                        <!-- TAB PRODUCT -->
+                            <div class="tab-pane" id="tabRecNewProduct">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet-body form">
+                                            <form id="formSearchOneProd" class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCompanyInvoiceProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Customer Invoice</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slCustomerInvoiceProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterBapsTypeProd" class="form-control select2" required></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Power Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slFilterPowerTypeProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Regional</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slRegionalProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Province</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slProvinceProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Tenant Type</label>
+                                                                    <div class="col-md-9">
+                                                                        <select id="slTenantTypeProd" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label class="col-md-3 control-label">Period</label>
+                                                                    <div class="col-md-9">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterStartDateProd" aria-describedby="prodSdate-addon">
+                                                                                    <span class="input-group-addon" id="prodSdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" id="slFilterEndDateProd" aria-describedby="prodEdate-addon">
+                                                                                    <span class="input-group-addon" id="prodEdate-addon">
+                                                                                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div></div>
+
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="submit" id="btnSearchProd" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetProd" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.Partial("_PanelSearchBegin")
+                                @Html.Partial("_PanelSearchZero")
+                                <div class="row">
+                                    <div class="col-md-12">
+
+
+                                        <div class="portlet light bordered">
+
+                                            <div class="portlet-body">
+                                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataProd">
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th class="datatable-col-10 select-all-raw"></th>
+                                                            <th class="datatable-col-70">SO Number</th>
+                                                            <th class="datatable-col-70">Site ID </th>
+                                                            <th class="datatable-col-70">Site Name</th>
+                                                            <th class="datatable-col-70">Customer Site ID</th>
+                                                            <th class="datatable-col-200">Customer Site Name</th>
+                                                            <th class="datatable-col-70">Customer ID</th>
+                                                            <th class="datatable-col-70">Company ID</th>
+
+                                                            <th class="datatable-col-100">Regional Name</th>
+                                                            <th class="datatable-col-100">Start Period</th>
+                                                            <th class="datatable-col-100">End Period</th>
+                                                            <th class="datatable-col-100">Amount</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="datatable-col-40"></th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSONumberProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteIDProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schSiteNameProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteIDProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schCustomerSiteNameProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                                <div class="input-group input-group-sm">
+                                                                    <input type="text" id="schRegionNameProd" class="form-control" />
+                                                                    <span class="input-group-btn">
+                                                                        <button class="btn blue btn-small btnSearchHistoryProd" type="button">
+                                                                            <i class="fa fa-search"></i>
+                                                                        </button>
+                                                                    </span>
+                                                                </div>
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                            <th class="datatable-col-200">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        @if (ViewBag.IsAllowToInputTarget)
+                                        {
+                                        
+                                            <div class="col-md-12">
+                                                <button type="button" id="btAddSiteProd" class="btn green">
+                                                    <i class="fa fa-check"></i> Add Site
+                                                </button>
+                                                <button type="button" id="btUploadSiteProd" class="btn blue">
+                                                    <i class="fa fa-upload"></i> Upload Target
+                                                </button>
+                                                <a href="@Url.Action("DownloadUploadInputTargetTemplate")" class="btn yellow"><i class="fa fa-download"></i> Download Template</a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <span class="alert alert-warning">@ViewBag.IsAllowToInputTargetMessage</span>
+                                        }
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                @*<div class="height59">
+                                        <span></span>
+                                    </div>*@
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <section id="pnlHistoryProd">
+                                            @*Filter*@
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="portlet box blue">
+                                                        <div class="portlet-title">
+
+                                                        </div>
+                                                        <div class="portlet-body form">
+                                                            <form id="formSearchTwoProd" class="form-horizontal" role="form">
+                                                                <div class="form-body">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Year Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slYearTargetProd" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Month Target</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slMonthTargetProd" class="form-control select2"></select>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slReconcileTypeProd" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-3 control-label">Type Power</label>
+                                                                                <div class="col-md-6">
+                                                                                    <select id="slTypeTowerProd" class="form-control select2" disabled></select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @*Search Result Two*@
+                                            <div class="row panelAddSiteHistoryProd">
+                                                <div class="col-md-12">
+
+
+                                                    <div class="portlet light bordered">
+
+                                                        <div class="portlet-body">
+                                                            <div class="tabbable tabbable-tabdrop" id="_tabAddSiteProd">
+                                                                <ul class="nav nav-tabs">
+                                                                    <li class="active">
+                                                                        <a href="#tabAddSiteProd" data-toggle="tab">Target</a>
+                                                                    </li>
+
+                                                                </ul>
+                                                                <div class="tab-content">
+                                                                    <div class="tab-pane active" id="tabAddSite">
+                                                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblAddSiteProd">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="datatable-col-10 select-all-receive">
+                                                                                    </th>
+                                                                                    <th class="datatable-col-70">SO Number</th>
+                                                                                    <th class="datatable-col-70">Site ID </th>
+                                                                                    <th class="datatable-col-200">Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer Site ID</th>
+                                                                                    <th class="datatable-col-200">Customer Site Name</th>
+                                                                                    <th class="datatable-col-70">Customer ID</th>
+                                                                                    <th class="datatable-col-70">Company ID</th>
+                                                                                    <th class="datatable-col-100">Regional Name</th>
+                                                                                    <th class="datatable-col-100">Start Period</th>
+                                                                                    <th class="datatable-col-100">End Period</th>
+                                                                                    <th class="datatable-col-100">Amount</th>
+
+
+                                                                                </tr>
+                                                                            </thead>
+                                                                        </table>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions text-center">
+                                                                <button type="button" id="btnSubmitProd" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                    <i class="fa fa-save"></i> Submit
+                                                                </button>
+                                                                <button type="button" id="btnCancelProd" class="btn blue-oleo">
+                                                                    <i class="fa fa-refresh"></i> Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+
+                        <!-- TAB HISTORY -->
+                        <div class="tab-pane" id="tabHistory">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="portlet-body form">
+                                        <form id="formSearchHS" class="form-horizontal" role="form">
+                                            <div class="form-body">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Reconcile Type</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slReconType" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Power Type</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slPWRType" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Department Name</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slDepartmentName" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">SO Number</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slSONumberMultiple" class="form-control select2" multiple></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Year Target</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slYearTargetHs" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Month Target</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slMonthTargetHs" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Company</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slCompanyHs" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Customer</label>
+                                                                <div class="col-md-9">
+                                                                    <select id="slCustomerHs" class="form-control select2"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions text-center">
+                                                    <button type="submit" id="btSearchHS" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                        <i class="fa fa-search"></i> Search
+                                                    </button>
+                                                    <button type="button" id="btResetHS" class="btn blue-oleo">
+                                                        <i class="fa fa-refresh"></i> Reset
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-body">
+                                            <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblHistoryAddSite">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="datatable-col-40 select-all-hs"></th>
+                                                        <th class="datatable-col-70">SO Number</th>
+                                                        <th class="datatable-col-70">Site ID </th>
+                                                        <th class="datatable-col-200">Site Name</th>
+                                                        <th class="datatable-col-100">Customer Site ID</th>
+                                                        <th class="datatable-col-200">Customer Site Name</th>
+                                                        <th class="datatable-col-100">Company Invoice ID</th>
+                                                        <th class="datatable-col-70">Customer ID</th>
+                                                        <th class="datatable-col-100">Regional Name</th>
+                                                        <th class="datatable-col-100">Month Target</th>
+                                                        <th class="datatable-col-100">Year Target</th>
+                                                        <th class="datatable-col-100">Reconcile Type</th>
+                                                        <th class="datatable-col-100">Power Type</th>
+
+                                                        <th class="datatable-col-100">Start Invoice Date</th>
+                                                        <th class="datatable-col-100">End Invoice Date</th>
+                                                        <th class="datatable-col-100">AmountIDR</th>
+                                                        <th class="datatable-col-100">AmountUSD</th>
+                                                        <th class="datatable-col-100">Department</th>
+
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="mdlUploadInflasiContainer"></div>
+<div id="mdlFormInputTargetHistoryContainer"></div>
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+@*<script src="@Url.Content("~/scripts/DashboardTSEL/Setting.js")" type="text/javascript"></script>*@
+<script>
+    //define deparment code from Constants class
+    var settingVariable = {
+        deptCodeTsel: "@ViewBag.DeptCodeTsel",
+        deptCodeNonTsel: "@ViewBag.DeptCodeNonTsel",
+        deptCodeNewBaps: "@ViewBag.DeptCodeNewBaps",
+        deptCodeNewProduct: "@ViewBag.DeptCodeNewProduct",
+    };
+</script>
+<script type="text/html" id="mdlUploadInflasiHtml">
+    @Html.Partial("_UploadInputTarget")
+</script>
+<script type="text/html" id="mdlFormInputTargetHtml">
+    @Html.Partial("_FormInputTarget")
+</script>
+
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js")" type="text/javascript"></script>
+<script src="~/scripts/DashboardTSEL/Setting.js"></script>
+<script src="~/scripts/DashboardTSEL/SettingUploadTarget.js"></script>
+

@@ -1,0 +1,169 @@
+﻿<div class="tab-content panelDetailPONon">
+    <div class="tab-pane active" id="tabData">
+        <form id="formDetailDataNon" class="form-horizontal" role="form">
+            <div class="form-body">
+                <div class="row portlet light bordered ProjectInfo">
+                    <div class="portlet-title">
+                        <div class="caption font-blue-steel">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="caption-subject">PO Information</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoNumberVal" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Date</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoDateVal" class="form-control datepicker" required  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Receive</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoReceiveDateVal" class="form-control datepicker" required  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Period Period</label>
+                            <div class="col-md-8">
+                                <div class="col-md-5">
+                                    <input type="text" id="tbStartPeriod" size="16" class="form-control datepicker" required>
+                                </div>
+                                <div class="col-md-1">
+                                    To
+                                </div>
+                                <div class="col-md-5">
+                                    <input type="text" id="tbEndPeriod" size="16" class="form-control datepicker" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Type</label>
+                            <div class="col-md-8">
+                                <select id="PoTypeVal" class="form-control">
+                                    <option value="TOWER">TOWER</option>
+                                    <option value="POWER">POWER</option>
+                                    <option value="INF">INFLATION</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Currency</label>
+                            <div class="col-md-8">
+                                <select id="PoCurrencyVal" class="form-control">
+                                    <option value="IDR">IDR</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Document </label>
+                            <div class="col-md-8">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="input-group input-large">
+                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                            <span class="fileinput-filename" id="file-upload-filenames"> </span><div></div>
+                                        </div>
+                                        <span class="input-group-addon btn default btn-file">
+                                            <span class="fileinput-new"> Select file </span>
+                                            <span class="fileinput-exists"> Change </span>
+                                            <input type="file" name="postedFile2" id="postedFile2" accept="application/vnd.ms-excel, application/pdf" required>
+                                        </span>
+                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Remarks</label>
+                            <div class="col-md-8">
+                                <textarea id="tbRemarksVal" name="tbRemarksVal" class="form-control" rows="6"></textarea>
+                            </div>
+                        </div>
+                        @*<div class="form-group height59">
+
+                        </div>*@
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Split PO</label>
+                            <div class="col-md-8">
+                                <select id="slSplitPO" class="form-control" onchange="Form.SplitPO(this);">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" id="fmBill">
+                            <label class="col-md-4 control-label" >Bill Type</label>
+                            <div class="col-md-8">
+                                <select id="slBillType" class="form-control" onchange="Form.CalculateAmountPO();">
+                                    <option value=" ">Please Select</option>
+                                    <option value="BaseLease">BaseLease</option>
+                                    <option value="Service">Service</option>
+                                    <option value="Inflation">Inflation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Amount</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoAmountVal" class="form-control datepicker" readonly disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Total Tenant</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoTenantVal" class="form-control datepicker" readonly disabled="disabled" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDataSelected">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10 select-all-selected"></th>
+                                <th class="datatable-col-100">SO Number</th>
+                                <th class="datatable-col-100">Company</th>
+                                <th class="datatable-col-100">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-100">Customer Site ID</th>
+                                <th class="datatable-col-200">Customer Site Name</th>
+                                <th class="datatable-col-100">Term</th>
+                                <th class="datatable-col-100">Invoice Start Date</th>
+                                <th class="datatable-col-100">Invoice End Date</th>
+                                <th class="datatable-col-100">Base Lease</th>
+                                <th class="datatable-col-100">OM Price</th>
+                                <th class="datatable-col-100">Inflation</th>
+                                <th class="datatable-col-100">Additional</th>
+                                <th class="datatable-col-100">Total</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnDetailSave" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnDetailCancel" class="btn blue-oleo" onclick="TableData.ResetTrx();">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,732 @@
+﻿
+@{
+    ViewBag.Title = "BAPS Confirm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+    table tbody tr td {
+        font-size: 12px !important;
+    }
+
+    th {
+        font-size: 12px !important;
+        text-align: center;
+    }
+</style>
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompanyName" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Operator</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchOperator" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">PO Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchPONumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAPS Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchBAPSNumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Site ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchSiteIdOld" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Period</label>
+                                        <div class="col-md-9">
+                                            <div class="col-md-5">
+                                                <input type="text" id="tbStartPeriod" size="16" class="form-control">
+                                            </div>
+                                            <div class="col-md-1">
+                                                To
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" id="tbEndPeriod" size="16" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice Type</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchInvoiceType" class="form-control select2">
+                                                <option></option>
+                                                <option value="NEW">NEW</option>
+                                                <option value="RENEWAL">RENEWAL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice Term</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchTermInvoice" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Currency</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCurrency" class="form-control select2">
+                                                <option></option>
+                                                <option value="IDR">IDR</option>
+                                                <option value="USD">USD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">SO Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchSONumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAPS Type</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchBapsType" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    <div class="row panelSiteData">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Excluded Site</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSiteData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-40">Action</th>
+                                <th class="datatable-col-70">SO Number</th>
+                                <th class="datatable-col-70">Site ID Opr</th>
+                                <th class="datatable-col-70">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-70">Company Invoice</th>
+                                <th class="datatable-col-70">Operator Invoice</th>
+                                <th class="datatable-col-100">PO Number</th>
+                                <th class="datatable-col-100">Start Date Receivable</th>
+                                <th class="datatable-col-100">End Date Receivable</th>
+                                <th class="datatable-col-200">BAPS No</th>
+                                <th class="datatable-col-75">Basic</th>
+                                <th class="datatable-col-75">Maintenance</th>
+                                <th class="datatable-col-75">Amount Invoice</th>
+                                <th class="datatable-col-75">Start Date</th>
+                                <th class="datatable-col-75">End Date</th>
+                                <th class="datatable-col-75">Amount PPN</th>
+                                <th class="datatable-col-75">Amount Loss PPN</th>
+                                <th class="datatable-col-70">Company ID</th>
+                                <th class="datatable-col-70">Operator</th>
+                                <th class="datatable-col-70">Invoice Type</th>
+                                <th class="datatable-col-70">Invoice Term</th>
+                                <th class="datatable-col-70">BAPS Type</th>
+                                <th class="datatable-col-75">Power Type</th>
+                                <th class="datatable-col-50">Currency</th>
+                                @*<th class="datatable-col-50">Is Partial</th>*@
+                                <th class="datatable-col-50">Is Loss PPN</th>
+                                <th class="datatable-col-50">PPH Type</th>
+                                <th class="datatable-col-70">Is Loss PPN</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabBAPS">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabBAPSReceive" data-toggle="tab">BAPS Receive</a>
+                            </li>
+                            <li>
+                                <a href="#tabBAPSConfirm" data-toggle="tab">BAPS Confirm</a>
+                            </li>
+                            <li>
+                                <a href="#tabBAPSReject" data-toggle="tab">BAPS Reject</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabBAPSReceive">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataReceive">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-receive">
+                                            </th>
+                                            <th class="datatable-col-70">SO Number</th>
+                                            <th class="datatable-col-70">Site ID Opr</th>
+                                            <th class="datatable-col-70">Site ID</th>
+                                            <th class="datatable-col-200">Site Name</th>
+                                            <th class="datatable-col-70">Company Invoice</th>
+                                            <th class="datatable-col-70">Operator Invoice</th>
+                                            <th class="datatable-col-100">PO Number</th>
+                                            <th class="datatable-col-75">Start Date Receivable</th>
+                                            <th class="datatable-col-75">End Date Receivable</th>
+                                            <th class="datatable-col-200">BAPS No</th>
+                                            <th class="datatable-col-75">Basic</th>
+                                            <th class="datatable-col-75">Maintenance</th>
+                                            <th class="datatable-col-75">Amount Invoice</th>
+                                            <th class="datatable-col-75">Start Date</th>
+                                            <th class="datatable-col-75">End Date</th>
+                                            <th class="datatable-col-75">Amount PPN</th>
+                                            <th class="datatable-col-75">Amount Loss PPN</th>
+                                            <th class="datatable-col-70">Company ID</th>
+                                            <th class="datatable-col-70">Operator</th>
+                                            <th class="datatable-col-70">Invoice Type</th>
+                                            <th class="datatable-col-70">Invoice Term</th>
+                                            <th class="datatable-col-70">BAPS Type</th>
+                                            <th class="datatable-col-75">Power Type</th>
+                                            <th class="datatable-col-50">Currency</th>
+                                            @*<th class="datatable-col-50">Is Partial</th>*@
+                                            <th class="datatable-col-50">PPH Type</th>
+                                            <th class="datatable-col-70">Is Loss PPN</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabBAPSConfirm">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-confirm">
+                                            </th>
+                                            <th class="datatable-col-70">SO Number</th>
+                                            <th class="datatable-col-70">Site ID Opr</th>
+                                            <th class="datatable-col-70">Site ID</th>
+                                            <th class="datatable-col-200">Site Name</th>
+                                            <th class="datatable-col-70">Company Invoice</th>
+                                            <th class="datatable-col-70">Operator Invoice</th>
+                                            <th class="datatable-col-100">PO Number</th>
+                                            <th class="datatable-col-75">Start Date Receivable</th>
+                                            <th class="datatable-col-75">End Date Receivable</th>
+                                            <th class="datatable-col-200">BAPS No</th>
+                                            <th class="datatable-col-75">Basic</th>
+                                            <th class="datatable-col-75">Maintenance</th>
+                                            <th class="datatable-col-75">Amount Invoice</th>
+                                            <th class="datatable-col-75">Start Date</th>
+                                            <th class="datatable-col-75">End Date</th>
+                                            <th class="datatable-col-75">Amount PPN</th>
+                                            <th class="datatable-col-75">Amount Loss PPN</th>
+                                            <th class="datatable-col-70">Company ID</th>
+                                            <th class="datatable-col-70">Operator</th>
+                                            <th class="datatable-col-70">Invoice Type</th>
+                                            <th class="datatable-col-70">Invoice Term</th>
+                                            <th class="datatable-col-70">BAPS Type</th>
+                                            <th class="datatable-col-75">Power Type</th>
+                                            <th class="datatable-col-50">Currency</th>
+                                            @*<th class="datatable-col-50">Is Partial</th>*@
+                                            <th class="datatable-col-50">PPH Type</th>
+                                            <th class="datatable-col-70">Is Loss PPN</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabBAPSReject">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataReject">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-70">SO Number</th>
+                                            <th class="datatable-col-100">Pica</th>
+                                            <th class="datatable-col-200">Reject Remark</th>
+                                            <th class="datatable-col-70">Site ID Opr</th>
+                                            <th class="datatable-col-70">Site ID</th>
+                                            <th class="datatable-col-200">Site Name</th>
+                                            <th class="datatable-col-70">Company Invoice</th>
+                                            <th class="datatable-col-70">Operator Invoice</th>
+                                            <th class="datatable-col-100">PO Number</th>
+                                            <th class="datatable-col-75">Start Date Receivable</th>
+                                            <th class="datatable-col-75">End Date Receivable</th>
+                                            <th class="datatable-col-200">BAPS No</th>
+                                            <th class="datatable-col-75">Basic</th>
+                                            <th class="datatable-col-75">Maintenance</th>
+                                            <th class="datatable-col-75">Amount Invoice</th>
+                                            <th class="datatable-col-75">Start Date</th>
+                                            <th class="datatable-col-75">End Date</th>
+                                            <th class="datatable-col-75">Amount PPN</th>
+                                            <th class="datatable-col-75">Amount Loss PPN</th>
+                                            <th class="datatable-col-70">Company ID</th>
+                                            <th class="datatable-col-70">Operator</th>
+                                            <th class="datatable-col-70">Invoice Type</th>
+                                            <th class="datatable-col-70">Invoice Term</th>
+                                            <th class="datatable-col-70">BAPS Type</th>
+                                            <th class="datatable-col-75">Power Type</th>
+                                            <th class="datatable-col-50">Currency</th>
+                                            <th class="datatable-col-50">PPH Type</th>
+                                            <th class="datatable-col-70">Is Loss PPN</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="btExclude" class="btn blue">
+                            <i class="fa fa-undo"></i> Exclude
+                        </button>
+                        <button type="button" id="btReceive" class="btn green">
+                            <i class="fa fa-check"></i> Receive
+                        </button>
+                        <button type="button" id="btConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Confirm
+                        </button>
+                        <button type="button" id="btReject" class="btn red">
+                            <i class="fa fa-times"></i> Reject
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<div class="modal fade" id="mdlDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detail Data</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="formDetailData" class="sky-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">SO Number</label>
+                                        <input type="text" id="tbDetailSONumber" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Site ID</label>
+                                        <input type="text" id="tbDetailSiteId" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Master Price</label>
+                                        <input type="text" id="tbDetailMasterPrice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Company Invoice</label>
+                                        <input type="text" id="tbDetailCompanyInvoice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label control-label">Start Date</label>
+                                        <input type="text" id="tbDetailStartDate" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Start Date Receiveable</label>
+                                        <input type="text" id="tbDetailStartDateRec" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Site Name</label>
+                                        <input type="text" id="tbDetailSiteName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Site ID Operator</label>
+                                        <input type="text" id="tbDetailSiteIdOpr" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="height59"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Operator Invoice</label>
+                                        <input type="text" id="tbDetailOprInvoice" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">End Date</label>
+                                        <input type="text" id="tbDetailEndDate" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">End Date Receiveable</label>
+                                        <input type="text" id="tbDetailEndDateRec" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Term invoice</label>
+                                        <input type="text" id="tbDetailTermInvoice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Rental</label>
+                                        <input type="text" id="tbDetailAmountRental" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Service</label>
+                                        <input type="text" id="tbDetailAmountService" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Invoice</label>
+                                        <input type="text" id="tbDetailAmountInvoice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Penalty</label>
+                                        <input type="text" id="tbDetailAmountPenalty" class="form-control">
+                                    </div>
+                                    <div class="form-group divRounding">
+                                        <label class="control-label">Need Rounding?</label>
+                                        <input type="checkbox" id="chRounding" checked class="make-switch" data-on-text="YES" data-off-text="NO">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Overdaya</label>
+                                        <input type="text" id="tbDetailAmountOverdaya" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Overblast</label>
+                                        <input type="text" id="tbDetailAmountOverblast" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Inflasi</label>
+                                        <input type="text" id="tbDetailAmountInflasi" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Amount Discount</label>
+                                        <input type="text" id="tbDetailAmountDiscount" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Currency</label>
+                                        <input type="text" id="tbDetailCurrency" class="form-control">
+                                    </div>
+                                    <div class="form-group divRounding">
+                                        <label class="control-label NeedRounding">Rounding Amount</label>
+                                        <input type="text" id="tbDetailRounding" class="form-control NeedRounding">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btUpdateAmount" class="btn blue NeedRounding">
+                    <i class="fa fa-save"></i> Update Amount
+                </button>
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlConfirmBAPS" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Confirm BAPS</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total Item in Table
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblTotalItem"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total <strong>Excluded</strong> Item
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblExcludedItem"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total Item That Will Be <strong>Processed</strong>
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblProcessedItem"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to Confirm?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlRejectBAPS" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Reject BAPS</h4>
+            </div>
+            <form id="formReject">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                Total Item in Table
+                            </div>
+                            <div class="col-md-1 text-left">
+                                :
+                            </div>
+                            <div class="col-md-4 text-left">
+                                <div class="form-group">
+                                    <label class="col-md-12 control-label text-left" id="lblTotalItemReject"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                Total <strong>Excluded</strong> Item
+                            </div>
+                            <div class="col-md-1 text-left">
+                                :
+                            </div>
+                            <div class="col-md-4 text-left">
+                                <div class="form-group">
+                                    <label class="col-md-12 control-label text-left" id="lblExcludedItemReject"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="col-md-6">
+                                Total Item That Will Be <strong>Processed</strong>
+                            </div>
+                            <div class="col-md-1 text-left">
+                                :
+                            </div>
+                            <div class="col-md-4 text-left">
+                                <div class="form-group">
+                                    <label class="col-md-12 control-label text-left" id="lblProcessedItemReject"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label text-center">Do You Want to Reject This Data?</label>
+                            <div class="form-group">
+                                <label class="control-label">Reject Type<i class="font-red">*</i></label>
+                                <select id="slHeaderDescription" class="form-control select2" required></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Category<i class="font-red">*</i></label>
+                                <select id="slCategory" class="form-control select2" required></select>
+                            </div>
+                            @*<div class="form-group">
+                                <label class="control-label">PIC<i class="font-red">*</i></label>
+                                <select id="slPIC" class="form-control select2" required></select>
+                            </div>*@
+                            <div class="form-group">
+                                <label class="control-label">Email Recipient</label>
+                                <textarea class="form-control" rows="4" id="tbEmailRecipient" readonly></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Email CC</label>
+                                <textarea class="form-control" rows="4" id="tbEmailCC" readonly></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label><span id="spRemarks" class="font-red"></span>
+                                <textarea class="form-control" rows="3" id="tbRemarks" placeholder="Remarks" required></textarea>
+                            </div>
+                            <button type="submit" id="btYesReject" class="btn green">
+                                <i class="fa fa-check"></i> Yes
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btNoReject" class="btn red">
+                                <i class="fa fa-times"></i> No
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="mdlReceiveBAPS" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Receive BAPS</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total Item in Table
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblTotalItemReceive"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total <strong>Excluded</strong> Item
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblExcludedItemReceive"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            Total Item That Will Be <strong>Processed</strong>
+                        </div>
+                        <div class="col-md-1 text-left">
+                            :
+                        </div>
+                        <div class="col-md-4 text-left">
+                            <div class="form-group">
+                                <label class="col-md-12 control-label text-left" id="lblProcessedItemReceive"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to Receive?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesReceive" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoReceive" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="text" style="display:none;" id="hdUserCompanyCode" value="@ViewBag.UserCompanyCode" />
+
+<script src="@Url.Content("~/scripts/invoicetransaction/TrxBapsBigData.js")" type="text/javascript"></script>

@@ -1,0 +1,457 @@
+﻿
+@{
+    ViewBag.Title = "List Reconcile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /* .height59 {
+        height: 59px;
+    }
+    Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    /*.panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+     End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Renewal Year</label>
+                                        <div class="col-md-6">
+                                            <select id="slRenewalYear" class="form-control select2">
+                                                @{
+                                                    int tahun = System.DateTime.Now.Year + 10;
+                                                    <option value="@(tahun)">@(tahun)</option>
+                                                    for (int i = 1; i <= 30; i++)
+                                                    {
+                                                        <option value="@(tahun - i)">@(tahun - i)</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Operator</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchOperator" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Currency</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchCurrency" class="form-control select2">
+                                                <option value="IDR">IDR</option>
+                                                <option value="USD">USD</option>
+                                                <option value="EUR">EURO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Regional</label>
+                                        <div class="col-md-6">
+                                            <select id="slRegional" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Province</label>
+                                        <div class="col-md-6">
+                                            <select id="slProvince" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Residence</label>
+                                        <div class="col-md-6">
+                                            <select id="slResidence" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabReconcile">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabRaw" data-toggle="tab"><b>Reconcile Done</b></a>
+                            </li>
+                            <li>
+                                <a href="#tabProcess" data-toggle="tab" style="display:none;">Reconcile Process</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabRaw">
+                                <table id="tblRaw" name="tblRaw" class="table table-striped table-bordered table-hover datatable-custom-width">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-raw"></th>
+                                            <th class="datatable-col-100">Recon ProcessedId</th>
+                                            <th class="datatable-col-100">Operator</th>
+                                            <th class="datatable-col-100">Regional</th>
+                                            <th class="datatable-col-100">Province</th>
+                                            <th class="datatable-col-100">Residence</th>
+                                            <th class="datatable-col-100">Reconcile Date</th>
+                                            <th class="datatable-col-80">Year</th>
+                                            <th class="datatable-col-100">Total Renewal Tenant</th>
+                                            <th class="datatable-col-100">Currency</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                            <th class="datatable-col-100">BA Reconcile</th>
+                                            <th class="datatable-col-100">BA Other</th>
+                                            <th class="datatable-col-100">Final Document</th>
+                                            @*<th class="datatable-col-500">BA Upload Code</th>
+                                            <th class="datatable-col-150">Final Document Code</th>*@
+                                            @*<th class="datatable-col-100">Status</th>*@
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabProcess">
+                                <table id="tblProcess" name="tblProcess" class="table table-striped table-bordered table-hover datatable-custom-width">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-raw"></th>
+                                            <th class="datatable-col-100">Recon ProcessedId</th>
+                                            <th class="datatable-col-100">Operator</th>
+                                            <th class="datatable-col-100">Year</th>
+                                            <th class="datatable-col-100">Total Renewal Tenant</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                            <th class="datatable-col-100">BA Reconcile</th>
+                                            <th class="datatable-col-100">BA Other</th>
+                                            <th class="datatable-col-100">Final Document</th>
+                                            <th class="datatable-col-200">BA Upload Code</th>
+                                            <th class="datatable-col-150">Final Document Code</th>
+                                            <th class="datatable-col-100">Regional</th>
+                                            @*<th class="datatable-col-100">Status</th>*@
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="btProcess" class="btn green">
+                            <i class="fa fa-check"></i> Add To Reconcile Process
+                        </button>
+                        <button type="button" id="btModify" class="btn red">
+                            <i class="fa fa-close"></i> Reject
+                        </button>
+                        <button type="button" id="btBack" class="btn red">
+                            <i class="fa fa-reply"></i> Back Reconcile Process
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="mdlDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detail Data</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="formDetailData" class="sky-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Recon Process ID</b></label>
+                                        <input readonly type="text" id="tbReconProcessedID" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Operator</b></label>
+                                        <input readonly type="text" id="tbOperator" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Regional</b></label>
+                                        <input readonly type="text" id="tbRegionName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>BA Reconcile</b></label>
+                                        <input readonly type="text" id="tbBAReconcile" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>BA Other</b></label>
+                                        <input readonly type="text" id="tbBAOther" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Final Document</b></label>
+                                        <input readonly type="text" id="tbFinalDocument" class="form-control">
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Reconcile Date</b></label>
+                                        <input readonly type="text" id="tbReconcileDate" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Year</b></label>
+                                        <input readonly type="text" id="tbYear" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Total Renewal Tenant</b></label>
+                                        <input readonly type="text" id="tbTotalRenewalTenant" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Total Amount</b></label>
+                                        <input readonly type="text" id="tbTotalAmount" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Status</b></label>
+                                        <input readonly type="text" id="tbStatus" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>BA Reconcile Code</b></label>
+                                        <input readonly type="text" id="tbBAReconcileCode" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>BA Other Code</b></label>
+                                        <input readonly type="text" id="tbBAOtherCode" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Final Document Code</b></label>
+                                        <input readonly type="text" id="tbFinalDocumentCode" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer" style="display:none;">
+                <button type="button" data-dismiss="modal" id="btUpdateAmount" class="btn blue NeedRounding">
+                    <i class="fa fa-save"></i> Update Amount
+                </button>
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mdlToProcess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add To Reconcile Process</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to Reconclie Process?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToInput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Send Back To Reconcile Input</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this data back to Reconcile Input?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirm2" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mdlReject" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Reject Reconcile</h4>
+            </div>
+            <form id="formReject">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label text-center">Do You Want to Reject This Data?</label>
+                            <div class="form-group">
+                                <label class="control-label">Department<i class="font-red">*</i></label>
+                                <select id="slDept" class="form-control select2" required>
+                                    <option value="mar">MARKETING</option>
+                                    <option value="pdi">PDI</option>
+                                    <option value="ra">RA NEW</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">PIC<i class="font-red">*</i></label>
+                                <select id="slPIC" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">PICA<i class="font-red">*</i></label>
+                                <select id="slPICA" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                <textarea class="form-control" rows="3" id="tbRemarks" placeholder="Remarks" required></textarea>
+                            </div>
+                            <button type="submit" id="btYesReject" class="btn green">
+                                <i class="fa fa-check"></i> Yes
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btNoReject" class="btn red">
+                                <i class="fa fa-times"></i> No
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="mdlBulky" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Upload Bulky Inflation</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="form-horizontal form-bordered">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Default1</label>
+                            <div class="col-md-3">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="input-group input-large">
+                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                            <span class="fileinput-filename"> </span>
+                                        </div>
+                                        <span class="input-group-addon btn default btn-file">
+                                            <span class="fileinput-new"> Select file </span>
+                                            <span class="fileinput-exists"> Change </span>
+                                            <input type="file" name="...">
+                                        </span>
+                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a href="javascript:;" class="btn green">
+                                    <i class="fa fa-check"></i> Submit
+                                </a>
+                                <a href="javascript:;" class="btn btn-outline grey-salsa">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form><br /><br />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<script src="@Url.Content("~/scripts/RevenueAssurance/ReconcileDone.js")" type="text/javascript"></script>
+
+
+`

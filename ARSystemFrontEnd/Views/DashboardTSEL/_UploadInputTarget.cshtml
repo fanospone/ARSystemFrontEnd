@@ -1,0 +1,61 @@
+﻿<div id="mdlUploadInflasi" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Upload Inflasi</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formUploadInputTarget" class="form-horizontal" role="form">
+                    <input type="hidden" name="uplDepartmentType" id="uplDepartmentType" />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Select File</label>
+                                <div class="col-md-8">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="input-group">
+                                            <div class="form-control uneditable-input input-fixed" data-trigger="fileinput">
+                                                <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                <span class="fileinput-filename" id="file-upload-inputBulky"> </span><div></div>
+                                            </div>
+                                            <span class="input-group-addon btn default btn-file">
+                                                <span class="fileinput-new"> Select file </span>
+                                                <span class="fileinput-exists"> Change </span>
+                                                <input type="file" name="postFileInputBulky" id="postFileInputBulky" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+                                            </span>
+                                            <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-md-offset-1 hidden" id="uploadErrorLogsAlert">
+                            <div class="alert alert-danger uploadTargetErrorLog" role="alert">
+                                <div class="p-l-10 p-b-10">
+                                    <i class="fa fa-exclamation-triangle font-15" aria-hidden="true"></i>
+                                    <b class="p-l-15">Failed to upload the data, please check error logs below : </b>
+                                </div>
+                                <div id="uploadTargetErrorLogs">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr />
+                            <div class="text-center">
+                                <button type="submit" id="btSubmitUpload" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                    <i class="fa fa-upload"></i> Upload
+                                </button>
+                                <button type="button" id="btCloseUpload" class="btn blue-oleo">
+                                    <i class="fa fa-times"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

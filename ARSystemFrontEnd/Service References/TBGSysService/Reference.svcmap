@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="79ff23d9-86d9-4392-adcb-d0ed62b3fed7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.8.0.222:8809/TBGSysService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TBGSysService.disco" MetadataType="Disco" ID="c8a1850c-450d-4fb1-b24b-da2b3e94c942" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?disco" />
+    <MetadataFile FileName="TBGSysService.xsd" MetadataType="Schema" ID="ea197661-9a9d-4e32-9649-9ca1d0b0b86f" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TBGSysService1.xsd" MetadataType="Schema" ID="69406993-2d8c-4f0e-a7d3-028860d06473" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TBGSysService2.xsd" MetadataType="Schema" ID="447a6b36-4850-45db-875f-f1d7e84ba8fa" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TBGSysService.wsdl" MetadataType="Wsdl" ID="26727fd1-7107-4157-ae9c-892313533245" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?wsdl" />
+    <MetadataFile FileName="TBGSysService3.xsd" MetadataType="Schema" ID="bfd85cd3-fff4-4420-8cb1-c66d4df8522e" SourceId="1" SourceUrl="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

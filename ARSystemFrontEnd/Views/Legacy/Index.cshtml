@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Legacy";
+    if (ViewBag.actLogout != null)
+    {
+        Layout = null;
+    }
+    int appId = ARSystemFrontEnd.Helper.Helper.GetApplicationID();
+}
+
+<style>
+
+    #loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<script src="@Url.Content("~/Content/global/plugins/jquery.min.js")" type="text/javascript"></script>
+<div id="loader" class="animate-bottom"></div>
+<input id="Urlroute" value="@ViewBag.LegacyUrl" style="display:none" />
+<input id="returnUrl" value="@ViewBag.ReturnURL" style="display:none" />
+<input id="actLogout" value="@ViewBag.actLogout" style="display:none" />
+<input id="appid" value="@appId" style="display:none" />
+
+<div id="myDiv" class="animate-bottom">
+    <h2>Waiting To</h2>
+    <p id="titleLoading"></p>
+</div>
+<script>
+
+    $(document).ready(function () {
+        var actLogout = $("#actLogout").val();
+
+        if (actLogout == "new") {
+            $("#titleLoading").html("Log Out New System");
+            logoutnew();
+        }
+        else if (actLogout == "legacy") {
+            $("#titleLoading").html("Log Out TBG System Legacy V.1");
+            logoutlegacy();
+        }
+
+        else {
+            $("#titleLoading").html("TBG System Legacy V.1");
+            backward()
+        }
+
+    });
+
+    function backward() {
+        var uid = document.cookie.replace(/(?:(?:^|.*;\s*)uid\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        var pid = document.cookie.replace(/(?:(?:^|.*;\s*)pid\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+        var urlroute = $("#Urlroute").val();
+        var returnUrl = $("#returnUrl").val();
+        urlroute = urlroute + "Redirect.aspx?uid=" + uid + "&pid=" + pid + "&returnurl=" + returnUrl;
+        window.location.href = urlroute;
+    };
+
+    function logoutnew() {
+        var urlroute = $("#Urlroute").val();
+        urlroute = urlroute + "Redirect.aspx?Default.aspx";
+        window.location.href = urlroute;
+    }
+
+    function logoutlegacy() {
+        var urlroute = $("#Urlroute").val();
+        var appid = $("#appid").val();
+        urlroute = urlroute + "Redirect.aspx?actLogout=legacy&appid=" + appid;
+        window.location.href = urlroute;
+    }
+
+</script>
+

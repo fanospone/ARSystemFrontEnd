@@ -1,0 +1,249 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">Details</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-panel" id="taHeightSpaceHCPT">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblHeightSpaceHCPT">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="datatable-col-25" style="text-align:center" valign="middle">No.</th>
+                                    <th rowspan="2" class="datatable-col-50"  valign="middle">Action</th>
+                                    <th colspan="7" style="text-align:center">Antenna</th>
+                                    <th colspan="2" style="text-align:center">Cable</th>
+                                </tr>
+                                <tr>
+                                    
+                                    <th class="datatable-col-200">Model</th>
+                                    <th class="datatable-col-100">Type</th>
+                                    <th class="datatable-col-50">Qty</th>
+                                    <th class="datatable-col-150">Manufacture</th>
+                                    <th class="datatable-col-50">Height</th>
+                                    <th class="datatable-col-100">Dimension</th>
+                                    <th class="datatable-col-50">Azim</th>
+                                    <th class="datatable-col-50">QTY</th>
+                                    <th class="datatable-col-50">Size</th>
+                                    @*<th class="datatable-col-25">Value</th>*@                                    
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tab-panel">
+                        <button type="button" data-dismiss="modal" id="btnAddMoreDtlHCPT" class="btn green">
+                            <i class="fa fa-plus"></i> add more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formHCPT" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Issuing Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="IssuingDateHCPT" class="form-control datepicker" readonly />
+                                            <input type="hidden" id="IDTrxHCPT" />
+                                            <input type="hidden" id="SoNumberHCPT" />
+                                            <input type="hidden" id="StipSiroHCPT" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Effective Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="EffectiveDateHCPT" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Base Lease Fee</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="BaseLeaseFeeHCPT" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formApprHCPT" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanyHCPT" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnHcptSave" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Save
+            </button>
+            <button type="button" data-dismiss="modal" id="btnHcptCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="mdlDetailHCPT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+
+    <div class="modal-dialog modal-lg" style="width:60%">
+        <div class="modal-content col-md-12">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Form Input</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSfAddEquipmentSave" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna Model</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="ModelHCPT" />
+                                        <input type="hidden" id="IDTrxDtlHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna Type</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" id="TypeHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna QTY</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control" id="QTYHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna Height</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control select2" id="HeightHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna Dimession</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="DimensionHCPT" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Antenna Azim</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="AzimHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Cable QTY</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control select2" id="CableQtyHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Cable Size</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="CableSizeHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Value</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="ValueHCPT" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Manufacture</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="ManufactureHCPT" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnDtlHCPTSave" class="btn blue NeedRounding btnSubmitTrx">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnDtlHCPTCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

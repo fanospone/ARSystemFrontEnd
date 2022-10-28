@@ -1,0 +1,389 @@
+﻿<head>
+    <style type="text/css">
+        .auto-style1 {
+            width: 268436064px;
+        }
+        .auto-style2 {
+            width: 268436032px;
+        }
+    </style>
+</head>
+@{
+    Layout = null;
+}
+<div style="font-family: Arial Unicode MS;page-break-after: always;">
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <div>
+                    <img src="~/Content/images/TBGLogo.png" width="100px" height="40px" />
+                </div>
+            </td>
+            <td>
+                <div style="float:right; font-size:11px">
+                    <label>
+                        F M .55-F IN. F IT .ACC/Rev.10/24.09.16
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:center">
+        <h3>
+            <u>FORM PENGAJUAN @ViewBag.RequestType ACCRUE REVENUE</u>
+        </h3>
+    </div>
+    <div style="float:right">
+        <label>No Form : @ViewBag.RequestNumber</label>
+    </div>
+    <br />
+
+    <div style="line-height: 2; font-size:14px">
+        Untuk meminimalisir terjadinya <i>adjusment</i> negatif, dengan ini kami mohon untuk dilakukan :
+        <br />
+        @Html.Raw(ViewBag.StopAccrueChekbox)&nbsp; <label style="color:red"><b>Stop</b></label> <b>Accrue</b> untuk @(ViewBag.AccrueType != "STOP" ? "...." : ViewBag.CountTenant) tenant terlampir
+        <br />
+        @Html.Raw(ViewBag.HoldAccrueChekbox)&nbsp; <label style="color:red"><b>Hold</b> </label> <b>Accrue</b> selama enam (6) bulan, dimulai pada bulan @(ViewBag.AccrueType != "HOLD" ? "...." : ViewBag.StartEffective) untuk  @(ViewBag.AccrueType != "HOLD" ? "" : ViewBag.CountTenant)
+        tenant terlampir.
+        <br />
+        @Html.Raw(ViewBag.ReHolAccrueChekbox)&nbsp; <label style="color:red"><b>Hold</b> </label> <b>Accrue</b> perpanjangan  @(ViewBag.AccrueType != "ReHOLD" ? "...." : ViewBag.CountMonth)   bulan, dimulai pada bulan @(ViewBag.AccrueType != "ReHOLD" ? "...." : ViewBag.StartEffective) untuk  @(ViewBag.AccrueType != "ReHOLD" ? "...." : ViewBag.CountTenant)
+        tenan terlampir
+        <br />
+        <br />
+
+        Alasan dilakukan <b>@ViewBag.RequestType2 Accrue </b> atau  disebabkan karena
+        <br />
+
+        <table style="border: 1px solid black; border-collapse: collapse; text-align: center; font-size:14px"
+               width="100%">
+            <tr>
+                <th rowspan="2" style="border: 1px solid black;">
+                    Jumlah Tenant
+                </th>
+                <th rowspan="2" style="border: 1px solid black;">
+                    Customer
+                </th>
+                <th colspan="3" style="border: 1px solid black;">
+                    Kategori Permasalahan
+                </th>
+                <th rowspan="2" style="border: 1px solid black;">
+                    Total Accrue
+                </th>
+            </tr>
+            <tr>
+                <th style="border: 1px solid black;">
+                    Internal
+                </th>
+                <th style="border: 1px solid black;">
+                    Eksternal
+                </th>
+                <th style="border: 1px solid black;">
+                    Penyebab Utama
+                </th>
+            </tr>
+            @Html.Raw(ViewBag.Summary)
+        </table>
+       <table style="border: 1px solid black; border-collapse: collapse; text-align: center; font-size:14px"
+               width="100%">
+            <tr>
+                <th  style="border: 1px solid black;">
+                    Total
+                </th>
+                 <th width="18%" style="border: 1px solid black;">
+                    @ViewBag.TotalSumAccrue
+                </th>
+
+            </tr>
+        </table>
+            <br />
+            Demikian pengajuan
+            <b>@ViewBag.RequestType2  Accrue </b> revenue ini dibuat.
+            <br />
+            <table style="border: 1px solid black; border-collapse: collapse;font-size:14px" width="100%">
+                <tr>
+                    <td width="33%" style="border: 1px solid black;padding:4px 5px 5px 4px">
+                        Diajukan Oleh,
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivHeadApprUser</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Jabatan
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivHeadJobTitle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td> @ViewBag.DivHeadApprDate ***</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="33%" style="padding:4px 5px 5px 4px">
+                        Diperiksa Oleh,
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.ChiefHeadApprUser</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Jabatan
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.ChiefHeadJobTitle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td> @ViewBag.ChiefHeadApprDate ***</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="border: 1px solid black;padding:4px 5px 5px 4px">
+                        Direkomendasikan Oleh,
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.ChiefMktApprUser</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Jabatan
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.ChiefMktJobTitle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td> @ViewBag.ChiefMktApprDate ***</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; text-align:justify;padding:4px 5px 5px 4px" valign="top">
+                        Catatan :<br /> @ViewBag.DivHeadNoted
+                    </td>
+                    <td style="border-left: 1px solid black; border-top: 1px solid black;text-align:justify;padding:4px 5px 5px 4px" valign="top">
+                        Catatan :<br /> @ViewBag.ChiefHeadNoted
+                    </td>
+                    <td style="border: 1px solid black;text-align:justify;padding:4px 5px 5px 4px" valign="top">
+                        Catatan :<br /> @ViewBag.ChiefMktNoted
+                    </td>
+                </tr>
+            </table>
+            <table style="border: 1px solid black; border-collapse: collapse;font-size:14px" width="100%">
+                <tr>
+                    <td width="50%" style="border: 1px solid black;padding:4px 5px 5px 4px">
+                        Disetujui Oleh,<br />
+                        <b>Chief Financial Officer</b>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="border: 1px solid black;padding:4px 5px 5px 4px">
+                        Disetujui Oleh,<br />
+                        <b>President Director</b>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black;">
+                        Catatan :
+                    </td>
+                    <td style="border: 1px solid black;">
+                        Catatan :
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; font-size:14px;padding:4px 5px 5px 4px">
+                        ****Ditindak lanjuti Oleh,
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAsetApprUser</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Jabatan
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAsetJobTitle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAsetApprDate</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="border: 1px solid black;;padding:4px 5px 5px 4px ">
+                        Ditindak lanjuti Oleh,
+                        <br />
+                        <table style="font-size:14px">
+                            <tr>
+                                <td>
+                                    Nama
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAccApprUser</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Jabatan
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAccJobTitle</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tanggal
+                                </td>
+                                <td>
+                                    :
+                                </td>
+                                <td>@ViewBag.DivAccApprDate</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black;" valign="top">
+                        Catatan :
+                    </td>
+                    <td style="border: 1px solid black; text-align:justify;padding:4px 5px 5px 4px">
+                        Catatan : <br /> @ViewBag.DivAccNoted
+                    </td>
+                </tr>
+            </table>
+            <table width="100%" style="font-size:14px">
+                <tr>
+                    <td width="50%">
+                        *Khusus stop accrue wajib diisi oleh Chief Marketing Officer<br />
+                        **khusus stop accrue wajib diisi oleh Asset Assesment Div.Head
+                    </td>
+                    <td>
+                        *** Electronic Approval
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <table width="100%" style="font-size:14px">
+                <tr>
+                    <td>
+                        Catatan :
+                    </td>
+                    <td>
+                        <i>Hold Accrue</i> hanya berlaku 6 bulan, jika diperpanjang harus menyampaikan <i>Form</i>
+                        Pengajuan <i>Hold Accrue</i> lagi
+                    </td>
+                </tr>
+            </table>
+</div>
+</div>
+
+@Html.Partial("_PrintAttachment")

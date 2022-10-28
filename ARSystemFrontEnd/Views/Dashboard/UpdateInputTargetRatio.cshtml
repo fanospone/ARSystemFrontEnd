@@ -1,0 +1,611 @@
+﻿
+@{
+    ViewBag.Title = "UpdateInputTargetRatio";
+}
+
+<style>
+ 
+.bg-inputPercentage {
+    background-color: #eaf4ff;
+    padding-top: 7px;
+    margin-bottom: 7px;
+}
+.bg-w-inputPercentage {
+    padding-top: 7px;
+    margin-bottom: 7px;
+}
+</style>
+
+
+
+<section id="pnlDetail">
+
+    <div class="row panelFilter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-pencil-square"></i>
+                        <span class="caption-subject"> Update Dashboard Input Target Ration</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <div class="row panelSearchResult">
+                        <div class="col-md-12">
+
+                            <form id="formDashboardInputTarget" class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="col-md-2 p-t-10 bold">Year<i class="font-red"></i></label>
+                                                <div class="col-md-4">
+                                                    <select  id="year" name="year"  class="form-control select2"></select>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 p-t-10 bold">Department Name<i class="font-red"></i></label>
+                                                <div class="col-md-4">
+                                                    <select id="departmentCode" name="departmentCode" class="form-control select2"></select>
+                                                </div>
+  
+                                            </div>
+
+                                            @* JANUARY .............................................. *@
+                                            <div class="col-md-12 form-group bg-w-inputPercentage">
+                                               
+                                                <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">January<i class="font-red"></i></label>
+                                                            </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="jan_optimist" id="jan_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="jan_mostLikely" id="jan_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="jan_pessimist" id="jan_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* FEBRUARY .............................................. *@
+
+                                            <div class="col-md-12 form-group bg-inputPercentage ">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">February<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="feb_optimist" id="feb_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="feb_mostLikely" id="feb_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="feb_pessimist" id="feb_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* MARCH .............................................. *@
+                                            <div class="col-md-12 form-group bg-w-inputPercentage">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">March<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="mar_optimist" id="mar_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="mar_mostLikely" id="mar_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="mar_pessimist" id="mar_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* APRIL .............................................. *@
+                                            <div class="col-md-12 form-group bg-inputPercentage ">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">April<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="apr_optimist" id="apr_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="apr_mostLikely" id="apr_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="apr_pessimist" id="apr_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* MAY .............................................. *@
+                                            <div class="col-md-12 form-group bg-w-inputPercentage">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">May<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="may_optimist" id="may_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="may_mostLikely" id="may_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="may_pessimist" id="may_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* JUNE .............................................. *@
+                                            <div class="col-md-12 form-group bg-inputPercentage ">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">June<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="jun_optimist" id="jun_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="jun_mostLikely" id="jun_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="jun_pessimist" id="jun_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+
+                                                @* JULY .............................................. *@
+                                            <div class="col-md-12 form-group bg-w-inputPercentage">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label class="col-md-12 p-t-10 bold">July<i class="font-red"></i></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Optimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="jul_optimist" id="jul_optimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="jul_mostLikely" id="jul_mostLikely">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                <div class="input-group col-md-7">
+                                                                    <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="jul_pessimist" id="jul_pessimist">
+                                                                    <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                                    @* AUGUST .............................................. *@
+                                                    <div class="col-md-12 form-group bg-inputPercentage ">
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">August<i class="font-red"></i></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Optimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="aug_optimist" id="aug_optimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="aug_mostLikely" id="aug_mostLikely">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="aug_pessimist" id="aug_pessimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @* SEPT .............................................. *@
+                                                    <div class="col-md-12 form-group bg-w-inputPercentage">
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">September<i class="font-red"></i></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Optimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="sep_optimist" id="sep_optimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="sep_mostLikely" id="sep_mostLikely">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="sep_pessimist" id="sep_pessimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @* OCTOBER .............................................. *@
+                                                    <div class="col-md-12 form-group bg-inputPercentage ">
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">October<i class="font-red"></i></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Optimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="oct_optimist" id="oct_optimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="oct_mostLikely" id="oct_mostLikely">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="oct_pessimist" id="oct_pessimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @* NOVEMBER .............................................. *@
+                                                    <div class="col-md-12 form-group bg-w-inputPercentage">
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">November<i class="font-red"></i></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Optimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="nov_optimist" id="nov_optimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="nov_mostLikely" id="nov_mostLikely">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="nov_pessimist" id="nov_pessimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    @* DECEMBER .............................................. *@
+                                                    <div class="col-md-12 form-group bg-inputPercentage ">
+                                                        <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label class="col-md-12 p-t-10 bold">December<i class="font-red"></i></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Optimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Optimist..." aria-describedby="basic-addon2" name="dec_optimist" id="dec_optimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Most Likely</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Most Likely..." aria-describedby="basic-addon2" name="dec_mostLikely" id="dec_mostLikely">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Pessimist</label>
+
+                                                                        <div class="input-group col-md-7">
+                                                                            <input type="text" class="form-control" placeholder="Input Pessimist..." aria-describedby="basic-addon2" name="dec_pessimist" id="dec_pessimist">
+                                                                            <span class="input-group-addon" id="basic-addon2">%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+
+
+                          
+                                                <div class="row">
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-6 col-md-offset-3 center-block">
+                                                            <button type="submit" id="btSubmitTarget" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                <i class="fa fa-save"></i> Save
+                                                            </button>
+                                                            <button type="button" class="btn blue-oleo btResetTarget">
+                                                                <i class="fa fa-chevron-left"></i> Reset
+                                                            </button>
+
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script src="@Url.Content("~/scripts/Dashboard/updateDashboardInputTarget.js")" type="text/javascript"></script>

@@ -1,0 +1,379 @@
+﻿
+@{
+    ViewBag.Title = "AR Process - Invoice Building";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<link href="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css")" rel="stylesheet" type="text/css" />
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Customer Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchCustomerName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Term Period</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchTerm" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompany" class="form-control select2">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice No</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbInvNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Receipt Uploaded</label>
+                                        <div class="col-md-9">
+                                            <div class="mt-radio-inline">
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbAll" name="rbReceipt" value="" checked> All
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbUploaded" name="rbReceipt" value="UPLOADED"> YES
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbNone" name="rbReceipt" value="NONE"> NO
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="submit" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10"></th>
+                                <th class="datatable-col-25"></th>
+                                <th class="datatable-col-150">Invoice No</th>
+                                <th class="datatable-col-100">Invoice Date</th>
+                                <th class="datatable-col-150">Invoice Temp</th>
+                                <th class="datatable-col-100">Term</th>
+                                <th class="datatable-col-250">Company Name</th>
+                                <th class="datatable-col-250">Customer Name</th>
+                                <th class="datatable-col-100">Sub Total</th>
+                                <th class="datatable-col-100">Discount</th>
+                                <th class="datatable-col-100">PPN</th>
+                                <th class="datatable-col-100">Penalty</th>
+                                <th class="datatable-col-100">Currency</th>
+                                <th class="datatable-col-100">Receipt Date</th>
+                                <th class="datatable-col-250">Status Receipt</th>
+                                <th class="datatable-col-200">Receipt File</th>
+                                <th class="datatable-col-10"></th>
+                                <th class="datatable-col-100">Checklist Date</th>
+                                <th class="datatable-col-70">PPH Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* FORM AR RECEIPT *@
+<section id="pnlTransaction">
+    <div class="row panelTransaction ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject" id="panelTransactionTitle"></span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <form id="formTransaction" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Invoice Number</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbInvoiceNo" readonly class="form-control tbInvoiceNo">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Company</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbCompanyName" readonly required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Customer</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbCustomerName" readonly required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Receipt Date<i class="font-red">*</i></label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbReceiptDate" required class="form-control datepicker">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Penalty Amount</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbPenaltyAmount" required class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group" id="divReceiptFile">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-4">
+                                    <input type="hidden" id="hfDocPath" value="@ViewBag.DocPath" />
+                                    <button type="button" class="btn btn-primary" id="btDownload">
+                                        <i class="fa fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Receipt<i class="font-red">*</i></label>
+                                <div class="col-md-4">
+                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                        <div class="form-control" data-trigger="fileinput"> <i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+                                        <span class="input-group-addon btn btn-default btn-file">
+                                            <span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
+                                            <input type="file" name="..." id="fuReceipt" required>
+                                        </span>
+                                        <a href="#" class="input-group-addon btn btn-red fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">PIC Internal</label>
+                                <div class="col-md-4">
+                                    <select class="form-control select2" id="slInternalPIC" required>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Remark</label>
+                                <div class="col-md-4">
+                                    <textarea class="form-control" id="taRemark"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn blue-oleo btCancel">
+                                        <i class="fa fa-chevron-left"></i> Cancel
+                                    </button>
+                                    <button type="submit" id="btSubmit" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                        <i class="fa fa-save"></i> Save
+                                    </button>
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* END OF FORM AR RECEIPT *@
+
+@*FORM PICA AR COLLECTION*@
+<section id="pnlPICA">
+    <div class="row panelPICA ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject" id="panelPICATitle"></span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <form id="formPICA" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Invoice Number</label>
+                                <div class="col-md-4">
+                                    <input type="text" id="tbPICAInvoiceNo" readonly class="form-control tbInvoiceNo">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">PICA Type</label>
+                                <div class="col-md-4">
+                                    <select class="form-control select2" id="slPICAType" required></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">PICA Major</label>
+                                <div class="col-md-4">
+                                    <select class="form-control select2" id="slPICAMajor" required></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">PICA Detail</label>
+                                <div class="col-md-4">
+                                    <select class="form-control select2" id="slPICADetail" required></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Remark</label>
+                                <div class="col-md-4">
+                                    <textarea class="form-control" id="taRemarkPICA" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-4">
+                                    <button type="button" class="btn blue-oleo btCancelPICA">
+                                        <i class="fa fa-chevron-left"></i> Cancel
+                                    </button>
+                                    <a class="btn blue mt-ladda-btn ladda-button" id="btPrint" data-style="zoom-in">
+                                        <i class="fa fa-print"></i> Print
+                                    </a>
+                                    <button type="submit" id="btSubmitPICA" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                        <i class="fa fa-save"></i> Save
+                                    </button>
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    
+@*END OF FORM PICA AR COLLECTION*@
+
+@*FORM DETAIL INVOICE*@
+<section id="pnlInvoiceDetail">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject" id="pnlDetailTitle"></span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblInvoiceDetail">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10">No.</th>
+                                <th class="datatable-col-250">Customer Name</th>
+                                <th class="datatable-col-50">Term</th>
+                                <th class="datatable-col-50">Area</th>
+                                <th class="datatable-col-100">Price per Meter</th>
+                                <th class="datatable-col-100">Price per Monthly</th>
+                                <th class="datatable-col-50">Currency</th>
+                                <th class="datatable-col-100">Start Period</th>
+                                <th class="datatable-col-100">End Period</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn blue-oleo btCancelInvoiceDetail">
+                                    <i class="fa fa-chevron-left"></i> Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*END OF FORM DETAIL INVOICE*@
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/invoicetransaction/TrxARProcessInvoiceBuilding.js")" type="text/javascript"></script>
+

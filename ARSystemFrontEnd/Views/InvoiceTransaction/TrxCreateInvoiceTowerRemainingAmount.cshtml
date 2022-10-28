@@ -1,0 +1,460 @@
+﻿
+@{
+    ViewBag.Title = "Create Invoice Tower 15% and 10%";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .DTFC_LeftHeadWrapper {
+        border-bottom: 2px solid #e7ecf1 !important;
+    }
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+    table tbody tr td {
+        font-size: 12px !important;
+    }
+
+    th {
+        font-size: 12px !important;
+        text-align: center;
+    }
+</style>
+
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompanyName" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Operator</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchOperator" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAPS Type</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchBapsType" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">SO Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchSONumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">PO Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchPONumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Period</label>
+                                        <div class="col-md-9">
+                                            <div class="col-md-5">
+                                                <input type="text" id="tbStartPeriod" size="16" class="form-control">
+                                            </div>
+                                            <div class="col-md-1">
+                                                To
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" id="tbEndPeriod" size="16" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="divPercent">
+                                        <label class="col-md-3 control-label">Percentage</label>
+                                        <div class="col-md-9">
+                                            <div class="mt-radio-inline">
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbAll" name="rbPercent" value="0" checked> All
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbPercent15" name="rbPercent" value="4"> 15%
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbPercent10" name="rbPercent" value="5"> 10%
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice Type</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchInvoiceType" class="form-control select2">
+                                                <option></option>
+                                                <option value="NEW">NEW</option>
+                                                <option value="RENEWAL">RENEWAL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Term Invoice</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchTermInvoice" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Regional</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchRegional" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice Status</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchInvoiceStatus" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAPS Number</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchBAPSNumber" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Site ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchSiteIdOld" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+
+                <div class="portlet-body Staff">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10 select-all">
+                                </th>
+                                <th class="datatable-col-70">SO Number</th>
+                                <th class="datatable-col-70">Site ID Opr</th>
+                                <th class="datatable-col-70">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-70">Company Invoice</th>
+                                <th class="datatable-col-70">Operator Invoice</th>
+                                <th class="datatable-col-100">PO Number</th>
+                                <th class="datatable-col-75">Start Date Receivable</th>
+                                <th class="datatable-col-75">End Date Receivable</th>
+                                <th class="datatable-col-200">BAPS No</th>
+                                <th class="datatable-col-75">Basic</th>
+                                <th class="datatable-col-75">Maintenance</th>
+                                <th class="datatable-col-75">Amount Invoice</th>
+                                <th class="datatable-col-75">Start Date</th>
+                                <th class="datatable-col-75">End Date</th>
+                                <th class="datatable-col-75">Amount PPN</th>
+                                <th class="datatable-col-75">Amount Loss PPN</th>
+                                <th class="datatable-col-70">Company ID</th>
+                                <th class="datatable-col-70">Operator</th>
+                                <th class="datatable-col-70">Invoice Type</th>
+                                <th class="datatable-col-70">Invoice Term</th>
+                                <th class="datatable-col-70">BAPS Type</th>
+                                <th class="datatable-col-75">Power Type</th>
+                                <th class="datatable-col-50">Currency</th>
+                                <th class="datatable-col-100">BAPS Status</th>
+                                <th class="datatable-col-200">Return Remarks</th>
+                                @*<th class="datatable-col-50">Is Partial</th>*@
+                                <th class="datatable-col-50">Is Loss PPN</th>
+                                <th class="datatable-col-70">PPH Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="row">
+                        <button type="button" id="btAddSite" class="btn green">
+                            <i class="fa fa-check"></i> Add Site
+                        </button>
+                        <button type="button" id="btReturn" class="btn red">
+                            <i class="fa fa-times"></i> Return To
+                        </button>
+                    </div>
+                </div>
+
+                <div class="portlet-body DeptHead">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryDataDeptHead">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10 select-all-dept-head">
+                                    @*<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" name="SelectAllDeptHead" class="group-checkable" id="checkParent" data-set="#tblSummaryDataDeptHead .checkboxes" />
+                                        <span></span>
+                                    </label>*@
+                                </th>
+                                <th class="datatable-col-70">SO Number</th>
+                                <th class="datatable-col-70">Site ID Opr</th>
+                                <th class="datatable-col-70">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-70">Company Invoice</th>
+                                <th class="datatable-col-70">Operator Invoice</th>
+                                <th class="datatable-col-100">PO Number</th>
+                                <th class="datatable-col-75">Start Date Receivable</th>
+                                <th class="datatable-col-75">End Date Receivable</th>
+                                <th class="datatable-col-200">BAPS No</th>
+                                <th class="datatable-col-75">Basic</th>
+                                <th class="datatable-col-75">Maintenance</th>
+                                <th class="datatable-col-75">Amount Invoice</th>
+                                <th class="datatable-col-75">Status</th>
+                                <th class="datatable-col-200">Cancel Remarks</th>
+                                <th class="datatable-col-75">Start Date</th>
+                                <th class="datatable-col-75">End Date</th>
+                                <th class="datatable-col-75">Amount PPN</th>
+                                <th class="datatable-col-75">Amount Loss PPN</th>
+                                <th class="datatable-col-70">Company ID</th>
+                                <th class="datatable-col-70">Operator</th>
+                                <th class="datatable-col-70">Invoice Type</th>
+                                <th class="datatable-col-70">Invoice Term</th>
+                                <th class="datatable-col-70">BAPS Type</th>
+                                <th class="datatable-col-75">Power Type</th>
+                                <th class="datatable-col-50">Currency</th>
+                                @*<th class="datatable-col-50">Is Partial</th>*@
+                                <th class="datatable-col-50">Is Loss PPN</th>
+                                <th class="datatable-col-70">PPH Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="row">
+                        <button type="button" id="btApproveCancel" class="btn green">
+                            <i class="fa fa-check"></i> Approve
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelSiteData ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject ">List Checklist</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSiteData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-40">Action</th>
+                                <th class="datatable-col-70">SO Number</th>
+                                <th class="datatable-col-70">Site ID Opr</th>
+                                <th class="datatable-col-70">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-70">Company Invoice</th>
+                                <th class="datatable-col-70">Operator Invoice</th>
+                                <th class="datatable-col-100">PO Number</th>
+                                <th class="datatable-col-100">Start Date Receivable</th>
+                                <th class="datatable-col-100">End Date Receivable</th>
+                                <th class="datatable-col-200">BAPS No</th>
+                                <th class="datatable-col-75">Basic</th>
+                                <th class="datatable-col-75">Maintenance</th>
+                                <th class="datatable-col-75">Amount Invoice</th>
+                                <th class="datatable-col-75">Start Date</th>
+                                <th class="datatable-col-75">End Date</th>
+                                <th class="datatable-col-75">Amount PPN</th>
+                                <th class="datatable-col-75">Amount Loss PPN</th>
+                                <th class="datatable-col-70">Company ID</th>
+                                <th class="datatable-col-70">Operator</th>
+                                <th class="datatable-col-70">Invoice Type</th>
+                                <th class="datatable-col-70">Invoice Term</th>
+                                <th class="datatable-col-70">BAPS Type</th>
+                                <th class="datatable-col-75">Power Type</th>
+                                <th class="datatable-col-50">Currency</th>
+                                @*<th class="datatable-col-50">Is Partial</th>*@
+                                <th class="datatable-col-50">Is Loss PPN</th>
+                                <th class="datatable-col-70">PPH Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 pull-right">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Total</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbTotal" disabled="disabled" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Discount</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbDiscount" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">DPP</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbDPP" disabled="disabled" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">PPN</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbPPN" disabled="disabled" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">PPH</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbPPH" disabled="disabled" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Penalty</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbPenalty" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Total Invoice</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbTotalInvoice" disabled="disabled" class="form-control text-right">
+                        </div>
+                    </div>&nbsp;
+                </div>
+
+                <div class="col-md-3 pull-right">
+                    <div class="form-group">
+                        <label class="col-md-6 control-label">Use PPN?</label>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="chPPN" checked class="make-switch" data-on-text="YES" data-off-text="NO">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group" id="divRounding">
+                        <label class="col-md-6 control-label">Round Down?</label>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="chRounding" checked class="make-switch" data-on-text="YES" data-off-text="NO">
+                        </div>
+                    </div>&nbsp;
+                    <div class="form-group" id="divPPH">
+                        <label class="col-md-6 control-label">Use PPH?</label>
+                        <div class="col-md-6">
+                            <input type="checkbox" id="chPPH" checked class="make-switch" data-on-text="YES" data-off-text="NO">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row col-md-12 pull-right">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label text-right">Terbilang</label>
+                        <div class="col-md-9">
+                            <input type="text" id="tbTerbilang" disabled="disabled" class="form-control">
+                        </div>
+                    </div>&nbsp;
+                </div>
+                <div class="row col-md-12 text-center">
+                    <button type="button" id="btCreateInvoice" class="btn green">
+                        <i class="fa fa-check"></i> Create Invoice
+                    </button>
+
+                    <button type="button" id="btCancel" class="btn red">
+                        <i class="fa fa-times"></i> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="mdlCancelInvoice" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Cancel Invoice</h4>
+            </div>
+            <form id="formReject">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label text-center">Do You Want to Cancel This Invoice?</label>
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                <textarea class="form-control disabledCtrl" rows="3" id="tbRemarksCancel" required></textarea>
+                            </div>
+                            <button type="submit" id="btRequest" class="btn green">
+                                <i class="fa fa-check"></i> Request
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btNoReject" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="hidden" id="hdPPHValue" value="@ViewBag.PPHValue" />
+<input type="hidden" id="hdPPFValue" value="@ViewBag.PPFValue" />
+<input type="hidden" id="hdPPNValue" value="@ViewBag.PPNValue" />
+<script src="@Url.Content("~/scripts/invoicetransaction/TrxCreateInvoiceTowerRemainingAmount.js")" type="text/javascript"></script>

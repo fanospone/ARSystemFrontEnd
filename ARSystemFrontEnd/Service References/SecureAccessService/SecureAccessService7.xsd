@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.General.DashboardNavigation" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.General.DashboardNavigation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:complexType name="vmDashboardNavigation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q1:BaseClass">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CategoryName" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="DashboardList" nillable="true" type="q3:ArrayOfvwDashboardNavigation" />
+          <xs:element minOccurs="0" name="DirectorateName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmDashboardNavigation" nillable="true" type="tns:vmDashboardNavigation" />
+</xs:schema>

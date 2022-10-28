@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d220d3b-7c5f-4160-9380-efdb3db325eb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.8.0.222:8807/ARSystemService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ARSystemService.xsd" MetadataType="Schema" ID="c7beb0dd-60f7-4e9a-b057-eea50ea94e11" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ARSystemService1.xsd" MetadataType="Schema" ID="329ea9cd-c95f-4ed8-b9dd-42e3df25a502" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ARSystemService.wsdl" MetadataType="Wsdl" ID="8476bcb3-236e-4fc7-88ae-f41e39617628" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?wsdl" />
+    <MetadataFile FileName="ARSystemService2.xsd" MetadataType="Schema" ID="90cf3a2f-a318-4e55-bd4f-93e07a8d247a" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ARSystemService3.xsd" MetadataType="Schema" ID="9b83b49e-7920-42c9-8bdc-b35c1e407bd0" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ARSystemService4.xsd" MetadataType="Schema" ID="368acdfb-90ad-46da-83cd-e15997d1aea9" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ARSystemService5.xsd" MetadataType="Schema" ID="4ca75eba-3cc4-4d52-bffc-fbc63d1e1590" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ARSystemService6.xsd" MetadataType="Schema" ID="fd2a81fa-063b-48c3-976f-fed5c6046fd3" SourceId="1" SourceUrl="http://10.8.0.222:8807/ARSystemService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

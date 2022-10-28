@@ -1,0 +1,51 @@
+﻿@using ARSystemFrontEnd.Helper
+
+<div class="row" style="margin-bottom:7px">
+    <div class="col-md-12" style="text-align: right">
+        <button type="button" id="btnRejExport" class="btn green btn-outline">
+            <i class="fa fa-file-excel-o"></i>&nbsp; Excel
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered table-hover" id="tblReject" cellspacing="0">
+            <thead>
+                <tr>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle" id="txtRejGroup">Customer</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">Rejected BAUK Qty <br /> (Unique)</th>
+                    <th colspan="5" class="text-center">Reason Reject</th>
+                </tr>
+                <tr>
+                    <th class="text-center" style="max-width: 15%">Improper Content</th>
+                    <th class="text-center" style="max-width: 15%">Uncompleted Document</th>
+                    <th class="text-center" style="max-width: 15%">Wrong Upload</th>
+                    <th class="text-center" style="max-width: 15%">Others</th>
+                    <th class="text-center">Percentage</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th style="text-align:center">Total:&nbsp;&nbsp;</th>
+                    <th id="totRej"></th>
+                    <th id="totImp"></th>
+                    <th id="totUnc"></th>
+                    <th id="totWro"></th>
+                    <th id="totOth"></th>
+                    <th id="totPrc"></th>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align:center">Percentage By Status:</th>
+                    <th style="text-align:center" id="prcImp"></th>
+                    <th style="text-align:center" id="prcUnc"></th>
+                    <th style="text-align:center" id="prcWro"></th>
+                    <th style="text-align:center" id="prcOth"></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+<script src="@Url.ContentVersion("~/scripts/DashboardBAUK/_BAUKRejectSummary.js")"></script>

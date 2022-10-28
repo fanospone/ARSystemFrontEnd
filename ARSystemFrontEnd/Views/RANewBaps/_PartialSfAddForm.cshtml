@@ -1,0 +1,271 @@
+﻿<div class="tab-content">
+    <div class="tab-pane active" id="tabRaw">
+        <form id="formSearch" class="form-horizontal" role="form">
+            <div class="form-body">
+
+                <div class="row portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-blue-steel">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="caption-subject">Form Input</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">BAPS Number</label>
+                            <div class="col-md-8">
+                                <input type="hidden" id="IDTrxSfAdd" class="form-control" />                                                              
+                                <input type="text" id="BapsNumberSfAdd" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Proposal Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="ProposalNumberSfAdd" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Start Date Lease</label>
+                            <div class="col-md-8">
+                                <input type="text" id="StartDateLeaseSfAdd" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">End Date Lease</label>
+                            <div class="col-md-8">
+                                <input type="text" id="EndDateLeaseSfAdd" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                                       
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">Start Addtional Lease 1</label>
+                            <div class="col-md-7">
+                                <input type="text" id="StartAdditionalLeaseDateSfAdd" class="form-control datepicker" readonly />
+                            </div>
+                        </div>       
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">End Addtional Lease 1</label>
+                            <div class="col-md-7">
+                                <input type="text" id="EndAdditionalLeaseDateSfAdd" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">Lease Price 1</label>
+                            <div class="col-md-7">
+                                <input type="number" id="AdditionalLeaseSfAdd" class="form-control currency" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" currency="IDR" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">Start Addtional Lease 2</label>
+                            <div class="col-md-7">
+                                <input type="text" id="StartAdditionalLeaseDateSfAdd2" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">End Addtional Lease 2</label>
+                            <div class="col-md-7">
+                                <input type="text" id="EndAdditionalLeaseDateSfAdd2" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">Lease Price 2</label>
+                            <div class="col-md-7">
+                                <input type="number" id="AdditionalLeaseSfAdd2" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="row panelSfAddEquipment">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-blue-steel">
+                                        <i class="fa fa-table"></i>
+                                        <span class="caption-subject">Equipment</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tabEquipmentListSfAdd">
+                                            <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblEquipmentListSfAdd">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="datatable-col-25">#Row</th>
+                                                        <th class="datatable-col-25">Action</th>
+                                                        <th class="datatable-col-100">Type Of Antenna</th>
+                                                        <th class="datatable-col-50">Quantity</th>
+                                                        <th class="datatable-col-100">Dimension</th>
+                                                        <th class="datatable-col-100">Model</th>
+                                                        <th class="datatable-col-50">Height</th>
+                                                        <th class="datatable-col-50"></th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                            <div class="tab-panel">
+                                                <button type="button" data-dismiss="modal" id="btnAddEquipmentSfAdd" class="btn blue">
+                                                    <i class="fa fa-plus"></i> add more
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row portlet light bordered dualApproval">
+                            <div class="portlet-title">
+                                <div class="caption font-blue-steel">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <span class="caption-subject">Approval Form</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-6 font-blue">
+                                        <span class="caption-subject">## Approval Company ##</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Approval Name </label>
+                                    <div class="col-md-6">
+                                        <select id="slApprCompanySfAdd" class="form-control select2 slApprCompany"></select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-6 font-blue">
+                                        <span class="caption-subject">## Approval Customer ##</span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Approval Name </label>
+                                    <div class="col-md-6">
+                                        <select id="slApprCustomerSfAdd" class="form-control select2 slApprCustomer"></select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-actions text-center">
+                            <button type="button" data-dismiss="modal" id="btnSfAddSave" class="btn blue NeedRounding">
+                                <i class="fa fa-save"></i> Submit
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btnSfAddCancel" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlSfAddEquipmentSave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+
+    <div class="modal-dialog modal-lg" style="width:45%">
+        <div class="modal-content col-md-12">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Form Input</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSfAddEquipmentSave" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">Type Of Antenna</label>
+                                    <div class="col-md-7">
+                                        <input type="hidden" class="form-control select2" id="SoNumberSfAdd" />
+                                        <input type="hidden" class="form-control select2" id="StipSiroSfAdd" />
+                                        <input type="hidden" class="form-control select2" id="IdEquipSfAdd" />
+                                        <input type="text" class="form-control select2" id="AntennaTypeSfAdd" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Quantity</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control select2" id="QtySfAdd" />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Dimensions</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="DimensionSfAdd" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Model</label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control select2" id="ModelSfAdd" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">Height</label>
+                                    <div class="col-md-7">
+                                        <input type="number" class="form-control select2" id="HeightSfAdd" placeholder="max: 100" min="10" max="100"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnEquipmentSfAddSave" class="btn blue NeedRounding">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnEquipmentSfAddCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

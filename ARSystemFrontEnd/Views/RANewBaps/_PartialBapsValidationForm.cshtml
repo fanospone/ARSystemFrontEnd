@@ -1,0 +1,173 @@
+﻿<div class="tab-content">
+    <div class="tab-pane active" id="tabRaw">
+        <form id="formSearch" class="form-horizontal" role="form">
+            <div class="form-body">
+
+                <div class="row portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-blue-steel">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="caption-subject">Project Information</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">                     
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Number</label>
+                            <div class="col-md-8">
+                                <input type="hidden" id="IDTrxBapsVal" />
+                                <input type="hidden" id="SiroVal" />
+                                <input type="hidden" id="SoNumberVal" />     
+                                <input type="hidden" id="BapsTypeIDVal" />
+                                <input type="hidden" id="CompanyInvoiceIDVal" />
+                                <input type="hidden" id="CustomerIDVal" />     
+                                <input type="text" id="PoNumberVal" class="form-control" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">PO Date</label>
+                            <div class="col-md-8">
+                                <input type="text" id="PoDateVal" class="form-control datepicker" readonly disabled="disabled"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">MLA Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="MLAnumberVal" class="form-control" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">MLA Date</label>
+                            <div class="col-md-8">
+                                <input type="text" id="MLAdateVal" class="form-control datepicker" readonly disabled="disabled" />
+                            </div>
+                        </div>     
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Initital PO Amount</label>
+                            <div class="col-md-8">
+                                <input type="number" id="InitialPoAmountVal" class="form-control" readonly />
+                            </div>
+                        </div>                                                     
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">BAUK Number</label>
+                            <div class="col-md-8">
+                                <input type="text" id="BaukNumberVal" class="form-control" readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">BAUK Date</label>
+                            <div class="col-md-8">
+                                <input type="text" id="BaukDateVal" class="form-control datepicker" readonly disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Start Of Lease Priod</label>
+                            <div class="col-md-8">
+                                <input type="text" id="StartLeasePeriodVal" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">End Of Lease Priod</label>
+                            <div class="col-md-8">
+                                <input type="text" id="EndLeasePeriodVal" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Total PO Amount</label>
+                            <div class="col-md-8">
+                                <input type="number" id="TotalPoAmountVal" class="form-control" readonly />
+                            </div>
+                        </div>      
+                          
+                        @*<div class="form-group">
+                            <label class="col-md-4 control-label">Invoice Type</label>
+                            <div class="col-md-8">
+                               <select id="InvoiceTypeIDVal" class="form-control select2"></select>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+                <br />
+                <div class="row portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-blue-steel">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="caption-subject">Group Name</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">                       
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Base Lease Price</label>
+                            <div class="col-md-8">
+                                <input type="number" id="BaseLeasePriceVal" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Base Lease Price Currency</label>
+                            <div class="col-md-8">
+                               <select id="BaseLeaseCryVal" class="form-control">
+                                   @*<option value="IDR">IDR</option>
+                                   <option value="USD">USD</option>*@
+                               </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Start Of Effective Period</label>
+                            <div class="col-md-8">
+                                <input type="text" id="StartEffectiveDateVal" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Remarks</label>
+                            <div class="col-md-8">
+                                <input type="text" id="RemarksVal" class="form-control" />
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Service Price</label>
+                            <div class="col-md-8">
+                                <input type="number" id="ServicePriceVal" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Price Currency</label>
+                            <div class="col-md-8">
+                                <select id="ServiceCryVal" class="form-control">
+                                    @*<option value="IDR">IDR</option>
+                                    <option value="USD">USD</option>*@
+                                </select>
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">End Of Effective Period</label>
+                            <div class="col-md-8">
+                                <input type="text" id="EndEffectiveDateVal" class="form-control datepicker" readonly />
+                            </div>
+                        </div>         
+                                                         
+                    </div>
+                </div>                
+                <br />                                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-actions text-center">
+                            <button type="button" data-dismiss="modal" id="btnBapsValidationSave" class="btn blue NeedRounding">
+                                <i class="fa fa-save"></i> Save
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btnBapsValidationCancel" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+

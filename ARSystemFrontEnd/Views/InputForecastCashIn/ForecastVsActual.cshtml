@@ -1,0 +1,248 @@
+﻿@model List<ARSystemFrontEnd.Domain.Models.trxARCashInForecastApprovalLog>
+@{
+
+
+    int currentQuarter = Convert.ToInt32(Math.Floor((decimal)((DateTime.Today.AddMonths(-1).Month) + 2) / 3));
+    int currentQuarterForecast = Convert.ToInt32(Math.Floor((decimal)((DateTime.Today.Month) + 2) / 3));
+    string[] monthsOfQuarters = (currentQuarter == 1) ? monthsOfQuarters = new string[] { "JAN", "FEB", "MAR" } : (currentQuarter == 2) ? monthsOfQuarters = new string[] { "APR", "MAY", "JUN" } :
+        (currentQuarter == 3) ? monthsOfQuarters = new string[] { "JUL", "AUG", "SEP" } : (currentQuarter == 4) ? monthsOfQuarters = new string[] { "OCT", "NOV", "DEC" } : new string[] { "","","" };
+    int numberOfMonthWithinQuarter = 0;
+    int startMonth = currentQuarter * 3 - 2;
+    for (int i = 0; i < 3; i++)
+    {
+        if(DateTime.Today.AddMonths(-1).Month == (startMonth + i))
+        {
+            numberOfMonthWithinQuarter = i + 1;
+        }
+    }
+
+
+      }
+<style>
+        table tbody tr td {
+        font-size: 12px !important;
+    }
+
+    th {
+        font-size: 12px !important;
+        text-align: center;
+    }
+    .popover-edit-pica-grid,.popover-edit-forecast-marketing-grid,.popover-edit-forecast-finance-grid, .popover-edit-forecast-grid{
+        background-color: white;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 2px;  
+    width: 110px;
+    min-height: 23px;
+    }
+    .bg-color-blue{
+        background-color:#3598dc;
+        color: white;
+    }
+</style>
+<section id="gridPnltrxARInputForecastVsActual">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold">Input Forecast Vs Actual</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    
+                    <table class="table table-striped table-bordered table-hover" id="tbltrxARInputForecastVsActual" cellspacing="0">
+                        <thead>
+                            <tr>
+                                @*<th rowspan="3"> Act</th>*@
+                                <th rowspan="3"> Operator</th>
+                                <th colspan="18"> <span class="sGridQuarter">@String.Format("Q{0}", currentQuarter)</span></th>
+                            </tr>
+                            <tr>
+                                <th colspan="6" Class="@(numberOfMonthWithinQuarter == 1 ? "bg-color-blue" : "")"> <span class="sGridMonth1">@(monthsOfQuarters[0])</span></th>
+                                <th colspan="6" Class="@(numberOfMonthWithinQuarter == 2 ? "bg-color-blue" : "")"> <span class="sGridMonth2">@(monthsOfQuarters[1])</span></th>
+                                <th colspan="6" Class="@(numberOfMonthWithinQuarter == 3 ? "bg-color-blue" : "")"> <span class="sGridMonth3">@(monthsOfQuarters[2])</span></th>
+                            </tr>
+                            <tr>
+                                <th> FC MKT</th>
+                                <th> FC RA</th>
+                                <th> FC FIN</th>
+                                <th> ACT</th>
+                                <th> VAR</th>
+                                <th> PICA</th>
+
+                                <th> FC MKT</th>
+                                <th> FC RA</th>
+                                <th> FC FIN</th>
+                                <th> ACT</th>
+                                <th> VAR</th>
+                                <th> PICA</th>
+
+                                <th> FC MKT</th>
+                                <th> FC RA</th>
+                                <th> FC FIN</th>
+                                <th> ACT</th>
+                                <th> VAR</th>
+                                <th> PICA</th>
+                            </tr>
+                        </thead>
+                    </table>
+@if (Model != null)
+{
+    int i = 0;
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <i class="fa fa-check-square-o"></i>
+                                        <span class="caption-subject">Approval</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <form id="approvalFormForecastVsActual" name="approvalFormForecastVsActual" class="form-horizontal" role="form">
+                                        <input type="hidden" value="@ViewBag.JogetProcessOID" id="ProcessOID" name="ProcessOID" />
+                                        <div class="form-body p-b-25">
+                                                
+                                                @foreach (var approvalModel in Model.OrderBy(m => m.ApprovalSequence))
+                                                {
+                                                    i = i + 1;
+                                                    <div class="row">
+                                                        <div class="col-md-7 p-l-35">
+                                                            <h5><i class="fa fa-check-square-o p-r-10" aria-hidden="true"></i>@(i == 1 ? "Section Head Approval" : i == 2 ? "Department Head Approval" : "")</h5>
+                                                        </div>
+                                                        @if (i == 2 || (i == 1 && approvalModel.ActionDate != null))
+                                                        {
+                                                            <div class="col-md-7">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">@(approvalModel.ActionDate != null ? "Action By" : "Waiting Approval From")</label>
+                                                                    <label class="col-md-6 p-t-10">@approvalModel.ActionBy</label>
+                                                                    @*<label class="col-md-3 p-t-10">@approvalModel.ActionDate</label>*@
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        
+                                                        <div class="col-md-7">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Action<i class="font-red"></i></label>
+                                                                <div class="col-md-6">
+                                                                    @if (approvalModel.ActionDate != null && 
+                                                                        ((i == 1 && ViewBag.ApprovalStatusCurrentPeriod != "act_ReviseSectionHead") ||
+                                                                        (i == 2 && ViewBag.ApprovalStatusCurrentPeriod == "act_ReviseSectionHead")) )
+                                                                    {
+                                                                        <span class="p-t-10">@approvalModel.Action</span>
+                                                                    }
+                                                                    else if (ViewBag.IsApprovalUser == true && 
+                                                                        ((i == 1 && !(ViewBag.ApprovalStatusCurrentPeriod == "act_DeptHeadApproval" || ViewBag.ApprovalStatusCurrentPeriod == "act_ClosedCashInPeriod")) || 
+                                                                            (i == 2 && ViewBag.ApprovalStatusCurrentPeriod == "act_DeptHeadApproval")) )
+                                                                    {
+                                                                        <select class="form-control" id="approvalActionForecastActual" name="approvalActionForecastActual" )>
+                                                                            <option>Select Action</option>
+                                                                            <option value="Approved" @(approvalModel.Action == "Approved" ? "selected='selected'" : "")>Approved</option>
+                                                                            <option value="Rejected" @(approvalModel.Action == "Rejected" ? "selected='selected'" : "")>Rejected</option>
+                                                                        </select>
+                                                                        <input type="hidden" id="approvalTypeForecastActual" name="approvalTypeForecastActual" value="@approvalModel.ApprovalType"/>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <span class="p-t-10">@approvalModel.Action</span>
+                                                                    }
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Remarks<i class="font-red"></i></label>
+                                                                <div class="col-md-6">
+                                                                @if (approvalModel.ActionDate != null && 
+                                                                    ((i == 1 && ViewBag.ApprovalStatusCurrentPeriod != "act_ReviseSectionHead") ||
+                                                                    (i == 2 && ViewBag.ApprovalStatusCurrentPeriod == "act_ReviseSectionHead")))
+
+                                                                {
+                                                                    <span class="p-t-10">@approvalModel.Remarks</span>
+                                                                }
+                                                                else if (ViewBag.IsApprovalUser == true &&
+                                                                        ((i == 1 && !(ViewBag.ApprovalStatusCurrentPeriod == "act_DeptHeadApproval" || ViewBag.ApprovalStatusCurrentPeriod == "act_ClosedCashInPeriod")) ||
+                                                                            (i == 2 && ViewBag.ApprovalStatusCurrentPeriod == "act_DeptHeadApproval")))
+                                                                {
+                                                                    <textarea class="form-control" id="approvalRemarksForecastActual" name="approvalRemarksForecastActual" rows="5" )>@approvalModel.Remarks</textarea>
+
+                                                                }
+                                                                else
+                                                                {
+                                                                    <span class="p-t-10">@approvalModel.Remarks</span>
+                                                                }
+                                                           </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <div class="col-md-3"></div>
+                                                        @if (ViewBag.IsApprovalUser == true)
+                                                        {
+                                                            <div class="col-md-6"><button class="btn green pull-right" id="btnSendApprovalFormFcVsAct"><i class="fa fa-check"></i> Submit</button></div>
+                                                        }
+
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="panelSummaryDetail" style="display: none;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold">Cash In Actual</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover" id="tblSummaryDetail" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Inv. No</th>
+                                <th class="text-center">Inv. Print Date</th>
+                                <th class="text-center">Inv. Operator ID</th>
+                                <th class="text-center">Company Invoice</th>
+                                <th class="text-center">Total Amount</th>
+                                <th class="text-center">Subject</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn blue-oleo btnBack" style="margin:auto" type="button" id="btnBack">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var isFcActApproval = "@ViewBag.IsApprovalUser"
+</script>

@@ -1,0 +1,278 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard XL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .border {
+        display: inline-block;
+        width: 400px;
+        height: 125px;
+        margin: 6px;
+    }
+
+    .form-group.required .control-label:after {
+        content: "*";
+        color: red;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+
+<section id="pnlSummary">
+    @*Filter*@
+
+    @*@Html.Partial("_PartialFilter")*@
+    <div class="row filter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Customer</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchCustomer" class="form-control select2" disabled>
+                                                <option value="XL" selected>XL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchCompany" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Stip Category</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchStip" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Bauk Done (Year)</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchYear" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Tenant Type</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchTenant" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" onclick="Form.ResetFilter();" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabRaw">
+                            <table class="table table-responsive table-striped table-bordered table-hover datatable-custom-width" id="tblDashboard" ">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">No</th>
+                                        <th width="25%">Milestone</th>
+                                        <th>1 - 5 Days</th>
+                                        <th>6 - 10 Days</th>
+                                        <th>11 - 15 Days</th>
+                                        <th>16 - 20 Days</th>
+                                        <th>>21 Days</th>
+                                        <th width="10%">Total Site</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bodytable">
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<section id="pnlDetail">
+    @*Panel Header Transaction*@
+    <div class="row pnlDetail">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject">Data Detail</span>
+                    </div>
+                </div>
+                <div class="portlet-body Detail">
+
+                    <table class="table  table-responsive table-striped table-bordered table-hover" id="tblDetail">
+                        <thead>
+                            <tr>
+                                <th>PICA</th>
+                                <th>SONumb</th>
+                                <th>Site ID</th>
+                                <th>Site Name</th>
+                                <th>Site ID Opr</th>
+                                <th>Site Name Opr</th>
+                                <th>Customer ID</th>
+                                <th>Company ID</th>
+                                <th>BAUK Done</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                </div>
+                <div class="portlet-body">
+                    <form id="formMaster" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group" id="divFormButtons">
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn blue-oleo btCancel" id="btCancelDetail">
+                                                <i class="fa fa-chevron-left"></i> Close
+                                            </button>
+                                        </div>
+                                        <div class="col-md-5"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="mdlPICA" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="lblAction">Action</h4>
+            </div>
+            <form id="formUpdatePICA">
+                <div class="modal-body">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Sonumb </label>
+                                <input type="text" id="tbSonumb" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Site ID </label>
+                                <input type="text" id="tbSiteID" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Site Name </label>
+                                <input type="text" id="tbSiteName" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Site ID Opr </label>
+                                <input type="text" id="tbSiteIDOpr" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Site Name Opr </label>
+                                <input type="text" id="tbSiteNameOpr" class="form-control" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="display:none;">SIRO </label>
+                                <input type="hidden" id="tbHdnSiro" class="form-control" readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Type Process</label>
+                                <select id="slTypeProcess" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Type PICA</label>
+                                <select id="slTypePICA" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Category PICA </label>
+                                <select id="slCategoryPICA" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Detail PICA </label>
+                                <textarea class="form-control" rows="3" id="tbRemarks" placeholder="Remarks" required></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btSavePICA" class="btn green">
+                                <i class="fa fa-print"></i> Save
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btCancelPICA" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/scripts/DashboardRA/DashboardXL.js")" type="text/javascript"></script>

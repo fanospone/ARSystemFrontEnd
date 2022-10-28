@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARSystem.Domain.Repositories</RootNamespace>
+    <AssemblyName>ARSystem.Domain.Repositories</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstracts\BaseRepository.cs" />
+    <Compile Include="Extensions\IDataRecordExtensions.cs" />
+    <Compile Include="Extensions\IDbCommandExtensions.cs" />
+    <Compile Include="Helpers\DataReaderExtensions.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccountPayable\vwDwhAPTenantCostRepository.cs" />
+    <Compile Include="Repositories\AccountPayable\vwDwhAPTenantRevenueRepository.cs" />
+    <Compile Include="Repositories\AccountPayable\vwDwhSummaryDataAPRepository.cs" />
+    <Compile Include="Repositories\AccountPayable\vwSummaryAPTenantRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\dwhAccrueListDataRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccrueDepartmentRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccrueMappingSOWRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccruePICADetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccruePICARepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccrueRootCauseRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccrueSettingAutoConfirmRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstAccrueStatusRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstCompanyRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstCustomerRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstProvinceRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\mstRegionRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\trxDataAccrueLogRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\trxDataAccrueRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\trxUploadDataAccrueRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\trxUploadDataAccrueStagingRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vmAccrueLogUserConfirmRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwAccrueDirectorateRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwAccrueFinalConfirmRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwAccrueListRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwAccrueMstSOWRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwEmployeeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwidxAccrueUserSOWRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwmstAccrueSettingAutoConfirmRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwtrxDataAccrueRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwtrxDataAccrueTempRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwtrxUploadDataAccrueRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Accrue\vwtrxUploadDataAccrueStagingRepository.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\FilterARRMonitoringCashInRemarkRepositoryCustoms.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkApprovalLogRepository.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailQuarterlyRepository.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailWeeklyRepository.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailMonthlyRepository.cs" />
+    <Compile Include="Repositories\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\InputForecast\trxARCashInActualDetailsRepository.cs" />
+    <Compile Include="Repositories\ARSystem\InputForecast\trxARCashInForecastApprovalLogRepository.cs" />
+    <Compile Include="Repositories\ARSystem\InputForecast\trxARCashInForecastVsActualRepository.cs" />
+    <Compile Include="Repositories\ARSystem\InputForecast\trxARCashInForecastVsForecastRepository.cs" />
+    <Compile Include="Repositories\ARSystem\DashboardInvoiceProduction\vwDashboardInvoiceProductionDetailsRepository.cs" />
+    <Compile Include="Repositories\ARSystem\DashboardInvoiceProduction\vwDashboardInvoiceProductionHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Invoice\logCounterInvoiceHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Invoice\TrxARReOpenPaymentDateDetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Invoice\TrxARReOpenPaymentDateRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Invoice\vwReportInvoiceTowerByInvoiceRepository.cs" />
+    <Compile Include="Repositories\ARSystem\Invoice\vwReportInvoiceTowerBySoNumberRepository.cs" />
+    <Compile Include="Repositories\ARSystem\logArActivityRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstArLogDateKpiRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstARRevSysParameterRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstARSystemConstantsRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstBAPSConfirmValidateRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstBapsPowerTypeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstBapsTypeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstEmailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstEmployeeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstInvoiceStatusRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstPICADetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\mstPICATypeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\mstStopAccrueApprovalStatusRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\mstStopAccrueCategoryCaseRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\mstStopAccrueDetailCaseRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\mstStopAccrueRoleLabelRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\mstStopAccrueTypeRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\TBGSysRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\trxStopAccrueDetailFileRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\trxStopAccrueDetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\trxStopAccrueHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueDashboardDetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueDashboardHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueDetailPrintRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueDetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueExportToExcelRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccruePrintSummaryRepository.cs" />
+    <Compile Include="Repositories\ARSystem\StopAccrue\vwStopAccrueSonumbListRepository.cs" />
+    <Compile Include="Repositories\ARSystem\trxArActivityLogRepository.cs" />
+    <Compile Include="Repositories\ARSystem\trxArDetailRepository.cs" />
+    <Compile Include="Repositories\ARSystem\trxArHeaderRepository.cs" />
+    <Compile Include="Repositories\ARSystem\trxBapsDataRepository.cs" />
+    <Compile Include="Repositories\ARSystem\trxBapsRejectRepository.cs" />
+    <Compile Include="Repositories\ARSystem\TrxBapsStagingRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwBAPSDataRejectRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwBAPSDataRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwChangePPHFinalRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwDataBAPSConfirmRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwElectricityDataRejectRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwElectricityDataRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwNotificationRepository.cs" />
+    <Compile Include="Repositories\ARSystem\vwRAReconcileRepository.cs" />
+    <Compile Include="Repositories\DashboardDynamic\DynamicDashboardRepository.cs" />
+    <Compile Include="Repositories\DashboardDynamic\mstDashboardTemplateRepository.cs" />
+    <Compile Include="Repositories\DashboardDynamic\mstDataSourceDashboardRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\dwhRAOutstandingTSELGenerateDetailRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\MstRASectionProductRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\MstRASowProductRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\MstRATargetNewBapsRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\MstRATargetRecurringRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\vwGetDashboardLeadTimeRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\vwGetInvoiceRecurringRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\vwRABapsSiteRepository.cs" />
+    <Compile Include="Repositories\DashboardTSEL\vwRADetailSiteRecurringRepository.cs" />
+    <Compile Include="Repositories\HTBGDWH01\TBGARSystem\vwDashBoardMonitoringCNInvoiceDetailRepository.cs" />
+    <Compile Include="Repositories\HTBGDWH01\TBGARSystem\vwDashBoardMonitoringCNInvoiceRepository.cs" />
+    <Compile Include="Repositories\HTBGDWH01\TBGARSystem\vwHistoryCNInvoiceARDataRepository.cs" />
+    <Compile Include="Repositories\HTBGDWH01\TBGARSystem\vwInvoiceHeaderListRepository.cs" />
+    <Compile Include="Repositories\HumanCapital\vwMstDepartmentRepository.cs" />
+    <Compile Include="Repositories\ISPInvoiceInformation\vwISPBAPSNewInformationRepository.cs" />
+    <Compile Include="Repositories\ISPInvoiceInformation\vwISPInvoiceInformationDetailRepository.cs" />
+    <Compile Include="Repositories\ISPInvoiceInformation\vwISPInvoiceInformationRepository.cs" />
+    <Compile Include="Repositories\ISPInvoiceInformation\vwISPSalesSystemInformationRepository.cs" />
+    <Compile Include="Repositories\LogErrorRepository.cs" />
+    <Compile Include="Repositories\MstInitialDepartmentRepository.cs" />
+    <Compile Include="Repositories\mstRoleGroupDashboardRepository.cs" />
+    <Compile Include="Repositories\Notification\NotificationRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardRAPotential\DashboardPotentialSIRORepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardRAPotential\dwhDashboardPotentialRFITo1stBAPSBillingDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIAchievementDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIDoneNOverdueByGroupRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTILeadTimeDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIDoneNOverdueDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIDoneNOverdueByStatusRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTILeadTimeRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIDoneNOverdueRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\RTIAchievementRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\vwMonitoringBapsDoneDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Dashboard\vwMonitoringBapsDoneHeaderRepository.cs" />
+    <Compile Include="Repositories\RASystem\MasterData\mstApprovalStatusRepository.cs" />
+    <Compile Include="Repositories\RASystem\MasterData\MstRAAmountTargetRepository.cs" />
+    <Compile Include="Repositories\RASystem\MasterData\mstRAUserGroupRepository.cs" />
+    <Compile Include="Repositories\RASystem\PICA\GetDropDownListRepository.cs" />
+    <Compile Include="Repositories\RASystem\PICA\RADashboardPICARepository.cs" />
+    <Compile Include="Repositories\RASystem\Transaction\TrxRAAmountTargetDetailRepository.cs" />
+    <Compile Include="Repositories\RASystem\Transaction\TrxRAAmountTargetLogRepository.cs" />
+    <Compile Include="Repositories\RASystem\Transaction\TrxRAAmountTargetRepository.cs" />
+    <Compile Include="Repositories\RASystem\Transaction\trxReconcileRepository.cs" />
+    <Compile Include="Repositories\RASystem\Transaction\vwTrxAmountTargetRepository.cs" />
+    <Compile Include="Repositories\Report Template\mstRAGeneratorPDFRepository.cs" />
+    <Compile Include="Repositories\Report Template\vwReportTemplateRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ARSystem\TrxARReOpenPaymentDateByCompanyRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ARSystem\TrxARReOpenPaymentDateDetailByCompanyRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ChangePPHFinalRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKAchievementDetailRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKAchievementRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKActivityDetailRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKActivityRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKForecastDetailRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKForecastRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardBAUK\DashboardBAUKRejectRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardRAPotential\DashboardPotentialRecurringRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardTSELOverdueRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\DashboardRAPotential\DashboardPotentialRFITo1stBAPSBillingRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ExistingRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\GetListIdRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\JobReturnToBAPSRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ReportInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\ReturnPORepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\RevenueAssuranceRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\RevenueMovementRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\RevenueSummaryRepository.cs" />
+    <Compile Include="Repositories\RepositoryCustoms\uspvwMonitoringCNInvoiceCustomRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\DocumentCheckingSummaryPerDocRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\DocumentCheckingSummaryRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\mstBAPSRecurringRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\mstNewBapsRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\mstRACustomerInvoiceRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\mstRAScheduleRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRADocumentCheckingTypeRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRAInputTargetPercentageRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRALogActivityRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRANewBapsActivityRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRAPurchaseOrderDetailRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRAPurchaseOrderRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRARTIRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRASplitNewBapsRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxRAUploadDocumentRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxReceiveDocumentBAUKRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\trxSSRDropFORepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vmMstBapsRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vmMstNewBapsRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwBackStatusBAPSValidationRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwCustomerReceiveBAUKRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwDashboardInputTargetDetailRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwDashboardInputTargetRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwPICReceiveDocumentBAUKRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRABapsDoneRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRANewBapsValidationDefaultPriceRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRANewCheckingDocumentBAUKRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRAReceiveDocumentBAUKHistoryRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRAReceiveDocumentBAUKRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRATaskTodoCreateBAPSRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRTIDataDoneRepository.cs" />
+    <Compile Include="Repositories\RevenueAssurance\vwRTIDataRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\ArCorrectiveRevenueFinalTempRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\ArCorrectiveRevenuePeriodRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\ArCorrectiveRevenueTempRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\dwhARRevenueSysSummaryRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\dwhARRevSysDescriptionRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\mstRevSysInflationRateRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\mstRevSysKursRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\mstRevSysSonumbInflasiRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\trxARRevSysAdjustmentRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\trxARRevSysListDetailRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\vwARRevSysAdjustmentRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\vwARRevSysPerSonumbRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\vwRevSysSoInflasiSonumbListRepository.cs" />
+    <Compile Include="Repositories\RevenueSystem\vwRevSysSonumbInflasiListRepository.cs" />
+    <Compile Include="Repositories\TaskToDoRANew\dwhTaskToDoRANewDetailRepository.cs" />
+    <Compile Include="Repositories\TaskToDoRANew\dwhTaskToDoRANewRepository.cs" />
+    <Compile Include="Repositories\TBGTeamMate\vwProjectManualBookRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspGenerateTrxCNInvoice.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspInvoiceProductionSummaryRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspMonitoringAgingExecutiveRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspSummaryRejectionHeaderRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\idxFINInvoiceReplacementRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logARProcessRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logCNArActivityRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logCNARProcessRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspMonitoringMatchingARFilterRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Custom\uspReportCollectionMatchingARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceActivityRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceHeaderRemainingAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceHeaderRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceNonRevenueRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceTowerDetailRemainingAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceTowerDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\mstCNTaxInvoiceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\mstDocInvoiceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\mstPaymentCodeRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\mstTaxInvoiceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxArDetailRemainingAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCancelNoteFinanceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNDocInvoiceDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeaderRejectRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeaderRemainingAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeaderRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceJobTBGConsoleRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceNonRevenueRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceNonRevenueSiteRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceTowerDetailRemaningAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceTowerDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxCNPICAARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxDocInvoiceDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceHeaderRemainingAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceHeaderRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceManualRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceNonRevenueRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceNonRevenueSiteRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoicePaymentRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceTowerDetailRemaningAmountRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceTowerDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxPICAARDataRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\trxPICAARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwARPaymentInvoiceTowerHistoryRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwARPaymentInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwChecklistInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwCNInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwDataCreatedInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwDataCreateInvoiceNonRevenueRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwDataInvoiceNonRevenueRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwDataPostedInvoiceTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwHistoryRejectInvoiceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\mstCategoryInvoiceRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\mstOperatorRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\Invoice\vwInvoiceTowerDetailRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\logCounterVoucherNumberRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\mstParameterRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\mstSonumbNonTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\stgTRStatusMatchingARLogRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\trxAllocatePaymentBankInRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\trxAllocatePaymentBankOutRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\trxInvoiceMatchingARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwMatchingARLogDocumentPaymentRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwMstSonumbNonTowerRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwReportInvoiceMatchingARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwstgTRStatusPenerimaanPembayaranRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwtrxAllocatePaymentRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDetailDraftRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDetailFileDraftRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDraftRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwtrxStopAccrueHeaderDraftRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueHeaderReqNoRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGHumanCapital\mstDepartmentRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwtrxInvoiceMatchingARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGARSystem\vwVoucherNumberCounterRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusMatchingARLogErrorRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusMatchingARRepository.cs" />
+    <Compile Include="Repositories\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusPenerimaanPembayaranRepository.cs" />
+    <Compile Include="Repositories\TBiGSys\mstProductRepository.cs" />
+    <Compile Include="Repositories\TBiGSys\mstSTIPRepository.cs" />
+    <Compile Include="Repositories\vwARUserRoleRepository.cs" />
+    <Compile Include="Repositories\vwBAUKRejectDocumentDetailRepository.cs" />
+    <Compile Include="Repositories\vwDataARUserRepository.cs" />
+    <Compile Include="Repositories\WorkFlow\vwWfHeaderActivityLogsRepository.cs" />
+    <Compile Include="Repositories\WorkFlow\vwWfPrDefActivityRepository.cs" />
+    <Compile Include="Repositories\WorkFlow\WfHeaders_ViewRepository.cs" />
+    <Compile Include="Repositories\WorkFlow\WfPrDef_NextFlagRepository.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ARSystem.Domain.Models\ARSystem.Domain.Models.csproj">
+      <Project>{891f90a2-5089-4204-817b-433f88f43822}</Project>
+      <Name>ARSystem.Domain.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

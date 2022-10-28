@@ -1,0 +1,395 @@
+﻿
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">SO Number</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabSonumbListXLAdd">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSonumbAddListXLAdd">
+                            <thead>
+                                <tr>
+                                    <th class="datatable-col-25">#Row</th>
+                                    <th class="datatable-col-25">Action</th>
+                                    <th class="datatable-col-200">SO Number</th>
+                                    <th class="datatable-col-100">Activity</th>
+                                    <th class="datatable-col-200">Site ID</th>
+                                    <th class="datatable-col-200">Site Name</th>
+                                    <th class="datatable-col-200">Product Type</th>
+                                    <th class="datatable-col-50">SIRO</th>
+                                    <th class="datatable-col-100">STIP Category</th>
+                                    <th class="datatable-col-150">Region</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">Additional Details</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabSonumbListXLAdd">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDetailXLAdd">
+                            <thead>
+                                <tr>
+                                    <th class="datatable-col-50">#Row</th>
+                                    <th class="datatable-col-50">Action</th>
+                                    <th class="datatable-col-100">SO Number</th>
+                                    <th class="datatable-col-100">Tipe Produk</th>
+                                    <th class="datatable-col-50">Jumlah Antenna</th>
+                                    <th class="datatable-col-50">Ketinggian</th>
+                                    <th class="datatable-col-50">Diameter</th>
+                                    <th class="datatable-col-200">Luas Permukaan</th>
+                                    <th class="datatable-col-200">Luas Permukaan Modern</th>
+                                    <th class="datatable-col-100">Fondasi</th>
+                                    <th class="datatable-col-200">Fondasi Berdasarkan Kontrak</th>
+                                    <th class="datatable-col-200">Available Space</th>
+                                    <th class="datatable-col-200">Price</th>
+                                    <th class="datatable-col-400 text-center">Add Price</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formAddLand" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label pull-left">Start Lease Date (<i>Awal</i>)</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="StartLeaseDateXLAdd" readonly />
+                                            <input id="BulkNumberXLSA" type="hidden" />
+                                            <input type="hidden" id="SiteIDSfAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Start Lease Date (<i>Akhir</i>)</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="StartLeaseDateXLAdd2" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">End Lease Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="EndLeaseDateXLAdd" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Amandemen Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="BakDateXLAdd" readonly />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label pull-left">Price Lease(<i>Awal</i>)</label>
+                                        <div class="col-md-8">
+                                            <input type="hidden" class="form-control select2" id="IDTrxXLAdd" />
+                                            <input type="text" class="form-control select2" id="PriceLeaseXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Height Space</label>
+                                        <div class="col-md-8">
+                                            <textarea id="HeightSpaceXLAdd" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Company Info</label>
+                                        <div class="col-md-8">
+                                            <textarea id="CompanyInfoXLAdd" class="form-control" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formApprXLAdd" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanyXLAdd" class="form-control select2 slApprCompany"></select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Customer ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 1</label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerXLAdd1" class="form-control select2 slApprCustomer"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 2</label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerXLAdd2" class="form-control select2 slApprCustomer"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnXLAddSave" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Submit
+            </button>
+            <button type="button" data-dismiss="modal" id="btnXLAddCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="mdlXLAddSave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+
+    <div class="modal-dialog modal-lg" style="width:45%">
+        <div class="modal-content col-md-12">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Form Input</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSfAddEquipmentSave" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="XlAddLand">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Pondasi Tambahan</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="FoundationXlAdd" />
+                                            <input type="hidden" id="IDTrxDetailXLAdd" />
+                                            <input type="hidden" id="StipSiroXLAdd" />
+                                            <input type="hidden" id="SoNumberXLAdd" />
+                                            <input type="hidden" id="StipCategoryXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Pondasi Sesuai Kontrak</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="FoundationByContractXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Available Space</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="AvailableSpaceXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Harga Sewa</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control select2" id="FoundationPrice" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="XlAddAntennaRRU">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jenis Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="JenisAntennaRRUXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jumlah Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="JumlahAntennaRRUXlAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Luas Permukaan</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="LuasPermukaanRRUXlAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Luas Permukaan Modern</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="LuasPermukaanModernRRUXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Ketinggian</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="KetinggianRRUXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Harga Sewa</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control select2" id="RRUPrice" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Harga Sewa Tambahan</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control select2" id="AdditionalPrice" size="100" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="XlAddAntennaRF">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jenis Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="JenisAntennaRFXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jumlah Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control" id="JumlahAntennaRFXlAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Ketinggian</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="KetinggianRFXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Price</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control select2" id="RFPrice" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="XlAddAntennaMW">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jenis Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" id="JenisAntennaMWXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Jumlah Antenna</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control" id="JumlahAntennaMWXlAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Ketinggian</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="KetinggianMWXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Diameter</label>
+                                        <div class="col-md-7">
+                                            <input type="number" class="form-control select2" id="DiameterMWXLAdd" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Price</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control select2" id="MWPrice" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnXLAddDetailSave" class="btn blue NeedRounding btnSubmitTrx">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnXLAddDetailCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

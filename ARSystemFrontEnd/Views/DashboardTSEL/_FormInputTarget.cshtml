@@ -1,0 +1,101 @@
+﻿<style>
+    .col-md-6.control-label {
+        text-align: left;
+    }
+</style>
+<div id="mdlFormHistoryInputTarget" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">History Input Target</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formHistoryInputTarget" class="form-horizontal" role="form" style="display: none;">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">SoNumber<i class="font-red"></i></label>
+                                    <label class="col-md-6 control-label" id="SONumber" data-value-for="SONumber"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Site Name<i class="font-red"></i></label>
+                                    <label class="col-md-6  control-label text vertical" id="SiteName" data-value-for="SiteName"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Customer Site Name<i class="font-red"></i></label>
+                                    <label class="col-md-6 control-label" id="CustomerSiteName" data-value-for="CustomerSiteName"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Customer ID<i class="font-red"></i></label>
+                                    <label class="col-md-6 control-label" id="CustomerID" data-value-for="CustomerID"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Reconcile Type<i class="font-red"></i></label>
+                                    <label class="col-md-6 control-label" id="ReconcileType" data-value-for="TargetBaps"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Power Type<i class="font-red"></i></label>
+                                    <label class="col-md-6 control-label" id="PowerType" data-value-for="TargetPower"></label>
+                                </div>
+
+                                <input type="hidden" id="TargetID" name="TargetID" required="">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Target Year<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <select id="TargetYear" name="TargetYear" class="form-control" required=""></select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Target Month<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <select id="TargetMonth" name="TargetMonth" class="form-control" required=""></select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Start Invoice Date<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="StartInvoiceDate" name="StartInvoiceDate" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">End Invoice Date<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="EndInvoiceDate" name="EndInvoiceDate" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Amount IDR<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <input type="number" id="AmountIDR" name="AmountIDR" class="form-control" required="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Amount USD<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <input type="number" id="AmountUSD" name="AmountUSD" class="form-control" required="">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn blue-oleo btCancelFormHistory">
+                                            <i class="fa fa-chevron-left"></i> Cancel
+                                        </button>
+                                        <button type="submit" id="btSubmitFormHistory" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                            <i class="fa fa-save"></i> Save
+                                        </button>
+                                    </div>
+                                    <div class="col-md-5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

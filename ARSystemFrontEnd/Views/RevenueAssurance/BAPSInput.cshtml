@@ -1,0 +1,789 @@
+﻿
+@{
+    ViewBag.Title = "BAPSInput";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .border {
+        display: inline-block;
+        width: 400px;
+        height: 125px;
+        margin: 6px;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+
+<section id="pnlSummary">
+    @*Filter*@
+    @*<div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption font-white">
+                            <i class="fa fa-filter"></i>
+                            <span class="caption-subject"></span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse"> </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+
+    @*@Html.Partial("_PanelSearchBegin")*@
+    @*@Html.Partial("_PanelSearchZero")*@
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabBAPS">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabInput" data-toggle="tab"><b>BAPS Input</b></a>
+                            </li>
+                            @*<li>
+                                    <a href="#tabProcess" data-toggle="tab">BAPS Process</a>
+                                </li>*@
+                            <li>
+                                <a href="#tabDone" data-toggle="tab">BAPS Done</a>
+                            </li>
+                        </ul>
+                        <div class="tab-pane active" id="tabInput">
+                            <div class="portlet-body form bordered">
+                                <form id="formBapsInput" class="form-horizontal" role="form">
+                                    <div class="panel panel-default">
+                                        <div class="portlet-body form bordered">
+                                            <div class="panel-body">
+                                                <div class="form-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">BAPS Number<i class="font-red"> *</i></label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" id="txtBAPSNumber" class="form-control" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Company Invoice<i class="font-red"> *</i></label>
+                                                                <div class="col-md-6">
+                                                                    <select id="slSearchCompany" class="form-control select2" required></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group OprInv">
+                                                                <label class="col-md-3 control-label">Operator Invoice<i class="font-red"> *</i></label>
+                                                                <div class="col-md-6">
+                                                                    <select id="slSearchOperator" class="form-control select2" required></select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group PORef">
+                                                                <label id="lblporef" class="col-md-3 control-label">PO Reference</label>
+                                                                <div class="col-md-6">
+                                                                    <select id="slSearchPO" class="form-control select2" multiple></select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">BAPS Sign Date<i class="font-red"> *</i></label>
+                                                                <div class="col-md-6">
+                                                                    <input type="text" id="tbBAPSSignDate" size="16" class="form-control date-picker">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3 control-label">Remarks</label>
+                                                                <div class="col-md-6">
+                                                                    <textarea id="txtRemarks" name="textarea" rows="8" cols="35"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group" id="divuploadfield">
+                                                                <label class="col-md-3 control-label">Attachment<i class="font-red"> *</i></label>
+                                                                <div class="col-md-6">
+                                                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                                                        <div class="form-control" data-trigger="fileinput" id="filebaps">
+                                                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                                            <span class="fileinput-filename"></span>
+                                                                        </div>
+                                                                        <span class="input-group-addon btn btn-default btn-file">
+                                                                            <span class="fileinput-new" style="height:5px">select file</span><span class="fileinput-exists" style="height:5px">change</span>
+                                                                            <input type="file" name="file" id="file" accept=".xls,.xlsx,.doc,.docx,.pdf" style="height:5px" title="* only excel, doc & pdf file">
+                                                                        </span>
+                                                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput" style="height:5px"> Remove </a>
+                                                                    </div>
+                                                                    <div class="form-group text-left">
+                                                                        <label class="col-md-12 control-label" id="lblError" style="color:red;text-align:left"></label>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-md-3">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <button type="button" id="btSearchAssign" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in" style="width:100px">
+                                                                        <i class="fa fa-search"></i> Add Site
+                                                                    </button>
+                                                                    <button type="button" id="btResetAssign" class="btn blue-oleo" style="width:100px">
+                                                                        <i class="fa fa-refresh"></i> Reset
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row height59">
+                                    </div>
+                                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                                        <thead>
+                                            <tr>
+                                                <th class="datatable-col-10 select-all"></th>
+                                                <th class="datatable-col-100">SO Number</th>
+                                                <th class="datatable-col-100">Site ID</th>
+                                                <th class="datatable-col-100">BAPS Period</th>
+                                                <th class="datatable-col-150">BAPS Start Date</th>
+                                                <th class="datatable-col-150">BAPS End Date</th>
+                                                <th class="datatable-col-200">Site Name</th>
+                                                <th class="datatable-col-100">Customer ID</th>
+                                                <th class="datatable-col-100">Tenant Type</th>
+                                                <th class="datatable-col-250">Company Name</th>
+                                                <th class="datatable-col-200">Regional Name</th>
+                                                <th class="datatable-col-100">BAPS Type</th>
+                                                <th class="datatable-col-200">Base Lease Price</th>
+                                                <th class="datatable-col-150">OM Price</th>
+                                                <th class="datatable-col-150">Additional</th>
+                                                <th class="datatable-col-100">Deduction</th>
+                                                <th class="datatable-col-200">Penalty SLA</th>
+                                                <th class="datatable-col-100">Price</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        @*<div class="tab-pane" id="tabProcess">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblProcess">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-100">Document</th>
+                                            <th class="datatable-col-150">BAPS Number</th>
+                                            <th class="datatable-col-100">Total Tenant</th>
+                                            <th class="datatable-col-150">Total Amount</th>
+                                            <th class="datatable-col-150">Remarks</th>
+                                            <th class="datatable-col-150">BAPS Sign Date</th>
+                                            <th class="datatable-col-100">Created Date</th>
+                                            <th class="datatable-col-250">Created By</th>
+                                            <th class="datatable-col-150">Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>*@
+                        <div class="tab-pane" id="tabDone">
+                            <div class="row panelDoneHeader ">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet box blue">
+                                            <div class="portlet-title">
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <form id="formSearch" class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchCompanyNameDone" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">BAPS Number</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slBAPSNumberDone" class="form-control select2" multiple></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="button" id="btSearchDone" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetDone" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row height59">
+                                </div>
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDone">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10">
+                                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                    <input type="checkbox" class="group-checkable" id="checkParent" data-set="#tblDone .checkboxes" />
+                                                    <span></span>
+                                                </label>
+                                            </th>
+                                            @*<th class="datatable-col-10"></th>*@
+                                            <th class="datatable-col-150">BAPS NUmber</th>
+                                            <th class="datatable-col-100">Document</th>
+                                            <th class="datatable-col-100">Total Tenant</th>
+                                            <th class="datatable-col-150">Total Amount</th>
+                                            <th class="datatable-col-150">Remarks</th>
+                                            @*<th class="datatable-col-150">Remarks on Approval</th>*@
+                                            <th class="datatable-col-150">BAPS Sign Date</th>
+                                            <th class="datatable-col-100">Created Date</th>
+                                            <th class="datatable-col-250">Created By</th>
+                                            @*<th class="datatable-col-100">Approved Date</th>
+                                                <th class="datatable-col-250">Approved By</th>*@
+                                            <th class="datatable-col-150">Status</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="row panelDoneDetail ">
+                                <div class="col-md-12">
+                                    <div class="portlet light bordered">
+                                        <form id="formBaps" class="form-horizontal" role="form">
+                                            <div class="panel panel-default">
+                                                <div class="portlet-body form bordered">
+                                                    <div class="panel-body">
+                                                        <div class="form-body">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-4 control-label">BAPS Number</label>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" id="txtBAPSNumberHeader" class="form-control" disabled>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-4 control-label">Total Tenant</label>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" id="txtTotalTenantHeader" class="form-control" disabled>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-4 control-label">Total Amount</label>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" id="txtTotalAmountHeader" class="form-control" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="portlet-body">
+                                            <div class="row height59">
+                                            </div>
+                                            <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDoneDetail">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="datatable-col-10"></th>
+                                                        <th class="datatable-col-10"></th>
+                                                        <th class="datatable-col-100">Status</th>
+                                                        <th class="datatable-col-100">SO Number</th>
+                                                        <th class="datatable-col-100">Site ID</th>
+                                                        <th class="datatable-col-200">Site Name</th>
+                                                        <th class="datatable-col-100">BAPS Period</th>
+                                                        <th class="datatable-col-150">BAPS Start Date</th>
+                                                        <th class="datatable-col-150">BAPS End Date</th>
+                                                        <th class="datatable-col-100">Customer ID</th>
+                                                        <th class="datatable-col-200">Tenant Type</th>
+                                                        <th class="datatable-col-300">Company Name</th>
+                                                        <th class="datatable-col-200">Regional Name</th>
+                                                        <th class="datatable-col-100">BAPS Type</th>
+                                                        <th class="datatable-col-200">Base Lease Price</th>
+                                                        <th class="datatable-col-150">OM Price</th>
+                                                        <th class="datatable-col-150">Additional Power</th>
+                                                        <th class="datatable-col-100">Deduction Power</th>
+                                                        <th class="datatable-col-200">Penalty SLA</th>
+                                                        <th class="datatable-col-100">Price</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="row">
+                                            <button type="button" id="btBack" class="btn  green">
+                                                <i class="fa fa-check"></i> Back to Header
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="btAssignSite" class="btn green">
+                            <i class="fa fa-check"></i> Assign Site
+                        </button>
+                        <button type="button" id="btReturn" class="btn red">
+                            <i class="fa fa-check"></i> Return to BAPS Input
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelSiteData ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">List Checklist</span>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                    <label class="col-md-3 control-label">Amount BAPS<i class="font-red"> *</i></label>
+                    <div class="col-md-6">
+                        <input type="text" id="txtAmountBAPS" class="form-control" pattern="[0-9]*" disabled>
+                    </div>
+                    </div>*@
+                <form id="formSearch" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-default">
+                                    <br />
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Total Tenant</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="txtTenantBAPS" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Total Amount</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="txtAmountBAPS" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover" id="tblSiteData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-100">Action</th>
+                                <th class="datatable-col-100">SO Number</th>
+                                <th class="datatable-col-100">Site ID</th>
+                                <th class="datatable-col-100">BAPS Period</th>
+                                <th class="datatable-col-150">BAPS Start Date</th>
+                                <th class="datatable-col-150">BAPS End Date</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-100">Customer ID</th>
+                                <th class="datatable-col-100">Tenant Type</th>
+                                <th class="datatable-col-250">Company Name</th>
+                                <th class="datatable-col-200">Regional Name</th>
+                                <th class="datatable-col-100">BAPS Type</th>
+                                <th class="datatable-col-200">Base Lease Price</th>
+                                <th class="datatable-col-150">OM Price</th>
+                                <th class="datatable-col-150">Additional Power</th>
+                                <th class="datatable-col-100">Deduction Power</th>
+                                <th class="datatable-col-200">Penalty SLA</th>
+                                <th class="datatable-col-100">Price</th>
+                                @*<th class="datatable-col-100">Status PO</th>*@
+                                @*<th class="datatable-col-100">BAPS Validation</th>*@
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th colspan="12" style="text-align:left; font-size:14px;">Total</th>
+                                @*<th style="font-size:8px; width:100px; text-align:right;"></th>*@
+                                <th style="text-align:right; font-size:14px;"></th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="row col-md-12 text-center">
+                <button type="submit" id="btProcessBAPS" class="btn green">
+                    <i class="fa fa-check"></i> Process BAPS
+                </button>
+
+                <button type="button" id="btCancel" class="btn red">
+                    <i class="fa fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="modal fade" id="mdlBAPSDoc" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">BAPS Document Checklist</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblBAPSDoc">
+                    <thead>
+                        <tr>
+                            <th class="datatable-col-100">Operator</th>
+                            <th class="datatable-col-100">Document Name</th>
+                            <th class="datatable-col-10 select-all-doc" hidden></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btSaveBAPS" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Save
+                </button>
+                <button type="button" data-dismiss="modal" id="btCancelBAPS" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">BAPS Detail</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <label id="lblBAPSNumberDetail" Font-Bold="true" style="font-weight:bold;"></label>
+                </center>
+                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblProcessDetail">
+                    <thead>
+                        <tr>
+                            <th class="datatable-col-100">SO Number</th>
+                            <th class="datatable-col-100">Site ID</th>
+                            <th class="datatable-col-200">Site Name</th>
+                            <th class="datatable-col-100">BAPS Period</th>
+                            <th class="datatable-col-100">BAPS Start Date</th>
+                            <th class="datatable-col-100">BAPS End Date</th>
+                            <th class="datatable-col-100">Customer ID</th>
+                            <th class="datatable-col-100">Tenant Type</th>
+                            <th class="datatable-col-100">Company Name</th>
+                            <th class="datatable-col-100">Regional Name</th>
+                            <th class="datatable-col-250">BAPS Type</th>
+                            <th class="datatable-col-100">Base Lease Price</th>
+                            <th class="datatable-col-150">OM Price</th>
+                            <th class="datatable-col-150">Additional Power</th>
+                            <th class="datatable-col-100">Deduction Power</th>
+                            <th class="datatable-col-200">Penalty SLA</th>
+                            <th class="datatable-col-100">Price</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlUpdate" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit BAPS</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form id="formSearch" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label"><b>SO Number</b></label>
+                                            <input readonly type="text" id="txtSoNumber" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Term</b></label>
+                                            <input readonly type="text" id="txtTerm" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Start Date</b></label>
+                                            <input readonly type="text" id="txtInvoiceStartDate" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Site ID Operator</b></label>
+                                            <input type="text" id="txtSiteIDOpr" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>MLA Number</b></label>
+                                            <input type="text" id="txtMLANumber" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Base Lease Price</b></label>
+                                            <input type="text" id="txtBaseLeasePrice" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Deduction Price</b></label>
+                                            <input type="text" id="txtDeductionPrice" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Stip Siro</b></label>
+                                            <input readonly type="text" id="txtStipSiro" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>CustomerID</b></label>
+                                            <input readonly type="text" id="txtCustomerID" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>End Date</b></label>
+                                            <input readonly type="text" id="txtInvoiceEndDate" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Site ID Name</b></label>
+                                            <input type="text" id="txtSiteIDName" class="form-control">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label"><b>RFI Operator Date</b></label>
+                                            <input type="text" id="txtRFIOprDate" size="16" class="form-control date-picker">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Service Price</b></label>
+                                            <input type="text" id="txtServicePrice" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"><b>Total Price</b></label>
+                                            <input readonly type="text" id="txtTotalPrice" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btEdit" class="btn green">
+                    <i class="fa fa-chevron-left"></i> Edit
+                </button>
+                <button type="button" data-dismiss="modal" id="btDismissApprove" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlApprove" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:500px;">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="font-weight:bold;">Approve / Reject BAPS</h4>
+            </div>
+            <form id="formApprove" class="form-horizontal" role="form">
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center"><label id="lblBAPSNumberApprove"></label></div>
+                        <div class="panel-body">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Status</label>
+                                            <div class="col-md-6">
+                                                <select id="slStatus" class="form-control select2" required></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Remarks</label>
+                                            <div class="col-md-6">
+                                                <textarea id="txtRemarksApprove" name="textarea" rows="5" cols="35" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button type="submit" id="btSave" class="btn green">
+                        <i class="fa fa-chevron-left"></i> Save
+                    </button>
+                    <button type="button" data-dismiss="modal" id="btCancelApprove" class="btn blue-oleo">
+                        <i class="fa fa-chevron-left"></i> Dismiss
+                    </button>
+                </div>
+            </form>
+            <div class="modal-footer">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="mdlToProcess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add BAPS</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to BAPS Done?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-md-offset-5">
+                        <button type="button" id="btYesConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Send Back To BAPS Input</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this data back to BAPS Input?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirmDelete" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToApproveDone" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Approve BAPS from Finance</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to Approve?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-md-offset-4">
+                        <button type="button" id="btYesConfirmApprove" class="btn green" style="width:80px">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirmApprove" class="btn red" style="width:80px">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlBackToBAPSInput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;height:40%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Back To BOQ Input</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to BAPS Input?</label>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div class="col-md-12 col-md-offset-5">
+                        <button type="button" id="btYesConfirmBack" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="hidden" id="hdAllowApproval" value="@ViewBag.AllowApproval" />
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/global/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/RevenueAssurance/BAPSInput.js")" type="text/javascript"></script>

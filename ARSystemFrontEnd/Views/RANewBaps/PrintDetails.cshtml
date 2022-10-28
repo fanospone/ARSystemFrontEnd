@@ -1,0 +1,20 @@
+﻿@model ARSystemFrontEnd.Models.BapsPrintPDF
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BAPS PRINT </title>
+    <style>
+            th {
+                background-color:#A9A9A9;
+            }
+        </style>
+</head>
+<body>
+    <div>
+        @Html.Raw(Model.htmlElements)
+    </div>
+</body>
+</html>

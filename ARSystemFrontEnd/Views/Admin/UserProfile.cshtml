@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "My Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-blue-chambray">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject bold">My Profile</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">User ID</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbUserID" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Full Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbFullName" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">HCIS Position</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbHCISPosition" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Role</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbRole" class="form-control" value="@ViewBag.UserLogin.UserRole" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Is Active</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbIsActive" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Phone 1</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbPhone1" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Phone 2</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbPhone2" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Email</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbEmail" class="form-control" readonly="readonly">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="portlet-title">
+                <div class="caption font-blue-chambray">
+                    <i class="fa fa-lock"></i>
+                    <span class="caption-subject bold">Change Password</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form id="formTransaction" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Old Password</label>
+                                        <div class="col-md-9">
+                                            <input type="password" id="tbOldPassword" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">New Password</label>
+                                        <div class="col-md-9">
+                                            <input type="password" id="tbNewPassword" class="form-control" required data-parsley-minlength="8" data-parsley-pattern="^.*(?=.*[A-Z])(?=.*[a-z])(?=.*\d).*$" data-parsley-pattern-message="Your password need Uppercase, Lowercase, and Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Confirm New Password</label>
+                                        <div class="col-md-9">
+                                            <input type="password" id="tbConfirmNewPassword" class="form-control" required data-parsley-equalto="#tbNewPassword" data-parsley-equalto-message="New Password and Confirm New Password do not match.">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-right">
+                        <button type="button" class="btn blue-oleo btCancel">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                        <button type="submit" id="btSubmit" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/scripts/admin/userProfile.js")" type="text/javascript"></script>
+

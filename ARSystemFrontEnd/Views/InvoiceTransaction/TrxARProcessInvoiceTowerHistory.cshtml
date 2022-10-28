@@ -1,0 +1,143 @@
+﻿@using ARSystemFrontEnd.Helper;
+@{
+    ViewBag.Title = "AR Process - Invoice Tower History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<link href="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css")" rel="stylesheet" type="text/css" />
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompany" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Operator</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchOperator" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Term Period</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchTerm" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Receipt Date From</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchReceiptDateFrom" class="form-control date-picker">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Receipt Date To</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchReceiptDateTo" class="form-control date-picker">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice No</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbInvNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-150">Invoice No</th>
+                                <th class="datatable-col-250">Company Name</th>
+                                <th class="datatable-col-250">Operator</th>
+                                <th class="datatable-col-100">Receipt Date</th>
+                                <th class="datatable-col-300">Remark</th>
+                                <th class="datatable-col-100">Penalty</th>
+                                <th class="datatable-col-100">Receipt File</th>
+                                <th class="datatable-col-100">Created Date</th>
+                                <th class="datatable-col-200">Created By</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="hidden" id="hfDocPath" value="@ViewBag.DocPath" />
+<input type="hidden" id="hdUserCompanyCode" value="@ViewBag.UserCompanyCode" />
+
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.ContentVersion("~/scripts/invoicetransaction/TrxARProcessInvoiceTowerHistory.js")" type="text/javascript"></script>
+

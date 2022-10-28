@@ -1,0 +1,145 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formXLSiteAccess" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">BAK Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="BAKdateXLSA" class="form-control datepicker" readonly />
+                                            <input type="hidden" id="IDTrxXLSA" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Project Def</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="ProjectDefXLSA" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Lease Price (Year)</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="LeasePriceXLSA" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Start Lease Date (Old)</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="StartLeaseDate1" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Start Lease Date (New)</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="StartLeaseDate2" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">End Lease Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="EndLeaseDate" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Additional Price</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="AddPriceXLSA" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formXLSiteAccess" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanyXLSA" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Customer ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 1 </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerXLSA" class="form-control select2 "></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 2 </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerXLSA2" class="form-control select2 "></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnXLSASubmit" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Submit
+            </button>
+            <button type="button" data-dismiss="modal" id="btnXLSACancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>

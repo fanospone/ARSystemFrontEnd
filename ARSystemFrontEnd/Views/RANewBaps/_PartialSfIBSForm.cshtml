@@ -1,0 +1,157 @@
+﻿<div class="tab-content">
+    <div class="tab-pane active" id="tabRaw">
+        <form id="formSearch" class="form-horizontal" role="form">
+            <div class="form-body">
+
+                <div class="row portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-blue-steel">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="caption-subject">IBS Form</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">SPK / PO Number</label>
+                            <div class="col-md-6">
+                                <input type="hidden" id="IDTrxSfIBS" class="form-control" />
+                                <input type="text" id="SPKNumberSfIBS" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">SPK / PO Date</label>
+                            <div class="col-md-4">
+                                <input type="text" id="SPKDateSfIBS" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Start Date Lease</label>
+                            <div class="col-md-4">
+                                <input type="text" id="StartDateLeaseSfIBS" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">End Date Lease</label>
+                            <div class="col-md-4">
+                                <input type="text" id="EndDateLeaseSfIBS" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Number Of Antenna</label>
+                            <div class="col-md-4">
+                                <input type="number" id="NumberOfAntennaSfIBS" class="form-control" min="0"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Rental Period</label>
+                            <div class="col-md-4">
+                                <input type="text" id="RentalPeriodSfIBS" class="form-control" readonly />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">ATP Date</label>
+                            <div class="col-md-4">
+                                <input type="text" id="ATPDateSfIBS" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">SDA Date</label>
+                            <div class="col-md-4">
+                                <input type="text" id="SDADateSfIBS" class="form-control datepicker" readonly />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Lease Price <i>(Per Month)</i></label>
+                            <div class="col-md-4">
+                                <input type="number" id="LeasePriceSfIBS" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Frequency</label>
+                            <div class="col-md-4">
+                                <input type="text" id="FrequencySfIBS" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        @*@Html.Partial("_PartialApproval")*@
+                        <div class="row portlet light bordered dualApproval">
+                            <div class="portlet-title">
+                                <div class="caption font-blue-steel">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                    <span class="caption-subject">Approval Form</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-6 font-blue">
+                                        <span class="caption-subject">## Approval Company ##</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Approval Name </label>
+                                    <div class="col-md-6">
+                                        <select id="slApprCompanyFsIBS" class="form-control select2 slApprCompany"></select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label"></label>
+                                    <div class="col-md-6 font-blue">
+                                        <span class="caption-subject">## Approval Customer ##</span>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Approval Name </label>
+                                    <div class="col-md-6">
+                                        <select id="slApprCustomerFsIBS" class="form-control select2 slApprCustomer"></select>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-actions text-center">
+                            <button type="button" data-dismiss="modal" id="btnSfIBSSave" class="btn blue NeedRounding">
+                                <i class="fa fa-save"></i> Save
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btnSfIBSCancel" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+

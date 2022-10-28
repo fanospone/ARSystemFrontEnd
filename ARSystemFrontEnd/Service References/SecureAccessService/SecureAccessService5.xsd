@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:complexType name="DatatableAjaxModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="columns" nillable="true" type="tns:ArrayOfDatatableColumn" />
+      <xs:element minOccurs="0" name="draw" type="xs:int" />
+      <xs:element minOccurs="0" name="length" type="xs:int" />
+      <xs:element minOccurs="0" name="order" nillable="true" type="tns:ArrayOfDatatableOrder" />
+      <xs:element minOccurs="0" name="search" nillable="true" type="tns:DatatableSearch" />
+      <xs:element minOccurs="0" name="start" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatatableAjaxModel" nillable="true" type="tns:DatatableAjaxModel" />
+  <xs:complexType name="ArrayOfDatatableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatatableColumn" nillable="true" type="tns:DatatableColumn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatatableColumn" nillable="true" type="tns:ArrayOfDatatableColumn" />
+  <xs:complexType name="DatatableColumn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="orderable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="search" nillable="true" type="tns:DatatableSearch" />
+      <xs:element minOccurs="0" name="searchable" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatatableColumn" nillable="true" type="tns:DatatableColumn" />
+  <xs:complexType name="DatatableSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="regex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatatableSearch" nillable="true" type="tns:DatatableSearch" />
+  <xs:complexType name="ArrayOfDatatableOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DatatableOrder" nillable="true" type="tns:DatatableOrder" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDatatableOrder" nillable="true" type="tns:ArrayOfDatatableOrder" />
+  <xs:complexType name="DatatableOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="column" type="xs:int" />
+      <xs:element minOccurs="0" name="dir" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DatatableOrder" nillable="true" type="tns:DatatableOrder" />
+  <xs:complexType name="DatatableOfvwActionNewYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwActionNew" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q1:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q2:ArrayOfvwActionNew" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwActionNewYDz5Kj5d" nillable="true" type="tns:DatatableOfvwActionNewYDz5Kj5d" />
+  <xs:complexType name="DatatableOfvwMenuYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwMenu" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q3:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q4:ArrayOfvwMenu" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwMenuYDz5Kj5d" nillable="true" type="tns:DatatableOfvwMenuYDz5Kj5d" />
+  <xs:complexType name="DatatableOfvwTaskToDoNewYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwTaskToDoNew" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q5:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q6:ArrayOfvwTaskToDoNew" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwTaskToDoNewYDz5Kj5d" nillable="true" type="tns:DatatableOfvwTaskToDoNewYDz5Kj5d" />
+  <xs:complexType name="DatatableOfvwLogHitCounterYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwLogHitCounter" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q7:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q8:ArrayOfvwLogHitCounter" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwLogHitCounterYDz5Kj5d" nillable="true" type="tns:DatatableOfvwLogHitCounterYDz5Kj5d" />
+  <xs:complexType name="DatatableOfvwLoginLogYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwLoginLog" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q9:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q10:ArrayOfvwLoginLog" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwLoginLogYDz5Kj5d" nillable="true" type="tns:DatatableOfvwLoginLogYDz5Kj5d" />
+  <xs:complexType name="DatatableOfvwAuditTrailYDz5Kj5d">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="DatatableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="vwAuditTrail" Namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q11:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="List" nillable="true" type="q12:ArrayOfvwAuditTrail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatatableOfvwAuditTrailYDz5Kj5d" nillable="true" type="tns:DatatableOfvwAuditTrailYDz5Kj5d" />
+</xs:schema>

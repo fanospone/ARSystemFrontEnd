@@ -1,0 +1,454 @@
+USE [TBG_sys]
+GO
+/****** Object:  StoredProcedure [tbg].[sp_view_baps_query_TS]    Script Date: 26/03/2018 19.31.15 ******/
+SET ANSI_NULLS OFF
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+/*                
+	 =============================================                  
+	 Author		: ahmad sujai                
+	 Create date	: 21 feb 2012
+	 Description	: 
+	 History		: v3.0.161207
+	 =============================================                  
+	 exec [tbg].[sp_view_baps_query_TS] '0','New','TSEL','SKP' 
+	 exec [tbg].[sp_view_baps_query_TS] '0','Repeat' 
+	 exec [tbg].[sp_view_baps_query_TS] '0','Renewal' 
+	****************************************************************************************************************************                                                                
+	----------------------------------------------------------------------------------------------------------------------------------                                                                
+	| Date			|  Type		| Name  |   Description																				 |                                                                
+	----------------------------------------------------------------------------------------------------------------------------------                                                                
+	| 6 Nov 14		|  UPDATE   | SNU   | Add Type Repeat and Renewal untuk kebutuhan Input PO Renewal dan PO Repeat Order/STIP SIRO |                                                                
+	---------------------------------------------------------------------------------------------------------------------------------- 
+	| 8 Jan 15		|  UPDATE   | ODE   | Penambahan item dari over quota untuk type NEW											 |                                                                
+	---------------------------------------------------------------------------------------------------------------------------------- 
+	| 7 Dec 16		|  UPDATE   | RHA   | CR-07-11-16 Penambahan Parameter OperatorID & CompanyID + Join MF_PO_Process For PO Detail |                                                                
+	---------------------------------------------------------------------------------------------------------------------------------- 
+
+*/
+
+ALTER PROCEDURE [tbg].[sp_view_baps_query_TS]
+	@f_value	Varchar(1),
+	@f_type		Varchar(50) = '',
+	@f_OperatorID VARCHAR(20) = '-',
+	@f_CompanyID VARCHAR(20) = '-'                
+               
+AS                  
+BEGIN   
+	SET NOCOUNT ON
+	-- ------------------------------------------------------------------------------------------------------------------
+	Create table #sitename              
+	(                  
+		sonumb Varchar(20),                  
+		site_id_opr  Varchar(100),                  
+		site_id_old  Varchar(20),                  
+		sitename Varchar(255),                  
+		operator Varchar(15)
+	)   
+	-- ------------------------------------------------------------------------------------------------------------------
+	create table #temp                  
+	(                  
+		sonumb		Varchar(20),                  
+		site_id_opr Varchar(100),                  
+		site_id_old Varchar(20),                  
+		site_name	Varchar(255),                  
+		operator	Varchar(15),                
+		[type]		Varchar(50),                  
+		spk_date	Varchar(10),            
+		sitac_date	Varchar(10),            
+		cme_date	Varchar(10),            
+		rfi_date	Varchar(10),            
+		atpdate		Varchar(10),            		
+		rfi_days	integer,
+		atp_days	integer,
+		company_id	Varchar(20),
+		pm			Varchar(255),
+		category	Varchar(50),
+		stipsiro	Varchar(1),
+		bapsperiod	Varchar(10) 
+	)  
+	-- ------------------------------------------------------------------------------------------------------------------
+	INSERT INTO #sitename              
+	SELECT distinct
+		a.sonumb, b.site_id_opr ,b.site_id_old,  
+		b.sitename, 	
+		a.operator_id              
+	FROM               
+		TBG_sys.tbg.mf_site_info	a	WITH (NOLOCK),              
+		TBG_sys.tbg.mf_site			b	WITH (NOLOCK)            
+	WHERE	(CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)  = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)      	  	
+		and (a.sts_pki = '1' or a.sts_opr = '1')                  
+		and a.step_id  in ('0005', '0006', '0007','0008','0009', '0011', '0010')     
+		and a.sts_submitpki = '1'	-- add asj 22 feb 2011 
+					
+	 
+	IF UPPER(@f_type) = 'NEW'
+	BEGIN               
+		INSERT INTO #temp                  
+		SELECT                     
+			b.sonumb, b.site_id_OPR, (CASE WHEN a.site_id_old is null THEN b.site_id_old ELSE a.site_id_old end) [site_id_old],        		
+			upper(a.sitename) [sitename],
+			b.operator_id, c.description 'type',             
+			isnull(convert(Varchar,b.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,b.sitac_date,103), '-'),            
+			isnull(convert(Varchar,b.cme_date,103), '-'),            
+			isnull(convert(Varchar,b.rfi_date,103), '-'),            
+			isnull(convert(Varchar,b.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, b.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, b.atpdate_actual, getdate())),'-'),
+			b.company_id,
+			upper(g.user_name) , 
+			'New' as Category,
+			ISNULL(e.stip_siro, 0),
+			'1'         
+		FROM
+			TBG_sys.tbg.mf_site_info b WITH (NOLOCK)                  
+		LEFT JOIN	
+			#sitename a	
+			on ((CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end) = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)   
+			and  a.sonumb = b.sonumb)      	  	 
+		join		
+			TBG_sys.tbg.mf_product c WITH (NOLOCK)	
+			on (convert(int,b.product_id) = convert(int,c.product_id))                   
+		join		
+			TBG_sys.tbg.mf_colo_type	d	WITH (NOLOCK)
+			on (convert(int,b.colotype_id) = convert(int,d.colotype_id))                  
+		LEFT JOIN	
+			TBG_sys.tbg.mf_spk_internal e   WITH (NOLOCK)	
+			on ((CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end) and b.sonumb = e.sonumb)                  
+		LEFT JOIN	
+			TBG_sys.tbg.mf_spk_operator f   WITH (NOLOCK)	
+			on ((CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)  
+			and  b.sonumb = f.sonumb)
+			join		TBG_sys.tbg.SECURITY_USERS	g	WITH (NOLOCK)	on (b.PM = g.userid)
+		WHERE	b.step_id in ('0005', '0006', '0007','0008','0009', '0011','0010')            
+			and (b.sts_pki ='1' or b.sts_opr = '1')                  
+			and b.sts_submitpki = '1'	-- add asj 22 feb 2011
+			and ISNULL(e.stip_siro, 0) = 0
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE b.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.company_id END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+		
+		INSERT INTO #temp              
+		SELECT                     
+			pas.add_cd, pas.site_id_OPR, pas.site_id_old,       		
+			upper(a.sitename) [sitename],
+			b.operator_id,  'COLO 3G',	--c.description 'type',             
+			isnull(convert(Varchar,pas.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,pas.sitac_date,103), '-'),            
+			isnull(convert(Varchar,pas.cme_date,103), '-'),     
+			isnull(convert(Varchar,pas.rfi_date,103), '-'),            
+			isnull(convert(Varchar,pas.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, pas.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, pas.atpdate_actual, getdate())),'-'),
+			isnull(b.company_id,'-'),
+			upper(g.user_name) , 
+			'New' as Category ,
+			ISNULL(e.stip_siro, 0),
+			'1'                              
+		FROM			TBG_sys.tbg.mf_product_add_site pas WITH (NOLOCK)               
+			LEFT JOIN	TBG_sys.tbg.mf_site_info		b	WITH (NOLOCK) on (pas.sonumb = b.sonumb and (CASE WHEN pas.site_id_old = '' THEN pas.sonumb ELSE pas.site_id_old end)  = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end) )                 
+			LEFT JOIN	TBG_sys.tbg.mf_site				a   WITH (NOLOCK) on (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)                   		               
+			LEFT JOIN	TBG_sys.tbg.mf_product_add		c	WITH (NOLOCK) on (pas.productadd_id = c.productadd_id)                
+			LEFT JOIN	TBG_sys.tbg.mf_colo_type		d   WITH (NOLOCK) on (b.colotype_id = d.colotype_id)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal		e   WITH (NOLOCK) on ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end)  and  pas.add_cd = e.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator		f	WITH (NOLOCK)  on  ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)  and  pas.add_cd = f.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS		g	WITH (NOLOCK) on (pas.PM = g.userid)
+		WHERE	pas.step_id in ('0005', '0006', '0007','0008','0009', '0011')               
+			and (pas.sts_pki ='1' or pas.sts_opr = '1')                    
+			and pas.sts_submitpki = '1'	-- add asj 22 feb 2011
+			and ISNULL(e.stip_siro, 0) = 0 
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE b.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.company_id END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+		
+		-- ODE 
+		INSERT INTO #temp                
+		SELECT                     
+			pas.add_cd, pas.site_id_OPR, pas.site_id_old,       		
+			upper(a.sitename) [sitename],
+			b.operator_id,  'COLO 3G',	--c.description 'type',             
+			isnull(convert(Varchar,pas.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,pas.sitac_date,103), '-'),            
+			isnull(convert(Varchar,pas.cme_date,103), '-'),     
+			isnull(convert(Varchar,pas.rfi_date,103), '-'),            
+			isnull(convert(Varchar,pas.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, pas.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, pas.atpdate_actual, getdate())),'-'),
+			isnull(b.company_id,'-'),
+			upper(g.user_name) , 
+			'Repeat Order' as Category ,
+			ISNULL(e.stip_siro, 0),
+			'1'                              
+		FROM			TBG_sys.tbg.mf_product_add_site pas WITH (NOLOCK)               
+			LEFT JOIN	TBG_sys.tbg.mf_site_info		b	WITH (NOLOCK)	on (pas.sonumb = b.sonumb and (CASE WHEN pas.site_id_old = '' THEN pas.sonumb ELSE pas.site_id_old end)  = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end) )                 
+			LEFT JOIN	TBG_sys.tbg.mf_site				a   WITH (NOLOCK)   on (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)                   		               
+			LEFT JOIN	TBG_sys.tbg.mf_product_add		c	WITH (NOLOCK)	on (pas.productadd_id = c.productadd_id)                
+			LEFT JOIN	TBG_sys.tbg.mf_colo_type		d   WITH (NOLOCK)	on (b.colotype_id = d.colotype_id)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal		e   WITH (NOLOCK)	on ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end)  and  pas.add_cd = e.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator		f	WITH (NOLOCK)	on  ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)   and  pas.add_cd = f.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS		g	WITH (NOLOCK)	on (pas.PM = g.userid)
+			INNER JOIN	TBG_sys.tbg.SurveyAssetOMVerification h WITH (NOLOCK) on pas.ADD_CD = h.Sonumb and h.StatuOverQuota = 'OverQuota' and h.Verification = 'APPROVE' 
+		WHERE	pas.step_id in ('0005', '0006', '0007','0008','0009', '0011')               
+			and (pas.sts_pki ='1' or pas.sts_opr = '1')                    
+			and pas.sts_submitpki = '1'	-- add asj 22 feb 2011
+			and ISNULL(e.stip_siro, 0) <> 0	
+			and h.PeriodID =  (SELECT MAX(B.periodID) FROM tbg.SurveyAssetOMVerification b WITH (NOLOCK) WHERE sonumb = h.Sonumb)
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE b.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.company_id END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+	
+	END
+	-- ------------------------------------------------------------------------------------------------------------------
+	ELSE IF UPPER(@f_type) = 'REPEAT'
+	BEGIN
+		INSERT INTO #temp                  
+		SELECT                     
+			b.sonumb, b.site_id_OPR, (CASE WHEN a.site_id_old is null THEN b.site_id_old ELSE a.site_id_old end) [site_id_old],        		
+			upper(a.sitename) [sitename],
+			b.operator_id, c.description 'type',             
+			isnull(convert(Varchar,b.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,b.sitac_date,103), '-'),            
+			isnull(convert(Varchar,b.cme_date,103), '-'),            
+			isnull(convert(Varchar,b.rfi_date,103), '-'),            
+			isnull(convert(Varchar,b.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, b.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, b.atpdate_actual, getdate())),'-'),
+			b.company_id,
+			upper(g.user_name) , 
+			'Repeat Order' as Category,
+			ISNULL(e.stip_siro, 0),
+			'1'         
+		FROM			TBG_sys.tbg.mf_site_info	b	WITH (NOLOCK)                  
+			LEFT JOIN	#sitename					a   on  ((CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)  = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)   and  a.sonumb = b.sonumb)      	  	 
+			join		TBG_sys.tbg.mf_product		c	WITH (NOLOCK)	on (convert(int,b.product_id) = convert(int,c.product_id))                   
+			join		TBG_sys.tbg.mf_colo_type	d	WITH (NOLOCK)	on (convert(int,b.colotype_id) = convert(int,d.colotype_id))                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal e   WITH (NOLOCK)	on ((CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end) and b.sonumb = e.sonumb)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator f   WITH (NOLOCK)	on ((CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)  and  b.sonumb = f.sonumb)
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS	g	WITH (NOLOCK)	on (b.PM = g.userid)
+		WHERE  b.step_id in ('0005', '0006', '0007','0008','0009', '0011')            
+			and (b.sts_pki ='1' or b.sts_opr = '1')                  
+			and b.sts_submitpki = '1'	-- add asj 22 feb 2011
+			and ISNULL(e.stip_siro, 0) <> 0
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE b.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.company_id END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+			
+		INSERT INTO #temp                
+		SELECT                     
+			pas.add_cd, pas.site_id_OPR, pas.site_id_old,       		
+			upper(a.sitename) [sitename],
+			b.operator_id,  'COLO 3G',	--c.description 'type',             
+			isnull(convert(Varchar,pas.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,pas.sitac_date,103), '-'),            
+			isnull(convert(Varchar,pas.cme_date,103), '-'),     
+			isnull(convert(Varchar,pas.rfi_date,103), '-'),            
+			isnull(convert(Varchar,pas.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, pas.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, pas.atpdate_actual, getdate())),'-'),
+			isnull(b.company_id,'-'),
+			upper(g.user_name) , 
+			'Repeat Order' as Category ,
+			ISNULL(e.stip_siro, 0),
+			'1'                              
+		FROM			TBG_sys.tbg.mf_product_add_site pas WITH (NOLOCK)               
+			LEFT JOIN	TBG_sys.tbg.mf_site_info		b	WITH (NOLOCK) on (pas.sonumb = b.sonumb and (CASE WHEN pas.site_id_old = '' THEN pas.sonumb ELSE pas.site_id_old end)  = (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end) )                 
+			LEFT JOIN	TBG_sys.tbg.mf_site				a   WITH (NOLOCK)  on (CASE WHEN b.site_id_old = '' THEN b.sonumb ELSE b.site_id_old end)  = (CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)                   		               
+			LEFT JOIN	TBG_sys.tbg.mf_product_add		c	WITH (NOLOCK)  on (pas.productadd_id = c.productadd_id)                
+			LEFT JOIN	TBG_sys.tbg.mf_colo_type		d   WITH (NOLOCK)  on (b.colotype_id = d.colotype_id)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal		e   WITH (NOLOCK)  on  ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end)  and  pas.add_cd = e.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator		f	WITH (NOLOCK) on  ((CASE WHEN pas.site_id_old = '' THEN pas.add_cd ELSE pas.site_id_old end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end) and  pas.add_cd = f.sonumb)  
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS		g	WITH (NOLOCK) on (pas.PM = g.userid)
+		WHERE                     
+			pas.step_id in ('0005', '0006', '0007','0008','0009', '0011')               
+			and (pas.sts_pki ='1' or pas.sts_opr = '1')                    
+			and pas.sts_submitpki = '1'	-- add asj 22 feb 2011
+			and ISNULL(e.stip_siro, 0) <> 0
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE b.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.company_id END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+			
+	END
+	-- ------------------------------------------------------------------------------------------------------------------
+	ELSE IF UPPER(@f_type) = 'RENEWAL'
+	BEGIN
+		INSERT INTO #temp                  
+		SELECT                     
+			b.SONumber, b.CustomerSiteID, SiteID [site_id_old],        		
+			upper(b.CustomerSiteName) [sitename],
+			h.operator_id, c.description 'type',             
+			isnull(convert(Varchar,h.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,h.sitac_date,103), '-'),            
+			isnull(convert(Varchar,h.cme_date,103), '-'),            
+			isnull(convert(Varchar,h.rfi_date,103), '-'),            
+			isnull(convert(Varchar,h.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, h.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, h.atpdate_actual, getdate())),'-'),
+			b.CompanyID,
+			upper(g.user_name) , 
+			'BAPS Renewal' as Category,
+			ISNULL(e.stip_siro, 0) as stip_siro,
+			b.BAPSPeriod         
+		FROM			ARTBiG.tbg.TrxReconcile		b	WITH (NOLOCK)                  
+			LEFT JOIN	TBG_sys.tbg.MF_SITE_INFO	h	WITH (NOLOCK)	on b.SONumber = h.sonumb  
+			LEFT JOIN	TBG_sys.tbg.mf_product		c	WITH (NOLOCK)	on (convert(int,h.product_id) = convert(int,c.product_id))                   
+			LEFT JOIN	TBG_sys.tbg.mf_colo_type	d	WITH (NOLOCK)	on (convert(int,h.colotype_id) = convert(int,d.colotype_id))                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal e   WITH (NOLOCK)	on ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end) and b.SONumber = e.sonumb)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator f   WITH (NOLOCK)	on  ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)  and  b.SONumber = f.sonumb)
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS	g	WITH (NOLOCK)	on (h.PM = g.userid)
+		WHERE	h.step_id in ('0005', '0006', '0007','0008','0009', '0011', '0010')            
+			and (h.sts_pki ='1' or h.sts_opr = '1')                  
+			and h.sts_submitpki = '1'
+			and b.BAPSPeriod <> '1' 
+			and ISNULL(b.IsRekonHarga, '0') = '1'
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE h.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.CompanyID END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+			
+		--Modified AR Ranger: Ardi, lina, falaq, donjon (rumput tetangga) akomodir renewal additional	
+		INSERT INTO #temp                  
+		SELECT                     
+			b.SONumber, b.CustomerSiteID, SiteID [site_id_old],        		
+			upper(b.CustomerSiteName) [sitename],
+			h.operator_id, c.description 'type',             
+			isnull(convert(Varchar,h.workorder_date,103), '-') [SPKI_date],             
+			isnull(convert(Varchar,h.sitac_date,103), '-'),            
+			isnull(convert(Varchar,h.cme_date,103), '-'),            
+			isnull(convert(Varchar,h.rfi_date,103), '-'),            
+			isnull(convert(Varchar,h.atpdate_actual,103), '-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, h.rfi_date, getdate())),'-'),
+			isnull(convert(Varchar,DATEDIFF(day, h.atpdate_actual, getdate())),'-'),
+			b.CompanyID,
+			upper(g.user_name) , 
+			'BAPS Renewal' as Category,
+			ISNULL(e.stip_siro, 0) as stip_siro,
+			b.BAPSPeriod         
+		FROM			ARTBiG.tbg.TrxReconcile			b		WITH (NOLOCK)                  
+			LEFT JOIN	TBG_sys.tbg.MF_PRODUCT_ADD_SITE adds	WITH (NOLOCK)	on b.SONumber = adds.ADD_CD
+			LEFT JOIN	TBG_sys.tbg.MF_SITE_INFO		h		WITH (NOLOCK)	on h.sonumb = adds.SONUMB
+			LEFT JOIN	#sitename						a		on ((CASE WHEN a.site_id_old = '' THEN a.sonumb ELSE a.site_id_old end)  = (CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)   and  a.sonumb = b.SONumber) 
+			LEFT JOIN	TBG_sys.tbg.mf_product			c		WITH (NOLOCK)	on (convert(int,h.product_id) = convert(int,c.product_id))                   
+			LEFT JOIN	TBG_sys.tbg.mf_colo_type		d		WITH (NOLOCK)	on (convert(int,h.colotype_id) = convert(int,d.colotype_id))                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal		e		WITH (NOLOCK)	on ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end) and b.SONumber = e.sonumb)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator		f		WITH (NOLOCK)	on  ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end)  and  b.SONumber = f.sonumb)
+			LEFT JOIN	TBG_sys.tbg.SECURITY_USERS		g		WITH (NOLOCK)	on (h.PM = g.userid)
+		WHERE	h.step_id in ('0005', '0006', '0007','0008','0009', '0011', '0010')            
+			and (h.sts_pki ='1' or h.sts_opr = '1')                  
+			and h.sts_submitpki = '1'
+			and b.BAPSPeriod <> '1' 
+			and ISNULL(b.IsRekonHarga, '0') = '1'
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE h.operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.CompanyID END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+			
+		
+		--- Acquisition yang belum ada di MF_SITE_INFO --------------------------------------------------------------------------	
+		INSERT INTO #temp                  
+		SELECT                     
+			b.SONumber, b.CustomerSiteID, b.SiteID [site_id_old],        		
+			upper(b.CustomerSiteName) [sitename],
+			mlist.Operator_id,mlist.Tenant_type 'type',             
+			('-') [SPKI_date],             
+			('-'),            
+			('-'),            
+			isnull(convert(Varchar,mlist.RFI_date,103), '-'),            
+			('-'),             		
+			isnull(convert(Varchar,DATEDIFF(day, mlist.RFI_date, getdate())),'-'),
+			('-'),
+			b.CompanyID,
+			('-'), 
+			'BAPS Renewal' as Category,
+			ISNULL(e.stip_siro, 0) as stip_siro,
+			b.BAPSPeriod         
+		FROM			ARTBiG.tbg.TrxReconcile			b		WITH (NOLOCK)                  
+			INNER JOIN	ARTBiG.tbg.mf_BAPSAcquisition	a		WITH (NOLOCK) on b.SONumber=a.sonumb
+			LEFT JOIN	TBG_sys.tbg.MstMasterList		mlist	WITH (NOLOCK) on mlist.sonumb=b.SONumber 
+			LEFT JOIN	TBG_sys.tbg.mf_spk_internal		e		WITH (NOLOCK) on ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN e.site_id_old = '' THEN e.sonumb ELSE e.site_id_old end) and b.SONumber = e.sonumb)                  
+			LEFT JOIN	TBG_sys.tbg.mf_spk_operator		f		WITH (NOLOCK) on ((CASE WHEN b.SiteID = '' THEN b.SONumber ELSE b.SiteID end)  = (CASE WHEN f.site_id_old = '' THEN f.sonumb ELSE f.site_id_old end) and  b.SONumber = f.sonumb)
+		WHERE 1=1          
+			and b.BAPSPeriod <> '1'
+			and ISNULL(b.IsRekonHarga, '0') = '1'
+			and not exists (SELECT 1 FROM #temp temp WHERE temp.sonumb=b.SONumber) 
+			AND CASE WHEN @f_OperatorID = '-' THEN '1' ELSE mlist.Operator_id END = CASE WHEN @f_OperatorID = '-' THEN '1' ELSE @f_OperatorID END
+			AND CASE WHEN @f_CompanyID = '-' THEN '1' ELSE b.CompanyID END = CASE WHEN @f_CompanyID = '-' THEN '1' ELSE @f_CompanyID END
+	END   
+	-- ------------------------------------------------------------------------------------------------------------------
+	UPDATE a 
+	set   a.sitac_date	= isnull(convert(Varchar,b.app_date,103), '-')
+		, a.cme_date	= isnull(convert(Varchar,b.rfc_date,103), '-')
+		, a.spk_date	= isnull(convert(Varchar,b.tgl_fpki_stip,103), '-')
+	FROM			#temp a
+		LEFT JOIN	DASHBOARD.tbg.whGenerateProjectInformation b WITH (NOLOCK) on (a.sonumb = b.sonumb and a.site_id_old = b.site_id)
+	WHERE  1=1--b.asat_date = @asatdate  
+	-- ------------------------------------------------------------------------------------------------------------------
+	UPDATE a set a.site_name = b.sitename + ' / ' + a.site_name
+	FROM		#temp				a
+		join	TBG_sys.tbg.mf_site b WITH (NOLOCK) on (a.site_id_old = b.site_id_old)
+	WHERE a.site_name <> b.sitename
+	-- ------------------------------------------------------------------------------------------------------------------
+	SELECT RTRIM(LTRIM(#temp.sonumb))		[sonumb]
+		, RTRIM(LTRIM(#temp.site_id_opr)) [site_id_opr]
+		, RTRIM(LTRIM(#temp.site_id_old)) [site_id_old]
+		, #temp.site_name
+		, #temp.company_id, #temp.operator, #temp.[type], #temp.spk_date, #temp.sitac_date
+		, #temp.cme_date, #temp.rfi_date, #temp.atpdate, #temp.rfi_days, #temp.atp_days, #temp.category 
+		, #temp.stipsiro, #temp.bapsperiod
+		, POTower.po_number [POTowerNumber]
+		, CONVERT(VARCHAR(11), POTower.po_date, 106) [POTowerDate]
+		, CONVERT(VARCHAR(11), POTower.LastTrx, 106) [POInputDate]
+		, CONVERT(VARCHAR(11), POTower.po_received, 106) [POTowerReceived]
+		, CONVERT(VARCHAR(11), POTower.start_period, 106) + ' - ' + CONVERT(VARCHAR(11), POTower.end_period, 106) [POTowerPeriod]
+		, CASE WHEN FileUpload.name_file IS NULL AND FileUpload.link_file IS NULL THEN '' ELSE 'Download' END [LinkDownloadPO]
+		, FileUpload.name_file 'POTowerFileName'
+		, FileUpload.link_file 'POTowerLinkPath'
+	FROM #temp
+	LEFT JOIN (
+		SELECT Y.*, X.po_number, X.po_date, X.po_received, X.start_period, X.end_period
+		FROM TBG_sys.tbg.MF_PO_PROCESS X
+		INNER JOIN (
+			SELECT sonumb, stip_siro, status_renewal, po_type, MAX(audit_date) 'LastTrx'
+			FROM TBG_sys.tbg.MF_PO_PROCESS
+			WHERE po_type = 'TOWER'
+			GROUP BY sonumb, stip_siro, status_renewal, po_type
+		) Y 
+			ON X.sonumb = Y.sonumb
+			AND X.stip_siro = Y.stip_siro
+			AND X.status_renewal = Y.status_renewal
+			AND X.audit_date = Y.LastTrx
+		INNER JOIN TBG_sys.tbg.MF_SPK_INTERNAL_TEMP SPK_Temp
+			ON X.sonumb = SPK_Temp.sonumb
+			AND X.site_id_old = SPK_Temp.site_id_old
+		WHERE X.po_type = 'TOWER'
+	) POTower
+		ON #temp.sonumb = POTower.sonumb
+		AND #temp.stipsiro = POTower.stip_siro
+		AND #temp.bapsperiod = POTower.status_renewal
+	LEFT JOIN (
+		SELECT A.sonumb, A.site_id_old, A.link_file, A.name_file
+		FROM TBG_sys.tbg.MF_UPLOAD A
+		INNER JOIN (
+			SELECT site_id_old, sonumb, MAX(audit_date) 'LastUpload'
+			FROM TBG_sys.tbg.MF_UPLOAD
+			WHERE upload_code = 'PO'
+			GROUP BY site_id_old, sonumb
+		) B
+			ON A.sonumb = B.sonumb
+			AND A.site_id_old = B.site_id_old
+			AND A.audit_date = B.LastUpload
+		WHERE A.upload_code = 'PO'
+	) FileUpload
+		ON #temp.site_id_old = FileUpload.site_id_old
+		AND #temp.sonumb = FileUpload.sonumb
+	-- ------------------------------------------------------------------------------------------------------------------
+	DROP TABLE #temp
+	DROP TABLE #sitename
+END
+
+================================================================================================================================================================
+TABLES
+
+mf_list_project => Dashboard.tbg.whGenerateProjectInformation
+mf_site_info 	=>  mstTenant
+mf_site 		=> mstSite
+mf_product 		
+mf_colo_type
+mf_spk_internal
+mf_spk_operator
+SECURITY_USERS
+mf_product_add_site
+mf_product_add
+--

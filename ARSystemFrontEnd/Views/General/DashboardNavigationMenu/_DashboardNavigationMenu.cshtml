@@ -1,0 +1,253 @@
+﻿@using ARSystemFrontEnd.Helper
+<style>
+    .divDashboardNavigationMenu {
+        max-height: calc(-150px + 100vh);
+        background-color: #f0f0f0;
+        z-index: 10050;
+    }
+
+    .shadow {
+        box-shadow: 3px 3px 5px #888888;
+        border-radius: 20px;
+    }
+
+    .shadow-2 {
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0px 0px 8px rgba(17, 14, 14, 0.12);
+    }
+
+    .overlay_dashboard_menu {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+    }
+
+    .mt-comment-text > a {
+        font-size: 18px;
+    }
+
+    .mt-comment-date > i.favorite {
+        color: #d5a30d;
+    }
+
+    .input-group-addon > i.black {
+        color: #393939;
+    }
+
+    .page-menus {
+        padding: 0px;
+        background-color: #f1f4f7;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        border-radius: 4px;
+    }
+
+        .page-menus .page-breadcrumb {
+            display: inline-block;
+            float: left;
+            padding: 1px;
+            margin: 0;
+            list-style: none;
+        }
+
+            .page-menus .page-breadcrumb > li {
+                display: inline-block;
+            }
+
+    .ie8 .page-menus .page-breadcrumb > li {
+        margin-right: 1px;
+    }
+
+    .page-menus .page-breadcrumb > li > a,
+    .page-menus .page-breadcrumb > li > span {
+        color: #000;
+        font-size: 12px;
+        text-shadow: none;
+    }
+
+        .page-menus .page-breadcrumb > li > a.keyword,
+        .page-menus .page-breadcrumb > li > span.keyword {
+            color: #d3b82a;
+        }
+
+    .page-menus .page-breadcrumb > li > i {
+        color: #000;
+        font-size: 12px;
+        text-shadow: none;
+    }
+
+        .page-menus .page-breadcrumb > li > i[class^="icon-"],
+        .page-menus .page-breadcrumb > li > i[class*="icon-"] {
+            color: black;
+        }
+
+    /*--------------------------------------------------------------
+    # application
+    --------------------------------------------------------------*/
+    .applications .application-item {
+        box-sizing: content-box;
+        text-align: center;
+        min-height: auto;
+    }
+
+        .applications .application-item .application-img {
+            width: 60px;
+            height: 60px border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .applications .application-item a {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            color: #111;
+        }
+
+
+
+    .applications .owl-nav, .applications .owl-dots {
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .applications .owl-dot {
+        display: inline-block;
+        margin: 0 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd !important;
+    }
+
+        .applications .owl-dot.active {
+            background-color: #2487ce !important;
+        }
+
+    .vl {
+        border-left: 1px solid #c1bfbf;
+        height: 150px;
+        position: absolute;
+        left: 50%
+    }
+
+    .title-other-application > hr, p {
+        margin: 5px 0;
+    }
+</style>
+<link href="@Url.Content("~/Content/global/plugins/OwlCarousel2/assets/owl.theme.default.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/global/plugins/OwlCarousel2/assets/owl.carousel.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Content/global/plugins/OwlCarousel2/owl.carousel.js")" type="text/javascript"></script>
+<div class="col-md-12 divDashboardNavigationMenu">
+    <div id="_divDashboardNavigationMenu">
+        <div class="col-md-12">
+            <div>
+                <h3>
+                    <b>Other Application</b>
+                </h3>
+            </div>
+            <div class="portlet light bordered shadow">
+                <div class="portlet-body" style="height:150px">
+                    <div class="row">
+                        <div class="vl"></div>
+                        <div class="col-md-6">
+                            <div class="title-other-application">
+                                <p>
+                                    <b>New System</b>
+                                </p>
+                                <hr />
+                            </div>
+                            <div class="portlet-body" style="height:120px">
+                                <div class="row">
+                                    <div id="applications" class="applications">
+                                        <div class="owl-carousel applications-carousel" id="new-system-app">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="title-other-application">
+                                <p>
+                                    <b>Legacy System</b>
+                                </p>
+                                <hr />
+                            </div>
+                            <div class="portlet-body" style="height:120px">
+                                <div class="row">
+                                    <div id="applications" class="applications">
+                                        <div class="owl-carousel applications-carousel">
+                                            <div class="application-item">
+                                                <img src="~/Content/images/logoDashboardMenu.png" class="application-img" alt="">
+                                                <a class="legacy-url" data-config="TBGSysV1URL">TBGSys Legacy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" id="_divbodyFavoriteMenu">
+                    <div class="portlet light bordered shadow">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <i class="fa fa-star fa-lg" style="color:#d5a30d"></i>
+                                <span class="caption-subject bold">Favorite Menu</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="scroller" style="height: 420px;" data-always-visible="1" data-rail-visible="0">
+                                        <div class="mt-comments" id="_divFavoritetMenu" style="margin:5px 0 0 0;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8" id="_divbodySearchMenu">
+                    <div class="portlet light bordered shadow">
+                        <div class="portlet-title">
+                            <div class="input-inline" style="float:left">
+                                <div class="search-form search-form-expanded" style="background-color:transparent;">
+                                    <div class="input-icon right">
+                                        <i class="fa fa-search" style="color:black" id="_tbSearchMenu"></i>
+                                        <input type="text" id="_tbxSearchMenu" placeholder="Search Menu New System" class="form-control" style="background-color:white" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="scroller" style="height: 420px;" data-always-visible="1" data-rail-visible="0">
+                                        <div class="mt-comments" id="_divresultMenu" style="margin:5px 0 0 0;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.ContentVersion("~/scripts/General/DashboardNavigationMenu/_DashboardNavigationMenu.js")" type="text/javascript"></script>

@@ -1,0 +1,36 @@
+﻿@*@model List<ARSystemFrontEnd.Models.PostTrxBOQReportHTMLData>*@
+@model ARSystemFrontEnd.Models.PostTrxBOQReportHTMLData
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Report BOQ</title>
+    <link href="@Url.Content("~/Content/global/plugins/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script>
+        window.onload = function () {
+            document.getElementById("textDIV").innerHTML = document.getElementById("HTMLSTRING").value;
+        };
+    </script>
+</head>
+
+<body>
+    <input type="hidden" value="@Model.htmlString" id="HTMLSTRING" />
+   <div id="textDIV">
+       
+   </div>
+
+    <script src="@Url.Content("~/Content/global/plugins/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/jquery.blockui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/js.cookie.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/common.js")" type="text/javascript"></script>
+
+</body>
+</html>

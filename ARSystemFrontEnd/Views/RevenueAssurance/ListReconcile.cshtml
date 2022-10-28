@@ -1,0 +1,1460 @@
+﻿@using System.Text.RegularExpressions
+@{
+    ViewBag.Title = "List Reconcile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /*  Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .form-group.required .control-label:after {
+        content: "*";
+        color: red;
+    }
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row panelSearchFilter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Renewal Year</label>
+                                        <div class="col-md-6">
+                                            <select id="slRenewalYear" class="form-control select2">
+                                                @{
+                                                    int tahun = System.DateTime.Now.Year + 10;
+                                                    <option value=" ">No Filter</option>
+                                                    <option value="@(tahun)">
+                                                        @(tahun)
+                                                </option>
+                                                    for (int i = 1; i <= 30; i++)
+                                                    {
+                                                        <option value="@(tahun - i)">@(tahun - i)</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Company Invoice</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchCompanyName" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Operator</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchOperator" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Batch</label>
+                                        <div class="col-md-6">
+                                            <select id="slBatch" class="form-control select2">
+                                                @{
+                                                    int tahuns = System.DateTime.Now.Year + 10;
+                                                    <option>No Filter</option>
+                                                    @*<option value="@(tahuns)">@(tahuns)</option>*@
+                                                    for (int i = 1; i <= 30; i++)
+                                                    {
+                                                        <option value="@(tahuns - i)01">
+                                                        @(tahuns - i) Batch 1
+                                                    </option>
+                                                        <option value="@(tahuns - i)02">@(tahuns - i) Batch 2</option>
+                                                }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Reconcile Type</label>
+                                        <div class="col-md-6">
+                                            <select id="slReconcileType" class="form-control select2">
+                                                <option value=" ">No Filter</option>
+                                                <option value="Tower">Tower</option>
+                                                <option value="Power">Power</option>
+                                                <option value="INF">Inflation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Quartal</label>
+                                        <div class="col-md-6">
+                                            <select id="slRenewalYearSeq" class="form-control select2">
+                                                <option value=" ">No Filter</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Due Date Per Month</label>
+                                        <div class="col-md-6">
+                                            <select id="slDueDatePerMonth" class="form-control select2">
+                                                <option value=" ">No Filter</option>
+                                                <option value="1">January</option>
+                                                <option value="2">Febuary</option>
+                                                <option value="3">March</option>
+                                                <option value="4">April</option>
+                                                <option value="5">May</option>
+                                                <option value="6">June</option>
+                                                <option value="7">July</option>
+                                                <option value="8">August</option>
+                                                <option value="9">September</option>
+                                                <option value="10">October</option>
+                                                <option value="11">November</option>
+                                                <option value="12">December</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">SO Number</label>
+                                        <div class="col-md-6">
+                                            <select id="slSONumber" class="form-control select2" multiple></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Currency</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchCurrency" class="form-control select2">
+                                                <option value=" ">No Filter</option>
+                                                <option value="IDR">IDR</option>
+                                                <option value="USD">USD</option>
+                                                <option value="EUR">EURO</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Regional</label>
+                                        <div class="col-md-6">
+                                            <select id="slRegional" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Province</label>
+                                        <div class="col-md-6">
+                                            <select id="slProvince" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label">Tenant Type</label>
+                                        <div class="col-md-6">
+                                            <select id="slTenantType" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabReconcile">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabRaw" data-toggle="tab"><b>Reconcile Input</b></a>
+                            </li>
+                            <li>
+                                <a href="#tabProcess" data-toggle="tab">Reconcile Process</a>
+                            </li>
+                            <li>
+                                <a href="#tabDone" data-toggle="tab">Reconcile Done</a>
+                            </li>
+                            <li>
+                                <a href="#tabHold" data-toggle="tab">Reconcile Hold</a>
+                            </li>
+                            <li>
+                                <a href="#tabUpload" data-toggle="tab">Upload Document</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabRaw">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblRaw">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-raw"></th>
+                                            <th class="datatable-col-25">No</th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-250">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-250">Customer Site Name</th>
+                                            <th class="datatable-col-100">Region Name</th>
+                                            <th class="datatable-col-100">Province Name</th>
+                                            <th class="datatable-col-100">Residence Name</th>
+                                            <th class="datatable-col-200">Initial PO Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-100">Start Lease Date</th>
+                                            <th class="datatable-col-100">End Lease Date</th>
+                                            <th class="datatable-col-100">RFI Date</th>
+                                            <th class="datatable-col-100">Bauk Date</th>
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-100">BAPS Type</th>
+                                            <th class="datatable-col-100">Customer Invoice</th>
+                                            <th class="datatable-col-100">Customer Asset</th>
+                                            <th class="datatable-col-100">Company Invoice</th>
+                                            <th class="datatable-col-100">Company Asset</th>
+                                            <th class="datatable-col-100">STIP Siro</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">BaseLease Currency</th>
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Inflation Amount</th>
+                                            <th class="datatable-col-100">Additional Amount</th>
+                                            <th class="datatable-col-100">Deduction Amount</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabProcess">
+                                
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblProcess">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-process"></th>
+                                            <th class="datatable-col-10"></th>
+                                            <th class="datatable-col-25">No</th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-250">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-250">Customer Site Name</th>
+                                            <th class="datatable-col-100">Region Name</th>
+                                            <th class="datatable-col-100">Province Name</th>
+                                            <th class="datatable-col-100">Residence Name</th>
+                                            <th class="datatable-col-200">Initial PO Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-100">Start Lease Date</th>
+                                            <th class="datatable-col-100">End Lease Date</th>
+                                            <th class="datatable-col-100">RFI Date</th>
+                                            <th class="datatable-col-100">Bauk Date</th>
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-100">BAPS Type</th>
+                                            <th class="datatable-col-100">Customer Invoice</th>
+                                            <th class="datatable-col-100">Customer Asset</th>
+                                            <th class="datatable-col-100">Company Invoice</th>
+                                            <th class="datatable-col-100">Company Asset</th>
+                                            <th class="datatable-col-100">STIP Siro</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">BaseLease Currency</th>
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Inflation Amount</th>
+                                            <th class="datatable-col-100">Additional Amount</th>
+                                            <th class="datatable-col-100">Deduction Amount</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabDone">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDone">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-done"></th>
+                                            <th></th>
+                                            <th class="datatable-col-25">No</th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-250">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-250">Customer Site Name</th>
+                                            <th class="datatable-col-100">Region Name</th>
+                                            <th class="datatable-col-100">Province Name</th>
+                                            <th class="datatable-col-100">Residence Name</th>
+                                            <th class="datatable-col-200">Initial PO Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-100">Start Lease Date</th>
+                                            <th class="datatable-col-100">End Lease Date</th>
+                                            <th class="datatable-col-100">RFI Date</th>
+                                            <th class="datatable-col-100">Bauk Date</th>
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-100">BAPS Type</th>
+                                            <th class="datatable-col-100">Customer Invoice</th>
+                                            <th class="datatable-col-100">Customer Asset</th>
+                                            <th class="datatable-col-100">Company Invoice</th>
+                                            <th class="datatable-col-100">Company Asset</th>
+                                            <th class="datatable-col-100">STIP Siro</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">BaseLease Currency</th>
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Inflation Amount</th>
+                                            <th class="datatable-col-100">Additional Amount</th>
+                                            <th class="datatable-col-100">Deduction Amount</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabHold">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblHold">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-hold"></th>
+                                            <th class="datatable-col-25">No</th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-250">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-250">Customer Site Name</th>
+                                            <th class="datatable-col-100">Region Name</th>
+                                            <th class="datatable-col-100">Province Name</th>
+                                            <th class="datatable-col-100">Residence Name</th>
+                                            <th class="datatable-col-200">Initial PO Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-100">Start Lease Date</th>
+                                            <th class="datatable-col-100">End Lease Date</th>
+                                            <th class="datatable-col-100">RFI Date</th>
+                                            <th class="datatable-col-100">Bauk Date</th>
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-100">BAPS Type</th>
+                                            <th class="datatable-col-100">Customer Invoice</th>
+                                            <th class="datatable-col-100">Customer Asset</th>
+                                            <th class="datatable-col-100">Company Invoice</th>
+                                            <th class="datatable-col-100">Company Asset</th>
+                                            <th class="datatable-col-100">STIP Siro</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">BaseLease Currency</th>
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Inflation Amount</th>
+                                            <th class="datatable-col-100">Additional Amount</th>
+                                            <th class="datatable-col-100">Deduction Amount</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="tabUpload">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet box blue">
+                                            <div class="portlet-title">
+                                                <div class="caption font-white">
+                                                    <i class="fa fa-filter"></i>
+                                                    <span class="caption-subject">Filter</span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="" class="collapse"> </a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body form">
+                                                
+                                                    <div class="form-body">
+                                                        <div class="row form-horizontal">
+                                                            <div class="col-md-6">  
+                                                                <form id="formSearchUpload" class="" role="form">
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Operator</label>
+                                                                        <div class="col-md-4">
+                                                                            <select id="slUploadOperator" class="form-control select2" onchange="Control.BindCustomerRegion(this);" required></select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Batch</label>
+                                                                        <div class="col-md-4">
+                                                                            <select id="slUploadBatch" class="form-control select2">
+                                                                                <option value=" ">No Filter</option>
+                                                                                @{
+                                                                                for (int i = 1; i <= 30; i++)
+                                                                                {
+                                                                                        <option value="@(tahuns - i)01">
+                                                                                            @(tahuns - i) Batch 1
+                                                                                        </option>
+                                                                                        <option value="@(tahuns - i)02">@(tahuns - i) Batch 2</option>
+                                                                                }
+                                                                                }
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-3 control-label">Regional Customer</label>
+                                                                        <div class="col-md-6">
+                                                                            <select id="slUploadRegional" class="form-control select2" required></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="button" id="btSearchUpload" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetUpload" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row height59">
+
+                                </div>
+                                <div class="row height59">
+
+                                </div>
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblUpload">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-25 select-all-upload"></th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-250">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-250">Customer Site Name</th>
+                                            <th class="datatable-col-250">Company Invoice</th>
+                                            <th class="datatable-col-250">Regional TBG</th>
+                                            <th class="datatable-col-250">Regional Customer</th>
+                                            <th class="datatable-col-50">Term</th>
+                                            <th class="datatable-col-100">Start Lease Date</th>
+                                            <th class="datatable-col-100">End Lease Date</th>
+                                            <th class="datatable-col-100">Start Invoice Date</th>
+                                            <th class="datatable-col-100">End Invoice Date</th>
+                                            <th class="datatable-col-100">Base Lease Currency</th>
+                                            <th class="datatable-col-100">Base Lease Price</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Deduction Currency</th>
+                                            <th class="datatable-col-100">Deduction Price</th>
+                                            <th class="datatable-col-200">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="row height59 text-center">
+                                    <button type="button" id="btAddSite" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                        <i class="fa fa-download"></i> Add Site
+                                    </button>
+                                    <button type="button" id="btDeleteSite" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                        <i class="fa fa-download"></i> Delete Site
+                                    </button>
+                                </div>
+                                <div class="portlet light bordered box blue">
+                                    <div class="portlet-title">
+                                        <div class="caption font-white">
+                                            <i class="fa fa-filter"></i>
+                                            <span class="caption-subject">Selected Site</span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="collapse"> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <form id="formupload">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <div class="row" id="pnlUpload">
+                                                                <label class="control-label col-md-3">Document RTI </label>
+                                                                <div class="col-md-5">
+                                                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                        <div class="input-group input-large">
+                                                                            <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                                                <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                                                <span class="fileinput-filename" id="file-upload-filename"> </span><div></div>
+                                                                            </div>
+                                                                            <span class="input-group-addon btn default btn-file">
+                                                                                <span class="fileinput-new"> Select file </span>
+                                                                                <span class="fileinput-exists"> Change </span>
+                                                                                <input type="file" name="postedFile1" id="postedFile1" accept="application/vnd.ms-excel, application/pdf" required>
+                                                                            </span>
+                                                                            <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSiteUpload">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="datatable-col-25"></th>
+                                                        <th class="datatable-col-100">SO Number</th>
+                                                        <th class="datatable-col-100">Site ID</th>
+                                                        <th class="datatable-col-250">Site Name</th>
+                                                        <th class="datatable-col-100">Customer Site ID</th>
+                                                        <th class="datatable-col-250">Customer Site Name</th>
+                                                        <th class="datatable-col-250">Company Invoice</th>
+                                                        <th class="datatable-col-250">Regional TBG</th>
+                                                        <th class="datatable-col-250">Regional Customer</th>
+                                                        <th class="datatable-col-50">Term</th>
+                                                        <th class="datatable-col-100">Start Lease Date</th>
+                                                        <th class="datatable-col-100">End Lease Date</th>
+                                                        <th class="datatable-col-100">Start Invoice Date</th>
+                                                        <th class="datatable-col-100">End Invoice Date</th>
+                                                        <th class="datatable-col-100">Base Lease Currency</th>
+                                                        <th class="datatable-col-100">Base Lease Price</th>
+                                                        <th class="datatable-col-100">Service Currency</th>
+                                                        <th class="datatable-col-100">Service Price</th>
+                                                        <th class="datatable-col-100">Deduction Currency</th>
+                                                        <th class="datatable-col-100">Deduction Price</th>
+                                                        <th class="datatable-col-200">Total Amount</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                            <div class="row height59">
+                                                <button type="button" id="btDocumentUpload" onclick="Form.UploadDocument();" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                    <i class="fa fa-upload"></i> Submit Document
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="btUpdateAmountBulky" class="btn blue mt-ladda-btn ladda-button">
+                            <i class="fa fa-save"></i> Update Amount Bulky
+                        </button>
+                        <button type="button" id="btUpdate" class="btn blue">
+                            <i class="fa fa-save"></i> Update OM Price
+                        </button>
+                        <button type="button" id="btUploadDoc" class="btn blue">
+                            <i class="fa fa-upload"></i> Upload Document
+                        </button>
+                        <button type="button" id="btProcess" class="btn green">
+                            <i class="fa fa-check"></i> Process Data@*Add To Reconcile Process*@
+                        </button>
+                        <button type="button" id="btModify" class="btn red">
+                            <i class="fa fa-close"></i> Hold
+                        </button>
+                        <button type="button" id="btBack" class="btn red">
+                            <i class="fa fa-reply"></i> Back To Input Reconcile
+                        </button>
+                        <button type="button" id="btDone" class="btn green">
+                            <i class="fa fa-check"></i> Process Data @*Reconcile Done*@
+                        </button>
+                        <button type="button" id="btHoldUpdate" class="btn green">
+                            <i class="fa fa-check"></i> Process Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelUpdate" id="panelUpdate">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet box blue">
+                        <div class="portlet-title">
+                            <div class="caption font-white">
+                                <i class="fa fa-database"></i>
+                                <span class="caption-subject">Basic Information</span>
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse"> </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form" style="display:block;">
+                            <div class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <input type="hidden" id="tbUpdateID" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>SO Number</b></label>
+                                                <input readonly type="text" id="tbUpdateSONumber" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Site ID</b></label>
+                                                <input readonly type="text" id="tbUpdateSiteId" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Site Name</b></label>
+                                                <input readonly type="text" id="tbUpdateSiteName" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Site ID Operator</b></label>
+                                                <input type="text" id="tbUpdateSiteIDOpr" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Site Name Operator</b></label>
+                                                <input type="text" id="tbUpdateSiteNameOpr" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Company Invoice</b></label>
+                                                @*<input type="text" id="tbUpdateCompanyInvoice" class="form-control">*@
+                                                <select class="form-control select2" id="tbUpdateCompanyInvoice"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Company Asset</b></label>
+                                                <input readonly type="text" id="tbUpdateCompanyAsset" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>RFI Date</b></label>
+                                                <input type="text" id="tbUpdateRFIDate" class="form-control datepicker">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Reconcile Date</b></label>
+                                                <input type="text" id="tbUpdateReconcileDate" class="form-control datepicker">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Region Name</b></label>
+                                                <input readonly type="text" id="tbUpdateRegionName" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Province Name</b></label>
+                                                <input readonly type="text" id="tbUpdateProvinceName" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Residence Name</b></label>
+                                                <input readonly type="text" id="tbUpdateResidenceName" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Address</b></label>
+                                                <textarea readonly id="tbUpdateAddress" rows="5" class="form-control"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>BAPS Type</b></label>
+                                                <input readonly type="text" id="tbUpdateBapsType" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Stip Siro</b></label>
+                                                <input readonly type="text" id="tbUpdateStipSiro" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Bauk Date</b></label>
+                                                <input type="text" id="tbUpdateBaukDate" class="form-control datepicker">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="portlet box grey-silver">
+                        <div class="portlet-title">
+                            <div class="caption font-white">
+                                <i class="fa fa-files-o"></i>
+                                <span class="caption-subject">Invoice Information</span>
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse"> </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body form" style="display:block;">
+                            <div class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Initial PO Number</b></label>
+                                                <input readonly type="text" id="tbUpdateIpo" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>MLA Number</b></label>
+                                                <input type="text" id="tbUpdateMla" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Invoice Type</b></label>
+                                                <input readonly type="text" id="tbUpdateInvoiceType" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Customer Invoice</b></label>
+                                                <input readonly type="text" id="tbUpdateCustomerInvoice" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Customer Asset</b></label>
+                                                <input readonly type="text" id="tbUpdateCustomerAsset" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Start Lease Date</b></label>
+                                                <input readonly type="text" id="tbUpdateStartDateLease" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>End Lease Date</b></label>
+                                                <input readonly type="text" id="tbUpdateEndDateLease" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Term</b></label>
+                                                <input readonly type="text" id="tbUpdateTerm" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Invoice Start Date</b></label>
+                                                <input readonly type="text" id="tbUpdateStartDateInv" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Invoice End Date</b></label>
+                                                <input readonly type="text" id="tbUpdateEndDateInv" class="form-control">
+                                            </div>
+                                            <div class="form-group" id="divUpdateCutOffHCPT" style="display:none">
+                                                <label class="control-label"><b>Change Cut Off to 30 September</b></label><br />
+                                                <input class="make-switch" type="checkbox" id="cbUpdateCutOffHCPT" data-on-color="info" data-off-color="danger" data-on-text="Yes" data-off-text="No">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="portlet box green">
+                        <div class="portlet-title">
+                            <div class="caption font-white">
+                                <i class="fa fa-dollar"></i>
+                                <span class="caption-subject">Commercial Information</span>
+                            </div>
+                            <div class="tools">
+                                <a href="" class="collapse"> </a>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="form-horizontal">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Invoice Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdateCurrency" class="form-control">*@
+                                                <select id="slUpdateCurrency" class="form-control" required>
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Service Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdateServiceCurrency" class="form-control">*@
+                                                <select id="slUpdateServiceCurrency" class="form-control" required>
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Inflation Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdateInflationCurrency" class="form-control">*@
+                                                <select id="slUpdateInflationCurrency" class="form-control" disabled>
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Additional Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdateAdditionalCurrency" class="form-control">*@
+                                                <select id="slUpdateAdditionalCurrency" class="form-control" disabled>
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Deduction Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdateDeductionCurrency" class="form-control">*@
+                                                <select id="slUpdateDeductionCurrency" class="form-control">
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Penalty Currency</b></label>
+                                                @*<input readonly type="text" id="tbUpdatePenaltyCurrency" class="form-control">*@
+                                                <select id="slUpdatePenaltyCurrency" class="form-control" disabled>
+                                                    <option value="">Please Select</option>
+                                                    <option value="IDR">IDR</option>
+                                                    <option value="USD">USD</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Distance (m)</b></label>
+                                                <input readonly type="text" id="tbUpdateDropFODistance" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Invoice Amount</b></label>
+                                                <input type="text" id="tbUpdateBaseLease" class="form-control" onchange="Form.ReplaceDecimal(this);" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Service Amount</b></label>
+                                                <input type="text" id="tbUpdateOMPrice" min="0.00" class="form-control" onchange="Form.ReplaceDecimal(this);" required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Inflation Amount</b></label>
+                                                <input type="text" id="tbUpdateInflationAmount" class="form-control" onchange="Form.CheckDecimal(this);" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Additional Amount</b></label>
+                                                <input type="text" id="tbUpdateAdditionalAmount" class="form-control" onchange="Form.CheckDecimal(this);" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Deduction Amount</b></label>
+                                                <input type="text" id="tbUpdateDeductionAmount" class="form-control" onchange="Form.ReplaceDecimal(this);">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Penalty Amount</b></label>
+                                                <input type="text" id="tbUpdatePenaltyAmount" class="form-control" onchange="Form.CheckDecimal(this);" disabled>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Total Pro Rate</b></label>
+                                                <input readonly type="text" id="tbUpdateTotalProRate" class="form-control" onchange="Form.CheckDecimal(this);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <div class="text-center">
+                            <button type="button" id="btBackToList" class="btn grey">
+                                <i class="fa fa-reply"></i> Cancel
+                            </button>
+                            <button type="button" id="btUpdateReconcile" class="btn green">
+                                <i class="fa fa-save"></i> Update
+                            </button>
+                            @*<input type="submit" id="btUpdateReconcile" class="btn green fa fa-save" value="Update"/>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelUpload">
+        <form action="" enctype="multipart/form-data">
+            <div class="col-md-12 text-center">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">BA Document (Excel/PDF) <span style="color:red">*</span></label>
+                                <div class="col-md-3">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="input-group input-large">
+                                            <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                <span class="fileinput-filename"> </span>
+                                            </div>
+                                            <span class="input-group-addon btn default btn-file">
+                                                <span class="fileinput-new"> Browse </span>
+                                                <span class="fileinput-exists"> Change </span>
+                                                <input type="file" name="file" id="file">
+                                            </span>
+                                            <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">BA Other (Excel/PDF)</label>
+                            <div class="col-md-3">
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="input-group input-large">
+                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                            <span class="fileinput-filename"> </span>
+                                        </div>
+                                        <span class="input-group-addon btn default btn-file">
+                                            <span class="fileinput-new"> Browse </span>
+                                            <span class="fileinput-exists"> Change </span>
+                                            <input type="file" name="file2" id="file2">
+                                        </span>
+                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <button type="button" id="btSubmitUpload" class="btn blue mt-ladda-btn ladda-button">
+                                <i class="fa fa-cloud-upload"></i> Upload
+                            </button>
+                            <button type="button" id="btDismissUpload" class="btn grey">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<div class="modal fade" id="mdlDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detail Data</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="formDetailData" class="sky-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 style="border-bottom-color:blue;border-bottom:dashed;"><strong>Basic Information</strong></h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>SO Number</b></label>
+                                        <input readonly type="text" id="tbDetailSONumber" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Site ID</b></label>
+                                        <input readonly type="text" id="tbDetailSiteId" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Site Name</b></label>
+                                        <input readonly type="text" id="tbDetailSiteName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Site ID Operator</b></label>
+                                        <input readonly type="text" id="tbDetailSiteIDOpr" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Site Name Operator</b></label>
+                                        <input readonly type="text" id="tbDetailSiteNameOpr" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Company Invoice</b></label>
+                                        <input readonly type="text" id="tbDetailCompanyInvoice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Company Asset</b></label>
+                                        <input readonly type="text" id="tbDetailCompanyAsset" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Region Name</b></label>
+                                        <input readonly type="text" id="tbDetailRegionName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Province Name</b></label>
+                                        <input readonly type="text" id="tbDetailProvinceName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Residence Name</b></label>
+                                        <input readonly type="text" id="tbDetailResidenceName" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Address</b></label>
+                                        <textarea readonly id="tbDetailAddress" rows="5" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>BAPS Type</b></label>
+                                        <input readonly type="text" id="tbDetailBapsType" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Stip Siro</b></label>
+                                        <input readonly type="text" id="tbDetailStipSiro" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <h4 style="border-bottom-color:blue;border-bottom:dashed;"><strong>Commercial Information</strong></h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Initial PO Number</b></label>
+                                        <input readonly type="text" id="tbDetailIpo" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>MLA Number</b></label>
+                                        <input readonly type="text" id="tbDetailMla" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Invoice Type</b></label>
+                                        <input readonly type="text" id="tbDetailInvoiceType" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Customer Invoice</b></label>
+                                        <input readonly type="text" id="tbDetailCustomerInvoice" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Customer Asset</b></label>
+                                        <input readonly type="text" id="tbDetailCustomerAsset" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Currency</b></label>
+                                        <input readonly type="text" id="tbDetailCurrency" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Inflation Amount</b></label>
+                                        <input readonly type="text" id="tbDetailInflation" min="0.00" class="form-control" onblur="Form.CheckDecimal(this);" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Additional Amount</b></label>
+                                        <input readonly type="text" id="tbDetailAdditional" min="0.00" class="form-control" onblur="Form.CheckDecimal(this);" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Distance (m)</b></label>
+                                        <input readonly type="text" id="tbDetailDistance" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Start Lease Date</b></label>
+                                        <input readonly type="text" id="tbDetailStartDateLease" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>End Lease Date</b></label>
+                                        <input readonly type="text" id="tbDetailEndDateLease" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Term</b></label>
+                                        <input readonly type="text" id="tbDetailTerm" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Invoice Start Date</b></label>
+                                        <input readonly type="text" id="tbDetailStartDateInv" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Invoice End Date</b></label>
+                                        <input readonly type="text" id="tbDetailEndDateInv" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Base Lease</b></label>
+                                        <input readonly type="text" id="tbDetailBaseLease" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Service Price</b></label>
+                                        <input readonly type="text" id="tbDetailOMPrice" min="0.00" class="form-control" onblur="Form.CheckDecimal(this);" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Deduction Amount</b></label>
+                                        <input readonly type="text" id="tbDetailDeductionAmount" min="0.00" class="form-control" onblur="Form.CheckDecimal(this);" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><b>Total Pro Rate</b></label>
+                                        <input readonly type="text" id="tbDetailTotalProRate" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btUpdateAmount" class="btn blue NeedRounding">
+                    <i class="fa fa-save"></i> Update Amount
+                </button>
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mdlToProcess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add To Reconcile Process</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to Reconcile Process?</label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" id="btYesConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToDone" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Reconcile Done</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to Reconcile Done ?</label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" id="btDoneConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToInput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Back To Reconcile Process</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center"></label>
+                        </div>
+                        <div class="form-group">
+
+                        </div>
+                        <div class="form-group">
+
+
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label">Active Until<i class="font-red">*</i></label>
+                    </div>
+                    <div class="col-md-4">
+                        <input id="tbExpiredDate" class="form-control col-sm-4 datepicker" type="text" placeholder="Select Date" />
+                        <br />
+                        <br />
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" id="btYesConfirm2" class="btn green">
+                        <i class="fa fa-check"></i> Yes
+                    </button>
+
+                    <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                        <i class="fa fa-times"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mdlReject" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Hold Reconcile</h4>
+            </div>
+            <form id="formReject">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label text-center">Do You Want to Hold This Data?</label>
+                            <div class="form-group">
+                                <label class="control-label">Department<i class="font-red">*</i></label>
+                                <select id="slDept" class="form-control select2" required>
+                                    <option value="">Please Select</option>
+                                    <option value="mar">MARKETING</option>
+                                    <option value="pdi">PDI</option>
+                                    <option value="ra">RA NEW</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">PIC<i class="font-red">*</i></label>
+                                <select id="slPIC" class="form-control select2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">PICA<i class="font-red">*</i></label>
+                                <select id="slPICA" class="form-control select2" required></select>
+                            </div>
+                            @*<div class="form-group">
+                                    <label class="control-label">Hold Until<i class="font-red">*</i></label>
+                                    <input id="tbExpiredDate" class="form-control datepicker" type="text" placeholder="Select Date" />
+                                </div>*@
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                <textarea class="form-control" rows="3" id="tbRemarks" placeholder="Remarks" required></textarea>
+                            </div>
+                            
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="btYesReject" class="btn green">
+                                <i class="fa fa-check"></i> Yes
+                            </button>
+                            <button type="button" id="btNoReject" class="btn red">
+                                <i class="fa fa-times"></i> No
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="mdlBulky" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 50%;">
+        <form action="" class="form-horizontal form-bordered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Bulky Upload Document</h4>
+                </div>
+                <div class="modal-body">
+
+
+
+                </div>
+                <div class="modal-footer ">
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="mdlNextActivity" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Process Data</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center"></label>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-4">
+                        <label class="control-label pull-right">Next Activity :</label>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="slNextActivity" name="slNextActivity" class="form-control col-md-1"></select>
+                    </div>
+                </div>
+                <div class="row form-horizontal">
+                    <div class="col-md-3 pull-right">
+
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button type="button" id="btConfirm" class="btn green">
+                        <i class="fa fa-check"></i> Yes
+                    </button>
+
+                    <button type="button" data-dismiss="modal" id="btVoid" class="btn red">
+                        <i class="fa fa-times"></i> No
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlBulkyAmount" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Update Bulky Amount Reconcile</h4>
+            </div>
+            <form id="formReject">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Base Lease</label>
+                                <input class="form-control" id="tbBaseLease" onchange="Form.ReplaceDecimal(this);" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Service / OM</label>
+                                <input class="form-control" id="tbService" onchange="Form.ReplaceDecimal(this);" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Inflation</label>
+                                <input class="form-control" id="tbInflation" onchange="Form.ReplaceDecimal(this);" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Additional</label>
+                                <input class="form-control" id="tbAdditional" onchange="Form.ReplaceDecimal(this);" />
+                            </div>
+
+                        </div>
+                        <div class="text-center">
+                            <button type="button" id="btYesUpdate" class="btn green" onclick="Form.ProcessBulkyAmount();">
+                                <i class="fa fa-check"></i> Yes
+                            </button>
+                            <button type="button" id="btNoUpdate" class="btn red" onclick="Form.CancelBulkyAmount();">
+                                <i class="fa fa-times"></i> No
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<script src="@Url.Content("~/scripts/RevenueAssurance/ListReconcile.js")" type="text/javascript"></script>

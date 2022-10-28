@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" />
+  <xs:complexType name="dtAccessHistoryFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" base="q1:DatatableAjaxModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="EndLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dtAccessHistoryFilter" nillable="true" type="tns:dtAccessHistoryFilter" />
+  <xs:complexType name="dtLoginHistoryFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" base="q2:DatatableAjaxModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="EndLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StartLoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dtLoginHistoryFilter" nillable="true" type="tns:dtLoginHistoryFilter" />
+  <xs:complexType name="dtActionHistoryFilter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" base="q3:DatatableAjaxModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="EndPeriodDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ModuleID" type="xs:int" />
+          <xs:element minOccurs="0" name="StartPeriodDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="dtActionHistoryFilter" nillable="true" type="tns:dtActionHistoryFilter" />
+</xs:schema>

@@ -1,0 +1,273 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formIsat" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Job Description</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="JobDescIsat" class="form-control" />
+                                            <input type="hidden" id="IDTrxIsat" />
+                                            <input type="hidden" id="CompanyIDIsat" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Contract Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="ContractNumberIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">PO Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="PoNumberIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAUF Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="BaufNumberIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">RPS PO</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="RfsPoIsat" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Check Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="CheckDateIsat" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">PO Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="PoDateIsat" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">BAUF Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="BaufDateIsat" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input Detail</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formIsatDetail" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Material</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="MaterialIsat" class="form-control" />
+                                            <input type="hidden" id="IDTrxDtlIsat" />
+                                            <input type="hidden" id="SoNumberIsat" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Job Unit</label>
+                                        <div class="col-md-9">
+                                            <textarea id="JobDescriptionIsat" class="form-control" rows="6" cols="10"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Unit Net Price</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="UnitNetPriceIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Result</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="ResultIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Progress</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="ProgressIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Remarks</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="RemarksIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Discount</label>
+                                        <div class="col-md-8">
+                                            <input type="number" id="DiscountIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">SPK QTY</label>
+                                        <div class="col-md-8">
+                                            <input type="number" id="SpkQtyIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">SPK UNP</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="SpkUnpIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Before QTY</label>
+                                        <div class="col-md-7">
+                                            <input type="number" id="BeforeQtyIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Before UNP</label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="BeforeUnpIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Current QTY</label>
+                                        <div class="col-md-7">
+                                            <input type="number" id="CurrentQtyIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Current UNP</label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="CurrentUnpIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">QTY Remaining</label>
+                                        <div class="col-md-7">
+                                            <input type="number" id="RemainingQtyIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">UNP Remaining</label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="RemainingUnpIsat" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formIsat" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanyIsat" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Customer ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 1 </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerIsat" class="form-control select2 "></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name 2 </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerIsat2" class="form-control select2 "></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnIsatSubmit" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Submit
+            </button>
+            <button type="button" data-dismiss="modal" id="btnIsatCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>

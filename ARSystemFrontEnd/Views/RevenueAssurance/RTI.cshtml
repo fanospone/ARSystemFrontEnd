@@ -1,0 +1,711 @@
+﻿
+@{
+    ViewBag.Title = "RTI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .container {
+        width: 1170px;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<section id="pnlSummary">
+    <div class="row panelFilter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">FILTER</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Customer</label>
+                                        <div class="col-md-6">
+                                            <select id="slSearchCustomer" class="form-control select2" onchange="Form.View();" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompany" class="form-control select2" onchange="Form.View();" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Renewal Year</label>
+                                        <div class="col-md-6">
+                                            <select id="slRenewalYear" class="form-control select2">
+                                                @{
+                                                    int tahun = System.DateTime.Now.Year + 10;
+                                                    <option value=" ">No Filter</option>
+                                                    <option value="@(tahun)">
+                                                        @(tahun)
+                                                    </option>
+                                                    for (int i = 1; i <= 30; i++)
+                                                    {
+                                                        <option value="@(tahun - i)">@(tahun - i)</option>
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    @*<div class="form-group">
+                                        <label class="col-md-6 control-label" id="filteritem">PO</label>
+                                        <div class="col-md-6">
+                                            <div id="POFilter">
+                                                <select id="slSearchPO" class="form-control select2" multiple></select>
+                                            </div>
+                                        </div>
+                                    </div>*@
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Quartal</label>
+                                        <div class="col-md-8">
+                                            <select id="slQuartal" class="form-control select2">
+                                                <option value=" ">No Filter</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Type</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchBapsType" class="form-control select2" onload="Control.BindingSelectBapsType(this);" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Power Type</label>
+                                        <div class="col-md-8">
+                                            <select id="slSearchPowerType" class="form-control select2" onload="Control.BindingSelectPowerType(this);"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label" id="filteritem">BAPS Number</label>
+                                        <div class="col-md-6">
+                                            <div id="BAPSFilter">
+                                                <select id="slSearchBAPS" class="form-control select2" multiple></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-6 control-label" id="filteritem">PO Number</label>
+                                        <div class="col-md-6">
+                                            <div id="POFilter">
+                                                <select id="slSearchPO" class="form-control select2" multiple></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="rowSearchSONumb">
+                                        <label class="col-md-6 control-label">SO Number</label>
+                                        <div class="col-md-6">
+                                            <select id="slSONumber" class="form-control select2" multiple></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-horizontal" style="display:none;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="row height59">
+                                    <div class="col-md-12">
+                                        <fieldset class="portlet box">
+                                            <legend>Upload File</legend>
+
+                                            <div class="row">
+                                                <label class="control-label col-md-4"><b> </b></label>
+
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row height59">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabRTI">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabRaw" data-toggle="tab"><b>Ready To Process</b></a>
+                            </li>
+                            <li>
+                                <a href="#tabDone" data-toggle="tab">Done</a>
+                            </li>
+                            @*<li>
+                                    <a href="#tabSplit" data-toggle="tab">Split Data</a>
+                                </li>*@
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabRaw">
+                                <div class="col-md-12">
+                                    <div class="row" id="pnlUpload">
+                                        <label class="control-label col-md-2">Document RTI </label>
+                                        <div class="col-md-5">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="input-group input-large">
+                                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                        <span class="fileinput-filename" id="file-upload-filename"> </span><div></div>
+                                                    </div>
+                                                    <span class="input-group-addon btn default btn-file">
+                                                        <span class="fileinput-new"> Select file </span>
+                                                        <span class="fileinput-exists"> Change </span>
+                                                        <input type="file" name="postedFile1" id="postedFile1" accept="application/vnd.ms-excel, application/pdf" required>
+                                                    </span>
+                                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="row">
+                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblRaw">
+                                            <thead>
+                                                <tr>
+                                                    <th class="datatable-col-10 select-all-raw"></th>
+                                                    <th class="datatable-col-10"></th>
+                                                    <th class="datatable-col-100">SO Number</th>
+                                                    <th class="datatable-col-100">Site ID</th>
+                                                    <th class="datatable-col-200">Site Name</th>
+                                                    <th class="datatable-col-100">Customer Site ID</th>
+                                                    <th class="datatable-col-200">Customer Site Name</th>
+                                                    <th class="datatable-col-100">Region Name</th>
+                                                    <th class="datatable-col-100">Province Name</th>
+                                                    <th class="datatable-col-100">Residence Name</th>
+                                                    <th class="datatable-col-200">PO Number</th>
+                                                    <th class="datatable-col-250">BAPS Number</th>
+                                                    <th class="datatable-col-250">MLA Number</th>
+                                                    <th class="datatable-col-150">Start Lease Date</th>
+                                                    <th class="datatable-col-150">End Lease Date</th>
+                                                    @*<th class="datatable-col-150">RFI Date</th>
+                                                    <th class="datatable-col-150">Bauk Date</th>*@
+                                                    <th class="datatable-col-100">Term</th>
+                                                    <th class="datatable-col-100">BAPS Type</th>
+                                                    <th class="datatable-col-100">Customer Invoice</th>
+                                                    <th class="datatable-col-100">Customer Asset</th>
+                                                    <th class="datatable-col-100">Company Invoice</th>
+                                                    <th class="datatable-col-100">Company Asset</th>
+                                                    <th class="datatable-col-100">STIP Siro</th>
+                                                    <th class="datatable-col-100">Invoice Type</th>
+                                                    <th class="datatable-col-100">BaseLease Currency</th>
+                                                    <th class="datatable-col-100">Service Currency</th>
+                                                    <th class="datatable-col-100">Invoice Start Date</th>
+                                                    <th class="datatable-col-100">Invoice End Date</th>
+
+
+                                                    <th class="datatable-col-100">Base Lease</th>
+                                                    <th class="datatable-col-100">Service Price</th>
+                                                    <th class="datatable-col-100">Deduction Amount</th>
+                                                    <th class="datatable-col-100">Inflation Amount</th>
+                                                    <th class="datatable-col-100">Total Pro Rate</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabDone">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDone">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-50"></th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-200">Site Name</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-200">Customer Site Name</th>
+                                            <th class="datatable-col-100">Region Name</th>
+                                            <th class="datatable-col-100">Province Name</th>
+                                            <th class="datatable-col-100">Residence Name</th>
+                                            <th class="datatable-col-200">PO Number</th>
+                                            <th class="datatable-col-250">BAPS Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-150">Start Lease Date</th>
+                                            <th class="datatable-col-150">End Lease Date</th>
+                                            @*<th class="datatable-col-150">RFI Date</th>
+                                            <th class="datatable-col-150">Bauk Date</th>*@
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-100">BAPS Type</th>
+                                            <th class="datatable-col-100">Customer Invoice</th>
+                                            <th class="datatable-col-100">Customer Asset</th>
+                                            <th class="datatable-col-100">Company Invoice</th>
+                                            <th class="datatable-col-100">Company Asset</th>
+                                            <th class="datatable-col-100">STIP Siro</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">BaseLease Currency</th>
+                                            <th class="datatable-col-100">Service Currency</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            @* NEW ADDED 2022-06-21  *@
+                                            <th class="datatable-col-100">Finance Confirm Date</th>
+                                            <th class="datatable-col-100">Create Invoice Date</th>
+                                            <th class="datatable-col-100">Posting Invoice Date</th>
+                                            <th class="datatable-col-100">Billing Cycle</th>
+                                            <th class="datatable-col-100">Type BAPS</th>
+
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">Service Price</th>
+                                            <th class="datatable-col-100">Deduction Amount</th>
+                                            <th class="datatable-col-100">Inflation Amount</th>
+                                            <th class="datatable-col-100">Total Pro Rate</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            @*<div class="tab-pane" id="tabSplit">
+
+                                </div>*@
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" id="btSave" class="btn blue" onclick="Form.UploadRTI();">
+                            <i class="fa fa-cloud-upload"></i> Submit RTI
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="mdlDetailTotalSite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Detail Data</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="PopUpDetailData" class="sky-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="icon-edit font-dark"></i>
+                                        <span class="caption-subject font-dark bold uppercase">Data</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Recon Year</b></label>
+                                                        <label class="control-label col-md-6" id="ReconYear"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Regional</b></label>
+                                                        <label class="control-label col-md-6" id="Regional"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Total Amount</b></label>
+                                                        <label class="control-label col-md-6" id="TotalAmount"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Total Site</b></label>
+                                                        <label class="control-label col-md-6" id="Site"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Total BOQ</b></label>
+                                                        <label class="control-label col-md-6" id="BOQ"></label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-6"><b>Total PO</b></label>
+                                                        <label class="control-label col-md-6" id="PO"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <div class="row rowSite">
+                                        <div class="col-md-12">
+                                            @*<div class="row PanelUpload">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-6">Document RTI</label>
+                                                            <div class="col-md-6">
+                                                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                                    <div class="input-group input-large">
+                                                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                                                            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                                                            <span class="fileinput-filename" id="file-upload-filename"> </span><div></div>
+                                                                        </div>
+                                                                        <span class="input-group-addon btn default btn-file">
+                                                                            <span class="fileinput-new"> Select file </span>
+                                                                            <span class="fileinput-exists"> Change </span>
+                                                                            <input type="file" name="postedFile1" id="postedFile1" required>
+                                                                        </span>
+                                                                        <small style="color:red"><span><strong> * Only PDF or Excel File</strong></span></small>
+                                                                        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                        <br />
+                                                        <div class="form-group">
+                                                            <div class="col-md-6 height59">
+
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <button type="submit" id="btSave" class="btn green" onclick="Form.UploadRTI();">
+                                                                    <i class="fa fa-cloud-upload"></i> Upload
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <br />
+                                                        <br />
+                                                    </div>
+                                                </div>*@
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSiteInfo">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="datatable-col-100">SO Number</th>
+                                                                <th class="datatable-col-100">Site ID</th>
+                                                                <th class="datatable-col-200">Site Name</th>
+                                                                <th class="datatable-col-200">Site ID Operator</th>
+                                                                <th class="datatable-col-200">Site Name Operator</th>
+                                                                <th class="datatable-col-200">Company</th>
+                                                                <th class="datatable-col-200">Customer</th>
+                                                                <th class="datatable-col-150">Start Lease Date</th>
+                                                                <th class="datatable-col-150">End Lease Date</th>
+                                                                <th class="datatable-col-100">Term</th>
+                                                                <th class="datatable-col-100">BAPS Type</th>
+                                                                <th class="datatable-col-100">Currency</th>
+                                                                <th class="datatable-col-100">Invoice Start Date</th>
+                                                                <th class="datatable-col-100">Invoice End Date</th>
+                                                                <th class="datatable-col-100">Base Lease</th>
+                                                                <th class="datatable-col-100">Service Price</th>
+                                                                <th class="datatable-col-100">Total Pro Rate</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th colspan="3" style="text-align:left; font-size:14px;">Total</th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row rowPO">
+                                        <div class="col-md-12">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblPOInfo">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="datatable-col-100">PO Number</th>
+                                                                <th class="datatable-col-200">Company</th>
+                                                                <th class="datatable-col-200">Customer</th>
+                                                                <th class="datatable-col-150">PO Date</th>
+                                                                <th class="datatable-col-100">Type</th>
+                                                                <th class="datatable-col-100">Total Tenant</th>
+                                                                <th class="datatable-col-150">Remarks</th>
+                                                                <th class="datatable-col-100">Currency</th>
+                                                                <th class="datatable-col-150">PO Amount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th colspan="3" style="text-align:left; font-size:14px;">Total</th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row rowBoq">
+                                        <div class="col-md-12">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblBoqInfo">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="datatable-col-100">BOQ Number</th>
+                                                                <th class="datatable-col-200">Company</th>
+                                                                <th class="datatable-col-200">Customer</th>
+                                                                <th class="datatable-col-150">Batch ID</th>
+                                                                <th class="datatable-col-100">Type</th>
+                                                                <th class="datatable-col-100">Total Tenant</th>
+                                                                <th class="datatable-col-150">Remarks</th>
+                                                                <th class="datatable-col-100">Currency</th>
+                                                                <th class="datatable-col-150">BOQ Amount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th colspan="3" style="text-align:left; font-size:14px;">Total</th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:100px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="font-size:8px; width:30px; text-align:right;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                                <th style="text-align:right; font-size:14px;"></th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<div class="note">
+                                            <h4 class="block">Detail Information</h4>
+
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btDismiss1" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlSplit" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Split Billing</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form id="formSearchSplit" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-4">
+                                        <div class="portlet light bordered">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Start Date</b></label>
+                                                <input type="text" id="tbStartInvoiceDate" size="16" class="form-control date-picker" readonly disabled>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>End Date</b></label>
+                                                <input type="text" id="tbEndInvoiceDate" size="16" onchange="Control.BindProRateAmount()" class="form-control date-picker">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Total Price</b></label>
+                                                <input readonly type="text" id="txtTotalPrice" class="form-control">
+                                            </div>
+
+                                            <div style="height:20px"></div>
+
+                                            <div class="form-group">
+                                                <button type="button" id="btSaveSplitData" class="btn green mt-ladda-btn ladda-button" style="width:100px">
+                                                    <i class="fa fa-chevron-left"></i> Create
+                                                </button>
+                                                <button type="button" id="btEditSplitData" class="btn green mt-ladda-btn ladda-button" style="width:100px">
+                                                    <i class="fa fa-chevron-left"></i> Edit
+                                                </button>
+                                                <button type="button" id="btCancelData" class="btn blue-oleo" style="width:100px">
+                                                    <i class="fa fa-refresh"></i> Reset
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-left">
+                                            <label id="lblError" style="color:red;text-align:left"></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-4">
+                                        <div class="portlet light bordered">
+                                            <div class="form-group">
+                                                <label class="control-label"><b>SO Number</b></label>
+                                                <input readonly type="text" id="txtSoNumber" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label class="control-label"><b>Term</b></label>
+                                                    <input readonly type="text" id="txtTerm" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Start Date</b></label>
+                                                <input readonly type="text" id="tbStartDate" size="16" class="form-control date-picker">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label"><b>End Date</b></label>
+                                                <input readonly type="text" id="tbEndDate" size="16" class="form-control date-picker">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Base Lease Price</b></label>
+                                                <input readonly type="text" id="txtBaseLeasePrice" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label"><b>Service Price</b></label>
+                                                <input readonly type="text" id="txtServicePrice" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="height:20px"></div>
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSplit">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10"></th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                            @*<th class="datatable-col-100">Amount USD</th>*@
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div>
+                                <button type="button" id="btDeleteSplitData" class="btn red mt-ladda-btn ladda-button" style="width:150px">
+                                    <i class="fa fa-chevron-left"></i> Delete Split
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToDelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Delete Split Billing Data</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to delete this data?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirmDelete" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/scripts/RevenueAssurance/RTI.js")" type="text/javascript"></script>
+

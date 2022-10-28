@@ -1,0 +1,1328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ArrayOfmstApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstApplication" nillable="true" type="tns:mstApplication" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstApplication" nillable="true" type="tns:ArrayOfmstApplication" />
+  <xs:complexType name="mstApplication">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="mstApplicationID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstApplication" nillable="true" type="tns:mstApplication" />
+  <xs:complexType name="BaseClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseClass" nillable="true" type="tns:BaseClass" />
+  <xs:complexType name="ArrayOfmstLoginBanner">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstLoginBanner" nillable="true" type="tns:mstLoginBanner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstLoginBanner" nillable="true" type="tns:ArrayOfmstLoginBanner" />
+  <xs:complexType name="mstLoginBanner">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LoginBannerID" type="xs:int" />
+          <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstLoginBanner" nillable="true" type="tns:mstLoginBanner" />
+  <xs:complexType name="ArrayOfvwUserMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserMenu" nillable="true" type="tns:vwUserMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserMenu" nillable="true" type="tns:ArrayOfvwUserMenu" />
+  <xs:complexType name="vwUserMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ListKeySetting" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="MenuStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstMenuID" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserMenu" nillable="true" type="tns:vwUserMenu" />
+  <xs:complexType name="ArrayOfvwUserVendorMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserVendorMenu" nillable="true" type="tns:vwUserVendorMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserVendorMenu" nillable="true" type="tns:ArrayOfvwUserVendorMenu" />
+  <xs:complexType name="vwUserVendorMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstMenuID" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserVendorMenu" nillable="true" type="tns:vwUserVendorMenu" />
+  <xs:complexType name="ArrayOfvwUserHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserHomeDashboard" nillable="true" type="tns:vwUserHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserHomeDashboard" nillable="true" type="tns:ArrayOfvwUserHomeDashboard" />
+  <xs:complexType name="vwUserHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Dashboard" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="position" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserHomeDashboard" nillable="true" type="tns:vwUserHomeDashboard" />
+  <xs:complexType name="ArrayOfvwRoleHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleHomeDashboard" nillable="true" type="tns:vwRoleHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleHomeDashboard" nillable="true" type="tns:ArrayOfvwRoleHomeDashboard" />
+  <xs:complexType name="vwRoleHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Dashboard" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleHomeDashboard" nillable="true" type="tns:vwRoleHomeDashboard" />
+  <xs:complexType name="ArrayOfidxUserHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxUserHomeDashboard" nillable="true" type="tns:idxUserHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxUserHomeDashboard" nillable="true" type="tns:ArrayOfidxUserHomeDashboard" />
+  <xs:complexType name="idxUserHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxUserDashboardID" type="xs:long" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="position" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxUserHomeDashboard" nillable="true" type="tns:idxUserHomeDashboard" />
+  <xs:complexType name="mstMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" type="xs:long" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" type="xs:int" />
+          <xs:element minOccurs="0" name="mstMenuID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstMenu" nillable="true" type="tns:mstMenu" />
+  <xs:complexType name="ArrayOfmstIcon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstIcon" nillable="true" type="tns:mstIcon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstIcon" nillable="true" type="tns:ArrayOfmstIcon" />
+  <xs:complexType name="mstIcon">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IconCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IconCode" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstIcon" nillable="true" type="tns:mstIcon" />
+  <xs:complexType name="ArrayOfvwUserTaskToDo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserTaskToDo" nillable="true" type="tns:vwUserTaskToDo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserTaskToDo" nillable="true" type="tns:ArrayOfvwUserTaskToDo" />
+  <xs:complexType name="vwUserTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstTaskToDoID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="trxTokenID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserTaskToDo" nillable="true" type="tns:vwUserTaskToDo" />
+  <xs:complexType name="ArrayOfvwUserNotification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserNotification" nillable="true" type="tns:vwUserNotification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserNotification" nillable="true" type="tns:ArrayOfvwUserNotification" />
+  <xs:complexType name="vwUserNotification">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notification" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstNotificationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="trxTokenID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserNotification" nillable="true" type="tns:vwUserNotification" />
+  <xs:complexType name="ArrayOfvwConsoleScheduler">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwConsoleScheduler" nillable="true" type="tns:vwConsoleScheduler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwConsoleScheduler" nillable="true" type="tns:ArrayOfvwConsoleScheduler" />
+  <xs:complexType name="vwConsoleScheduler">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConsoleID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Every" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRunning" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsToExecute" type="xs:int" />
+          <xs:element minOccurs="0" name="LastExecutionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastExecutionTime" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RunningElapsedTime" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ScheduleID" type="xs:int" />
+          <xs:element minOccurs="0" name="TimeExpired" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwConsoleScheduler" nillable="true" type="tns:vwConsoleScheduler" />
+  <xs:complexType name="ArrayOfLogSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogSchedule" nillable="true" type="tns:LogSchedule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLogSchedule" nillable="true" type="tns:ArrayOfLogSchedule" />
+  <xs:complexType name="LogSchedule">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExecutionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExecutionTime" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="IsSuccess" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LogID" type="xs:long" />
+          <xs:element minOccurs="0" name="LogMessage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LogSchedule" nillable="true" type="tns:LogSchedule" />
+  <xs:complexType name="vmCreateConsole">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConsoleID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConsoleName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Every" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TimeExpired" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmCreateConsole" nillable="true" type="tns:vmCreateConsole" />
+  <xs:complexType name="vmConsoleDashoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveSchedulers" nillable="true" type="tns:ArrayOfvwConsoleScheduler" />
+      <xs:element minOccurs="0" name="InactiveSchedulers" nillable="true" type="tns:ArrayOfvwConsoleScheduler" />
+      <xs:element minOccurs="0" name="vwConsoleWeeklyStats" nillable="true" type="tns:ArrayOfvwConsoleWeeklyStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vmConsoleDashoard" nillable="true" type="tns:vmConsoleDashoard" />
+  <xs:complexType name="ArrayOfvwConsoleWeeklyStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwConsoleWeeklyStats" nillable="true" type="tns:vwConsoleWeeklyStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwConsoleWeeklyStats" nillable="true" type="tns:ArrayOfvwConsoleWeeklyStats" />
+  <xs:complexType name="vwConsoleWeeklyStats">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DayIndex" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="FailedCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SuccessCount" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwConsoleWeeklyStats" nillable="true" type="tns:vwConsoleWeeklyStats" />
+  <xs:complexType name="ArrayOfvwUserCustomerMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserCustomerMenu" nillable="true" type="tns:vwUserCustomerMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserCustomerMenu" nillable="true" type="tns:ArrayOfvwUserCustomerMenu" />
+  <xs:complexType name="vwUserCustomerMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstMenuID" nillable="true" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserCustomerMenu" nillable="true" type="tns:vwUserCustomerMenu" />
+  <xs:complexType name="trxHitCounter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Controller" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxHitCounter" nillable="true" type="tns:trxHitCounter" />
+  <xs:complexType name="ArrayOfvwHitCounter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwHitCounter" nillable="true" type="tns:vwHitCounter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwHitCounter" nillable="true" type="tns:ArrayOfvwHitCounter" />
+  <xs:complexType name="vwHitCounter">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Controller" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HitDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastHitDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwHitCounter" nillable="true" type="tns:vwHitCounter" />
+  <xs:complexType name="ArrayOfvwHitCounterOverview">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwHitCounterOverview" nillable="true" type="tns:vwHitCounterOverview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwHitCounterOverview" nillable="true" type="tns:ArrayOfvwHitCounterOverview" />
+  <xs:complexType name="vwHitCounterOverview">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="HitCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HitDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastHitDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwHitCounterOverview" nillable="true" type="tns:vwHitCounterOverview" />
+  <xs:complexType name="ArrayOfvmHitCounterPercentage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmHitCounterPercentage" nillable="true" type="tns:vmHitCounterPercentage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmHitCounterPercentage" nillable="true" type="tns:ArrayOfvmHitCounterPercentage" />
+  <xs:complexType name="vmHitCounterPercentage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Controller" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HitPercentage" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HitYear" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmHitCounterPercentage" nillable="true" type="tns:vmHitCounterPercentage" />
+  <xs:complexType name="ArrayOfvwHitCounterNonUtilized">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwHitCounterNonUtilized" nillable="true" type="tns:vwHitCounterNonUtilized" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwHitCounterNonUtilized" nillable="true" type="tns:ArrayOfvwHitCounterNonUtilized" />
+  <xs:complexType name="vwHitCounterNonUtilized">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwHitCounterNonUtilized" nillable="true" type="tns:vwHitCounterNonUtilized" />
+  <xs:complexType name="vwHitCounterPageList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HitCount" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="HitDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="HitYear" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwHitCounterPageList" nillable="true" type="tns:vwHitCounterPageList" />
+  <xs:complexType name="ArrayOfvwHitCounterPageList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwHitCounterPageList" nillable="true" type="tns:vwHitCounterPageList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwHitCounterPageList" nillable="true" type="tns:ArrayOfvwHitCounterPageList" />
+  <xs:complexType name="ArrayOfvwUserActionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserActionList" nillable="true" type="tns:vwUserActionList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserActionList" nillable="true" type="tns:ArrayOfvwUserActionList" />
+  <xs:complexType name="vwUserActionList">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserActionList" nillable="true" type="tns:vwUserActionList" />
+  <xs:complexType name="ArrayOfmstRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstRole" nillable="true" type="tns:mstRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstRole" nillable="true" type="tns:ArrayOfmstRole" />
+  <xs:complexType name="mstRole">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstRole" nillable="true" type="tns:mstRole" />
+  <xs:complexType name="ArrayOfvwRoleAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleAction" nillable="true" type="tns:vwRoleAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleAction" nillable="true" type="tns:ArrayOfvwRoleAction" />
+  <xs:complexType name="vwRoleAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMenu" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="mstActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleAction" nillable="true" type="tns:vwRoleAction" />
+  <xs:complexType name="ArrayOfvwRoleMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleMenu" nillable="true" type="tns:vwRoleMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleMenu" nillable="true" type="tns:ArrayOfvwRoleMenu" />
+  <xs:complexType name="vwRoleMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" type="xs:long" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="RootMenu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sort" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstMenuID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleMenu" nillable="true" type="tns:vwRoleMenu" />
+  <xs:complexType name="ArrayOfvmMappingUserAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmMappingUserAction" nillable="true" type="tns:vmMappingUserAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmMappingUserAction" nillable="true" type="tns:ArrayOfvmMappingUserAction" />
+  <xs:complexType name="vmMappingUserAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="mstActionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmMappingUserAction" nillable="true" type="tns:vmMappingUserAction" />
+  <xs:complexType name="ArrayOfvmMappingUserHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmMappingUserHomeDashboard" nillable="true" type="tns:vmMappingUserHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmMappingUserHomeDashboard" nillable="true" type="tns:ArrayOfvmMappingUserHomeDashboard" />
+  <xs:complexType name="vmMappingUserHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Dashboard" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmMappingUserHomeDashboard" nillable="true" type="tns:vmMappingUserHomeDashboard" />
+  <xs:complexType name="ArrayOfvmMappingUserTaskToDo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmMappingUserTaskToDo" nillable="true" type="tns:vmMappingUserTaskToDo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmMappingUserTaskToDo" nillable="true" type="tns:ArrayOfvmMappingUserTaskToDo" />
+  <xs:complexType name="vmMappingUserTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstTaskToDoID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmMappingUserTaskToDo" nillable="true" type="tns:vmMappingUserTaskToDo" />
+  <xs:complexType name="ArrayOfvmMappingUserJobTitle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmMappingUserJobTitle" nillable="true" type="tns:vmMappingUserJobTitle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmMappingUserJobTitle" nillable="true" type="tns:ArrayOfvmMappingUserJobTitle" />
+  <xs:complexType name="vmMappingUserJobTitle">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsMapped" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+          <xs:element minOccurs="0" name="JobTitleID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="JobTitleName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmMappingUserJobTitle" nillable="true" type="tns:vmMappingUserJobTitle" />
+  <xs:complexType name="ArrayOfidxRoleAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleAction" nillable="true" type="tns:idxRoleAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleAction" nillable="true" type="tns:ArrayOfidxRoleAction" />
+  <xs:complexType name="idxRoleAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idxRoleActionID" type="xs:long" />
+          <xs:element minOccurs="0" name="mstActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleAction" nillable="true" type="tns:idxRoleAction" />
+  <xs:complexType name="ArrayOfidxRoleHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleHomeDashboard" nillable="true" type="tns:idxRoleHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleHomeDashboard" nillable="true" type="tns:ArrayOfidxRoleHomeDashboard" />
+  <xs:complexType name="idxRoleHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idxRoleDashboardID" type="xs:long" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleHomeDashboard" nillable="true" type="tns:idxRoleHomeDashboard" />
+  <xs:complexType name="ArrayOfidxRoleTaskToDo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleTaskToDo" nillable="true" type="tns:idxRoleTaskToDo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleTaskToDo" nillable="true" type="tns:ArrayOfidxRoleTaskToDo" />
+  <xs:complexType name="idxRoleTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idxRoleTaskToDoID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstTaskToDoID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleTaskToDo" nillable="true" type="tns:idxRoleTaskToDo" />
+  <xs:complexType name="ArrayOfmstRootDashboardMobile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstRootDashboardMobile" nillable="true" type="tns:mstRootDashboardMobile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstRootDashboardMobile" nillable="true" type="tns:ArrayOfmstRootDashboardMobile" />
+  <xs:complexType name="mstRootDashboardMobile">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="created_by" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="created_date" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="updated_by" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="updated_date" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstRootDashboardMobile" nillable="true" type="tns:mstRootDashboardMobile" />
+  <xs:complexType name="ArrayOfidxRoleDynamicData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleDynamicData" nillable="true" type="tns:idxRoleDynamicData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleDynamicData" nillable="true" type="tns:ArrayOfidxRoleDynamicData" />
+  <xs:complexType name="idxRoleDynamicData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idxRoleDynamicDataID" type="xs:long" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRootID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleDynamicData" nillable="true" type="tns:idxRoleDynamicData" />
+  <xs:complexType name="ArrayOfidxRoleDynamicDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleDynamicDashboard" nillable="true" type="tns:idxRoleDynamicDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleDynamicDashboard" nillable="true" type="tns:ArrayOfidxRoleDynamicDashboard" />
+  <xs:complexType name="idxRoleDynamicDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idxRoleDynamicDashboardID" type="xs:long" />
+          <xs:element minOccurs="0" name="mstDashboardMobileID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="mstRootDashboardMobileID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleDynamicDashboard" nillable="true" type="tns:idxRoleDynamicDashboard" />
+  <xs:complexType name="vmLogin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Browser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Device" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MacAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueTagID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserAgent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmLogin" nillable="true" type="tns:vmLogin" />
+  <xs:complexType name="vmUserLogin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsPasswordDefault" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRole" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserLogin" nillable="true" type="tns:vmUserLogin" />
+  <xs:complexType name="vmUserCredential">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserCredential" nillable="true" type="tns:vmUserCredential" />
+  <xs:complexType name="mstUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCISPosition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPasswordDefault" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordExpiredDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserImage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstUser" nillable="true" type="tns:mstUser" />
+  <xs:complexType name="ArrayOfvwUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUser" nillable="true" type="tns:vwUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUser" nillable="true" type="tns:ArrayOfvwUser" />
+  <xs:complexType name="vwUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HCISPosition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLogin" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPasswordDefault" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserImage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUser" nillable="true" type="tns:vwUser" />
+  <xs:complexType name="trxOTP">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpiredDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsConfirm" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OTPTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxOTP" nillable="true" type="tns:trxOTP" />
+  <xs:complexType name="vmUserPrivilege">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrivilegeStatus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserPrivilege" nillable="true" type="tns:vmUserPrivilege" />
+  <xs:complexType name="vmUserVendorLogin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRole" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserVendorLogin" nillable="true" type="tns:vmUserVendorLogin" />
+  <xs:complexType name="mstUserVendor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordExpiredDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PasswordSalt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserImage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstUserVendor" nillable="true" type="tns:mstUserVendor" />
+  <xs:complexType name="ArrayOfvwUserVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserVendor" nillable="true" type="tns:vwUserVendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserVendor" nillable="true" type="tns:ArrayOfvwUserVendor" />
+  <xs:complexType name="vwUserVendor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLogin" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserImage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserVendor" nillable="true" type="tns:vwUserVendor" />
+  <xs:complexType name="mstVendor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CPEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CPPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Director" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NPWP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NPWPAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecipientAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecipientName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Residence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="VendorAXID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorInitial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstVendor" nillable="true" type="tns:mstVendor" />
+  <xs:complexType name="ArrayOfmstVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstVendor" nillable="true" type="tns:mstVendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstVendor" nillable="true" type="tns:ArrayOfmstVendor" />
+  <xs:complexType name="vwAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMenu" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstActionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAction" nillable="true" type="tns:vwAction" />
+  <xs:complexType name="ArrayOfvwAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAction" nillable="true" type="tns:vwAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAction" nillable="true" type="tns:ArrayOfvwAction" />
+  <xs:complexType name="mstAction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsMenu" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstActionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstAction" nillable="true" type="tns:mstAction" />
+  <xs:complexType name="ArrayOfmstAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstAction" nillable="true" type="tns:mstAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstAction" nillable="true" type="tns:ArrayOfmstAction" />
+  <xs:complexType name="vwTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstTaskToDoID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTaskToDo" nillable="true" type="tns:vwTaskToDo" />
+  <xs:complexType name="ArrayOfvwTaskToDo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTaskToDo" nillable="true" type="tns:vwTaskToDo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTaskToDo" nillable="true" type="tns:ArrayOfvwTaskToDo" />
+  <xs:complexType name="mstTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstTaskToDoID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstTaskToDo" nillable="true" type="tns:mstTaskToDo" />
+  <xs:complexType name="vmUserCustomerLogin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendorID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRole" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserToken" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserCustomerLogin" nillable="true" type="tns:vmUserCustomerLogin" />
+  <xs:complexType name="mstUserCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalEmail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendorID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PasswordExpiredDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Phone1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserImage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstUserCustomer" nillable="true" type="tns:mstUserCustomer" />
+  <xs:complexType name="vwUserCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendorID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLogin" type="xs:int" />
+          <xs:element minOccurs="0" name="IsPasswordExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserCustomer" nillable="true" type="tns:vwUserCustomer" />
+  <xs:complexType name="ArrayOfvwUserCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserCustomer" nillable="true" type="tns:vwUserCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserCustomer" nillable="true" type="tns:ArrayOfvwUserCustomer" />
+  <xs:complexType name="vmUserCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerVendor" nillable="true" type="tns:mstCustomerVendor" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:mstUserCustomer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserCustomer" nillable="true" type="tns:vmUserCustomer" />
+  <xs:complexType name="mstCustomerVendor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerVendor" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerVendorID" type="xs:int" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdateedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstCustomerVendor" nillable="true" type="tns:mstCustomerVendor" />
+  <xs:complexType name="ArrayOfmstCustomerVendor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstCustomerVendor" nillable="true" type="tns:mstCustomerVendor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstCustomerVendor" nillable="true" type="tns:ArrayOfmstCustomerVendor" />
+  <xs:complexType name="ArrayOfmstCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstCustomer" nillable="true" type="tns:mstCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstCustomer" nillable="true" type="tns:ArrayOfmstCustomer" />
+  <xs:complexType name="mstCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTelco" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NPWP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstCustomer" nillable="true" type="tns:mstCustomer" />
+  <xs:complexType name="vwHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Dashboard" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwHomeDashboard" nillable="true" type="tns:vwHomeDashboard" />
+  <xs:complexType name="ArrayOfvwHomeDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwHomeDashboard" nillable="true" type="tns:vwHomeDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwHomeDashboard" nillable="true" type="tns:ArrayOfvwHomeDashboard" />
+  <xs:complexType name="mstHomeDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Dashboard" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ViewName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstDashboardID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstHomeDashboard" nillable="true" type="tns:mstHomeDashboard" />
+  <xs:complexType name="ArrayOfvwApplicationUrl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwApplicationUrl" nillable="true" type="tns:vwApplicationUrl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwApplicationUrl" nillable="true" type="tns:ArrayOfvwApplicationUrl" />
+  <xs:complexType name="vwApplicationUrl">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwApplicationUrl" nillable="true" type="tns:vwApplicationUrl" />
+  <xs:complexType name="ArrayOftrxFavoriteMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxFavoriteMenu" nillable="true" type="tns:trxFavoriteMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxFavoriteMenu" nillable="true" type="tns:ArrayOftrxFavoriteMenu" />
+  <xs:complexType name="trxFavoriteMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstMenuID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxFavoriteMenu" nillable="true" type="tns:trxFavoriteMenu" />
+</xs:schema>

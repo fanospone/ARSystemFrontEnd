@@ -1,0 +1,139 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formSFSIRO" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Start Lease Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="StartLeaseDateSFSIRO" class="form-control datepicker" readonly />
+                                            <input type="hidden" id="IDTrxSFSIRO" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">MLA Number</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="MLANumberSFSIRO" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">MLA Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="MLADateSFSIRO" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Lease Price</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="LeasePriceSFSIRO" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">End Lease Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="EndLeaseDateSFSIRO" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">BAPS Date</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="BapsDateSFSIRO" class="form-control datepicker" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">BAPS Number</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="BapsNumberSFSIRO" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Add Price</label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="AddPriceSFSIRO" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formApprSFSiro" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanySFSiro" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Customer ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name</label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerSFSiro" class="form-control select2 "></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnSFSIROSave" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Save
+            </button>
+            <button type="button" data-dismiss="modal" id="btnSFSIROCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+

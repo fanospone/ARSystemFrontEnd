@@ -1,0 +1,405 @@
+﻿<div class="row paneliSatBulky">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">SO Number</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSonumbListIsatBulky">
+                            <thead>
+                                <tr>
+                                    <th class="datatable-col-25">#Row</th>
+                                    <th class="datatable-col-25">Action</th>
+                                    <th class="datatable-col-100">SO Number</th>
+                                    <th class="datatable-col-100">Activity</th>
+                                    <th class="datatable-col-100">Site ID</th>
+                                    <th class="datatable-col-150">Site Name </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="datatable-col-200">Product</th>
+                                    <th class="datatable-col-300">Company</th>
+                                    <th class="datatable-col-25">Siro</th>
+                                    <th class="datatable-col-200">STIP Code</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">Details</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDetailiSatBulky">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="datatable-col-25" style="vertical-align:middle">No.</th>
+                                    <th rowspan="2" class="datatable-col-50" style="vertical-align:middle">Action</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">SO Number</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">BAUF Number</th>
+                                    <th rowspan="2" class="datatable-col-450" style="vertical-align:middle">Job Desc</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">RFS PO</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">CheckedDate</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Material</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Unit Net Price</th>
+                                    <th colspan="2" class="datatable-col-150" style="text-align:center">SPK</th>
+                                    <th colspan="2" class="datatable-col-250" style="text-align:center">Before Realisation</th>
+                                    <th colspan="2" class="datatable-col-150" style="text-align:center">Current Realisation</th>
+                                    <th colspan="2" class="datatable-col-150"  style="text-align:center">Remaining</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Result</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Description</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Physical Progress</th>
+                                    <th rowspan="2" class="datatable-col-100" style="vertical-align:middle">Discount</th>
+                                </tr>
+                                <tr>
+                                    <th class="datatable-col-50">QTY</th>
+                                    <th class="datatable-col-100">UNP</th>
+                                    <th class="datatable-col-50">QTY</th>
+                                    <th class="datatable-col-100">UNP</th>
+                                    <th class="datatable-col-50">QTY</th>
+                                    <th class="datatable-col-100">UNP</th>
+                                    <th class="datatable-col-50">QTY</th>
+                                    <th class="datatable-col-100">UNP </th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formIsatBulky" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Jod Desc</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control select2" id="JobDescIsatBulky" />
+                                            <input type="hidden" id="BulkyIDIsatBulky" />
+                                            <input type="hidden" id="BulkNumberIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label class="col-md-4 control-label">Contract Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="ContractNumberIsatBulky" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">PO Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="POnumberIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">PO Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="PoDateIsatBulky" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-user"></i>
+                        <span class="caption-subject">Approval</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <div class="tab-content">
+                        <form id="formApprXLAdd" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"></label>
+                                            <div class="col-md-6 font-blue">
+                                                <span class="caption-subject">## Approval Company ##</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Approval Name </label>
+                                            <div class="col-md-6">
+                                                <select id="slApprCompanyIsatBulky" class="form-control select2 slApprCompany"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"></label>
+                                            <div class="col-md-6 font-blue">
+                                                <span class="caption-subject">## Approval Customer ##</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Approval Name 1 </label>
+                                            <div class="col-md-6">
+                                                <select id="slApprCustomerIsatBulky" class="form-control select2 slApprCustomer"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Approval Name 2 </label>
+                                            <div class="col-md-6">
+                                                <select id="slApprCustomerIsatBulky2" class="form-control select2 slApprCustomer"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnIsatBulkySave" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Submit
+            </button>
+            <button type="button" data-dismiss="modal" id="btnIsatBulkyCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlisatBulkySave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:80%">
+        <div class="modal-content col-md-12 border-after-blue">
+            <div class="modal-header ">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Form Input</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formIsatBulkySave" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+
+                            <div class="col-md-5">
+                                <div class="form-group">
+
+                                    <label class="col-md-3 control-label">Checking Date</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control select2 datepicker" id="CheckedDateIsatBulky" readonly />
+                                        <input type="hidden" id="IDTrxIsatBulky" />
+
+                                        <input type="hidden" id="StipSiroIsatBulky" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">RFS PO</label>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control select2 datepicker" id="RFSPOdateIsatBulky" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">BAUF Number</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control select2" id="BaufNumberIsatBulky" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="col-md-3 control-label">SO Number</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SoNumberIsatBulky" readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Site ID Cust</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteIDCustIsatBulky" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Site Name Cust</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteNameCustIsatBulky" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Materials</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="MaterialsIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Job Desc</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control select2" id="JobDescDetailIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Unit Net Price</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="UnitNetPriceIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">QTY SPK</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="QTYspkIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">UNP SPK</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="UNPspkIsatBulky" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">QTY Before Real</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="QTYbeforeIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">UNP Before Real</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="UNPbeforeIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">QTY Cur Real</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="QTYcurIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">UNP Cure Real</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="UNPcurIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">QTY Remaining</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="QTYremainingIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">UNP Remaining</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="UNPremainingIsatBulky" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Result</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="ResultIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Progress</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="ProgressIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Reamarks</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="RemarksIsatBulky" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-5 control-label">Discount</label>
+                                        <div class="col-md-6">
+                                            <input type="number" class="form-control select2" id="DiscountIsatBulky" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnIsatDetailSave" class="btn blue NeedRounding btnSubmitTrx">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnIsatDetailCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

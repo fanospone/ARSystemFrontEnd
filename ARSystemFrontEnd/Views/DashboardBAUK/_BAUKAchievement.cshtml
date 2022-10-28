@@ -1,0 +1,90 @@
+﻿@using ARSystemFrontEnd.Helper
+
+<div class="row" style="margin-bottom:7px">
+    <div class="col-md-12" style="text-align: right">
+        <button type="button" id="btnAchExport" class="btn green btn-outline">
+            <i class="fa fa-file-excel-o"></i>&nbsp; Excel
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered table-hover" id="tblAchievement" cellspacing="0">
+            <thead>
+                <tr>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle" id="txtAchGroup">Customer</th>
+                    <th colspan="2" class="text-center">Jan</th>
+                    <th colspan="2" class="text-center">Feb</th>
+                    <th colspan="2" class="text-center">Mar</th>
+                    <th colspan="2" class="text-center">Apr</th>
+                    <th colspan="2" class="text-center">May</th>
+                    <th colspan="2" class="text-center">Jun</th>
+                    <th colspan="2" class="text-center">Jul</th>
+                    <th colspan="2" class="text-center">Aug</th>
+                    <th colspan="2" class="text-center">Sep</th>
+                    <th colspan="2" class="text-center">Oct</th>
+                    <th colspan="2" class="text-center">Nov</th>
+                    <th colspan="2" class="text-center">Dec</th>
+                </tr>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">LT(Avg)</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th style="text-align:center">Total:&nbsp;&nbsp;</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+<script src="@Url.ContentVersion("~/scripts/DashboardBAUK/_BAUKAchievement.js")"></script>

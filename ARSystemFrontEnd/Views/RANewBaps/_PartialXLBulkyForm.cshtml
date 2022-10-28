@@ -1,0 +1,428 @@
+﻿
+<div class="row panelXLBulky">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">SO Number</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabSonumbList">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSonumbListXLBulky">
+                            <thead>
+                                <tr>
+                                    <th class="datatable-col-25">#Row</th>
+                                    <th class="datatable-col-25">Action</th>
+                                    <th class="datatable-col-100">SO Number</th>
+                                    <th class="datatable-col-100">Activity</th>
+                                    <th></th>
+                                    <th class="datatable-col-100">Site ID</th>
+                                    <th class="datatable-col-150">Site Name </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th class="datatable-col-300">Company</th>
+                                    <th class="datatable-col-25">Siro</th>
+                                    <th class="datatable-col-200">STIP Code</th>
+                                    <th></th>
+                                    <th class="datatable-col-200">Product Type</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row panelXLBulkyList">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-table"></i>
+                    <span class="caption-subject">Details</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-panel" id="tabDataXLBulky">
+                        <table class="table table-striped table-bordered table-hover datatable-custom-width tblXLBulky" id="tblXLBulky">
+                            <thead>
+                                <tr>
+                                    <th class="datatable-col-25">#Row</th>
+                                    <th class="datatable-col-50">Action</th>
+                                    <th class="datatable-col-50">So Number</th>
+                                    <th class="datatable-col-150">Site ID Cust</th>
+                                    <th class="datatable-col-200">Site Name Cust</th>
+                                    <th class="datatable-col-50">Project Type</th>
+                                    <th class="datatable-col-50">EWO</th>
+                                    <th class="datatable-col-50">PO</th>
+                                    <th class="datatable-col-50">PO Item</th>
+                                    <th class="datatable-col-50">Qty</th>
+                                    <th class="datatable-col-50">Price</th>
+                                    <th class="datatable-col-50">PO Value</th>
+                                    <th class="datatable-col-50">ESS</th>
+                                    <th class="datatable-col-50">ATP Date</th>
+                                    <th class="datatable-col-50">PO DATE</th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                    <th class="datatable-col-50"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-edit"></i>
+                    <span class="caption-subject">Form Input</span>
+                </div>
+                <div class="tools">
+                    <a href="" class="collapse"> </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">BAPS Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="BapsNumber" />
+                                            <input type="hidden" class="form-control select2" id="BulkID" />
+                                            <input type="hidden" class="form-control select2" id="CustomerIDXLBulk" />
+                                            <input type="hidden" class="form-control select2" id="CompanyIDXLBulk" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Description</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="Description" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">GR Recieved Date</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2 datepicker" id="GrRecievedDate" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Perform GR</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="PerformGR" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Ticket Number</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control select2" id="TicketNumber" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-white">
+                    <i class="fa fa-user"></i>
+                    <span class="caption-subject">Approval</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="tab-content">
+                    <form id="formApprXLBulky" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Company ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCompanyXLBulky" class="form-control select2 slApprCompany"></select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label"></label>
+                                        <div class="col-md-6 font-blue">
+                                            <span class="caption-subject">## Approval Customer ##</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Approval Name </label>
+                                        <div class="col-md-6">
+                                            <select id="slApprCustomerXLBulky" class="form-control select2 slApprCustomer"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-actions text-center">
+            <button type="button" data-dismiss="modal" id="btnXLBuklySave" class="btn blue NeedRounding btnSubmitTrx">
+                <i class="fa fa-save"></i> Submit
+            </button>
+            <button type="button" data-dismiss="modal" id="btnXLBuklyCancel" class="btn blue-oleo">
+                <i class="fa fa-chevron-left"></i> Cancel
+            </button>
+        </div>
+    </div>
+</div>
+@*Modal Save*@
+<div class="modal fade" id="mdlXLBulkySave" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+
+    <div class="modal-dialog modal-lg" style="width:80%">
+        <div class="modal-content col-md-12">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Form Input</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formXLBulkySave" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">So Number</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SoNumberXL" readonly />
+                                        <input type="hidden" class="form-control select2" id="IDTrxXL" />
+                                        <input type="hidden" class="form-control select2" id="StipSiroXL" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Site ID</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteIDXL" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Site Status</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteStatus" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Site ID Customer</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteIDCustomerXL" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Site Name Customer</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="SiteNameCustomnerXL" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">Project Type</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="ProjectType" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">EWO</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="EWO" />
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Remark FOP</label>
+                                    <div class="col-md-6">
+                                        @*<textarea id="RemarkFOP" class="form-control select2" rows="3"></textarea>*@
+                                        <input type="text" class="form-control select2" id="RemarkFOP" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">Material</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="Material" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Material Desc</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="MaterialDesc" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">QTY</label>
+                                    <div class="col-md-6">
+                                        <input type="number" class="form-control select2" id="Qty" min="0" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Price</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="Price" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">PO Value</label>
+                                    <div class="col-md-6">
+                                        <input type="number" class="form-control select2" id="PoValue" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Currency</label>
+                                    <div class="col-md-6">
+
+                                        <select class="form-control select2" id="Currency">
+                                            <option value="IDR">IDR</option>
+                                            <option value="USD">USD</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Remark MML</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="RemarkMML" />
+                                        @*<textarea id="RemarkMML" class="form-control select2" rows="3"></textarea>*@
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">PO</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="PO" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">Item</label>
+                                    <div class="col-md-6">
+                                        <input type="number" class="form-control select2" id="Item" min="0" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="col-md-5 control-label">ESS</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="Ess" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">PO Item</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="PoItem" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">PO Date</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2 datepicker" id="PoDate" readonly />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">ATP Date</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2 datepicker" id="AtpDate" readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-5 control-label">PIC FOP</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control select2" id="PicFop" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <br />
+                    <div class="form-actions text-center">
+                        <button type="button" data-dismiss="modal" id="btnXLBulkyListSave" class="btn blue NeedRounding btnSubmitTrx">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btnXLBulkyListCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

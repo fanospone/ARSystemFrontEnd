@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Forecast Cash In";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+<style>
+    span.picasText {
+    color: #337ab7;
+        cursor: pointer;
+}
+</style>
+<section id="filterPnltrxARInputForecastVsActual">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption font-white">
+                            <i class="fa fa-filter"></i>
+                            <span class="caption-subject">Filter</span>
+                        </div>
+                        <div class="tools">
+                            <a href="" class="collapse"> </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body form font">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-body" style="margin:20px">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class='form-group'>
+                                            <label class='col-md-4 control-label'> Year</label>
+                                            <div class='col-md-8'>
+                                                <select class='form-control' id='fyear'>
+                                                    <option value=''></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class='col-md-4 control-label'> Quarter</label>
+                                            <div class='col-md-8'>
+                                                <select class='form-control' id='fquarter'>
+                                                    <option value=''></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-5">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="background-color:#f7f7f7;" class="form-actions text-center">
+                                <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                    <i class="fa fa-search"></i> Search
+                                </button>
+
+                                <button type="button" id="btReset" class="btn blue-oleo">
+                                    <i class="fa fa-refresh"></i> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div class="tab-content">
+                    <div class="tabbable tabbable-tabdrop" id="tabTenancyOutlook">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabForecastVsActual" data-toggle="tab">Forecast Vs Actual</a>
+                            </li>
+                            <li>
+                                <a href="#tabForecastVsForecast" data-toggle="tab">Forecast Vs Forecast</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabForecastVsActual">
+                                @{
+                                    Html.RenderAction("ForecastVsActual");
+                                }
+                            </div>
+                            <div class="tab-pane" id="tabForecastVsForecast">
+                                @{
+                                    Html.RenderAction("ForecastVsForecast");
+                                }
+                            </div>
+                       </div>
+                    </div>
+                </div>
+
+
+
+                            </div>
+                        </div>
+</section>
+<div id="mdlUpdateForecastContainer"></div>
+@{
+
+    int currentQuarter = Convert.ToInt32(Math.Floor((decimal)((DateTime.Today.AddMonths(-1).Month) + 2) / 3));
+    int currentQuarterForecast = Convert.ToInt32(Math.Floor((decimal)((DateTime.Today.Month) + 2) / 3));
+    int numberOfMonthWithinQuarter = 0;
+    int startMonth = currentQuarter * 3 - 2;
+    for (int i = 0; i < 3; i++)
+    {
+        if (DateTime.Today.AddMonths(-1).Month == (startMonth + i))
+        {
+            numberOfMonthWithinQuarter = i + 1;
+        }
+    }
+}
+<script>
+    //define deparment code from Constants class
+    var settingVariable = {
+        numberOfMonthInputPica: "@numberOfMonthWithinQuarter",
+        yearOfInputPica: "@DateTime.Today.AddMonths(-1).Year",
+        quarterOfInputPica: "@currentQuarter",
+        numberOfMonthInputForecast: "@(currentQuarter == currentQuarterForecast ? numberOfMonthWithinQuarter + 1 : 1)",
+        yearOfInputForecast: "@DateTime.Today.Year",
+        quarterOfInputForecast: "@currentQuarterForecast"
+    };
+</script>
+<script src="~/scripts/InputForecast/forecastvsactual.js"></script>
+<script src="~/scripts/InputForecast/forecastvsforecast.js"></script>
+<script src="~/scripts/InputForecast/inputForecastCashIn.js"></script>

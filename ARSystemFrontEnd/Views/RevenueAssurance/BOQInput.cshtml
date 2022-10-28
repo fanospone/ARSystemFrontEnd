@@ -1,0 +1,839 @@
+﻿
+@{
+    ViewBag.Title = "BOQInput";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string actions = "";
+    if (!ViewBag.AllowProcess)
+    {
+        actions = "disabled";
+    }
+}
+<style>
+    .height59 {
+        height: 59px;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .border {
+        display: inline-block;
+        width: 400px;
+        height: 125px;
+        margin: 6px;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+
+<section id="pnlSummary">
+    @*Filter*@
+   
+
+    @*@Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")*@
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                @*<div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>*@
+                <div class="portlet-body">
+                    <div class="tabbable tabbable-tabdrop" id="tabBOQ">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tabRaw" data-toggle="tab"><b>BOQ Input</b></a>
+                            </li>
+                            <li>
+                                <a href="#tabProcess" data-toggle="tab">BOQ Process</a>
+                            </li>
+                            <li>
+                                <a href="#tabDone" data-toggle="tab">BOQ Done</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabRaw">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet box blue">
+                                            <div class="portlet-title">
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <form id="formSearch" class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">Operator</label>
+                                                                    <div class="col-md-6">
+                                                                        <input type="text" id="slSearchOperator" class="form-control" value="TSEL" disabled>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">Company</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchCompanyName" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">Year</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchYear" class="form-control select2">
+                                                                            @{
+                                                                                int tahun = System.DateTime.Now.Year + 10;
+                                                                                <option value="@(tahun)">@(tahun)</option>
+                                                                                for (int i = 1; i <= 30; i++)
+                                                                                {
+                                                                                    <option value="@(tahun - i)">@(tahun - i)</option>
+                                                                                }
+                                                                            }
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">Area</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchArea" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">Region</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchRegional" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    <label class="col-md-5 control-label">SoNumber</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSONumber" class="form-control select2" multiple></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="panel panel-default">
+                                                                    <br />
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-5 control-label">Total Renewal Tenant</label>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" id="txtTotalRenewalTenant" class="form-control" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-md-5 control-label">Total Amount</label>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text" id="txtTotalAmount" class="form-control" disabled>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btReset" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row height59">
+                                </div>
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-10 select-all-raw"></th>
+                                            <th class="datatable-col-100">SO Number</th>
+                                            <th class="datatable-col-100">Site ID</th>
+                                            <th class="datatable-col-200">Site Name</th>
+                                            <th class="datatable-col-100">Operator</th>
+                                            <th class="datatable-col-100">Customer Site ID</th>
+                                            <th class="datatable-col-200">Customer Site Name</th>
+                                            <th class="datatable-col-400">Customer Invoice</th>
+                                            <th class="datatable-col-400">Customer Asset</th>
+                                            <th class="datatable-col-100">Area</th>
+                                            <th class="datatable-col-100">Region</th>
+                                            <th class="datatable-col-100">Province</th>
+                                            <th class="datatable-col-100">Residence</th>
+                                            <th class="datatable-col-150">Start Lease Date</th>
+                                            <th class="datatable-col-150">End Lease Date</th>
+                                            <th class="datatable-col-100">Term</th>
+                                            <th class="datatable-col-200">Initial PO Number</th>
+                                            <th class="datatable-col-250">MLA Number</th>
+                                            <th class="datatable-col-100">Invoice Type</th>
+                                            <th class="datatable-col-100">Invoice Start Date</th>
+                                            <th class="datatable-col-100">Invoice End Date</th>
+                                            <th class="datatable-col-100">Base Lease</th>
+                                            <th class="datatable-col-100">OM Price</th>
+                                            <th class="datatable-col-100">Amount Billed</th>
+                                            <th class="datatable-col-100">Amount Deduction</th>
+                                            <th class="datatable-col-100">Amount After Deduction</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>                                              
+                            <div class="tab-pane" id="tabProcess" >
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet box blue">
+                                                    <div class="portlet-title">
+                                                    </div>
+                                                    <div class="portlet-body form">
+                                                        <form id="formSearch" class="form-horizontal" role="form">
+                                                            <div class="form-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="form-group">
+                                                                            <label class="col-md-3 control-label">Company</label>
+                                                                            <div class="col-md-6">
+                                                                                <select id="slSearchCompanyNameProcess" class="form-control select2"></select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label class="col-md-3 control-label">BOQ Number</label>
+                                                                            <div class="col-md-6">
+                                                                                <select id="slBOQNumberProcess" class="form-control select2" multiple></select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-actions text-center">
+                                                                <button type="button" id="btSearchProcess" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                                    <i class="fa fa-search"></i> Search
+                                                                </button>
+                                                                <button type="button" id="btResetProcess" class="btn blue-oleo">
+                                                                    <i class="fa fa-refresh"></i> Reset
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row height59">
+                                        </div>
+                                        <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblProcess">
+                                            <thead>
+                                                <tr>
+                                                    <th class="datatable-col-10">
+                                                        <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                            <input type="checkbox" class="group-checkable" id="checkParent" data-set="#tblProcess .checkboxes" />
+                                                            <span></span>
+                                                        </label>
+                                                    </th>
+                                                    <th class="datatable-col-150">BOQ Number</th>
+                                                    <th class="datatable-col-100">Area</th>
+                                                    <th class="datatable-col-150">Company</th>
+                                                    <th class="datatable-col-100">Total Tenant</th>
+                                                    <th class="datatable-col-100">Total Amount</th>
+                                                    <th class="datatable-col-100">Created Date</th>
+                                                    <th class="datatable-col-100">Created By</th>
+                                                    <th class="datatable-col-100">Signatory</th>
+                                                    <th class="datatable-col-70">Document</th>
+                                                    <th class="datatable-col-150">Status</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>                                             
+                            <div class="tab-pane" id="tabDone">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet box blue">
+                                            <div class="portlet-title">
+                                                @*<div class="caption font-white">
+                                                    <i class="fa fa-filter"></i>
+                                                    <span class="caption-subject">Filter</span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="" class="collapse"> </a>
+                                                </div>*@
+                                            </div>
+                                            <div class="portlet-body form">
+                                                <form id="formSearch" class="form-horizontal" role="form">
+                                                    <div class="form-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">Company</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slSearchCompanyNameDone" class="form-control select2"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="col-md-3 control-label">BOQ Number</label>
+                                                                    <div class="col-md-6">
+                                                                        <select id="slBOQNumberDone" class="form-control select2" multiple></select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-actions text-center">
+                                                        <button type="button" id="btSearchDone" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                            <i class="fa fa-search"></i> Search
+                                                        </button>
+                                                        <button type="button" id="btResetDone" class="btn blue-oleo">
+                                                            <i class="fa fa-refresh"></i> Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row height59">
+                                </div>
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDone">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-150">BOQ Number</th>
+                                            <th class="datatable-col-100">Area</th>
+                                            <th class="datatable-col-100">Company</th>
+                                            <th class="datatable-col-100">Total Tenant</th>
+                                            <th class="datatable-col-100">Total Amount</th>
+                                            <th class="datatable-col-100">Document</th>
+                                            <th class="datatable-col-100">Document Signed</th>
+                                            <th class="datatable-col-100">Created By</th>
+                                            <th class="datatable-col-100">Created Date</th>
+                                            <th class="datatable-col-100">Approve By</th>
+                                            <th class="datatable-col-100">Approve Date</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="button" id="btAddSite" class="btn green" @actions>
+                            <i class="fa fa-check"></i>Add Site
+                        </button>
+                        <button type="button" id="btReturn" class="btn red" @actions>
+                            <i class="fa fa-times"></i> Return to BOQ Input
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row panelSiteData ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">List Checklist</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover" id="tblSiteData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-100">Action</th>
+                                <th class="datatable-col-100">SO Number</th>
+                                <th class="datatable-col-100">Site ID</th>
+                                <th class="datatable-col-200">Site Name</th>
+                                <th class="datatable-col-100">Operator</th>
+                                <th class="datatable-col-100">Customer Site ID</th>
+                                <th class="datatable-col-200">Customer Site Name</th>
+                                <th class="datatable-col-100">Customer Invoice</th>
+                                <th class="datatable-col-100">Customer Asset</th>
+                                <th class="datatable-col-100">Area</th>
+                                <th class="datatable-col-100">Region</th>
+                                <th class="datatable-col-100">Province</th>
+                                <th class="datatable-col-100">Residence</th>
+                                <th class="datatable-col-150">Start Lease Date</th>
+                                <th class="datatable-col-150">End Lease Date</th>
+                                <th class="datatable-col-100">Term</th>
+                                <th class="datatable-col-200">Initial PO Number</th>
+                                <th class="datatable-col-250">MLA Number</th>
+                                <th class="datatable-col-100">Invoice Type</th>
+                                <th class="datatable-col-100">Invoice Start Date</th>
+                                <th class="datatable-col-100">Invoice End Date</th>
+                                <th class="datatable-col-100">Base Lease</th>
+                                <th class="datatable-col-100">OM Price</th>
+                                <th class="datatable-col-100">Amount Billed</th>
+                                <th class="datatable-col-100">Amount Deduction</th>
+                                <th class="datatable-col-100">Amount After Deduction</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th colspan="25" style="text-align:left; font-size:14px;">Total</th>
+                                <th style="text-align:right; font-size:14px;"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="row col-md-12 text-center">
+                <button type="submit" id="btAddBOQ" class="btn green">
+                    <i class="fa fa-check"></i> Add to BOQ Process
+                </button>
+                <button type="button" id="btCancel" class="btn red">
+                    <i class="fa fa-times"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="mdlDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">BOQ Detail</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <label id="lblBOQNumber" style="font-weight:bold;"></label>
+                </center>
+                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblProcessDetail">
+                    <thead>
+                        <tr>
+                            <th class="datatable-col-100">SO Number</th>
+                            <th class="datatable-col-100">Site ID</th>
+                            <th class="datatable-col-200">Site Name</th>
+                            <th class="datatable-col-100">Customer Site ID</th>
+                            <th class="datatable-col-200">Customer Site Name</th>
+                            <th class="datatable-col-100">Customer Invoice</th>
+                            <th class="datatable-col-100">Customer Asset</th>
+                            <th class="datatable-col-100">Area</th>
+                            <th class="datatable-col-100">Region</th>
+                            <th class="datatable-col-100">Province</th>
+                            <th class="datatable-col-100">Residence</th>
+                            <th class="datatable-col-150">Start Lease Date</th>
+                            <th class="datatable-col-150">End Lease Date</th>
+                            <th class="datatable-col-100">Term</th>
+                            <th class="datatable-col-200">Initial PO Number</th>
+                            <th class="datatable-col-250">MLA Number</th>
+                            <th class="datatable-col-100">Invoice Type</th>
+                            <th class="datatable-col-100">Invoice Start Date</th>
+                            <th class="datatable-col-100">Invoice End Date</th>
+                            <th class="datatable-col-100">Base Lease</th>
+                            <th class="datatable-col-100">OM Price</th>
+                            <th class="datatable-col-100">Total Amount</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlApprove" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:900px;">
+        <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Approve / Reject BOQ</h4>
+                </div>
+            <form id="formApprove" class="form-horizontal" role="form">
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><label id="lblBOQNumberApprove" style="font-weight:bold;padding-left: 40%;"></label></div>
+                        <div class="panel-body">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Status</label>
+                                            <div class="col-md-6">
+                                                <select id="slStatus" class="form-control select2" required>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Remarks</label>
+                                            <div class="col-md-6">
+                                                <textarea id="txtRemarksApprove" name="textarea" rows="5" cols="35"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Total Tenant</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="txtTotalRenewalTenantApprove" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Total Amount</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="txtTotalAmountApprove" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Company</label>
+                                            <div class="col-md-8">
+                                                <input type="text" id="txtCompanyApprove" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Area</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="txtAreaApprove" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button type="submit" id="btSave" class="btn green">
+                        <i class="fa fa-chevron-left"></i> Save
+                    </button>
+                    @*<button type="button" id="btUndoDelete" class="btn red">
+                        <i class="fa fa-chevron-left"></i>Undo Delete
+                    </button>*@
+                    <button type="button" data-dismiss="modal" id="btCancelApprove" class="btn blue-oleo">
+                        <i class="fa fa-chevron-left"></i> Dismiss
+                    </button>
+                </div>
+            </form>
+                <div class="modal-footer">
+                    
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlDetailDone" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">BOQ Detail</h4>
+            </div>
+            <div class="modal-body">
+                <center>
+                    <label id="lblBOQNumberDetailDone" style="font-weight:bold;"></label>
+                </center>
+                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblDoneDetail">
+                    <thead>
+                        <tr>
+                            <th class="datatable-col-100">SO Number</th>
+                            <th class="datatable-col-100">Site ID</th>
+                            <th class="datatable-col-200">Site Name</th>
+                            <th class="datatable-col-100">Customer Site ID</th>
+                            <th class="datatable-col-200">Customer Site Name</th>
+                            <th class="datatable-col-100">Customer Invoice</th>
+                            <th class="datatable-col-100">Customer Asset</th>
+                            <th class="datatable-col-100">Area</th>
+                            <th class="datatable-col-100">Region</th>
+                            <th class="datatable-col-100">Province</th>
+                            <th class="datatable-col-100">Residence</th>
+                            <th class="datatable-col-150">Start Lease Date</th>
+                            <th class="datatable-col-150">End Lease Date</th>
+                            <th class="datatable-col-100">Term</th>
+                            <th class="datatable-col-200">Initial PO Number</th>
+                            <th class="datatable-col-250">MLA Number</th>
+                            <th class="datatable-col-100">Invoice Type</th>
+                            <th class="datatable-col-100">Invoice Start Date</th>
+                            <th class="datatable-col-100">Invoice End Date</th>
+                            <th class="datatable-col-100">Base Lease</th>
+                            <th class="datatable-col-100">OM Price</th>
+                            <th class="datatable-col-100">Total Amount</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btDismiss" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Dismiss
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlSignatory" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:1200px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Signatory</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><label id="lblBOQNumberSignatory" style="font-weight:bold;padding-left: 40%;"></label></div>
+                    <div class="panel-body">
+                        <form id="formSearch" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Operator</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Operator</label>
+                                            <div class="col-md-6">
+                                                @*<input type="text" id="txtOperator" class="form-control" required>*@
+                                                <select id="slOperatorSign" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Operator Signer</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">PIC Name</label>
+                                            <div class="col-md-6">
+                                                @*<input type="text" id="txtOperatorPICName" class="form-control" required>*@
+                                                <select id="slOperatorPICNameSign" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Position</label>
+                                            <div class="col-md-6">
+                                                @*<input type="text" id="slOperatorPositionSign" class="form-control" disabled>*@
+                                                <select id="slOperatorPositionSign" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Kode BOQ Operator</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Kode</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="txtPrintID" class="form-control">
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Company TBG</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Company TBG</label>
+                                            <div class="col-md-6">
+                                                <select id="slCompanySign" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Company Signer</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">PIC Name</label>
+                                            <div class="col-md-6">
+                                                <select id="slCompanyPICNameSign" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Position</label>
+                                            <div class="col-md-6">
+                                                <select id="slCompanyPositionSign" class="form-control"></select>
+                                                @*<input type="text" id="slCompanyPositionSign" class="form-control" disabled>*@
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label" style="font-weight:bold;">Batch</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label">Batch</label>
+                                            <div class="col-md-6">
+                                                <select id="slBatch" class="form-control">
+                                                    @{
+                                                        int tahuns = System.DateTime.Now.Year + 10;
+                                                        <option value=" ">No Filter</option>
+                                                    @*<option value="@(tahuns)">@(tahuns)</option>*@
+                                                    for (int i = 1; i <= 30; i++)
+                                                    {
+                                                        <option value="@(tahuns - i)1">
+                                                            @(tahuns - i) Batch 1
+                                                        </option>
+                                                        <option value="@(tahuns - i)2">@(tahuns - i) Batch 2</option>
+                                                    }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" id="btApply" class="btn green">
+                    <i class="fa fa-chevron-left"></i> Apply
+                </button>
+                @*<button type="button" data-dismiss="modal" id="btApplyAll" class="btn green">
+                    <i class="fa fa-chevron-left"></i> Apply All
+                </button>*@
+                <button type="button" data-dismiss="modal" id="btEdit" class="btn green">
+                    <i class="fa fa-chevron-left"></i> Edit
+                </button>
+                <button type="button" data-dismiss="modal" id="btDismissApprove" class="btn blue-oleo">
+                    <i class="fa fa-chevron-left"></i> Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlToProcess" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add BOQ</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to BOQ Process?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirm" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlUpload" tabindex="-2" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:600px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Upload File</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><center><label id="lblBOQNumberUpload" style="font-weight:bold"></label></center></div>
+                    <div class="panel-body">
+                        <form id="formSearch" class="form-horizontal" role="form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<div class="form-group">
+                                            <label class="col-md-6 control-label">Uploaded File : </label>
+                                            <div class="col-md-6">
+                                                <label id="lblBOQNumberDocSign"></label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" data-dismiss="modal" id="btDownloadDocSign" class="btn blue-oleo">
+                                                <i class="fa fa-chevron-left"></i> Download
+                                            </button>
+                                        </div>*@
+                                        <div class="form-group" id="divUploadField">
+                                            <label class="col-md-6 control-label">Upload New File / Replace Old File:<i class="font-red"> *</i></label>
+                                            <div class="col-md-6">
+                                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                                    <div class="form-control" data-trigger="fileinput" id="fileBAPS">
+                                                        <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                                        <span class="fileinput-filename"></span>
+                                                    </div>
+                                                    <span class="input-group-addon btn btn-default btn-file">
+                                                        <span class="fileinput-new" style="height:5px">Select file</span><span class="fileinput-exists" style="height:5px">Change</span>
+                                                        <input type="file" name="file" id="file" accept=".xls,.xlsx,.pdf" style="height:5px" title="* Only Excel, PDF File">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-left">
+                                            <label class="col-md-12 control-label" id="lblError" style="color:red;text-align:left"></label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"  id="btUpload" class="btn green">
+                                                <i class="fa fa-chevron-left"></i> Upload
+                                            </button>
+                                            <button type="button" data-dismiss="modal" id="btExit" class="btn blue-oleo">
+                                                <i class="fa fa-chevron-left"></i> Exit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mdlBackToBOQInput" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;height:40%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Back To BOQ Input</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to sent this to BOQ Input?</label>
+                        </div>
+                    </div>
+                    <div></div>
+                    <div class="col-md-12 col-md-offset-5">
+                        <button type="button" id="btYesConfirmBack" class="btn green">
+                            <i class="fa fa-check"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="hidden" id="hdAllowApproval" value="@ViewBag.AllowApproval" />
+<script src="@Url.Content("~/Content/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/RevenueAssurance/BOQInput.js")" type="text/javascript"></script>

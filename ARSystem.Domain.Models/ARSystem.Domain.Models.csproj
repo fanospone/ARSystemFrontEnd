@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C25072B3-14AD-4867-B151-3DF57E7AE234}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARSystem.Domain.Models</RootNamespace>
+    <AssemblyName>ARSystem.Domain.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstracts\BaseClass.cs" />
+    <Compile Include="Models\AccountPayable\AccountPayable\vwDwhAPTenantCost.cs" />
+    <Compile Include="Models\AccountPayable\AccountPayable\vwDwhAPTenantRevenue.cs" />
+    <Compile Include="Models\AccountPayable\AccountPayable\vwDwhSummaryDataAP.cs" />
+    <Compile Include="Models\AccountPayable\AccountPayable\vwSummaryAPTenant.cs" />
+    <Compile Include="Models\ARSystem\Accrue\dwhAccrueListData.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccrueDepartment.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccrueMappingSOW.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccruePICA.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccruePICADetail.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccrueRootCause.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccrueSettingAutoConfirm.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstAccrueStatus.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstCompany.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstCustomer.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstRegion.cs" />
+    <Compile Include="Models\ARSystem\Accrue\trxDataAccrue.cs" />
+    <Compile Include="Models\ARSystem\Accrue\trxDataAccrueLog.cs" />
+    <Compile Include="Models\ARSystem\Accrue\trxUploadDataAccrue.cs" />
+    <Compile Include="Models\ARSystem\Accrue\trxUploadDataAccrueStaging.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vmAccrueLogUserConfirm.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vmDynamicTable.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vmListID.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vmWeek.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwAccrueDirectorate.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwAccrueFinalConfirm.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwAccrueList.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwAccrueMstSOW.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwEmployee.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwidxAccrueUserSOW.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwmstAccrueSettingAutoConfirm.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwtrxDataAccrue.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwtrxDataAccrueTemp.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwtrxUploadDataAccrue.cs" />
+    <Compile Include="Models\ARSystem\Accrue\vwtrxUploadDataAccrueStaging.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkApprovalLog.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailQuarterly.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailWeekly.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkDetailMonthly.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkHeader.cs" />
+    <Compile Include="Models\ARSystem\ARRMonitoringCashIn\vmFilters.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\trxARCashInActualDetails.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\trxARCashInForecastApprovalLog.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\trxARCashInForecastVsActual.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\trxARCashInForecastVsForecast.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\uspARCashInForecastVsActual.cs" />
+    <Compile Include="Models\ARSystem\InputForecast\uspARCashInForecastVsForecast.cs" />
+    <Compile Include="Models\ARSystem\Dashboard\vwDashboardInvoiceProductionDetails.cs" />
+    <Compile Include="Models\ARSystem\Dashboard\vwDashboardInvoiceProductionHeader.cs" />
+    <Compile Include="Models\ARSystem\Invoice\logCounterInvoiceHeader.cs" />
+    <Compile Include="Models\ARSystem\Invoice\TrxARReOpenPaymentDate.cs" />
+    <Compile Include="Models\ARSystem\Invoice\TrxARReOpenPaymentDateDetail.cs" />
+    <Compile Include="Models\ARSystem\logArActivity.cs" />
+    <Compile Include="Models\ARSystem\mstArLogDateKpi.cs" />
+    <Compile Include="Models\ARSystem\mstARRevSysParameter.cs" />
+    <Compile Include="Models\ARSystem\mstARSystemConstants.cs" />
+    <Compile Include="Models\ARSystem\mstBAPSConfirmValidate.cs" />
+    <Compile Include="Models\ARSystem\mstBapsPowerType.cs" />
+    <Compile Include="Models\ARSystem\mstBapsType.cs" />
+    <Compile Include="Models\ARSystem\mstEmail.cs" />
+    <Compile Include="Models\ARSystem\mstEmployee.cs" />
+    <Compile Include="Models\ARSystem\mstInvoiceStatus.cs" />
+    <Compile Include="Models\ARSystem\mstPICADetail.cs" />
+    <Compile Include="Models\ARSystem\mstPICAType.cs" />
+    <Compile Include="Models\ARSystem\Accrue\mstProvince.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\mstStopAccrueApprovalStatus.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\mstStopAccrueCategoryCase.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\mstStopAccrueDetailCase.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\mstStopAccrueRoleLabel.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\mstStopAccrueType.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\tbgsysdata.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\trxStopAccrueDetail.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\trxStopAccrueDetailDraft.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\trxStopAccrueDetailFile.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\trxStopAccrueHeader.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\trxStopAccrueHeaderDraft.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueDashboardDetail.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueDashboardHeader.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueDetail.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueDetailPrint.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueExportToExcel.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueHeader.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccruePrintSummary.cs" />
+    <Compile Include="Models\ARSystem\StopAccrue\vwStopAccrueSonumbList.cs" />
+    <Compile Include="Models\ARSystem\trxArActivityLog.cs" />
+    <Compile Include="Models\ARSystem\trxArDetail.cs" />
+    <Compile Include="Models\ARSystem\trxArHeader.cs" />
+    <Compile Include="Models\ARSystem\trxBAPSData.cs" />
+    <Compile Include="Models\ARSystem\trxBAPSReject.cs" />
+    <Compile Include="Models\ARSystem\TrxBapsStaging.cs" />
+    <Compile Include="Models\ARSystem\trxReconcileDocument.cs" />
+    <Compile Include="Models\ARSystem\vwBAPSData.cs" />
+    <Compile Include="Models\ARSystem\vwBAPSDataReject.cs" />
+    <Compile Include="Models\ARSystem\vwChangePPHFinal.cs" />
+    <Compile Include="Models\ARSystem\vwDataBAPSConfirm.cs" />
+    <Compile Include="Models\ARSystem\vwElectricityData.cs" />
+    <Compile Include="Models\ARSystem\vwElectricityDataReject.cs" />
+    <Compile Include="Models\ARSystem\vwNotification.cs" />
+    <Compile Include="Models\ARSystem\vwRAReconcile.cs" />
+    <Compile Include="Models\DashboardDynamic\DashboardData.cs" />
+    <Compile Include="Models\DashboardDynamic\mstDashboardTemplate.cs" />
+    <Compile Include="Models\DashboardDynamic\mstDataSourceDashboard.cs" />
+    <Compile Include="Models\DashboardTSEL\dwhRAOutstandingTSELGenerateDetail.cs" />
+    <Compile Include="Models\DashboardTSEL\MstRASectionProduct.cs" />
+    <Compile Include="Models\DashboardTSEL\MstRASowProduct.cs" />
+    <Compile Include="Models\DashboardTSEL\MstRATargetNewBaps.cs" />
+    <Compile Include="Models\DashboardTSEL\MstRATargetRecurring.cs" />
+    <Compile Include="Models\DashboardTSEL\vwGetInvoiceRecurring.cs" />
+    <Compile Include="Models\DashboardTSEL\vwRADetailSiteRecurring.cs" />
+    <Compile Include="Models\HTBGDWH01\TBGARSystem\vwDashBoardMonitoringCNInvoice.cs" />
+    <Compile Include="Models\HTBGDWH01\TBGARSystem\vwDashBoardMonitoringCNInvoiceDetail.cs" />
+    <Compile Include="Models\HTBGDWH01\TBGARSystem\vwHistoryCNInvoiceARData.cs" />
+    <Compile Include="Models\HTBGDWH01\TBGARSystem\vwInvoiceHeaderList.cs" />
+    <Compile Include="Models\logError.cs" />
+    <Compile Include="Models\MstInitialDepartment.cs" />
+    <Compile Include="Models\mstRoleGroupDashboard.cs" />
+    <Compile Include="Models\Notification\Notification.cs" />
+    <Compile Include="Models\RASystem\Dashboard\Potential\dwhDashboardPotentialRFITo1stBAPSBillingDetailModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\Potential\dwhDashboardRAPotentialSIRODetailModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\RTIAchievementModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\RTILeadTimeModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\RTINOverdueDetailModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\RTINOverdueModel.cs" />
+    <Compile Include="Models\RASystem\Dashboard\vwMonitoringBapsDoneDetail.cs" />
+    <Compile Include="Models\RASystem\Dashboard\vwMonitoringBapsDoneHeader.cs" />
+    <Compile Include="Models\RASystem\MasterData\mstApprovalStatus.cs" />
+    <Compile Include="Models\RASystem\MasterData\mstDropdown.cs" />
+    <Compile Include="Models\RASystem\MasterData\MstRAAmountTarget.cs" />
+    <Compile Include="Models\RASystem\MasterData\mstRAUserGroup.cs" />
+    <Compile Include="Models\RASystem\PICA\GetDropDownList.cs" />
+    <Compile Include="Models\RASystem\PICA\vwRADashboardPICA.cs" />
+    <Compile Include="Models\RASystem\Transaction\TrxRAAmountTarget.cs" />
+    <Compile Include="Models\RASystem\Transaction\TrxRAAmountTargetDetail.cs" />
+    <Compile Include="Models\RASystem\Transaction\TrxRAAmountTargetLog.cs" />
+    <Compile Include="Models\RASystem\Transaction\trxRANewBapsActivity.cs" />
+    <Compile Include="Models\RASystem\Transaction\trxRAUploadDocument.cs" />
+    <Compile Include="Models\RASystem\Transaction\trxReconcile.cs" />
+    <Compile Include="Models\RASystem\Transaction\trxReconcileID.cs" />
+    <Compile Include="Models\RASystem\Transaction\vwTrxAmountTarget.cs" />
+    <Compile Include="Models\Report Template\mstRAGeneratorPDF.cs" />
+    <Compile Include="Models\Report Template\vwReportTemplate.cs" />
+    <Compile Include="Models\RevenueAssurance\BackStatusBAPSValidationData.cs" />
+    <Compile Include="Models\RevenueAssurance\DocumentCheckingSummary.cs" />
+    <Compile Include="Models\RevenueAssurance\DocumentCheckingSummaryPerDoc.cs" />
+    <Compile Include="Models\RevenueAssurance\mstBAPSRecurring.cs" />
+    <Compile Include="Models\RevenueAssurance\mstRACustomerInvoice.cs" />
+    <Compile Include="Models\RevenueAssurance\mstRASchedule.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRADocumentCheckingType.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRAInputTargetPercentage.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRALogActivity.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRAPurchaseOrder.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRAPurchaseOrderDetail.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRARTI.cs" />
+    <Compile Include="Models\RevenueAssurance\trxRASplitNewBaps.cs" />
+    <Compile Include="Models\RevenueAssurance\trxReceiveDocumentBAUK.cs" />
+    <Compile Include="Models\RevenueAssurance\trxSSRDropFO.cs" />
+    <Compile Include="Models\RevenueAssurance\vmMstBaps.cs" />
+    <Compile Include="Models\RevenueAssurance\vmMstBapsBulky.cs" />
+    <Compile Include="Models\RevenueAssurance\vmNewBapsData.cs" />
+    <Compile Include="Models\RevenueAssurance\vwBackStatusBAPSValidation.cs" />
+    <Compile Include="Models\RevenueAssurance\vwCustomerReceiveBAUK.cs" />
+    <Compile Include="Models\RevenueAssurance\vwDashboardInputTarget.cs" />
+    <Compile Include="Models\RevenueAssurance\vwDashboardInputTargetDetail.cs" />
+    <Compile Include="Models\RevenueAssurance\vwPICReceiveDocumentBAUK.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRABapsDone.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRANewBapsValidationDefaultPrice.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRANewCheckingDocumentBAUK.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRAReceiveDocumentBAUK.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRAReceiveDocumentBAUKHistory.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRATaskTodoCreateBAPS.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRTIData.cs" />
+    <Compile Include="Models\RevenueAssurance\vwRTIDataDone.cs" />
+    <Compile Include="Models\RevenueSystem\ArCorrectiveRevenueFinalTemp.cs" />
+    <Compile Include="Models\RevenueSystem\ArCorrectiveRevenuePeriod.cs" />
+    <Compile Include="Models\RevenueSystem\ArCorrectiveRevenueTemp.cs" />
+    <Compile Include="Models\RevenueSystem\dwhARRevenueSysSummary.cs" />
+    <Compile Include="Models\RevenueSystem\dwhARRevSysDescription.cs" />
+    <Compile Include="Models\RevenueSystem\mstRevSysInflationRate.cs" />
+    <Compile Include="Models\RevenueSystem\mstRevSysKurs.cs" />
+    <Compile Include="Models\RevenueSystem\mstRevSysSonumbInflasi.cs" />
+    <Compile Include="Models\RevenueSystem\trxARRevSysAdjustment.cs" />
+    <Compile Include="Models\RevenueSystem\trxARRevSysListDetail.cs" />
+    <Compile Include="Models\RevenueSystem\vwARRevSysAdjustment.cs" />
+    <Compile Include="Models\RevenueSystem\vwARRevSysPerSonumb.cs" />
+    <Compile Include="Models\RevenueSystem\vwRevSysSoInflasiSonumbList.cs" />
+    <Compile Include="Models\RevenueSystem\vwRevSysSonumbInflasiList.cs" />
+    <Compile Include="Models\TastToDoRANew\dwhTaskToDoRANew.cs" />
+    <Compile Include="Models\TastToDoRANew\dwhTaskToDoRANewDetail.cs" />
+    <Compile Include="Models\TBGTeamMate\vwProjectManualBook.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\idxFINInvoiceReplacement.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logARProcess.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logCNArActivity.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logCNARProcess.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceActivity.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceHeader.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceHeaderRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceNonRevenue.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceTowerDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\logInvoiceTowerDetailRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\mstCNTaxInvoice.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\mstDocInvoice.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\mstPaymentCode.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\mstTaxInvoice.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxArDetailRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCancelNoteFinance.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNDocInvoiceDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceBuildingDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeader.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeaderReject.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceHeaderRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceJobTBGConsole.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceNonRevenue.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceNonRevenueSite.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceTowerDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNInvoiceTowerDetailRemaningAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxCNPICAAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxDocInvoiceDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceHeader.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceHeaderRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceManual.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceNonRevenue.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceNonRevenueSite.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoicePayment.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceTowerDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxInvoiceTowerDetailRemaningAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxPICAAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\trxPICAARData.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwARPaymentInvoiceTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwARPaymentInvoiceTowerHistory.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwChecklistInvoiceTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwCNInvoiceTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwDataCreatedInvoiceTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwDataCreateInvoiceNonRevenue.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwDataInvoiceNonRevenue.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwDataPostedInvoiceTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwHistoryRejectInvoice.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\mstCategoryInvoice.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\mstOperator.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\Invoice\vwInvoiceTowerDetail.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\logCounterVoucherNumber.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\mstParameter.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\mstSonumbNonTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\stgTRStatusMatchingARLog.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\trxAllocatePaymentBankIn.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\trxAllocatePaymentBankOut.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\trxInvoiceMatchingAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwDataBAPSRemainingAmount.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwMatchingARLogDocumentPayment.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwMstSonumbNonTower.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwReportInvoiceMatchingAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwstgTRStatusPenerimaanPembayaran.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwtrxAllocatePayment.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDetailDraft.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDetailFileDraft.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueDraft.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwtrxStopAccrueHeaderDraft.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwTrxStopAccrueHeaderReqNo.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGHumanCapital\mstDepartment.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwtrxInvoiceMatchingAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGARSystem\vwVoucherNumberCounter.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusMatchingAR.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusMatchingARLogError.cs" />
+    <Compile Include="Models\TBIGSYSDB01\TBGSAPIntegration\stgTRStatusPenerimaanPembayaran.cs" />
+    <Compile Include="Models\TBiGSys\mstProduct.cs" />
+    <Compile Include="Models\TBiGSys\mstSTIP.cs" />
+    <Compile Include="Models\vwBAUKRejectDocumentDetail.cs" />
+    <Compile Include="Models\vwMstDepartment.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ARSystem\Dashboard\vmInvoiceProduction.cs" />
+    <Compile Include="ViewModels\ARSystem\Dashboard\vmInvoiceProductionPost.cs" />
+    <Compile Include="ViewModels\ARSystem\Dashboard\vmMonitoringAgingExecutive.cs" />
+    <Compile Include="ViewModels\ARSystem\Dashboard\vmMonitoringAgingExecutiveSummary.cs" />
+    <Compile Include="ViewModels\ARSystem\InvoiceProcess\CreateInvoice\vmCreateInvoiceNonRevenue.cs" />
+    <Compile Include="ViewModels\ARSystem\vmAllocatePayment.cs" />
+    <Compile Include="ViewModels\ARSystem\vmGetInvoicePostedList.cs" />
+    <Compile Include="ViewModels\ARSystem\vmInvoiceMatchingAR.cs" />
+    <Compile Include="ViewModels\ARSystem\vmMstRejectHdrDtl.cs" />
+    <Compile Include="ViewModels\ARSystem\vmRejectBAPSExisting.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKAchievement.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKActivity.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKDetail.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKFilter.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKForecast.cs" />
+    <Compile Include="ViewModels\DashboardBAUK\vmDashboardBAUKReject.cs" />
+    <Compile Include="ViewModels\DashboardTSEL\vmDashboardTSELOverdue.cs" />
+    <Compile Include="ViewModels\DashboardTSEL\vwRABapsSite.cs" />
+    <Compile Include="ViewModels\Datatable\Datatable.cs" />
+    <Compile Include="ViewModels\Datatable\DatatableAjaxModel.cs" />
+    <Compile Include="ViewModels\Datatable\DatatableColumn.cs" />
+    <Compile Include="ViewModels\Datatable\Datatableorder.cs" />
+    <Compile Include="ViewModels\Datatable\DatatableSearch.cs" />
+    <Compile Include="ViewModels\Invoice\vmARPaymentInvoiceTower.cs" />
+    <Compile Include="ViewModels\Invoice\vmCreateInvoice.cs" />
+    <Compile Include="ViewModels\Invoice\vmReportInvoiceMaxMinLogDate.cs" />
+    <Compile Include="ViewModels\Invoice\vmReportInvoiceMonth.cs" />
+    <Compile Include="ViewModels\Invoice\vmReportInvoiceWeek.cs" />
+    <Compile Include="ViewModels\Invoice\vmReportInvoiceYear.cs" />
+    <Compile Include="ViewModels\Invoice\vwReportInvoiceTowerByInvoice.cs" />
+    <Compile Include="ViewModels\Invoice\vwReportInvoiceTowerBySoNumber.cs" />
+    <Compile Include="ViewModels\ISPInvoiceInformation\vwISPBAPSNewInformation.cs" />
+    <Compile Include="ViewModels\ISPInvoiceInformation\vwISPInvoiceInformation.cs" />
+    <Compile Include="ViewModels\ISPInvoiceInformation\vwISPInvoiceInformationDetail.cs" />
+    <Compile Include="ViewModels\ISPInvoiceInformation\vwISPSalesSystemInformation.cs" />
+    <Compile Include="ViewModels\RASystem\vmBAPSRecurring.cs" />
+    <Compile Include="ViewModels\RASystem\vmSaveBAPSBulky.cs" />
+    <Compile Include="ViewModels\RASystem\vmSaveRTIPartition.cs" />
+    <Compile Include="ViewModels\RASystem\vmStatus.cs" />
+    <Compile Include="ViewModels\RevenueAssurance\vmBAPSValidationUpdate.cs" />
+    <Compile Include="ViewModels\RevenueAssurance\vmHistoryRejectInvoice.cs" />
+    <Compile Include="ViewModels\RevenueSystem\GridInflasiParam.cs" />
+    <Compile Include="ViewModels\RevenueAssurance\vmSummaryRejection.cs" />
+    <Compile Include="ViewModels\RevenueAssurance\vmSummaryRejectionPost.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmARRevSysPerSonumb.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueAdjustmentParameters.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueDetailMovement.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueDetailMovementUnit.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueMovementAmount.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueMovementUnit.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueSoNumberList.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueSummaryAmount.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueSummaryParameters.cs" />
+    <Compile Include="ViewModels\RevenueSystem\vmRevenueSummaryUnit.cs" />
+    <Compile Include="ViewModels\vmStringResult.cs" />
+    <Compile Include="ViewModels\vmUserCredential.cs" />
+    <Compile Include="ViewModels\vwARUserRole.cs" />
+    <Compile Include="ViewModels\vwDataARUser.cs" />
+    <Compile Include="ViewModels\vwTableTypes.cs" />
+    <Compile Include="ViewModels\vwTreeViewNodes.cs" />
+    <Compile Include="WorkFlow\vwWfHeaderActivityLogs.cs" />
+    <Compile Include="WorkFlow\vwWfPrDefActivity.cs" />
+    <Compile Include="WorkFlow\WfHeaders.cs" />
+    <Compile Include="WorkFlow\WfHeaders_View.cs" />
+    <Compile Include="WorkFlow\WfHelper_ActivityLogs.cs" />
+    <Compile Include="WorkFlow\WfPrDef_NextFlag.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

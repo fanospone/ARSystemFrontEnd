@@ -1,0 +1,300 @@
+﻿@model ARSystemFrontEnd.Domain.Models.uspARCashInForecastVsActual
+@{ 
+
+    int currentQuarter = Convert.ToInt32(Math.Floor((decimal)(Model.Month.GetValueOrDefault(0) + 2) / 3));
+    int numberOfMonthWithinQuarter = 0;
+    int startMonth = currentQuarter * 3 - 2;
+    for (int i = 0; i < 3; i++)
+    {
+        if (Model.Month.GetValueOrDefault(0) == (startMonth + i))
+        {
+            numberOfMonthWithinQuarter = i + 1;
+        }
+    }
+    var selectedMonthName = String.Empty;
+    if(Model.Month != null)
+    {
+        var date = new DateTime(DateTime.Today.Year, Model.Month.GetValueOrDefault(0), 1);
+        selectedMonthName = date.ToString("MMMM").ToUpper();
+    }
+    var isPicaEditable = Model.Month.GetValueOrDefault() == DateTime.Today.AddMonths(-1).Month;
+    var isForecastEditable = Model.Month.GetValueOrDefault() == DateTime.Today.Month;
+}
+
+<div id="mdlUpdateForecastActual" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Update Forecast Vs Actual</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="formForecastVsActual" class="form-horizontal" role="form">
+                    <input type="hidden" name="MonthWithinQuarter" id="MonthWithinQuarter" value="@numberOfMonthWithinQuarter" />
+                    <input type="hidden" name="Month" id="Month" value="@Model.Month.GetValueOrDefault(0)" />
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Operator<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                            <input type="text" readonly="readonly" class="col-md-6 form-control" id="OperatorID" name="OperatorID" value="@Model.OperatorID" />
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Year<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="Year" name="Year" value="@Model.Year" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Quarter<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="Quarter" name="Quarter" value="@Model.Quarter" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Month<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="MonthName" name="MonthName" value="@selectedMonthName" />
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                                @if (numberOfMonthWithinQuarter == 1)
+                                {
+                                    <div id="formForecastM1">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Marketing <i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                               <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCMarketingM1" name="FCMarketingM1" value="@Model.FCFinanceM1" />
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast RA<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCRevenueAssuranceM1" name="FCRevenueAssuranceM1"  value="@Model.FCFinanceM1"  />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Finance<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                            @if (isForecastEditable)
+                                            {
+                                                <input type="text" class="col-md-6 form-control" id="FCFinanceM1" name="FCFinanceM1" value="@Model.FCFinanceM1" /> }
+                                            else
+                                            {
+                                                <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCFinanceM1" name="FCFinanceM1" value="@Model.FCFinanceM1" />}</div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Actual<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="ActualM1" name="ActualM1" value="@Model.FCFinanceM1"  /></div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Variance<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="VarianceM1" name="VarianceM1"  value="@Model.FCFinanceM1" /></div>
+
+                                        </div>
+@if (isPicaEditable)
+{
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+                                            <div class="col-md-6">
+                                            
+                                                <textarea class="col-md-6 form-control" id="PiCaM1" name="PiCaM1" data-parsley-required="false" rows="7">@Model.PiCaM1</textarea>
+                                            </div>
+                                        </div>
+}
+else if (Model.PiCaM1 != null) //untuk preview pica
+{
+    <div class="form-group">
+        <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+        <div class="col-md-6">
+
+            <textarea  readonly="readonly" class="col-md-6 form-control" id="PiCaM1" name="PiCaM1" data-parsley-required="false" rows="7">@Model.PiCaM1</textarea>
+        </div>
+    </div>
+}
+                                    </div>
+
+                                }
+                                else if (numberOfMonthWithinQuarter == 2)
+                                {
+                                    <div id="formForecastM2">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Marketing <i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                               
+                                            <input type="text"readonly="readonly" class="col-md-6 form-control" id="FCMarketingM2" name="FCMarketingM2" value="@Model.FCMarketingM2" />
+                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast RA<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCRevenueAssuranceM2" name="FCRevenueAssuranceM2"  value="@Model.FCRevenueAssuranceM2" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Finance<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                            @if (isForecastEditable)
+                                            {
+                                                <input type="text" class="col-md-6 form-control" id="FCFinanceM2" name="FCFinanceM2" value="@Model.FCFinanceM2" />}
+                                            else
+                                            {<input type="text" readonly="readonly" class="col-md-6 form-control" id="FCFinanceM2" name="FCFinanceM2" value="@Model.FCFinanceM2" />
+                                            } </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Actual<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="ActualM2" name="ActualM2"  value="@Model.ActualM2" /></div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Variance<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="VarianceM2" name="VarianceM2"  value="@Model.VarianceM2" /></div>
+
+                                        </div>
+                                        @if (isPicaEditable)
+                                        {<div class="form-group">
+                                            <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+                                            <div class="col-md-6">
+                                           
+                                                <textarea class="col-md-6 form-control" id="PiCaM2" name="PiCaM2" data-parsley-required="false"  rows="7">@Model.PiCaM2</textarea>                   </div>
+                                        </div>
+                                        }
+                                        else if (Model.PiCaM2 != null) //untuk preview pica
+                                        {
+                                            <div class="form-group">
+                                                <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+                                                <div class="col-md-6">
+
+                                                    <textarea readonly="readonly" class="col-md-6 form-control" id="PiCaM2" name="PiCaM2" data-parsley-required="false" rows="7">@Model.PiCaM2</textarea>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+                                }
+                                else if (numberOfMonthWithinQuarter == 3)
+                                {
+                                    <div id="formForecastM3">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Marketing <i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                               <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCMarketingM3" name="FCMarketingM3" value="@Model.FCMarketingM3" />
+                                                 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast RA<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCRevenueAssuranceM3" name="FCRevenueAssuranceM3"  value="@Model.FCRevenueAssuranceM3" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Forecast Finance<i class="font-red"></i></label>
+                                            <div class="col-md-6">
+                                            @if (isForecastEditable)
+                                            {
+                                                <input type="text" class="col-md-6 form-control" id="FCFinanceM3" name="FCFinanceM3" value="@Model.FCFinanceM3" />   
+                                                    } else
+                                                    { <input type="text" readonly="readonly" class="col-md-6 form-control" id="FCFinanceM3" name="FCFinanceM3" value="@Model.FCFinanceM3" />
+                                            }</div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Actual<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="ActualM3" name="ActualM3" value="@Model.ActualM3"  /></div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Variance<i class="font-red"></i></label>
+                                            <div class="col-md-6"><input type="text" readonly="readonly" class="col-md-6 form-control" id="VarianceM3" name="VarianceM3" value="@Model.VarianceM3"  /></div>
+
+                                        </div>
+@if (isPicaEditable)
+{
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+                                            <div class="col-md-6">
+                                            
+                                                <textarea class="col-md-6 form-control" id="PiCaM3" name="PiCaM3" data-parsley-required="false" rows="7">@Model.PiCaM3</textarea></div>
+                                        </div>
+}
+else if (Model.PiCaM3 != null) //untuk preview pica
+{
+    <div class="form-group">
+        <label class="col-md-4 control-label">PiCa<i class="font-red">*</i></label>
+        <div class="col-md-6">
+
+            <textarea readonly="readonly" class="col-md-6 form-control" id="PiCaM3" name="PiCaM3" data-parsley-required="false" rows="7">@Model.PiCaM3</textarea>
+        </div>
+    </div>
+}
+
+                                    </div>
+
+                                }
+
+                                <div class="form-group">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn blue-oleo btCancelFormForecastActual">
+                                            <i class="fa fa-chevron-left"></i> Cancel
+                                        </button>
+                                        <button type="submit" id="btSubmitFormForecastActual" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                            <i class="fa fa-save"></i> Save
+                                        </button>
+                                    </div>
+                                    <div class="col-md-5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        $('#FCFinanceM1').val(Common.Format.CommaSeparation('@Model.FCFinanceM1'))
+        $('#FCFinanceM2').val(Common.Format.CommaSeparation('@Model.FCFinanceM2'))
+        $('#FCFinanceM3').val(Common.Format.CommaSeparation('@Model.FCFinanceM3'))
+        $('#FCMarketingM1').val(Common.Format.CommaSeparation('@Model.FCMarketingM1'))
+        $('#FCMarketingM2').val(Common.Format.CommaSeparation('@Model.FCMarketingM2'))
+        $('#FCMarketingM3').val(Common.Format.CommaSeparation('@Model.FCMarketingM3'))
+        $('#ActualM1').val(Common.Format.CommaSeparation('@Model.ActualM1'))
+        $('#ActualM2').val(Common.Format.CommaSeparation('@Model.ActualM2'))
+        $('#ActualM3').val(Common.Format.CommaSeparation('@Model.ActualM3'))
+        $('#VarianceM1').val(Common.Format.CommaSeparation('@Model.VarianceM1'))
+        $('#VarianceM2').val(Common.Format.CommaSeparation('@Model.VarianceM2'))
+        $('#VarianceM3').val(Common.Format.CommaSeparation('@Model.VarianceM3'))
+        $('#FCRevenueAssuranceM1').val(Common.Format.CommaSeparation('@Model.FCRevenueAssuranceM1'))
+        $('#FCRevenueAssuranceM2').val(Common.Format.CommaSeparation('@Model.FCRevenueAssuranceM2'))
+        $('#FCRevenueAssuranceM3').val(Common.Format.CommaSeparation('@Model.FCRevenueAssuranceM3'))
+        $('#FCMarketingM1,#FCMarketingM2,#FCMarketingM3,#FCFinanceM1,#FCFinanceM2,#FCFinanceM3').on('change', function () {
+            var res = Common.Format.CommaSeparation($(this).val());
+            $(this).val(res);
+        });
+        $('#FCFinanceM1,#ActualM1').on('change', function () {
+            var variance = $('#ActualM1').val().replace(/,/g, "") - $('#FCFinanceM1').val().replace(/,/g, "");
+            $('#VarianceM1').val(Common.Format.CommaSeparation(variance));
+        });
+        $('#FCFinanceM2,#ActualM2').on('change', function () {
+            var variance =  $('#ActualM2').val().replace(/,/g, "") - $('#FCFinanceM2').val().replace(/,/g, "");
+            $('#VarianceM2').val(Common.Format.CommaSeparation(variance));
+        });
+        $('#FCFinanceM3,#ActualM3').on('change', function () {
+            var variance =  $('#ActualM3').val().replace(/,/g, "") - $('#FCFinanceM3').val().replace(/,/g, "");
+            $('#VarianceM3').val(Common.Format.CommaSeparation(variance));
+        });
+    })
+    </script>

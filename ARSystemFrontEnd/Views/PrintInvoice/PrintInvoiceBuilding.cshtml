@@ -1,0 +1,375 @@
+﻿@model List<ARSystemFrontEnd.Models.PostTrxPrintInvoiceBuildingHTMLData>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Print Invoice Building</title>
+    <link href="@Url.Content("~/Content/global/plugins/bootstrap/css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body {
+            font-size: large;
+            margin-top: -10px;
+        }
+
+        #Judul {
+            width: 100px;
+            text-align: center;
+            vertical-align: middle;
+            height: 30px;
+            box-shadow: 10px 10px 5px #888888;
+            border: double;
+        }
+
+        .table-wrapper {
+            border-radius: 30px;
+            border: 1px solid #000;
+        }
+
+        .table-destination {
+            width: 100%;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .fill {
+            height: auto;
+            width: 100% !important;
+            border: 2px solid;
+            page-break-after: always;
+        }
+
+        .col-xs-4-kte {
+            position: relative;
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 40%;
+            float: left;
+        }
+
+        .padding-tl-15 {
+            padding-top: 15px;
+            padding-left: 15px;
+        }
+
+        .padding-tr-15 {
+            padding-top: 15px;
+            padding-right: 15px;
+        }
+
+        .padding-tl-10 {
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+
+        .currency {
+            width: 60px !important;
+            border-right: none !important;
+            border-left: none !important;
+            text-align: justify;
+            padding-right: 15px !important;
+        }
+
+        .amount {
+            width: 185px !important;
+            border-left: none !important;
+            border-right: none !important;
+            text-align: right;
+            padding-left: 15px !important;
+        }
+
+        .subtotal-label {
+            width: 135px;
+            padding-left: 15px;
+            text-align: left;
+        }
+    </style>
+
+</head>
+<body>
+    @foreach (var data in Model)
+    {
+        <div class="row">
+            <div class="col-xs-5 pull-left">
+                <h4>@data.CompanyTBG</h4>
+            </div>
+            <div class="col-xs-7 pull-right">
+                <h4 style="text-align:right">@data.ReprintString</h4>
+            </div>
+        </div>
+
+        <div class="container fill">
+
+            <br />
+            <div class="row" style="text-align: center">
+                <strong><input id="Judul" type="text" style="border: 2px solid;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" value="INVOICE" /></strong>
+            </div>
+            <br />
+
+            <div class="row">
+                <div class="col-xs-7">
+                </div>
+                <div class="col-xs-5 text-left">
+                    <table cellspacing="0">
+                        <tr>
+                            <td style="border-right: solid"><strong>Inv No.</strong>&nbsp;</td>
+                            <td>&nbsp;@data.InvNo</td>
+                        </tr>
+                        <tr>
+                            <td style="border-right: solid"><strong>Tanggal</strong>&nbsp;</td>
+                            <td>&nbsp;@data.InvPrintDate</td>
+                        </tr>
+                        <tr>
+                            <td style="border-right: solid">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="border-right: solid">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <div class="col-xs-12">
+                    <div class="row" id="Line">
+                        <div class="col-xs-12" style="padding-left: 30px; padding-right: 30px;">
+                            <hr style="border-width: 5px; border-color: black; width: 100%" />
+                            <hr style="border-width: 3px; border-color: black; margin-top: -15px;" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div id="InvoiceDestination" class="col-xs-12">
+                            <div class="table-wrapper col-xs-12">
+                                <table class="table-destination">
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-2">Kepada</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-2">Nama</td>
+                                        <td>: </td>
+                                        <td>@data.Company</td>
+                                    </tr>
+                                    <tr style="vertical-align:top;">
+                                        <td class="col-xs-2">Alamat</td>
+                                        <td>: </td>
+                                        <td>@data.BillingAddress</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-2"></td>
+                                        <td></td>
+                                        <td>@data.RegencyName, @data.ProvinceName</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-2">Up.</td>
+                                        <td>: </td>
+                                        <td>@data.Section</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div id="InvoiceDetail" class="col-xs-12">
+                            <table class="table-destination" style="border: 1px solid #000;" border="1">
+                                <tr class="align-center" style="height: 35px;">
+                                    <th class="align-center" style="width: 70px;">No.</th>
+                                    <th class="align-center" style="width: 598px;">Uraian</th>
+                                    <th class="align-center" style="width: 245px;" colspan="2">Jumlah</th>
+                                </tr>
+                                <tr style="height: 250px; vertical-align: top;padding-top:10px;">
+                                    <td class="align-center" style="padding-top:20px;">
+                                        1
+                                    </td>
+                                    <td class="padding-tl-15">
+                                        <textarea style="width:100%;height:100%;border:none;overflow:hidden;">@data.InvSubject</textarea>
+                                    </td>
+                                    <td style="text-align: justify;border-right:none !important;width: 60px;" class="padding-tl-15">
+                                        @(data.Currency == "IDR" ? "Rp." : "$")
+                                    </td>
+                                    <td style="text-align: right;border-left:none !important;width: 185px;" class="padding-tr-15">
+                                        @*<span class="InvSumADPP1">@string.Format("{0:n}", data.InvSumADPP + ((data.Discount > 0) ? data.Discount : 0))</span>*@
+                                        @*<span class="InvSumADPP1">@string.Format("{0:n}", data.InvTotalAmount)</span>*@
+                                        <span class="InvSumADPP1">@string.Format("{0:n}", data.InvSumADPP + ((data.Discount > 0) ? data.Discount : 0))</span>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="AmountDetail" class="row">
+                        <div class="col-xs-12">
+                            <div class="col-xs-7 pull-left">
+                                <div class="row">
+                                    <strong>Terbilang :</strong>
+                                </div>
+                                <div class="row">
+                                    <div class="lblTerbilang padding-tl-10" style="border: 1px solid; width: 98%; height: 120px;">@data.Terbilang</div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-5 pull-right" style="padding: 0;">
+                                <table border="1" style="width: 100%; height: 150px; border: 1px solid #000;">
+                                    <tr>
+                                        <td class="subtotal-label" style="padding-left: 15px !important;"><strong>Sub Total</strong></td>
+                                        <td class="currency" id="" style="padding-left: 15px !important;">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                        <td class="amount" style="padding-right: 15px !important;">@string.Format("{0:n}", data.InvSumADPP + ((data.Discount > 0) ? data.Discount : 0))</td>
+                                        @*<td class="amount" style="padding-right: 15px !important;">@string.Format("{0:n}", data.InvSumADPP)</td>*@
+                                    </tr>
+                                    @if (data.Discount > 0)
+                                    {
+                                        <tr>
+                                            <td class="subtotal-label" style="padding-left: 15px !important;"><strong>Discount</strong></td>
+                                            <td class="currency" style="padding-left: 15px !important;" id="">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                            <td class="amount" style="padding-right: 15px !important;">@string.Format("({0:n})", data.Discount)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="subtotal-label" style="padding-left: 15px !important;"><strong>DPP</strong></td>
+                                            <td class="currency" id="" style="padding-left: 15px !important;">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                            <td class="amount" style="padding-right: 15px !important;">@string.Format("{0:n}", data.InvSumADPP)</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td class="subtotal-label" style="padding-left: 15px !important;"><strong>@ViewBag.PPNText</strong></td>
+                                        <td class="currency" style="padding-left: 15px !important;" id="">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                        <td class="amount" style="padding-right: 15px !important;">@string.Format("{0:n}", data.InvTotalAPPN)</td>
+                                    </tr>
+                                    @if (data.InvTotalPenalty > 0)
+                                    {
+                                        <tr>
+                                            <td class="subtotal-label" style="padding-left: 15px !important;"><strong>Penalty</strong></td>
+                                            <td class="currency" style="padding-left: 15px !important;" id="">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                            <td class="amount" style="padding-right: 15px !important;">@string.Format("({0:n})", data.InvTotalPenalty)</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td class="subtotal-label" style="padding-left: 15px !important;"><strong>Total</strong></td>
+                                        <td class="currency" style="padding-left: 15px !important;" id="">@(data.Currency == "IDR" ? "Rp." : "$")</td>
+                                        <td class="amount" style="padding-right: 15px !important;">@string.Format("{0:n}", data.InvTotalAmount)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="Signature" class="row">
+                        <div class="col-xs-12">
+
+                            <div class="col-xs-7 pull-left" style="margin-top:80px;">
+                                <div class="row" style="padding-left: 20px;">
+                                    <strong>Catatan :</strong>
+                                </div>
+                                <div class="row" style="padding-left:20px;">
+                                    @*<span style="text-decoration:underline;"><strong>Atas Invoice Ini Dikenakan PPH : @(data.IsPPHFinal == true ? (ViewBag.PPFValue * 100) : (ViewBag.PPHValue * 100))%</strong></span>*@
+                                    @*<span style="text-decoration:underline;"><strong>Atas Invoice Ini Dikenakan PPH : @data.PPHValue %</strong></span>*@
+                                    <!--Edit by MTR-->
+                                    @if (data.PPHValue.TrimStart().TrimEnd() != "0")
+                                    {
+                                        <span style="text-decoration:underline;"><strong>Atas Invoice Ini Dikenakan PPH : @data.PPHValue %</strong></span>
+                                    }
+                                    else
+                                    {
+                                        <span style="text-decoration:underline;"><strong>Atas Invoice Ini Tidak dikenakan PPh</strong></span>
+                                    }
+                                    <!--Edit by MTR-->
+                                </div>
+                                <div class="row table-wrapper">
+                                    <table class="table-destination">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-3" colspan="3">Pembayaran dapat dilakukan melalui transfer ke Rekening sebagai berikut :</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-3">a/n</td>
+                                            <td>:</td>
+                                            <td>@data.CompanyTBG</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-3">Bank</td>
+                                            <td>:</td>
+                                            <td>@data.BankName</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-3">Acc. No</td>
+                                            <td>:</td>
+                                            <td>@data.AccNo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="table-wrapper pull-right col-xs-4-kte" style="margin-top:35px;">
+                                <br />
+                                <div class="row text-center">
+                                    <p style="font-size:medium"><strong>@data.CompanyTBG</strong></p>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <p><strong>@data.FullName</strong></p>
+                                    <hr style="border-width: 2px; border-color: black; margin: -10px 10px 0px 10px;" />
+                                    <p><strong>@data.Position</strong></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" id="Line2">
+                        <div class="col-xs-12" style="padding-left: 30px; padding-right: 30px;">
+                            <hr style="border-width: 5px; border-color: black; width: 100%" />
+                            <hr style="border-width: 3px; border-color: black; margin-top: -15px;" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+        </div>
+    }
+    <script src="@Url.Content("~/Content/global/plugins/jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/jquery.blockui.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/js.cookie.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/bootstrap/js/bootstrap.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/common.js")" type="text/javascript"></script>
+
+</body>
+</html>

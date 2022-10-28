@@ -1,0 +1,2522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" />
+  <xs:import schemaLocation="http://10.8.0.222:8809/TBGSysService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetMarketingDocumentHeaderCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocumentHeader" nillable="true" type="q1:vwMarketingDocumentHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentHeaderCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMarketingDocumentHeaderCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentHeaderList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocumentHeader" nillable="true" type="q2:vwMarketingDocumentHeader" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentHeaderListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetMarketingDocumentHeaderListResult" nillable="true" type="q3:ArrayOfvwMarketingDocumentHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentDetailCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocumentDetail" nillable="true" type="q4:vwMarketingDocumentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentDetailCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMarketingDocumentDetailCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentDetailList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocumentDetail" nillable="true" type="q5:vwMarketingDocumentDetail" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentDetailListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetMarketingDocumentDetailListResult" nillable="true" type="q6:ArrayOfvwMarketingDocumentDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarketingDocumentTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocument" nillable="true" type="q7:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MarketingDocumentTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="MarketingDocumentTransactionResult" nillable="true" type="q8:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadMarketingDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocument" nillable="true" type="q9:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadMarketingDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UploadMarketingDocumentResult" nillable="true" type="q10:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMarketingDocument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trxMarketingDocumentID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMarketingDocumentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMarketingDocumentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdditionalRelocationInputCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="additionalRelocationInput" nillable="true" type="q11:vwAdditionalRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdditionalRelocationInputCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAdditionalRelocationInputCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdditionalRelocationInputList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="additionalRelocationInput" nillable="true" type="q12:vwAdditionalRelocationInput" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdditionalRelocationInputListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetAdditionalRelocationInputListResult" nillable="true" type="q13:ArrayOfvwAdditionalRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRelocationForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="relocationForm" nillable="true" type="q14:vmRelocationForm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRelocationFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateRelocationFormResult" nillable="true" type="q15:vmRelocationForm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationInputCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRelocationInput" nillable="true" type="q16:vwTenantRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationInputCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantRelocationInputCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationInputList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRelocationInput" nillable="true" type="q17:vwTenantRelocationInput" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationInputListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTenantRelocationInputListResult" nillable="true" type="q18:ArrayOfvwTenantRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccountManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="accountManager" nillable="true" type="q19:vmAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAccountManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateAccountManagerResult" nillable="true" type="q20:vmAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="accountManager" nillable="true" type="q21:vwAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAccountManagerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="accountManager" nillable="true" type="q22:vwAccountManager" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetAccountManagerListResult" nillable="true" type="q23:ArrayOfvwAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAccountManagerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountManagerCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetAccountManagerCustomerListResult" nillable="true" type="q24:ArrayOfvwAccountManagerCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="accountManager" nillable="true" type="q25:vmAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAccountManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateAccountManagerResult" nillable="true" type="q26:vmAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAreaOperation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="areaOperation" nillable="true" type="q27:vmAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAreaOperationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateAreaOperationResult" nillable="true" type="q28:vmAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaOperationCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="areaOperation" nillable="true" type="q29:vwAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaOperationCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAreaOperationCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaOperationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="areaOperation" nillable="true" type="q30:vwAreaOperation" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAreaOperationListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetAreaOperationListResult" nillable="true" type="q31:ArrayOfvwAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAreaOperation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="areaOperation" nillable="true" type="q32:vmAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAreaOperationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateAreaOperationResult" nillable="true" type="q33:vmAreaOperation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="batch" nillable="true" type="q34:mstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateBatchResult" nillable="true" type="q35:mstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBatchCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="batch" nillable="true" type="q36:mstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBatchCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBatchCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBatchList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="batch" nillable="true" type="q37:mstBatch" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBatchListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetBatchListResult" nillable="true" type="q38:ArrayOfmstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="batch" nillable="true" type="q39:mstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateBatchResult" nillable="true" type="q40:mstBatch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBTSHotelStatusList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBTSHotelStatusListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetBTSHotelStatusListResult" nillable="true" type="q41:ArrayOfmstBTSHotelStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCAFNumberList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSiteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCAFNumberListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetCAFNumberListResult" nillable="true" type="q42:ArrayOftrxTBGSysCAFNumber" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetCompanyListResult" nillable="true" type="q43:ArrayOfmstCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompensationItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="compensationItem" nillable="true" type="q44:mstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompensationItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateCompensationItemResult" nillable="true" type="q45:mstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompensationItemCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="compensationItem" nillable="true" type="q46:mstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompensationItemCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCompensationItemCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompensationItemList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="compensationItem" nillable="true" type="q47:mstCompensationItem" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompensationItemListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetCompensationItemListResult" nillable="true" type="q48:ArrayOfmstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompensationItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="compensationItem" nillable="true" type="q49:mstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompensationItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateCompensationItemResult" nillable="true" type="q50:mstCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bolIsTelco" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetCustomerListResult" nillable="true" type="q51:ArrayOfmstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerNonTelco">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="customer" nillable="true" type="q52:mstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCustomerNonTelcoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateCustomerNonTelcoResult" nillable="true" type="q53:mstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerNonTelcoCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="customer" nillable="true" type="q54:mstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerNonTelcoCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCustomerNonTelcoCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerNonTelcoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="customer" nillable="true" type="q55:mstCustomer" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerNonTelcoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetCustomerNonTelcoListResult" nillable="true" type="q56:ArrayOfmstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerNonTelco">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="customer" nillable="true" type="q57:mstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerNonTelcoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateCustomerNonTelcoResult" nillable="true" type="q58:mstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFPRelocationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSiteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFPRelocationListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetFPRelocationListResult" nillable="true" type="q59:ArrayOftrxFPRelocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadAccountManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadAccountManager" nillable="true" type="q60:vmLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadAccountManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateLeadAccountManagerResult" nillable="true" type="q61:vmLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadAccountManagerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadAccountManager" nillable="true" type="q62:vwLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadAccountManagerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLeadAccountManagerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadAccountManagerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadAccountManager" nillable="true" type="q63:vwLeadAccountManager" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadAccountManagerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeadAccountManagerListResult" nillable="true" type="q64:ArrayOfvwLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadAccountManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadAccountManager" nillable="true" type="q65:vmLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadAccountManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateLeadAccountManagerResult" nillable="true" type="q66:vmLeadAccountManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadProjectManager" nillable="true" type="q67:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateLeadProjectManagerResult" nillable="true" type="q68:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadProjectManager" nillable="true" type="q69:vwLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLeadProjectManagerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadProjectManager" nillable="true" type="q70:vwLeadProjectManager" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeadProjectManagerListResult" nillable="true" type="q71:ArrayOfvwLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerRegionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeadProjectManagerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRegionID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerRegionListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeadProjectManagerRegionListResult" nillable="true" type="q72:ArrayOfvwLeadProjectManagerRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadProjectManager" nillable="true" type="q73:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateLeadProjectManagerResult" nillable="true" type="q74:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManagerAsset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMAsset" nillable="true" type="q75:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManagerAssetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateLeadProjectManagerAssetResult" nillable="true" type="q76:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerAssetCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMAsset" nillable="true" type="q77:vwLeadProjectManagerAsset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerAssetCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLeadProjectManagerAssetCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerAssetList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMAsset" nillable="true" type="q78:vwLeadProjectManagerAsset" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerAssetListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeadProjectManagerAssetListResult" nillable="true" type="q79:ArrayOfvwLeadProjectManagerAsset" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManagerAsset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMAsset" nillable="true" type="q80:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManagerAssetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateLeadProjectManagerAssetResult" nillable="true" type="q81:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManagerPDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMPDI" nillable="true" type="q82:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLeadProjectManagerPDIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateLeadProjectManagerPDIResult" nillable="true" type="q83:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerPDICount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMPDI" nillable="true" type="q84:vwLeadProjectManagerPDI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerPDICountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLeadProjectManagerPDICountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerPDIList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMPDI" nillable="true" type="q85:vwLeadProjectManagerPDI" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeadProjectManagerPDIListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeadProjectManagerPDIListResult" nillable="true" type="q86:ArrayOfvwLeadProjectManagerPDI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManagerPDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="leadPMPDI" nillable="true" type="q87:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLeadProjectManagerPDIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateLeadProjectManagerPDIResult" nillable="true" type="q88:vmLeadProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaseAgreementList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaseAgreementListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetLeaseAgreementListResult" nillable="true" type="q89:ArrayOfmstLeaseAgreement" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intMarketingDocumentType" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketingDocumentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetMarketingDocumentListResult" nillable="true" type="q90:ArrayOfmstMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderCompensationItemList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSONumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderCompensationItemListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetOrderCompensationItemListResult" nillable="true" type="q91:ArrayOfvwOrderCompensationItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="price" nillable="true" type="q92:vwPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPriceCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="price" nillable="true" type="q93:vwPrice" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPriceListResult" nillable="true" type="q94:ArrayOfvwPrice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByProductSiteList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intProductID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductByProductSiteListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetProductByProductSiteListResult" nillable="true" type="q95:ArrayOfmstProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProjectManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="projectManager" nillable="true" type="q96:vmProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateProjectManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateProjectManagerResult" nillable="true" type="q97:vmProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="projectManager" nillable="true" type="q98:vwProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProjectManagerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="projectManager" nillable="true" type="q99:vwProjectManager" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetProjectManagerListResult" nillable="true" type="q100:ArrayOfvwProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerRegionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strProjectManagerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProjectManagerRegionListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetProjectManagerRegionListResult" nillable="true" type="q101:ArrayOfidxProjectManagerRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="projectManager" nillable="true" type="q102:vmProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProjectManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateProjectManagerResult" nillable="true" type="q103:vmProjectManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRegionalManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="regionalManager" nillable="true" type="q104:vmRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRegionalManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreateRegionalManagerResult" nillable="true" type="q105:vmRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="regionalManager" nillable="true" type="q106:vwRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRegionalManagerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="regionalManager" nillable="true" type="q107:vwRegionalManager" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetRegionalManagerListResult" nillable="true" type="q108:ArrayOfvwRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerRegionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRegionalManagerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionalManagerRegionListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetRegionalManagerRegionListResult" nillable="true" type="q109:ArrayOfvwRegionalManagerRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRegionalManager">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="regionalManager" nillable="true" type="q110:vmRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRegionalManagerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateRegionalManagerResult" nillable="true" type="q111:vmRegionalManager" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShelterTypeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShelterTypeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetShelterTypeListResult" nillable="true" type="q112:ArrayOfmstShelterType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSignatureResult" nillable="true" type="q113:idxUserSignature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignatureTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="userSignature" nillable="true" type="q114:idxUserSignature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SignatureTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="SignatureTransactionResult" nillable="true" type="q115:idxUserSignature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteTypeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteTypeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSiteTypeListResult" nillable="true" type="q116:ArrayOfmstSiteType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPListResult" nillable="true" type="q117:ArrayOfmstSTIP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPProductPICList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipProductPIC" nillable="true" type="q118:vwSTIPProductPIC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPProductPICListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPProductPICListResult" nillable="true" type="q119:ArrayOfvwSTIPProductPIC" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTeritoryList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAreaID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRegionID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="intProvinceID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTeritoryListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTeritoryListResult" nillable="true" type="q120:ArrayOfvwTeritory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTeritoryVillageList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAreaID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRegionID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="intProvinceID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="intResidenceID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="intDistrictID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="intVillageID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTeritoryVillageListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTeritoryVillageListResult" nillable="true" type="q121:ArrayOfvwTeritoryVillage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowerHeightList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowerHeightListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTowerHeightListResult" nillable="true" type="q122:ArrayOfmstTowerHeight" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowerTypeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTowerTypeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTowerTypeListResult" nillable="true" type="q123:ArrayOfmstTowerType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListStatusAquisition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListStatusAquisitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListStatusAquisitionResult" nillable="true" type="q124:ArrayOfvwListStatusAquisition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteAvailability">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListSiteAvailabilityResult" nillable="true" type="q125:ArrayOfvwListSiteAvailability" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTenantType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTenantTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListTenantTypeResult" nillable="true" type="q126:ArrayOfvwListTenantType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSTIPInputCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intProductID" type="xs:int" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRegionID" type="xs:int" />
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="siteSTIPInputHeader" nillable="true" type="q127:vwSiteSTIPInputHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSTIPInputCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSiteSTIPInputCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSTIPInputList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intProductID" type="xs:int" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCustomerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRegionID" type="xs:int" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="siteSTIPInputHeader" nillable="true" type="q128:vwSiteSTIPInputHeader" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSTIPInputListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSiteSTIPInputListResult" nillable="true" type="q129:ArrayOfvmSiteSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSurveyCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="siteSurvey" nillable="true" type="q130:vwSTIPSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSurveyCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSiteSurveyCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSurveyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="siteSurvey" nillable="true" type="q131:vwSTIPSiteSurvey" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSiteSurveyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSiteSurveyListResult" nillable="true" type="q132:ArrayOfvwSTIPSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrxSiteSurveyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="trxsiteSurvey" nillable="true" type="q133:trxSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrxSiteSurveyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTrxSiteSurveyListResult" nillable="true" type="q134:ArrayOftrxSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtmCreatedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtmCreatedDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="booMyTask" type="xs:boolean" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipApproval" nillable="true" type="q135:vwSTIPApproval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSTIPApprovalCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtmCreatedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtmCreatedDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="booMyTask" type="xs:boolean" />
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipApproval" nillable="true" type="q136:vwSTIPApproval" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPApprovalListResult" nillable="true" type="q137:ArrayOfvwSTIPApproval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSTIPNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPApprovalDetailResult" nillable="true" type="q138:vmSTIPApprovalDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTIPApprovalDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSONumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFieldName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFieldValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSTIPApprovalDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdateSTIPApprovalDetailResult" nillable="true" type="q139:vmSTIPApprovalDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSTIPNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPApprovalReportResult" nillable="true" type="q140:vmSTIPApprovalReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSTIPNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPApprovalHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPApprovalHistoryResult" nillable="true" type="q141:ArrayOfvwSTIPApprovalHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPApprovalAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipApproval" nillable="true" type="q142:vmSTIPApproval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPApprovalActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPApprovalActionResult" nillable="true" type="q143:vmSTIPApproval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputMain">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInput" nillable="true" type="q144:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputMainResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputMainResult" nillable="true" type="q145:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputAssetSupport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInput" nillable="true" type="q146:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputAssetSupportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputAssetSupportResult" nillable="true" type="q147:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputAdditional">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInput" nillable="true" type="q148:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputAdditionalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputAdditionalResult" nillable="true" type="q149:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInput" nillable="true" type="q150:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputNewProductResult" nillable="true" type="q151:vmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurvey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputSiteSurvey" nillable="true" type="q152:vmSTIPInputSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurveyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputSiteSurveyResult" nillable="true" type="q153:vmSTIPInputSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputRepeatOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputRepeatOrder" nillable="true" type="q154:vmSTIPInputRepeatOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputRepeatOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputRepeatOrderResult" nillable="true" type="q155:vmSTIPInputRepeatOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputCompensation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputCompensation" nillable="true" type="q156:vmSTIPInputCompensation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputCompensationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputCompensationResult" nillable="true" type="q157:vmSTIPInputCompensation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalHeaderCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtmCreatedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtmCreatedDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isMyTask" type="xs:boolean" />
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalHeader" nillable="true" type="q158:vwSTIPUploadApprovalHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalHeaderCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSTIPUploadApprovalHeaderCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalHeaderList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtmCreatedDateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtmCreatedDateTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isMyTask" type="xs:boolean" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalHeader" nillable="true" type="q159:vwSTIPUploadApprovalHeader" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalHeaderListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPUploadApprovalHeaderListResult" nillable="true" type="q160:ArrayOfvwSTIPUploadApprovalHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailSurveyCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalHeader" nillable="true" type="q161:vwSTIPUploadApprovalDetailSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailSurveyCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSTIPUploadApprovalDetailSurveyCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailSurveyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalHeader" nillable="true" type="q162:vwSTIPUploadApprovalDetailSurvey" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailSurveyListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPUploadApprovalDetailSurveyListResult" nillable="true" type="q163:ArrayOfvwSTIPUploadApprovalDetailSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPApprovalBulkyAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="action" nillable="true" type="xs:string" />
+        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SONumberList" nillable="true" type="q164:ArrayOfstring" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPApprovalBulkyActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPApprovalBulkyActionResult" nillable="true" type="q165:ArrayOfvmSTIPApproval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalDetail" nillable="true" type="q166:vwSTIPUploadApprovalDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSTIPUploadApprovalDetailCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipUploadApprovalDetail" nillable="true" type="q167:vwSTIPUploadApprovalDetail" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSTIPUploadApprovalDetailListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetSTIPUploadApprovalDetailListResult" nillable="true" type="q168:ArrayOfvwSTIPUploadApprovalDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewMacroValidate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputNewMacroValidateList" nillable="true" type="q169:ArrayOfvmSTIPInputMainValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewMacroValidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputNewMacroValidateResult" nillable="true" type="q170:vmResponseMainValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewMacroBulky">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputNewMacroList" nillable="true" type="q171:ArrayOfvmSTIPInput" />
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocument" nillable="true" type="q172:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputNewMacroBulkyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputNewMacroBulkyResult" nillable="true" type="q173:ArrayOfvmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputColocationMacroValidate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputColocationMacroValidateList" nillable="true" type="q174:ArrayOfvmSTIPInputMainValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputColocationMacroValidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputColocationMacroValidateResult" nillable="true" type="q175:vmResponseMainValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputColocationMacroBulky">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputColocationMacroList" nillable="true" type="q176:ArrayOfvmSTIPInput" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="marketingDocument" nillable="true" type="q177:trxMarketingDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputColocationMacroBulkyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputColocationMacroBulkyResult" nillable="true" type="q178:ArrayOfvmSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurveyValidate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputSiteSurveyValidateList" nillable="true" type="q179:ArrayOfvmSTIPInputSiteSurveyValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurveyValidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputSiteSurveyValidateResult" nillable="true" type="q180:vmResponseSiteSurveyValidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurveyBulky">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="stipInputSiteSurveyList" nillable="true" type="q181:ArrayOfvmSTIPInputSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="STIPInputSiteSurveyBulkyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="STIPInputSiteSurveyBulkyResult" nillable="true" type="q182:ArrayOfvmSTIPInputSiteSurvey" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPInputCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantSTIPInput" nillable="true" type="q183:vwTenantSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPInputCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantSTIPInputCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPInputList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantSTIPInput" nillable="true" type="q184:vwTenantSTIPInput" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPInputListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTenantSTIPInputListResult" nillable="true" type="q185:ArrayOfvwTenantSTIPInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPRelocationInputCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantSTIPRelocationInput" nillable="true" type="q186:vwTenantSTIPRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPRelocationInputCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantSTIPRelocationInputCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPRelocationInputList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantSTIPRelocationInput" nillable="true" type="q187:vwTenantSTIPRelocationInput" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantSTIPRelocationInputListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTenantSTIPRelocationInputListResult" nillable="true" type="q188:ArrayOfvwTenantSTIPRelocationInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRelocation" nillable="true" type="q189:vwTenantRelocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantRelocationCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRelocation" nillable="true" type="q190:vwTenantRelocation" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRelocationListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTenantRelocationListResult" nillable="true" type="q191:ArrayOfvwTenantRelocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRepeatOrderCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRepeatOrder" nillable="true" type="q192:vwTenantRepeatOrderInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRepeatOrderCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTenantRepeatOrderCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRepeatOrderList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="tenantRepeatOrder" nillable="true" type="q193:vwTenantRepeatOrderInput" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTenantRepeatOrderListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetTenantRepeatOrderListResult" nillable="true" type="q194:ArrayOfvwTenantRepeatOrderInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CheckUserTokenResult" nillable="true" type="q195:vmUserCredential" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserTaskToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserTaskToDoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetUserTaskToDoResult" nillable="true" type="q196:ArrayOfvmUserTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteIDOpr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusAquisition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isPKSOnly" type="xs:boolean" />
+        <xs:element minOccurs="0" name="formType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSSiteResult" nillable="true" type="q197:ArrayOfvwListLandDataPKS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBAKDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBAKDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListBAKDetailResult" nillable="true" type="q198:ArrayOfvwBAKDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSResult" nillable="true" type="q199:ArrayOfvwASMPKS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPKSPaged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksForm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="minExpiryDay" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="maxExpiryDay" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="regionID" type="xs:int" />
+        <xs:element minOccurs="0" name="productTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPKSPagedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="getPKSPagedResult" nillable="true" type="q200:ArrayOfvwASMPKS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPKSPagedCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksForm" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="minExpiryDay" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="maxExpiryDay" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="regionID" type="xs:int" />
+        <xs:element minOccurs="0" name="productTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getPKSPagedCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="getPKSPagedCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPKSCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSLeased">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksLeasedID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSLeasedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q201="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSLeasedResult" nillable="true" type="q201:ArrayOftrxASMPKSLeased" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSLeasedCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksLeasedID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSLeasedCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPKSLeasedCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSOwned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksOwnedID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSOwnedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSOwnedResult" nillable="true" type="q202:ArrayOftrxASMPKSOwned" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSOwnedCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pksOwnedID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSOwnedCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPKSOwnedCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePKSLeased">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="data" nillable="true" type="q203:trxASMPKSLeased" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePKSLeasedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreatePKSLeasedResult" nillable="true" type="q204:trxASMPKSLeased" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePKSOwned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="data" nillable="true" type="q205:trxASMPKSOwned" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePKSOwnedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="CreatePKSOwnedResult" nillable="true" type="q206:trxASMPKSOwned" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePKSLeased">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="data" nillable="true" type="q207:trxASMPKSLeased" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePKSLeasedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdatePKSLeasedResult" nillable="true" type="q208:trxASMPKSLeased" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePKSOwned">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="data" nillable="true" type="q209:trxASMPKSOwned" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePKSOwnedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="UpdatePKSOwnedResult" nillable="true" type="q210:trxASMPKSOwned" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSiteCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteIDOpr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="statusAquisition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="siteStatus" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isPKSOnly" type="xs:boolean" />
+        <xs:element minOccurs="0" name="formType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSiteCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPKSSiteCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDataSonumb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sonumb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenant" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantDesc" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDataSonumbResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListDataSonumbResult" nillable="true" type="q211:ArrayOfvwTenantDescription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountDataSonumb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sonumb" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenant" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="tenantDesc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountDataSonumbResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCountDataSonumbResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDataBAKLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListDataBAKLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListDataBAKLogResult" nillable="true" type="q212:ArrayOfvwBAKLog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryStatistic">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryStatisticResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSExpiryStatisticResult" nillable="true" type="q213:ArrayOfvwASMPKSExpiryStatistic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerCompany">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSExpiryPerCompanyResult" nillable="true" type="q214:ArrayOfvwASMPKSExpiryPerCompany" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerRegion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerRegionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q215="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSExpiryPerRegionResult" nillable="true" type="q215:ArrayOfvwASMPKSExpiryPerRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSAverageLeasePricePerResidence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="regionID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="residenceID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSAverageLeasePricePerResidenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSAverageLeasePricePerResidenceResult" nillable="true" type="q216:ArrayOfvwASMPKSAverageLeasePricePerResidence" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSitePerReportGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSitePerReportGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSSitePerReportGroupResult" nillable="true" type="q217:ArrayOfvwListLandDataPKS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSitePerReportGroupCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="criteria" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSSitePerReportGroupCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPKSSitePerReportGroupCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByTenantType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tenantTypeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByTenantTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetOrdersByTenantTypeResult" nillable="true" type="q218:ArrayOfvwOrdersByTenantType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByTenantTypeCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tenantTypeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrdersByTenantTypeCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetOrdersByTenantTypeCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerProduct">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSExpiryPerProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q219="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSExpiryPerProductResult" nillable="true" type="q219:ArrayOfvwASMPKSExpiryPerProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListPKSType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="flag" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListPKSTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListPKSTypeResult" nillable="true" type="q220:ArrayOfvwPKSType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q221="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListSiteCategoryResult" nillable="true" type="q221:ArrayOfvwSiteCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListSiteAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListSiteAvailableResult" nillable="true" type="q222:ArrayOfvwStatusAquisiton" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBankName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListBankNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q223="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetListBankNameResult" nillable="true" type="q223:ArrayOfvwBankName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSEditReason">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPKSEditReasonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" minOccurs="0" name="GetPKSEditReasonResult" nillable="true" type="q224:ArrayOfmstASMPKSEditReason" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

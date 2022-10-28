@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARSystem.Domain.DAL", "ARSystem.Domain.DAL\ARSystem.Domain.DAL.csproj", "{FCE735EB-F43D-4F59-8797-084D4DC83967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARSystem.Domain.Models", "ARSystem.Domain.Models\ARSystem.Domain.Models.csproj", "{C25072B3-14AD-4867-B151-3DF57E7AE234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARSystem.Domain.Repositories", "ARSystem.Domain.Repositories\ARSystem.Domain.Repositories.csproj", "{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARSystem.Service", "ARSystem.Service\ARSystem.Service.csproj", "{8CD320AB-DC36-499E-9577-D100848BF96D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARSystemFrontEnd", "ARSystemFrontEnd\ARSystemFrontEnd.csproj", "{6046F042-984D-4C2B-9A09-6407398059C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{FCE735EB-F43D-4F59-8797-084D4DC83967}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{C25072B3-14AD-4867-B151-3DF57E7AE234}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{5C5FF5B6-9629-4941-8BF2-92B5498E8F88}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{8CD320AB-DC36-499E-9577-D100848BF96D}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{6046F042-984D-4C2B-9A09-6407398059C1}.Staging|Any CPU.Build.0 = Staging|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+<div style="font-family: Arial Unicode MS;page-break-after: always;font-size:7px">
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <div>
+                    <img src="~/Content/images/TBGLogo.png" width="100px" height="40px" />
+                </div>
+            </td>
+            <td>
+                <div style="float:right; font-size:11px">
+                    <label>
+                        F M .55-F IN. F IT .ACC/Rev.10/24.09.16
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:center;font-size:15px">
+        <h4>
+            Ringkasan Lampiran Pengajuan @ViewBag.RequestType2  Accrue* Tanggal: @ViewBag.RequestDate
+        </h4>
+    </div>
+    <br />
+    <table width="100%" style="border:1px solid black;border-collapse:collapse; font-size:11px">
+        <tr>
+            <th rowspan="2" style="border:1px solid black">No.</th>
+            <th rowspan="2" style="border:1px solid black">SO Number</th>
+            <th rowspan="2" style="border:1px solid black">Site Name</th>
+            <th rowspan="2" style="border:1px solid black">Customer</th>
+            <th rowspan="2" style="border:1px solid black">Company</th>
+            <th rowspan="2" style="border:1px solid black">Tenant Type</th>
+            <th rowspan="2" style="border:1px solid black">RFI Date</th>
+            <th rowspan="2" style="border:1px solid black">Saldo Accrue<br />(dalam jutaan)</th>
+            <th colspan="2" style="border:1px solid black">Kategori Masalah</th>
+            <th rowspan="2" style="border:1px solid black">PIC</th>
+            <th rowspan="2" style="border:1px solid black">Effective Stop Accrue</th>
+            <th rowspan="2" style="border:1px solid black">Nilai Capex<br />(dalam jutaan)</th>
+            @*<th rowspan="2" style="border:1px solid black">Kompensasi<br />(dalam jutaan)</th>*@
+        </tr>
+        <tr>
+            <th style="border:1px solid black">Internal/<br />Eksternal</th>
+            <th style="border:1px solid black">Penyebab Utama**</th>
+        </tr>
+        @Html.Raw(ViewBag.Attachment1)
+
+    </table>
+    *Coret yang tidak perlu<br />
+    **Uraian masalah terlampir
+</div>
+
+
+<div style="font-family: Arial Unicode MS;font-size:7px">
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <div>
+                    <img src="~/Content/images/TBGLogo.png" width="100px" height="40px" />
+                </div>
+            </td>
+            <td>
+                <div style="float:right; font-size:11px">
+                    <label>
+                        F M .55-F IN. F IT .ACC/Rev.10/24.09.16
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:center;font-size:15px">
+        <h4>
+            Detail Lampiran Pengajuan @ViewBag.RequestType2 Accrue * Tanggal: @ViewBag.RequestDate
+        </h4>
+    </div>
+    <br />
+    <table width="100%" style="border:1px solid black;border-collapse:collapse; font-size:11px">
+        <tr>
+            <th width="5%" style="border:1px solid black">No.</th>
+            <th width="15%" style="border:1px solid black">SO Number</th>
+            <th width="30%" style="border:1px solid black">Site Name</th>
+            <th style="border:1px solid black">Urian Masalah</th>
+        </tr>
+        @Html.Raw(ViewBag.Attachment2)
+
+    </table>
+    *Coret yang tidak perlu
+</div>

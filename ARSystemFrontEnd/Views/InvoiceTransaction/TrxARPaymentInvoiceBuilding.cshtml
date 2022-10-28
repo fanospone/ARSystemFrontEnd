@@ -1,0 +1,576 @@
+﻿
+@{
+    ViewBag.Title = "AR Payment - Invoice Building";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+
+@* PAYMENT GRID *@
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Customer Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchCustomerName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Term Period</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchTerm" class="form-control select2"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <select id="slSearchCompany" class="form-control select2">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice No</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbInvNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="submit" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-125"></th>
+                                <th class="datatable-col-150">Invoice No</th>
+                                <th class="datatable-col-100">Invoice Date</th>
+                                <th class="datatable-col-150">Invoice Temp</th>
+                                <th class="datatable-col-100">Term</th>
+                                <th class="datatable-col-300">Company Name</th>
+                                <th class="datatable-col-300">Customer Name</th>
+                                <th class="datatable-col-100">Receipt Date</th>
+                                <th class="datatable-col-100">Aging Days</th>
+                                <th class="datatable-col-100">PIC Internal</th>
+                                <th class="datatable-col-100">Paid Status</th>
+                                <th class="datatable-col-100">Amount Loss PPN</th>
+                                <th class="datatable-col-100">Penalty</th>
+                                <th class="datatable-col-100">Amount Total</th>
+                                <th class="datatable-col-100">Currency</th>
+                                <th class="datatable-col-100">Checklist Date</th>
+                                <th class="datatable-col-70">PPH Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@* END OF PAYMENT GRID *@
+
+@* PAYMENT FORM *@
+<section id="pnlPayment">
+    @* INVOICE INFORMATION *@
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Invoice Information</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <form id="formInvoiceInformation" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Invoice No</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbInvoiceNo" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Company</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbCompanyName" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Customer</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbCustomerName" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Receipt Date</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="tbReceiptDate" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">PIC Internal</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="tbPICInternal" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Payment Date<i class="font-red">*</i></label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="tbPaymentDate" size="16" class="form-control datepicker" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Payment Bank</label>
+                                        <div class="col-md-8">
+                                            <select id="slPaymentBank" class="form-control select2" required disabled="disabled"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Receipt</label>
+                                        <div class="col-md-8">
+                                            <a href="" id="lnkDownload" class="btn btn-blue"><i class="fa fa-download"></i> Download</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* END OF INVOICE INFORMATION *@
+    
+    @* INVOICE HISTORY *@
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Payment Hystory</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblHistory">
+                                    <thead>
+                                        <tr>
+                                            <th class="datatable-col-25">No.</th>
+                                            <th class="datatable-col-100">Payment Date</th>
+                                            <th class="datatable-col-100">DBT</th>
+                                            <th class="datatable-col-100">PAM</th>
+                                            <th class="datatable-col-100">PNT</th>
+                                            <th class="datatable-col-100">PPE</th>
+                                            <th class="datatable-col-100">PPH</th>
+                                            <th class="datatable-col-100">RTG</th>
+                                            <th class="datatable-col-100">RND</th>
+                                            <th class="datatable-col-100">PAT</th>
+                                            <th class="datatable-col-100">PPF</th>
+                                            <th class="datatable-col-100">Total</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* END OF INVOICE HISTORY*@
+
+    @* AR MONITORING *@
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">AR Monitoring</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form id="formARMonitoring" class="form-horizontal" role="form">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Currency</label>
+                                                <div class="col-md-7">
+                                                    <div class="mt-radio-inline">
+                                                        <label class="mt-radio">
+                                                            <input type="radio" id="rbIDR" name="rdCurrency" value="IDR"> IDR (Default)
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio">
+                                                            <input type="radio" id="rbUSD" name="rdCurrency" value="USD"> USD
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Amount DPP</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountDPP" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">VAT (10%)</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPPN" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Include PPH</label>
+                                                <div class="col-md-7">
+                                                    <input type="checkbox" id="rdPPH" checked class="make-switch" data-on-text="YES" data-off-text="NO">
+                                                    <span id="spPPHIndex">Included in #<label id="lblPPHIndex"></label> Payment</span>
+                                                    <div class="mt-radio-inline divPPHType">
+                                                        <label class="mt-radio">
+                                                            <input type="radio" id="rbPPH" name="rdPPHType" value="0" disabled="disabled"> @(ViewBag.PPHValue * 100) %
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio">
+                                                            <input type="radio" id="rbPPF" name="rdPPHType" value="1" disabled="disabled" > @(ViewBag.PPFValue * 100) %
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group tbPPH divPPHType">
+                                                <label class="col-md-5 control-label">Amount PPH 23 (@(ViewBag.PPHValue * 100)%)</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPPH" class="form-control text-right" readonly  />
+                                                </div>
+                                            </div>
+                                            <div class="form-group tbPPF divPPHType">
+                                                <label class="col-md-5 control-label">Amount PPF (@(ViewBag.PPFValue * 100)%)</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPPF" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Amount Penalty After Tax</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPAT" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Amount Deal</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountDeal" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Partial Paid</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbPartialPaid" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Balance Invoice</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbBalanceInvoice" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="portlet-body form">
+                                <form id="formARMonitoring2" class="form-horizontal" role="form">
+                                    <div class="form-body">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Total Monitoring</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbTotalMonitoring" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Paid Amount</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbPaidAmount" class="form-control text-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Rounding</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountRND" class="form-control text-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">WAPU</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountDR" class="form-control text-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">RTGS</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountRTGS" class="form-control text-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Penalty</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPenalty" class="form-control text-right" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">PPN Expired</label>
+                                                <div class="col-md-7">
+                                                    <input type="checkbox" id="rdPPNExpired" class="make-switch" data-on-text="YES" data-off-text="NO">
+                                                    <span id="spPPEIndex">Included in #<label id="lblPPEIndex"></label> Payment</span>
+                                                    @*<div class="mt-radio-inline">
+                                                            <label class="mt-radio">
+                                                                <input type="radio" id="rbPPNYes" name="rdPPNExpired" value="1" > Yes
+                                                                <span></span>
+                                                            </label>
+                                                            <label class="mt-radio">
+                                                                <input type="radio" id="rbPPNNo" name="rdPPNExpired" value="0" checked> No
+                                                                <span></span>
+                                                            </label>
+                                                        </div>*@
+                                                </div>
+                                            </div>
+                                            <div class="form-group disabledCtrl">
+                                                <label class="col-md-5 control-label">Amount PPN Expired</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbAmountPPNExpired" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Payment Type</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbPaymentType" class="form-control" style="text-align:center;font-weight:bold;" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-5 control-label">Balance</label>
+                                                <div class="col-md-7">
+                                                    <input type="text" id="tbBalance" class="form-control text-right" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center" style="margin-top:20px;">
+                            <button type="button" id="btCancel" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Close
+                            </button>
+                            <button type="submit" id="btSubmit" class="btn green-jungle">
+                                <i class="fa fa-floppy-o"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* END OF AR MONITORING *@
+</section>
+@* END OF PAYMENT FORM *@
+
+@* FORM CONFIRM SAVE PAYMENT *@
+<div id="mdlConfirmSave" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Confirm Save Payment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-12 control-label text-center">Are You Sure Want to Save, This Payment is <span id="spPaidStatus" style="font-weight:bold;"></span>?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-4">
+                        <button type="button" id="btYesConfirm" class="btn green-jungle">
+                            <i class="fa fa-save"></i> Yes
+                        </button>
+
+                        <button type="button" data-dismiss="modal" id="btNoConfirm" class="btn red">
+                            <i class="fa fa-times"></i> No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* END OF FORM CONFIRM SAVE PAYMENT *@
+
+@*FORM DETAIL INVOICE*@
+<section id="pnlInvoiceDetail">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject" id="pnlDetailTitle"></span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblInvoiceDetail">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-10">No.</th>
+                                <th class="datatable-col-250">Customer Name</th>
+                                <th class="datatable-col-50">Term</th>
+                                <th class="datatable-col-50">Area</th>
+                                <th class="datatable-col-100">Price per Meter</th>
+                                <th class="datatable-col-100">Price per Monthly</th>
+                                <th class="datatable-col-50">Currency</th>
+                                <th class="datatable-col-100">Start Period</th>
+                                <th class="datatable-col-100">End Period</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn blue-oleo btCancelInvoiceDetail">
+                                    <i class="fa fa-chevron-left"></i> Back
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@*END OF FORM DETAIL INVOICE*@
+
+<div id="mdlBackToARProcess" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 40%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">PICA Back To AR Process</h4>
+            </div>
+            <form id="formReopen">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Remarks<i class="font-red">*</i></label>
+                                <textarea class="form-control" rows="3" id="tbRemarks" placeholder="Remarks" required></textarea>
+                            </div>
+                            <button type="submit" id="btYesBackToARProcess" class="btn green">
+                                <i class="fa fa-print"></i> Back To AR Process
+                            </button>
+                            <button type="button" data-dismiss="modal" id="btNoReOpen" class="btn blue-oleo">
+                                <i class="fa fa-chevron-left"></i> Cancel
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdAllowProcess" value="@ViewBag.AllowProcess" />
+<input type="hidden" id="hdUserRole" value="@ViewBag.Role" />
+<input type="hidden" id="hdDocPath" value="@ViewBag.DocPath" />
+<input type="hidden" id="hdPPHValue" value="@ViewBag.PPHValue" />
+<input type="hidden" id="hdPPFValue" value="@ViewBag.PPFValue" />
+
+<script src="@Url.Content("~/scripts/invoicetransaction/TrxARPaymentInvoiceBuilding.js")" type="text/javascript"></script>
+

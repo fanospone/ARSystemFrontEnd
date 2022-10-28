@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CD320AB-DC36-499E-9577-D100848BF96D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARSystem.Service</RootNamespace>
+    <AssemblyName>ARSystem.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TBGFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WebApp\library-collection\TBGFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="WorkflowService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WebApp\library-collection\WorkflowService.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstracts\BaseService.cs" />
+    <Compile Include="APSystem\Report\SummaryDataAPService.cs" />
+    <Compile Include="ARSystem\Accrue\FinalConfirmationService.cs" />
+    <Compile Include="ARSystem\Accrue\FinanceConfirmationService.cs" />
+    <Compile Include="ARSystem\Accrue\ListDataAccrueService.cs" />
+    <Compile Include="ARSystem\Accrue\SettingAutoConfirmService.cs" />
+    <Compile Include="ARSystem\Accrue\UploadAccrueService.cs" />
+    <Compile Include="ARSystem\Accrue\UserConfirmationService.cs" />
+    <Compile Include="ARSystem\AllocatePaymentService.cs" />
+    <Compile Include="ARSystem\ApprovalMonitoringARService.cs" />
+    <Compile Include="ARSystem\AQA\ElectricityService.cs" />
+    <Compile Include="ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkMonthlyService.cs" />
+    <Compile Include="ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkQuarterlyService.cs" />
+    <Compile Include="ARSystem\ARRMonitoringCashIn\TrxARRMonitoringCashInRemarkWeeklyService.cs" />
+    <Compile Include="ARSystem\BapsDataService.cs" />
+    <Compile Include="ARSystem\HistoryCNInvoiceService.cs" />
+    <Compile Include="ARSystem\Dashboard\InvoiceProductionService.cs" />
+    <Compile Include="ARSystem\InputForecast\InputForecastCashInService.cs" />
+    <Compile Include="ARSystem\Invoice\InvoiceNonSonumbService.cs" />
+    <Compile Include="ARSystem\Invoice\NonRevenueService.cs" />
+    <Compile Include="ARSystem\Invoice\trxApprovalCNInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\Invoice\trxARProcessInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\Invoice\trxARPaymentInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\Invoice\trxARReOPenPaymentDateService.cs" />
+    <Compile Include="ARSystem\Invoice\trxChecklistInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\Invoice\trxPostingInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\Invoice\trxPrintInvoiceTowerService.cs" />
+    <Compile Include="ARSystem\ISPInvoiceInformation\ISPInvoiceInformationService.cs" />
+    <Compile Include="ARSystem\MonitoringAgingExecutiveService.cs" />
+    <Compile Include="ARSystem\MonitoringCNInvoiceService.cs" />
+    <Compile Include="ARSystem\mstARRevSysParameterServices.cs" />
+    <Compile Include="ARSystem\mstRejectService.cs" />
+    <Compile Include="ARSystem\NotificationService.cs" />
+    <Compile Include="ARSystem\ReconcileDataService.cs" />
+    <Compile Include="ARSystem\StopAccrue\DashboardStopAccrueService.cs" />
+    <Compile Include="ARSystem\StopAccrue\StopAccrueService.cs" />
+    <Compile Include="ARSystem\trxBapsDataService.cs" />
+    <Compile Include="Common\MasterService.cs" />
+    <Compile Include="Common\MstRoleGroupService.cs" />
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="DashboardBAUK\DashboardBAUKService.cs" />
+    <Compile Include="DashboardDynamic\DynamicDashboardService.cs" />
+    <Compile Include="Helper\ConstantAccrueStatusHelper.cs" />
+    <Compile Include="Helper\EmailHelper.cs" />
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\StatusHelper.cs" />
+    <Compile Include="Helper\UserHelper.cs" />
+    <Compile Include="HumanCapital\MstDepartmentService.cs" />
+    <Compile Include="ManualBook\ManualBookService.cs" />
+    <Compile Include="Notification\MstNotificationServic.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RASystem\DashboardRA\DashboardTSEL\DashboardTSELLeadTimeService.cs" />
+    <Compile Include="RASystem\DashboardRA\DashboardTSEL\DashboardTSELOutstandingService.cs" />
+    <Compile Include="RASystem\DashboardRA\DashboardTSEL\DashboardTSELOverdueService.cs" />
+    <Compile Include="RASystem\DashboardRA\DashboardTSEL\DashboardTSELService.cs" />
+    <Compile Include="RASystem\DashboardRA\Potential\DashboardPotentialRecurringService.cs" />
+    <Compile Include="RASystem\DashboardRA\Potential\DashboardPotentialRFITo1stBAPSBillingService.cs" />
+    <Compile Include="RASystem\DashboardRA\Potential\DashboardPotentialSIROService.cs" />
+    <Compile Include="RASystem\DashboardRA\DashboardTSEL\InputTargetService.cs" />
+    <Compile Include="RASystem\Dashboard\RADashboardMonitoringBAPSDoneService.cs" />
+    <Compile Include="RASystem\Dashboard\RTIAchievementService.cs" />
+    <Compile Include="RASystem\Dashboard\RTILeadeTimeService.cs" />
+    <Compile Include="RASystem\Dashboard\RTIDoneNOverdueService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RASystem\MasterData\MasterDataListService.cs" />
+    <Compile Include="RASystem\MasterData\MstRAUserGroupService.cs" />
+    <Compile Include="RASystem\MasterData\MstRAAmountTargetService.cs" />
+    <Compile Include="RASystem\PICA\PICARASystemService.cs" />
+    <Compile Include="RASystem\Transaction\TrxRAAmountTargetService.cs" />
+    <Compile Include="Report Template\TemplateService.cs" />
+    <Compile Include="RevenueAssurance\BackStatusBAPSValidationService.cs" />
+    <Compile Include="RevenueAssurance\BAPSBulkyService.cs" />
+    <Compile Include="RevenueAssurance\BapsDoneService.cs" />
+    <Compile Include="RevenueAssurance\BapsValidationService.cs" />
+    <Compile Include="RevenueAssurance\DashboardInputTargetService.cs" />
+    <Compile Include="RevenueAssurance\DocumentCheckingService.cs" />
+    <Compile Include="RevenueAssurance\HistoryRejectInvoiceService.cs" />
+    <Compile Include="RevenueAssurance\NewBapsService.cs" />
+    <Compile Include="RevenueAssurance\ReceiveDocumentBAUKService.cs" />
+    <Compile Include="RevenueAssurance\vwRTIDataService.cs" />
+    <Compile Include="RevenueAssurance\vwRTIDataDoneService.cs" />
+    <Compile Include="RevenueAssurance\SummaryRejectionService.cs" />
+    <Compile Include="RevenueSystem\CorrectiveRevenueService.cs" />
+    <Compile Include="RevenueSystem\InflasiService.cs" />
+    <Compile Include="RevenueSystem\RevenueSystemService.cs" />
+    <Compile Include="TaskToDoRANew\TaskToDoRANewService.cs" />
+    <Compile Include="Web References\TBGSysService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WorkFlow\WorkFlowService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ARSystem.Domain.Models\ARSystem.Domain.Models.csproj">
+      <Project>{c25072b3-14ad-4867-b151-3df57e7ae234}</Project>
+      <Name>ARSystem.Domain.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARSystem.Domain.Repositories\ARSystem.Domain.Repositories.csproj">
+      <Project>{5c5ff5b6-9629-4941-8bf2-92b5498e8f88}</Project>
+      <Name>ARSystem.Domain.Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.8.0.166:8805/TBGSysServices.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TBGSysService\</RelPath>
+      <UpdateFromURL>http://10.8.0.166:8805/TBGSysServices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ARSystem_Service_TBGSysService_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TBGSysService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\TBGSysService\TBGSysServices.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\TBGSysService\TBGSysServices.disco" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

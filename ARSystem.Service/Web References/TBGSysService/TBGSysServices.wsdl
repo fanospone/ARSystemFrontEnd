@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckRunningJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckRunningJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckRunningJobResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmBAPS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BatchID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBatch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmBAPSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmBAPSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateCollectionToAX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="journalId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dayFPJ" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthFPJ" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="yearFPJ" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoiceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="offsetAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="taxItemGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fpjNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="voucher" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountCurDebit" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="currencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="soNumb" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docNumb" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dayDueDate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthDueDate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="yearDueDate" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="xRate" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountCurCredit" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="departement" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="costCenter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="purpose" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dayTrans" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthTrans" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="yearTrans" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transferBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="agsTypeAR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateCollectionToAXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateCollectionToAXResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertInvoiceTower">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trxInvoiceHeaderId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mstInvoiceCategoryId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertInvoiceTowerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertInvoiceTowerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectBAPS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BatchID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBatch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectBAPSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RejectBAPSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnToBAPS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vXml" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BatchID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBatch" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnToBAPSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnToBAPSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateChecklist">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="trxInvoiceHeaderId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="mstInvoiceCategoryId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateChecklistResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateChecklistResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertDataCoreVen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oCoreVen" type="tns:CoreVen" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CoreVen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="appl_no" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SONumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CaseID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertDataCoreVenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertDataCoreVenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDataCoreVen">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProgressID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LogNo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDataCoreVenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDataCoreVenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDataSecurityUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oSecurityUser" type="tns:SecurityUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SecurityUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tlp_HP_number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="region_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="is_active" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="div_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dept_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="signature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="group_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="group_id_dashboard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="job_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="expired_pwd_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="audit_user" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="audit_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="modified_user" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="modified_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="tlp_HP_number2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsMFO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsSupervisorCLuster" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Is_CC_Member" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Is_CC_Spv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsSitacSPV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCMECoordinator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsWaspang" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="userid_domain" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateDataSecurityUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateDataSecurityUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckRunningJobSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckRunningJob" />
+  </wsdl:message>
+  <wsdl:message name="CheckRunningJobSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckRunningJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmBAPSSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmBAPS" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmBAPSSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmBAPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateCollectionToAXSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateCollectionToAX" />
+  </wsdl:message>
+  <wsdl:message name="GenerateCollectionToAXSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateCollectionToAXResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertInvoiceTowerSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertInvoiceTower" />
+  </wsdl:message>
+  <wsdl:message name="InsertInvoiceTowerSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertInvoiceTowerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RejectBAPSSoapIn">
+    <wsdl:part name="parameters" element="tns:RejectBAPS" />
+  </wsdl:message>
+  <wsdl:message name="RejectBAPSSoapOut">
+    <wsdl:part name="parameters" element="tns:RejectBAPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnToBAPSSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnToBAPS" />
+  </wsdl:message>
+  <wsdl:message name="ReturnToBAPSSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnToBAPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateChecklistSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateChecklist" />
+  </wsdl:message>
+  <wsdl:message name="UpdateChecklistSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateChecklistResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertDataCoreVenSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertDataCoreVen" />
+  </wsdl:message>
+  <wsdl:message name="InsertDataCoreVenSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertDataCoreVenResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataCoreVenSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDataCoreVen" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataCoreVenSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDataCoreVenResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSecurityUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDataSecurityUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDataSecurityUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDataSecurityUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="CheckRunningJob">
+      <wsdl:input message="tns:CheckRunningJobSoapIn" />
+      <wsdl:output message="tns:CheckRunningJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmBAPS">
+      <wsdl:input message="tns:ConfirmBAPSSoapIn" />
+      <wsdl:output message="tns:ConfirmBAPSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateCollectionToAX">
+      <wsdl:input message="tns:GenerateCollectionToAXSoapIn" />
+      <wsdl:output message="tns:GenerateCollectionToAXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertInvoiceTower">
+      <wsdl:input message="tns:InsertInvoiceTowerSoapIn" />
+      <wsdl:output message="tns:InsertInvoiceTowerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectBAPS">
+      <wsdl:input message="tns:RejectBAPSSoapIn" />
+      <wsdl:output message="tns:RejectBAPSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnToBAPS">
+      <wsdl:input message="tns:ReturnToBAPSSoapIn" />
+      <wsdl:output message="tns:ReturnToBAPSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecklist">
+      <wsdl:input message="tns:UpdateChecklistSoapIn" />
+      <wsdl:output message="tns:UpdateChecklistSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataCoreVen">
+      <wsdl:input message="tns:InsertDataCoreVenSoapIn" />
+      <wsdl:output message="tns:InsertDataCoreVenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataCoreVen">
+      <wsdl:input message="tns:UpdateDataCoreVenSoapIn" />
+      <wsdl:output message="tns:UpdateDataCoreVenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataSecurityUser">
+      <wsdl:input message="tns:UpdateDataSecurityUserSoapIn" />
+      <wsdl:output message="tns:UpdateDataSecurityUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckRunningJob">
+      <soap:operation soapAction="http://tempuri.org/CheckRunningJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmBAPS">
+      <soap:operation soapAction="http://tempuri.org/ConfirmBAPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateCollectionToAX">
+      <soap:operation soapAction="http://tempuri.org/GenerateCollectionToAX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInvoiceTower">
+      <soap:operation soapAction="http://tempuri.org/InsertInvoiceTower" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectBAPS">
+      <soap:operation soapAction="http://tempuri.org/RejectBAPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnToBAPS">
+      <soap:operation soapAction="http://tempuri.org/ReturnToBAPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecklist">
+      <soap:operation soapAction="http://tempuri.org/UpdateChecklist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataCoreVen">
+      <soap:operation soapAction="http://tempuri.org/InsertDataCoreVen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataCoreVen">
+      <soap:operation soapAction="http://tempuri.org/UpdateDataCoreVen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataSecurityUser">
+      <soap:operation soapAction="http://tempuri.org/UpdateDataSecurityUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckRunningJob">
+      <soap12:operation soapAction="http://tempuri.org/CheckRunningJob" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmBAPS">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmBAPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateCollectionToAX">
+      <soap12:operation soapAction="http://tempuri.org/GenerateCollectionToAX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertInvoiceTower">
+      <soap12:operation soapAction="http://tempuri.org/InsertInvoiceTower" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectBAPS">
+      <soap12:operation soapAction="http://tempuri.org/RejectBAPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnToBAPS">
+      <soap12:operation soapAction="http://tempuri.org/ReturnToBAPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecklist">
+      <soap12:operation soapAction="http://tempuri.org/UpdateChecklist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertDataCoreVen">
+      <soap12:operation soapAction="http://tempuri.org/InsertDataCoreVen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataCoreVen">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDataCoreVen" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDataSecurityUser">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDataSecurityUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.8.0.166:8805/TBGSysServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.8.0.166:8805/TBGSysServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

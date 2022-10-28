@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "AccruePerPIC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    .ui-datepicker-calendar {
+        display: none;
+    }
+</style>
+
+<section id="pnlAccrue">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body" style="margin-left:-50px">
+                            <div class="row">
+                                @*<div class="col-md-9">*@
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Periode</label>
+                                    <div class="col-md-2">
+                                        <input type="month" id="slMonthYear" style="width:170px" class="form-control select2" />
+                                    </div>
+
+                                    @*<div>-</div>*@
+                                    <label class="col-md-2 control-label">Week</label>
+
+                                    <div class="col-md-1">
+                                        <select id="slWeek" class="form-control select2">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                                @*<div class="form-group" style="height:25px">
+                                        <label class="col-md-3 control-label">Week</label>
+                                        <div class="col-md-4">
+                                            <select id="slCompany" class="form-control select2"></select>
+                                        </div>
+                                    </div>*@
+                                @*</div>*@
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+
+    <div class="row panelSearchResult">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover datatable-custom-width" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th class="datatable-col-50">No</th>
+                                <th class="datatable-col-150">Divison</th>
+                                <th class="datatable-col-150">Marketing</th>
+                                <th class="datatable-col-150">MKT-PDI</th>
+                                <th class="datatable-col-150">PDI</th>
+                                <th class="datatable-col-150">Project</th>
+                                <th class="datatable-col-150">Asset</th>
+                                <th class="datatable-col-150">RA New</th>
+                                <th class="datatable-col-150">RA Rec</th>
+                                <th class="datatable-col-150">Finance</th>
+                                <th class="datatable-col-150">Accounting</th>
+                                <th class="datatable-col-150">Legal</th>
+                                <th class="datatable-col-150">XL Mini CME</th>
+                                <th class="datatable-col-150">Flexy Update</th>
+                                <th class="datatable-col-150">Total</th>
+
+                            </tr>
+
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script src="@Url.Content("~/scripts/TransactionRevenue/AccruePerPIC.js")" type="text/javascript"></script>

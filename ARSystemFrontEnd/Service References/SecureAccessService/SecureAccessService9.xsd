@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:complexType name="ArrayOfvwUserMenuNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserMenuNew" nillable="true" type="tns:vwUserMenuNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserMenuNew" nillable="true" type="tns:ArrayOfvwUserMenuNew" />
+  <xs:complexType name="vwUserMenuNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q1:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserMenuNew" nillable="true" type="tns:vwUserMenuNew" />
+  <xs:complexType name="ArrayOfvwUserVendorMenuNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserVendorMenuNew" nillable="true" type="tns:vwUserVendorMenuNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserVendorMenuNew" nillable="true" type="tns:ArrayOfvwUserVendorMenuNew" />
+  <xs:complexType name="vwUserVendorMenuNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q2:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserVendorMenuNew" nillable="true" type="tns:vwUserVendorMenuNew" />
+  <xs:complexType name="ArrayOfvwUserCustomerMenuNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserCustomerMenuNew" nillable="true" type="tns:vwUserCustomerMenuNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserCustomerMenuNew" nillable="true" type="tns:ArrayOfvwUserCustomerMenuNew" />
+  <xs:complexType name="vwUserCustomerMenuNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q3:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FaIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserCustomerMenuNew" nillable="true" type="tns:vwUserCustomerMenuNew" />
+  <xs:complexType name="trxAuditTrail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q4:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="HitBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Method" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PayLoad" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxAuditTrail" nillable="true" type="tns:trxAuditTrail" />
+  <xs:complexType name="ArrayOfvwUserTaskToDoNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwUserTaskToDoNew" nillable="true" type="tns:vwUserTaskToDoNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwUserTaskToDoNew" nillable="true" type="tns:ArrayOfvwUserTaskToDoNew" />
+  <xs:complexType name="vwUserTaskToDoNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q5:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDoID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="trxTokenID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwUserTaskToDoNew" nillable="true" type="tns:vwUserTaskToDoNew" />
+  <xs:complexType name="ArrayOfmstAuditTrailModule">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstAuditTrailModule" nillable="true" type="tns:mstAuditTrailModule" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstAuditTrailModule" nillable="true" type="tns:ArrayOfmstAuditTrailModule" />
+  <xs:complexType name="mstAuditTrailModule">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q6:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstAuditTrailModule" nillable="true" type="tns:mstAuditTrailModule" />
+  <xs:complexType name="ArrayOfidxRoleDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleDashboard" nillable="true" type="tns:idxRoleDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleDashboard" nillable="true" type="tns:ArrayOfidxRoleDashboard" />
+  <xs:complexType name="idxRoleDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q7:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="idxRoleDashboardID" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleDashboard" nillable="true" type="tns:idxRoleDashboard" />
+  <xs:complexType name="ArrayOfidxRoleActionNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleActionNew" nillable="true" type="tns:idxRoleActionNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleActionNew" nillable="true" type="tns:ArrayOfidxRoleActionNew" />
+  <xs:complexType name="idxRoleActionNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q8:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleActionNew" nillable="true" type="tns:idxRoleActionNew" />
+  <xs:complexType name="ArrayOfidxRoleMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleMenu" nillable="true" type="tns:idxRoleMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleMenu" nillable="true" type="tns:ArrayOfidxRoleMenu" />
+  <xs:complexType name="idxRoleMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q9:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleMenu" nillable="true" type="tns:idxRoleMenu" />
+  <xs:complexType name="ArrayOfidxRoleTaskToDoNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRoleTaskToDoNew" nillable="true" type="tns:idxRoleTaskToDoNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRoleTaskToDoNew" nillable="true" type="tns:ArrayOfidxRoleTaskToDoNew" />
+  <xs:complexType name="idxRoleTaskToDoNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q10:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RoleID" type="xs:int" />
+          <xs:element minOccurs="0" name="TaskToDoID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRoleTaskToDoNew" nillable="true" type="tns:idxRoleTaskToDoNew" />
+  <xs:complexType name="vwDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q11:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DirectorateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwDashboard" nillable="true" type="tns:vwDashboard" />
+  <xs:complexType name="ArrayOfvwDashboard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwDashboard" nillable="true" type="tns:vwDashboard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwDashboard" nillable="true" type="tns:ArrayOfvwDashboard" />
+  <xs:complexType name="vwDashboardNavigation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q12:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DirectorateName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwDashboardNavigation" nillable="true" type="tns:vwDashboardNavigation" />
+  <xs:complexType name="ArrayOfmstDashboardCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstDashboardCategory" nillable="true" type="tns:mstDashboardCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstDashboardCategory" nillable="true" type="tns:ArrayOfmstDashboardCategory" />
+  <xs:complexType name="mstDashboardCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q13:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DashboardCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardCategoryID" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstDashboardCategory" nillable="true" type="tns:mstDashboardCategory" />
+  <xs:complexType name="ArrayOfmstDirectorate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstDirectorate" nillable="true" type="tns:mstDirectorate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstDirectorate" nillable="true" type="tns:ArrayOfmstDirectorate" />
+  <xs:complexType name="mstDirectorate">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q14:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DirectorateID" type="xs:int" />
+          <xs:element minOccurs="0" name="DirectorateName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstDirectorate" nillable="true" type="tns:mstDirectorate" />
+  <xs:complexType name="mstDashboard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q15:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DashboardCategoryID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardID" type="xs:int" />
+          <xs:element minOccurs="0" name="DashboardIcon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DashboardURL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstDashboard" nillable="true" type="tns:mstDashboard" />
+  <xs:complexType name="ArrayOfvwDashboardNavigation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwDashboardNavigation" nillable="true" type="tns:vwDashboardNavigation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwDashboardNavigation" nillable="true" type="tns:ArrayOfvwDashboardNavigation" />
+  <xs:complexType name="ArrayOfvwActionNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwActionNew" nillable="true" type="tns:vwActionNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwActionNew" nillable="true" type="tns:ArrayOfvwActionNew" />
+  <xs:complexType name="vwActionNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q16:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMenu" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwActionNew" nillable="true" type="tns:vwActionNew" />
+  <xs:complexType name="mstActionNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q17:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsMenu" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstActionNew" nillable="true" type="tns:mstActionNew" />
+  <xs:complexType name="ArrayOfmstActionNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstActionNew" nillable="true" type="tns:mstActionNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstActionNew" nillable="true" type="tns:ArrayOfmstActionNew" />
+  <xs:complexType name="ArrayOfvwMenu">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwMenu" nillable="true" type="tns:vwMenu" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwMenu" nillable="true" type="tns:ArrayOfvwMenu" />
+  <xs:complexType name="vwMenu">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q18:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwMenu" nillable="true" type="tns:vwMenu" />
+  <xs:complexType name="mstMenuNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q19:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParentID" type="xs:int" />
+          <xs:element minOccurs="0" name="Sort" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstMenuNew" nillable="true" type="tns:mstMenuNew" />
+  <xs:complexType name="ArrayOfmstMenuNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstMenuNew" nillable="true" type="tns:mstMenuNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstMenuNew" nillable="true" type="tns:ArrayOfmstMenuNew" />
+  <xs:complexType name="ArrayOfvwRoleMenuNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleMenuNew" nillable="true" type="tns:vwRoleMenuNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleMenuNew" nillable="true" type="tns:ArrayOfvwRoleMenuNew" />
+  <xs:complexType name="vwRoleMenuNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q20:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="MenuParent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuParentID" type="xs:int" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RootMenu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sort" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleMenuNew" nillable="true" type="tns:vwRoleMenuNew" />
+  <xs:complexType name="ArrayOfvwRoleActionNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleActionNew" nillable="true" type="tns:vwRoleActionNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleActionNew" nillable="true" type="tns:ArrayOfvwRoleActionNew" />
+  <xs:complexType name="vwRoleActionNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q21:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="IsMenu" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleActionNew" nillable="true" type="tns:vwRoleActionNew" />
+  <xs:complexType name="ArrayOfvwTaskToDoNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTaskToDoNew" nillable="true" type="tns:vwTaskToDoNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTaskToDoNew" nillable="true" type="tns:ArrayOfvwTaskToDoNew" />
+  <xs:complexType name="vwTaskToDoNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q22:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Menu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MenuID" type="xs:int" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDoID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTaskToDoNew" nillable="true" type="tns:vwTaskToDoNew" />
+  <xs:complexType name="mstTaskToDoNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q23:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDoID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstTaskToDoNew" nillable="true" type="tns:mstTaskToDoNew" />
+  <xs:complexType name="ArrayOfvwRoleTaskToDoNew">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRoleTaskToDoNew" nillable="true" type="tns:vwRoleTaskToDoNew" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRoleTaskToDoNew" nillable="true" type="tns:ArrayOfvwRoleTaskToDoNew" />
+  <xs:complexType name="vwRoleTaskToDoNew">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q24:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Connection" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExecStoredProcedure" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TaskToDoID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mstRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRoleTaskToDoNew" nillable="true" type="tns:vwRoleTaskToDoNew" />
+  <xs:complexType name="ArrayOfvwLogHitCounter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLogHitCounter" nillable="true" type="tns:vwLogHitCounter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLogHitCounter" nillable="true" type="tns:ArrayOfvwLogHitCounter" />
+  <xs:complexType name="vwLogHitCounter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q25:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Controller" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitByName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HitDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLogHitCounter" nillable="true" type="tns:vwLogHitCounter" />
+  <xs:complexType name="ArrayOfvwLoginLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLoginLog" nillable="true" type="tns:vwLoginLog" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLoginLog" nillable="true" type="tns:ArrayOfvwLoginLog" />
+  <xs:complexType name="vwLoginLog">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q26:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Browser" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConvertedLoginDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LoginDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Vendor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLoginLog" nillable="true" type="tns:vwLoginLog" />
+  <xs:complexType name="ArrayOfvwAuditTrail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAuditTrail" nillable="true" type="tns:vwAuditTrail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAuditTrail" nillable="true" type="tns:ArrayOfvwAuditTrail" />
+  <xs:complexType name="vwAuditTrail">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" base="q27:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ActionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+          <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModuleID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UserFullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAuditTrail" nillable="true" type="tns:vwAuditTrail" />
+</xs:schema>

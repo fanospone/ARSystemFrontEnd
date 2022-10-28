@@ -1,0 +1,3284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.AuditTrail" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGSecureAccess" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGMDM" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.General.DashboardNavigation" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Action" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Menu" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Tree" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.TaskToDo" />
+  <xs:import schemaLocation="http://10.8.0.166:8801/SecureAccessService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" />
+  <xs:element name="GetApplicationToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetApplicationToListResult" nillable="true" type="q1:ArrayOfmstApplication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetSingleApplicationResult" nillable="true" type="q2:mstApplication" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerToListFilteredByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerToListFilteredByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetBannerToListFilteredByTitleResult" nillable="true" type="q3:ArrayOfmstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerToList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetBannerToListResult" nillable="true" type="q4:ArrayOfmstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerPageToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isActive" type="xs:boolean" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBannerPageToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetBannerPageToListResult" nillable="true" type="q5:ArrayOfmstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistBanner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="update" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExistBannerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExistBannerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleBanner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intBannerID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleBannerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetSingleBannerResult" nillable="true" type="q6:mstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBanner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="Banner" nillable="true" type="q7:mstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateBannerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateBannerResult" nillable="true" type="q8:mstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBanner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intBannerID" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="Banner" nillable="true" type="q9:mstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateBannerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateBannerResult" nillable="true" type="q10:mstLoginBanner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetMenuToListFilteredByUserResult" nillable="true" type="q11:ArrayOfvwUserMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetMenuToListFilteredByUserVendorResult" nillable="true" type="q12:ArrayOfvwUserVendorMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardToListFilteredByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardToListFilteredByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHomeDashboardToListFilteredByUserResult" nillable="true" type="q13:ArrayOfvwUserHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardToListFilteredByRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardToListFilteredByRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHomeDashboardToListFilteredByRoleResult" nillable="true" type="q14:ArrayOfvwRoleHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserHomeDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels" minOccurs="0" name="userHomeDashboard" nillable="true" type="q15:vmUserHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserHomeDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels" minOccurs="0" name="CreateUserHomeDashboardResult" nillable="true" type="q16:vmUserHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="menu" nillable="true" type="q17:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateMenuResult" nillable="true" type="q18:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intMenuID" type="xs:int" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="menu" nillable="true" type="q19:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateMenuResult" nillable="true" type="q20:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuApplyFromOtherRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleIDSource" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuApplyFromOtherRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateMenuApplyFromOtherRoleResult" nillable="true" type="q21:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intMenuID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="DeleteMenuResult" nillable="true" type="q22:mstMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIconCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIconCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIconCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIconToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSearch" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIconToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetIconToListResult" nillable="true" type="q23:ArrayOfmstIcon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoToListFilteredByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoToListFilteredByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetTaskToDoToListFilteredByUserResult" nillable="true" type="q24:ArrayOfvwUserTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationListFilteredByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationListFilteredByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetNotificationListFilteredByUserResult" nillable="true" type="q25:ArrayOfvwUserNotification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strConsole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetConsoleCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strConsole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetConsoleToListResult" nillable="true" type="q26:ArrayOfvwConsoleScheduler" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleLogCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intScheduleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleLogCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetConsoleLogCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleLogToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intScheduleID" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleLogToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetConsoleLogToListResult" nillable="true" type="q27:ArrayOfLogSchedule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateConsole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="data" nillable="true" type="q28:vmCreateConsole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateConsoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateConsoleResult" nillable="true" type="q29:vmCreateConsole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleWeeklyStats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleWeeklyStatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetConsoleWeeklyStatsResult" nillable="true" type="q30:vmConsoleDashoard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetMenuToListFilteredByUserCustomerResult" nillable="true" type="q31:ArrayOfvwUserCustomerMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHitLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="strURL" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHitLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateHitLogResult" nillable="true" type="q32:trxHitCounter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHitLogListResult" nillable="true" type="q33:ArrayOfvwHitCounter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogOverviewList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="year" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogOverviewListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHitLogOverviewListResult" nillable="true" type="q34:ArrayOfvwHitCounterOverview" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogPercentage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="year" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHitLogPercentageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHitLogPercentageResult" nillable="true" type="q35:ArrayOfvmHitCounterPercentage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNonUtilizedPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="year" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNonUtilizedPageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetNonUtilizedPageResult" nillable="true" type="q36:ArrayOfvwHitCounterNonUtilized" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPageList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="data" nillable="true" type="q37:vwHitCounterPageList" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPageListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetPageListResult" nillable="true" type="q38:ArrayOfvwHitCounterPageList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPageCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="data" nillable="true" type="q39:vwHitCounterPageList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPageCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPageCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListUserAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ActionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListUserActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetListUserActionResult" nillable="true" type="q40:ArrayOfvwUserActionList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMenuToListFilteredByUserNewResult" nillable="true" type="q41:ArrayOfvwUserMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserVendorNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserVendorNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMenuToListFilteredByUserVendorNewResult" nillable="true" type="q42:ArrayOfvwUserVendorMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserCustomerNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuToListFilteredByUserCustomerNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMenuToListFilteredByUserCustomerNewResult" nillable="true" type="q43:ArrayOfvwUserCustomerMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUrlList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUrlListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUrlListResult" nillable="true" type="q44:ArrayOfvwHitCounterPageList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAuditTrail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.AuditTrail" minOccurs="0" name="auditTrail" nillable="true" type="q45:vmAuditTrail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAuditTrailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateAuditTrailResult" nillable="true" type="q46:trxAuditTrail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoToListFilteredByUserNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoToListFilteredByUserNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetTaskToDoToListFilteredByUserNewResult" nillable="true" type="q47:ArrayOfvwUserTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditTrailModuleList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditTrailModuleListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetAuditTrailModuleListResult" nillable="true" type="q48:ArrayOfmstAuditTrailModule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRoleCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRole" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetRoleToListResult" nillable="true" type="q49:ArrayOfmstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleListByBulkyRoleID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRoleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleListByBulkyRoleIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetRoleListByBulkyRoleIDResult" nillable="true" type="q50:ArrayOfmstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="intIsMenu" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetMappingRoleToActionResult" nillable="true" type="q51:ArrayOfvwRoleAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetMappingRoleToMenuResult" nillable="true" type="q52:ArrayOfvwRoleMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetActionAvailabilityForRoleResult" nillable="true" type="q53:ArrayOfvmMappingUserAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardAvailabilityForRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardAvailabilityForRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHomeDashboardAvailabilityForRoleResult" nillable="true" type="q54:ArrayOfvmMappingUserHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardAvailabilityForRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardAvailabilityForRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetDashboardAvailabilityForRoleResult" nillable="true" type="q55:ArrayOfvmMappingUserHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoAvailabilityForRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoAvailabilityForRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetTaskToDoAvailabilityForRoleResult" nillable="true" type="q56:ArrayOfvmMappingUserTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobTitleAvailabilityForRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobTitleAvailabilityForRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetJobTitleAvailabilityForRoleResult" nillable="true" type="q57:ArrayOfvmMappingUserJobTitle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="role" nillable="true" type="q58:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateRoleResult" nillable="true" type="q59:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="role" nillable="true" type="q60:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleResult" nillable="true" type="q61:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="roleActions" nillable="true" type="q62:ArrayOfidxRoleAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeActionResult" nillable="true" type="q63:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeHomeDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="roleDashboards" nillable="true" type="q64:ArrayOfidxRoleHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeHomeDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeHomeDashboardResult" nillable="true" type="q65:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeTaskToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="roleTaskToDos" nillable="true" type="q66:ArrayOfidxRoleTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeTaskToDoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeTaskToDoResult" nillable="true" type="q67:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intApplicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="roleDashboards" nillable="true" type="q68:ArrayOfidxRoleDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeDashboardResult" nillable="true" type="q69:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeJobTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGSecureAccess" minOccurs="0" name="roleJobTitles" nillable="true" type="q70:ArrayOfidxRoleJobTitle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeJobTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeJobTitleResult" nillable="true" type="q71:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" minOccurs="0" name="roleAuthorization" nillable="true" type="q72:vmUpdateAuthorization" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" minOccurs="0" name="UpdateRoleAuthorizationResult" nillable="true" type="q73:vmUpdateAuthorization" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForDynamicDataRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForDynamicDataRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetActionAvailabilityForDynamicDataRoleResult" nillable="true" type="q74:ArrayOfvmMappingUserAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRootMobileToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNameRoot" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRootMobileToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetApplicationRootMobileToListResult" nillable="true" type="q75:ArrayOfmstRootDashboardMobile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForDynamicDashboardRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="rootID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActionAvailabilityForDynamicDashboardRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetActionAvailabilityForDynamicDashboardRoleResult" nillable="true" type="q76:ArrayOfvmMappingUserAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDynamicData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="roleActions" nillable="true" type="q77:ArrayOfidxRoleDynamicData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeDynamicDataResult" nillable="true" type="q78:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDynamicDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Application" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="rootID" type="xs:int" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="roleActions" nillable="true" type="q79:ArrayOfidxRoleDynamicDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoleAuthorizeDynamicDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateRoleAuthorizeDynamicDashboardResult" nillable="true" type="q80:mstRole" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q81:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginResult" nillable="true" type="q82:vmUserLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q83:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginValidationResult" nillable="true" type="q84:vmUserLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CheckUserTokenResult" nillable="true" type="q85:vmUserCredential" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strActionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserAccessResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckExternalTokenResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="ForceLogoutResult" nillable="true" type="q86:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserAccessNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserAccessNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserAccessNewResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="strHCISPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRegion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="strHCISPosition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strRegion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserToListResult" nillable="true" type="q87:ArrayOfvwUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserSingleResult" nillable="true" type="q88:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSingleByUserID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSingleByUserIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserSingleByUserIDResult" nillable="true" type="q89:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q90:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateUserResult" nillable="true" type="q91:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdatePasswordResult" nillable="true" type="q92:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJobTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserJobTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserJobTitleResult" nillable="true" type="q93:vmMappingUserJobTitle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserFromTBGSYS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q94:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserFromTBGSYSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserFromTBGSYSResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserFromTBGSYS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q95:mstUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserFromTBGSYSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertUserFromTBGSYSResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTPForceLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="data" nillable="true" type="q96:trxOTP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTPForceLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="OTPForceLoginResult" nillable="true" type="q97:trxOTP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTPCConfirmForceLogin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="data" nillable="true" type="q98:trxOTP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTPCConfirmForceLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="OTPCConfirmForceLoginResult" nillable="true" type="q99:trxOTP" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordFromTBiGMobile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordFromTBiGMobileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePasswordFromTBiGMobileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidationCommondPasswordTBGSys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidationCommondPasswordTBGSysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidationCommondPasswordTBGSysResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDefaultPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginDefaultPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginDefaultPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPrivilegeCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strResignDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPrivilegeCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserPrivilegeCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPrivilegeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strResignDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPrivilegeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSYSDB01.TBGMDM" minOccurs="0" name="GetUserPrivilegeListResult" nillable="true" type="q100:ArrayOfSyncStagingMstEmployee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserIDTBGSys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserIDTBGSysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserIDTBGSysResult" nillable="true" type="q101:vmUserPrivilege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityUserStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecurityUserStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetSecurityUserStatusResult" nillable="true" type="q102:vmUserPrivilege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecureAccessStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSecureAccessStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetSecureAccessStatusResult" nillable="true" type="q103:vmUserPrivilege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailStatusFromLDAP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailStatusFromLDAPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetEmailStatusFromLDAPResult" nillable="true" type="q104:vmUserPrivilege" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q105:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginVendorResult" nillable="true" type="q106:vmUserVendorLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginVendorValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q107:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginVendorValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginVendorValidationResult" nillable="true" type="q108:vmUserVendorLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CheckUserVendorTokenResult" nillable="true" type="q109:vmUserCredential" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strActionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserVendorAccessResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalTokenVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalTokenVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckExternalTokenVendorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutVendorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogoutVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogoutVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="ForceLogoutVendorResult" nillable="true" type="q110:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorAccessNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserVendorAccessNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserVendorAccessNewResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="strPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserVendorCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFullName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRoleID" type="xs:int" />
+        <xs:element minOccurs="0" name="strPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intIsActive" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserVendorToListResult" nillable="true" type="q111:ArrayOfvwUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserVendorSingleResult" nillable="true" type="q112:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserVendorByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserVendorByIDResult" nillable="true" type="q113:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q114:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateUserVendorResult" nillable="true" type="q115:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strNewPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdatePasswordVendorResult" nillable="true" type="q116:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="vendorID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetVendorResult" nillable="true" type="q117:mstVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorInitial" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAddress1" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetVendorCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVendorInitial" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAddress1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVendorToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetVendorToListResult" nillable="true" type="q118:ArrayOfmstVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserVendorFromExt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q119:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserVendorFromExtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserVendorFromExtResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserVendorFromExt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q120:mstUserVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserVendorFromExtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertUserVendorFromExtResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVendorFromExt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="vendor" nillable="true" type="q121:mstVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVendorFromExtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateVendorFromExtResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVendorFromExt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="vendor" nillable="true" type="q122:mstVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertVendorFromExtResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertVendorFromExtResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q123:vwAction" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetGridActionListResult" nillable="true" type="q124:ArrayOfvwAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionListCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q125:vwAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionListCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGridActionListCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="action" nillable="true" type="q126:mstAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateActionResult" nillable="true" type="q127:mstAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="oldAction" nillable="true" type="q128:mstAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateActionResult" nillable="true" type="q129:mstAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetListActionResult" nillable="true" type="q130:ArrayOfmstAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q131:vwDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDashboardCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q132:vwDashboard" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDashboardToListResult" nillable="true" type="q133:ArrayOfvwDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dashboardID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDashboardSingleResult" nillable="true" type="q134:vwDashboardNavigation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoryListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetCategoryListResult" nillable="true" type="q135:ArrayOfmstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDirectorateListResult" nillable="true" type="q136:ArrayOfmstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dashboard" nillable="true" type="q137:mstDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateDashboardResult" nillable="true" type="q138:mstDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dashboard" nillable="true" type="q139:mstDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateDashboardResult" nillable="true" type="q140:mstDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dashboardID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDashboardResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q141:vwTaskToDo" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetTaskToDoListResult" nillable="true" type="q142:ArrayOfvwTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoListCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q143:vwTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskToDoListCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskToDoListCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="TaskToDo" nillable="true" type="q144:mstTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskToDoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateTaskToDoResult" nillable="true" type="q145:mstTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskToDo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="oldTaskToDo" nillable="true" type="q146:mstTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskToDoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateTaskToDoResult" nillable="true" type="q147:mstTaskToDo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q148:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginCustomerResult" nillable="true" type="q149:vmUserCustomerLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCustomerValidation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="login" nillable="true" type="q150:vmLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginCustomerValidationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="LoginCustomerValidationResult" nillable="true" type="q151:vmUserCustomerLogin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CheckUserCustomerTokenResult" nillable="true" type="q152:vmUserCredential" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strActionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserCustomerAccessResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalTokenCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strApplication" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckExternalTokenCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckExternalTokenCustomerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUserCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutUserCustomerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogoutUserCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogoutUserCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="ForceLogoutUserCustomerResult" nillable="true" type="q153:mstUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerAccessNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUserCustomerAccessNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUserCustomerAccessNewResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q154:vwUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserCustomerCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q155:vwUserCustomer" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserCustomerListResult" nillable="true" type="q156:ArrayOfvwUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserCustomerSingleResult" nillable="true" type="q157:vwUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserCustomerByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetUserCustomerByIDResult" nillable="true" type="q158:vwUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q159:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateUserCustomerResult" nillable="true" type="q160:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q161:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateUserCustomerResult" nillable="true" type="q162:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserCustomerByIntegration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="user" nillable="true" type="q163:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserCustomerByIntegrationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateUserCustomerByIntegrationResult" nillable="true" type="q164:vmUserCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="customerVendorID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetCustomerVendorResult" nillable="true" type="q165:mstCustomerVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendorCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intCustomerVendorID" type="xs:int" />
+        <xs:element minOccurs="0" name="strCustomerVendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTelephone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendorCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCustomerVendorCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendorList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intCustomerVendorID" type="xs:int" />
+        <xs:element minOccurs="0" name="strCustomerVendor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTelephone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerVendorListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetCustomerVendorListResult" nillable="true" type="q166:ArrayOfmstCustomerVendor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bolIsTelco" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetCustomerListResult" nillable="true" type="q167:ArrayOfmstCustomer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q168:vwHomeDashboard" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetHomeDashboardListResult" nillable="true" type="q169:ArrayOfvwHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardListCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="filter" nillable="true" type="q170:vwHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHomeDashboardListCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetHomeDashboardListCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHomeDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="HomeDashboard" nillable="true" type="q171:mstHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHomeDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateHomeDashboardResult" nillable="true" type="q172:mstHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHomeDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="oldHomeDashboard" nillable="true" type="q173:mstHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHomeDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="UpdateHomeDashboardResult" nillable="true" type="q174:mstHomeDashboard" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardNavigationListFilteredByRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q175:vwDashboardNavigation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardNavigationListFilteredByRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.General.DashboardNavigation" minOccurs="0" name="GetDashboardNavigationListFilteredByRoleResult" nillable="true" type="q176:vmDashboardNavigation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategoryCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q177:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategoryCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDashboardCategoryCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategoryToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q178:mstDashboardCategory" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategoryToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDashboardCategoryToListResult" nillable="true" type="q179:ArrayOfmstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategorySingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dashboardCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDashboardCategorySingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDashboardCategorySingleResult" nillable="true" type="q180:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDashboardCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dashboardCategory" nillable="true" type="q181:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDashboardCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateDashboardCategoryResult" nillable="true" type="q182:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDashboardCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dashboardCategory" nillable="true" type="q183:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDashboardCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateDashboardCategoryResult" nillable="true" type="q184:mstDashboardCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDashboardCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dashboardCategoryID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDashboardCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDashboardCategoryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q185:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDirectorateCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateToList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="filter" nillable="true" type="q186:mstDirectorate" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="intRowSkip" type="xs:int" />
+        <xs:element minOccurs="0" name="intPageSize" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateToListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDirectorateToListResult" nillable="true" type="q187:ArrayOfmstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="directorateID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDirectorateSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetDirectorateSingleResult" nillable="true" type="q188:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDirectorate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="directorate" nillable="true" type="q189:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDirectorateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateDirectorateResult" nillable="true" type="q190:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDirectorate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="directorate" nillable="true" type="q191:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDirectorateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateDirectorateResult" nillable="true" type="q192:mstDirectorate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDirectorate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="directorateID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDirectorateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteDirectorateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationToListFilteredByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationToListFilteredByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetApplicationToListFilteredByUserResult" nillable="true" type="q193:ArrayOfvwApplicationUrl" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavoriteMenuList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFavoriteMenuListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="GetFavoriteMenuListResult" nillable="true" type="q194:ArrayOftrxFavoriteMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="favMenu" nillable="true" type="q195:trxFavoriteMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="CreateFavoriteMenuResult" nillable="true" type="q196:trxFavoriteMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFavoriteMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models" minOccurs="0" name="favMenu" nillable="true" type="q197:trxFavoriteMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFavoriteMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFavoriteMenuResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Action" minOccurs="0" name="filter" nillable="true" type="q198:dtActionFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridActionNewResult" nillable="true" type="q199:DatatableOfvwActionNewYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleActionNewIsMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleActionNewIsMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetSingleActionNewIsMenuResult" nillable="true" type="q200:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q201="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" minOccurs="0" name="data" nillable="true" type="q201:vmUpdateAuthorization" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListActionNewResult" nillable="true" type="q202:ArrayOfvwActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNewByApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationIDs" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNewByApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListActionNewByApplicationResult" nillable="true" type="q203:ArrayOfvwActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNewByMenu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListActionNewByMenuResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListActionNewByMenuResult" nillable="true" type="q204:ArrayOfmstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetSingleActionNewResult" nillable="true" type="q205:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="action" nillable="true" type="q206:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateActionNewResult" nillable="true" type="q207:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dataUpdate" nillable="true" type="q208:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateActionNewResult" nillable="true" type="q209:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionNewID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="DeleteActionNewResult" nillable="true" type="q210:mstActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Menu" minOccurs="0" name="filter" nillable="true" type="q211:dtMenuFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridMenuNewResult" nillable="true" type="q212:DatatableOfvwMenuYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetSingleMenuNewResult" nillable="true" type="q213:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListMenuNewByApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListMenuNewByApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListMenuNewByApplicationResult" nillable="true" type="q214:ArrayOfmstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListMenuNewByParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="parentID" type="xs:int" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListMenuNewByParentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q215="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListMenuNewByParentResult" nillable="true" type="q215:ArrayOfmstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNestedOrderMenuNewByApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListNestedOrderMenuNewByApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListNestedOrderMenuNewByApplicationResult" nillable="true" type="q216:ArrayOfvwMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuTreeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMenuTreeListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Tree" minOccurs="0" name="GetMenuTreeListResult" nillable="true" type="q217:ArrayOfvmTree" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="menu" nillable="true" type="q218:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q219="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateMenuNewResult" nillable="true" type="q219:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dataUpdate" nillable="true" type="q220:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q221="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateMenuNewResult" nillable="true" type="q221:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuNewID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="DeleteMenuNewResult" nillable="true" type="q222:mstMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q223="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMappingRoleToMenuNewResult" nillable="true" type="q223:ArrayOfvwRoleMenuNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleIDByMenuNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="menuID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleIDByMenuNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListRoleIDByMenuNewResult" nillable="true" type="q224:ArrayOfidxRoleMenu" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+        <xs:element minOccurs="0" name="isMenu" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q225="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMappingRoleToActionNewResult" nillable="true" type="q225:ArrayOfvwRoleActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleByActionNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleByActionNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListRoleByActionNewResult" nillable="true" type="q226:ArrayOfvwRoleActionNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q227="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.TaskToDo" minOccurs="0" name="filter" nillable="true" type="q227:dtTaskToDoFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridTaskToDoNewResult" nillable="true" type="q228:DatatableOfvwTaskToDoNewYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskToDoID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSingleTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q229="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetSingleTaskToDoNewResult" nillable="true" type="q229:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTaskToDoNewByAction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="actionID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTaskToDoNewByActionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListTaskToDoNewByActionResult" nillable="true" type="q230:ArrayOfvwTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q231="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Master.Authorization" minOccurs="0" name="data" nillable="true" type="q231:vmUpdateAuthorization" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q232="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListTaskToDoNewResult" nillable="true" type="q232:ArrayOfvwTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="taskToDo" nillable="true" type="q233:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="CreateTaskToDoNewResult" nillable="true" type="q234:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="dataUpdate" nillable="true" type="q235:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q236="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="UpdateTaskToDoNewResult" nillable="true" type="q236:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskToDoNewID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="DeleteTaskToDoNewResult" nillable="true" type="q237:mstTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationID" type="xs:int" />
+        <xs:element minOccurs="0" name="roleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMappingRoleToTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetMappingRoleToTaskToDoNewResult" nillable="true" type="q238:ArrayOfvwRoleTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleIDByTaskToDoNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="taskToDoID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListRoleIDByTaskToDoNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q239="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetListRoleIDByTaskToDoNewResult" nillable="true" type="q239:ArrayOfidxRoleTaskToDoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastTwoMonth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" type="xs:int" />
+        <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastTwoMonthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetLastTwoMonthResult" nillable="true" type="q240:ArrayOfvwLogHitCounter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridHitLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" minOccurs="0" name="filter" nillable="true" type="q241:dtAccessHistoryFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridHitLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridHitLogResult" nillable="true" type="q242:DatatableOfvwLogHitCounterYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExternalTokenCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExternalTokenCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetExternalTokenCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastTwoMonthLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="appID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastTwoMonthLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.TBIGSADB01.TBGSecureAccess" minOccurs="0" name="GetLastTwoMonthLogResult" nillable="true" type="q243:ArrayOfvwLoginLog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridLoginLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" minOccurs="0" name="filter" nillable="true" type="q244:dtLoginHistoryFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridLoginLogResult" nillable="true" type="q245:DatatableOfvwLoginLogYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.History" minOccurs="0" name="filter" nillable="true" type="q246:dtActionHistoryFilter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGridActionLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q247="http://schemas.datacontract.org/2004/07/SecureAccess.Domain.Models.ViewModels.Datatable" minOccurs="0" name="GetGridActionLogResult" nillable="true" type="q247:DatatableOfvwAuditTrailYDz5Kj5d" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,2722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TBGSys.Domain.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="vwMarketingDocumentHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalDocument" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwMarketingDocumentHeader" nillable="true" type="tns:vwMarketingDocumentHeader" />
+  <xs:complexType name="BaseClass">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorType" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseClass" nillable="true" type="tns:BaseClass" />
+  <xs:complexType name="ArrayOfvwMarketingDocumentHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwMarketingDocumentHeader" nillable="true" type="tns:vwMarketingDocumentHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwMarketingDocumentHeader" nillable="true" type="tns:ArrayOfvwMarketingDocumentHeader" />
+  <xs:complexType name="vwMarketingDocumentDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocumentLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarketingDocument" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarketingDocumentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MarketingDocumentTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="trxMarketingDocumentID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwMarketingDocumentDetail" nillable="true" type="tns:vwMarketingDocumentDetail" />
+  <xs:complexType name="ArrayOfvwMarketingDocumentDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwMarketingDocumentDetail" nillable="true" type="tns:vwMarketingDocumentDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwMarketingDocumentDetail" nillable="true" type="tns:ArrayOfvwMarketingDocumentDetail" />
+  <xs:complexType name="trxMarketingDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DocumentLocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarketingDocumentID" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="trxMarketingDocumentID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxMarketingDocument" nillable="true" type="tns:trxMarketingDocument" />
+  <xs:complexType name="vwAdditionalRelocationInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAdditionalRelocationInput" nillable="true" type="tns:vwAdditionalRelocationInput" />
+  <xs:complexType name="ArrayOfvwAdditionalRelocationInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAdditionalRelocationInput" nillable="true" type="tns:vwAdditionalRelocationInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAdditionalRelocationInput" nillable="true" type="tns:ArrayOfvwAdditionalRelocationInput" />
+  <xs:complexType name="vmRelocationForm">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAFDismantleFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FPFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FlagRegional" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SPKMOMFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tenantRelocation" nillable="true" type="tns:trxTenantRelocation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmRelocationForm" nillable="true" type="tns:vmRelocationForm" />
+  <xs:complexType name="trxTenantRelocation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAFDismantleNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsReloc" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RelocationProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RelocationReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteIDLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxTenantRelocation" nillable="true" type="tns:trxTenantRelocation" />
+  <xs:complexType name="vwTenantRelocationInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColoType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantRelocationInput" nillable="true" type="tns:vwTenantRelocationInput" />
+  <xs:complexType name="ArrayOfvwTenantRelocationInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantRelocationInput" nillable="true" type="tns:vwTenantRelocationInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantRelocationInput" nillable="true" type="tns:ArrayOfvwTenantRelocationInput" />
+  <xs:complexType name="vmAccountManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManagerCustomerList" nillable="true" type="tns:ArrayOfidxAccountManagerCustomer" />
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+          <xs:element minOccurs="0" name="UserSignature" nillable="true" type="tns:idxUserSignature" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmAccountManager" nillable="true" type="tns:vmAccountManager" />
+  <xs:complexType name="ArrayOfidxAccountManagerCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxAccountManagerCustomer" nillable="true" type="tns:idxAccountManagerCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxAccountManagerCustomer" nillable="true" type="tns:ArrayOfidxAccountManagerCustomer" />
+  <xs:complexType name="idxAccountManagerCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxAccountManagerCustomerID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxAccountManagerCustomer" nillable="true" type="tns:idxAccountManagerCustomer" />
+  <xs:complexType name="idxUserPosition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PositionID" type="xs:int" />
+          <xs:element minOccurs="0" name="SuperiorUserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxUserPositionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxUserPosition" nillable="true" type="tns:idxUserPosition" />
+  <xs:complexType name="idxUserSignature">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="SignatureFileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SignatureFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxUserSignature" nillable="true" type="tns:idxUserSignature" />
+  <xs:complexType name="vwAccountManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Customers" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasSignature" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadAccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SignatureFileName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAccountManager" nillable="true" type="tns:vwAccountManager" />
+  <xs:complexType name="ArrayOfvwAccountManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAccountManager" nillable="true" type="tns:vwAccountManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAccountManager" nillable="true" type="tns:ArrayOfvwAccountManager" />
+  <xs:complexType name="ArrayOfvwAccountManagerCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAccountManagerCustomer" nillable="true" type="tns:vwAccountManagerCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAccountManagerCustomer" nillable="true" type="tns:ArrayOfvwAccountManagerCustomer" />
+  <xs:complexType name="vwAccountManagerCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAccountManagerCustomer" nillable="true" type="tns:vwAccountManagerCustomer" />
+  <xs:complexType name="vmAreaOperation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaOperation" nillable="true" type="tns:idxAreaOperation" />
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmAreaOperation" nillable="true" type="tns:vmAreaOperation" />
+  <xs:complexType name="idxAreaOperation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxAreaOperationID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxAreaOperation" nillable="true" type="tns:idxAreaOperation" />
+  <xs:complexType name="vwAreaOperation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwAreaOperation" nillable="true" type="tns:vwAreaOperation" />
+  <xs:complexType name="ArrayOfvwAreaOperation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwAreaOperation" nillable="true" type="tns:vwAreaOperation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwAreaOperation" nillable="true" type="tns:ArrayOfvwAreaOperation" />
+  <xs:complexType name="mstBatch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchID" type="xs:int" />
+          <xs:element minOccurs="0" name="BatchName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstBatch" nillable="true" type="tns:mstBatch" />
+  <xs:complexType name="ArrayOfmstBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstBatch" nillable="true" type="tns:mstBatch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstBatch" nillable="true" type="tns:ArrayOfmstBatch" />
+  <xs:complexType name="ArrayOfmstBTSHotelStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstBTSHotelStatus" nillable="true" type="tns:mstBTSHotelStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstBTSHotelStatus" nillable="true" type="tns:ArrayOfmstBTSHotelStatus" />
+  <xs:complexType name="mstBTSHotelStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BTSHotelStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BTSHotelStatusID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstBTSHotelStatus" nillable="true" type="tns:mstBTSHotelStatus" />
+  <xs:complexType name="ArrayOftrxTBGSysCAFNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxTBGSysCAFNumber" nillable="true" type="tns:trxTBGSysCAFNumber" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxTBGSysCAFNumber" nillable="true" type="tns:ArrayOftrxTBGSysCAFNumber" />
+  <xs:complexType name="trxTBGSysCAFNumber">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAFNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxTBGSysCAFNumber" nillable="true" type="tns:trxTBGSysCAFNumber" />
+  <xs:complexType name="ArrayOfmstCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstCompany" nillable="true" type="tns:mstCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstCompany" nillable="true" type="tns:ArrayOfmstCompany" />
+  <xs:complexType name="mstCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyIDAX" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstCompany" nillable="true" type="tns:mstCompany" />
+  <xs:complexType name="mstCompensationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompensationItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompensationItemID" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstCompensationItem" nillable="true" type="tns:mstCompensationItem" />
+  <xs:complexType name="ArrayOfmstCompensationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstCompensationItem" nillable="true" type="tns:mstCompensationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstCompensationItem" nillable="true" type="tns:ArrayOfmstCompensationItem" />
+  <xs:complexType name="ArrayOfmstCustomer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstCustomer" nillable="true" type="tns:mstCustomer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstCustomer" nillable="true" type="tns:ArrayOfmstCustomer" />
+  <xs:complexType name="mstCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address3" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTelco" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NPWP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstCustomer" nillable="true" type="tns:mstCustomer" />
+  <xs:complexType name="ArrayOftrxFPRelocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxFPRelocation" nillable="true" type="tns:trxFPRelocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxFPRelocation" nillable="true" type="tns:ArrayOftrxFPRelocation" />
+  <xs:complexType name="trxFPRelocation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxFPRelocation" nillable="true" type="tns:trxFPRelocation" />
+  <xs:complexType name="vmLeadAccountManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+          <xs:element minOccurs="0" name="UserSignature" nillable="true" type="tns:idxUserSignature" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmLeadAccountManager" nillable="true" type="tns:vmLeadAccountManager" />
+  <xs:complexType name="vwLeadAccountManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HasSignature" type="xs:int" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadAccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SignatureFileName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Subordinates" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLeadAccountManager" nillable="true" type="tns:vwLeadAccountManager" />
+  <xs:complexType name="ArrayOfvwLeadAccountManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLeadAccountManager" nillable="true" type="tns:vwLeadAccountManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLeadAccountManager" nillable="true" type="tns:ArrayOfvwLeadAccountManager" />
+  <xs:complexType name="vmLeadProjectManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LeadProjectManagerRegionList" nillable="true" type="tns:ArrayOfidxLeadProjectManagerRegion" />
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmLeadProjectManager" nillable="true" type="tns:vmLeadProjectManager" />
+  <xs:complexType name="ArrayOfidxLeadProjectManagerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxLeadProjectManagerRegion" nillable="true" type="tns:idxLeadProjectManagerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxLeadProjectManagerRegion" nillable="true" type="tns:ArrayOfidxLeadProjectManagerRegion" />
+  <xs:complexType name="idxLeadProjectManagerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="idxLeadProjectManagerRegionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxLeadProjectManagerRegion" nillable="true" type="tns:idxLeadProjectManagerRegion" />
+  <xs:complexType name="vwLeadProjectManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLeadProjectManager" nillable="true" type="tns:vwLeadProjectManager" />
+  <xs:complexType name="ArrayOfvwLeadProjectManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLeadProjectManager" nillable="true" type="tns:vwLeadProjectManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLeadProjectManager" nillable="true" type="tns:ArrayOfvwLeadProjectManager" />
+  <xs:complexType name="ArrayOfvwLeadProjectManagerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLeadProjectManagerRegion" nillable="true" type="tns:vwLeadProjectManagerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLeadProjectManagerRegion" nillable="true" type="tns:ArrayOfvwLeadProjectManagerRegion" />
+  <xs:complexType name="vwLeadProjectManagerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLeadProjectManagerRegion" nillable="true" type="tns:vwLeadProjectManagerRegion" />
+  <xs:complexType name="vwLeadProjectManagerAsset">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadProjectManagerAsset" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerAssetID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLeadProjectManagerAsset" nillable="true" type="tns:vwLeadProjectManagerAsset" />
+  <xs:complexType name="ArrayOfvwLeadProjectManagerAsset">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLeadProjectManagerAsset" nillable="true" type="tns:vwLeadProjectManagerAsset" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLeadProjectManagerAsset" nillable="true" type="tns:ArrayOfvwLeadProjectManagerAsset" />
+  <xs:complexType name="vwLeadProjectManagerPDI">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeadProjectManagerPDI" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerPDIID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwLeadProjectManagerPDI" nillable="true" type="tns:vwLeadProjectManagerPDI" />
+  <xs:complexType name="ArrayOfvwLeadProjectManagerPDI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwLeadProjectManagerPDI" nillable="true" type="tns:vwLeadProjectManagerPDI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwLeadProjectManagerPDI" nillable="true" type="tns:ArrayOfvwLeadProjectManagerPDI" />
+  <xs:complexType name="ArrayOfmstLeaseAgreement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstLeaseAgreement" nillable="true" type="tns:mstLeaseAgreement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstLeaseAgreement" nillable="true" type="tns:ArrayOfmstLeaseAgreement" />
+  <xs:complexType name="mstLeaseAgreement">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AmandementMLADate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeaseObject" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MLAContractPeriodDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MLANumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstLeaseAgreement" nillable="true" type="tns:mstLeaseAgreement" />
+  <xs:complexType name="ArrayOfmstMarketingDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstMarketingDocument" nillable="true" type="tns:mstMarketingDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstMarketingDocument" nillable="true" type="tns:ArrayOfmstMarketingDocument" />
+  <xs:complexType name="mstMarketingDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LegacyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarketingDocument" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MarketingDocumentID" type="xs:int" />
+          <xs:element minOccurs="0" name="MarketingDocumentTypeID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstMarketingDocument" nillable="true" type="tns:mstMarketingDocument" />
+  <xs:complexType name="ArrayOfvwOrderCompensationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwOrderCompensationItem" nillable="true" type="tns:vwOrderCompensationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwOrderCompensationItem" nillable="true" type="tns:ArrayOfvwOrderCompensationItem" />
+  <xs:complexType name="vwOrderCompensationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompensationItem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompensationItemID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwOrderCompensationItem" nillable="true" type="tns:vwOrderCompensationItem" />
+  <xs:complexType name="vwPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="After5Year" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="First5year" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HeightMax" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HeightMin" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst10YearBaseLease" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst10YearFO" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst10YearOM" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst5YearBaseLease" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst5YearFO" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOFirst5YearOM" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MCPFOPaymentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MCPNonFOFirstYear" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OMPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PriceID" type="xs:int" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TowerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerTypeID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwPrice" nillable="true" type="tns:vwPrice" />
+  <xs:complexType name="ArrayOfvwPrice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwPrice" nillable="true" type="tns:vwPrice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwPrice" nillable="true" type="tns:ArrayOfvwPrice" />
+  <xs:complexType name="ArrayOfmstProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstProduct" nillable="true" type="tns:mstProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstProduct" nillable="true" type="tns:ArrayOfmstProduct" />
+  <xs:complexType name="mstProduct">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LegacyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstProduct" nillable="true" type="tns:mstProduct" />
+  <xs:complexType name="vmProjectManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProjectManager" nillable="true" type="tns:idxProjectManager" />
+          <xs:element minOccurs="0" name="ProjectManagerRegionList" nillable="true" type="tns:ArrayOfidxProjectManagerRegion" />
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmProjectManager" nillable="true" type="tns:vmProjectManager" />
+  <xs:complexType name="idxProjectManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CME" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sitac" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="idxProjectManagerID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxProjectManager" nillable="true" type="tns:idxProjectManager" />
+  <xs:complexType name="ArrayOfidxProjectManagerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxProjectManagerRegion" nillable="true" type="tns:idxProjectManagerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxProjectManagerRegion" nillable="true" type="tns:ArrayOfidxProjectManagerRegion" />
+  <xs:complexType name="idxProjectManagerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="idxProjectManagerRegionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxProjectManagerRegion" nillable="true" type="tns:idxProjectManagerRegion" />
+  <xs:complexType name="vwProjectManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CME" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sitac" nillable="true" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwProjectManager" nillable="true" type="tns:vwProjectManager" />
+  <xs:complexType name="ArrayOfvwProjectManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwProjectManager" nillable="true" type="tns:vwProjectManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwProjectManager" nillable="true" type="tns:ArrayOfvwProjectManager" />
+  <xs:complexType name="vmRegionalManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RegionalManagerRegionList" nillable="true" type="tns:ArrayOfidxRegionalManagerRegion" />
+          <xs:element minOccurs="0" name="UserPosition" nillable="true" type="tns:idxUserPosition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmRegionalManager" nillable="true" type="tns:vmRegionalManager" />
+  <xs:complexType name="ArrayOfidxRegionalManagerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxRegionalManagerRegion" nillable="true" type="tns:idxRegionalManagerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxRegionalManagerRegion" nillable="true" type="tns:ArrayOfidxRegionalManagerRegion" />
+  <xs:complexType name="idxRegionalManagerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionalManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxRegionalManagerRegionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxRegionalManagerRegion" nillable="true" type="tns:idxRegionalManagerRegion" />
+  <xs:complexType name="vwRegionalManager">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionalManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionalManagerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRegionalManager" nillable="true" type="tns:vwRegionalManager" />
+  <xs:complexType name="ArrayOfvwRegionalManager">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRegionalManager" nillable="true" type="tns:vwRegionalManager" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRegionalManager" nillable="true" type="tns:ArrayOfvwRegionalManager" />
+  <xs:complexType name="ArrayOfvwRegionalManagerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwRegionalManagerRegion" nillable="true" type="tns:vwRegionalManagerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwRegionalManagerRegion" nillable="true" type="tns:ArrayOfvwRegionalManagerRegion" />
+  <xs:complexType name="vwRegionalManagerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionalManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionalManagerID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwRegionalManagerRegion" nillable="true" type="tns:vwRegionalManagerRegion" />
+  <xs:complexType name="ArrayOfmstShelterType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstShelterType" nillable="true" type="tns:mstShelterType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstShelterType" nillable="true" type="tns:ArrayOfmstShelterType" />
+  <xs:complexType name="mstShelterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ShelterType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShelterTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstShelterType" nillable="true" type="tns:mstShelterType" />
+  <xs:complexType name="ArrayOfmstSiteType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstSiteType" nillable="true" type="tns:mstSiteType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstSiteType" nillable="true" type="tns:ArrayOfmstSiteType" />
+  <xs:complexType name="mstSiteType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteTypeID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstSiteType" nillable="true" type="tns:mstSiteType" />
+  <xs:complexType name="ArrayOfmstSTIP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstSTIP" nillable="true" type="tns:mstSTIP" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstSTIP" nillable="true" type="tns:ArrayOfmstSTIP" />
+  <xs:complexType name="mstSTIP">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="STIPCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstSTIP" nillable="true" type="tns:mstSTIP" />
+  <xs:complexType name="vwSTIPProductPIC">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HTMLPartialPanel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PIC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="STIPActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="STIPCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPProductPIC" nillable="true" type="tns:vwSTIPProductPIC" />
+  <xs:complexType name="ArrayOfvwSTIPProductPIC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPProductPIC" nillable="true" type="tns:vwSTIPProductPIC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPProductPIC" nillable="true" type="tns:ArrayOfvwSTIPProductPIC" />
+  <xs:complexType name="ArrayOfvwTeritory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTeritory" nillable="true" type="tns:vwTeritory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTeritory" nillable="true" type="tns:ArrayOfvwTeritory" />
+  <xs:complexType name="vwTeritory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTeritory" nillable="true" type="tns:vwTeritory" />
+  <xs:complexType name="ArrayOfvwTeritoryVillage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTeritoryVillage" nillable="true" type="tns:vwTeritoryVillage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTeritoryVillage" nillable="true" type="tns:ArrayOfvwTeritoryVillage" />
+  <xs:complexType name="vwTeritoryVillage">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AreaID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DistrictID" type="xs:int" />
+          <xs:element minOccurs="0" name="DistrictName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VillageID" type="xs:int" />
+          <xs:element minOccurs="0" name="VillageName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTeritoryVillage" nillable="true" type="tns:vwTeritoryVillage" />
+  <xs:complexType name="ArrayOfmstTowerHeight">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstTowerHeight" nillable="true" type="tns:mstTowerHeight" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstTowerHeight" nillable="true" type="tns:ArrayOfmstTowerHeight" />
+  <xs:complexType name="mstTowerHeight">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TowerHeight" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstTowerHeight" nillable="true" type="tns:mstTowerHeight" />
+  <xs:complexType name="ArrayOfmstTowerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstTowerType" nillable="true" type="tns:mstTowerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstTowerType" nillable="true" type="tns:ArrayOfmstTowerType" />
+  <xs:complexType name="mstTowerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TowerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerTypeID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstTowerType" nillable="true" type="tns:mstTowerType" />
+  <xs:complexType name="ArrayOfvwListStatusAquisition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwListStatusAquisition" nillable="true" type="tns:vwListStatusAquisition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwListStatusAquisition" nillable="true" type="tns:ArrayOfvwListStatusAquisition" />
+  <xs:complexType name="vwListStatusAquisition">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandStatusID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwListStatusAquisition" nillable="true" type="tns:vwListStatusAquisition" />
+  <xs:complexType name="ArrayOfvwListSiteAvailability">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwListSiteAvailability" nillable="true" type="tns:vwListSiteAvailability" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwListSiteAvailability" nillable="true" type="tns:ArrayOfvwListSiteAvailability" />
+  <xs:complexType name="vwListSiteAvailability">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteAvailabilityID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwListSiteAvailability" nillable="true" type="tns:vwListSiteAvailability" />
+  <xs:complexType name="ArrayOfvwListTenantType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwListTenantType" nillable="true" type="tns:vwListTenantType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwListTenantType" nillable="true" type="tns:ArrayOfvwListTenantType" />
+  <xs:complexType name="vwListTenantType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TenantType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwListTenantType" nillable="true" type="tns:vwListTenantType" />
+  <xs:complexType name="vwSiteSTIPInputHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NextColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NextColoTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSiteSTIPInputHeader" nillable="true" type="tns:vwSiteSTIPInputHeader" />
+  <xs:complexType name="ArrayOfvmSiteSTIPInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSiteSTIPInput" nillable="true" type="tns:vmSiteSTIPInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSiteSTIPInput" nillable="true" type="tns:ArrayOfvmSiteSTIPInput" />
+  <xs:complexType name="vmSiteSTIPInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NextColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NextColoTypeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="siteDetailList" nillable="true" type="tns:ArrayOfvwSiteSTIPInputDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSiteSTIPInput" nillable="true" type="tns:vmSiteSTIPInput" />
+  <xs:complexType name="ArrayOfvwSiteSTIPInputDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSiteSTIPInputDetail" nillable="true" type="tns:vwSiteSTIPInputDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSiteSTIPInputDetail" nillable="true" type="tns:ArrayOfvwSiteSTIPInputDetail" />
+  <xs:complexType name="vwSiteSTIPInputDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColoType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSiteSTIPInputDetail" nillable="true" type="tns:vwSiteSTIPInputDetail" />
+  <xs:complexType name="vwSTIPSiteSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsLive" type="xs:int" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductIDLive" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteIDLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPSiteSurvey" nillable="true" type="tns:vwSTIPSiteSurvey" />
+  <xs:complexType name="ArrayOfvwSTIPSiteSurvey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPSiteSurvey" nillable="true" type="tns:vwSTIPSiteSurvey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPSiteSurvey" nillable="true" type="tns:ArrayOfvwSTIPSiteSurvey" />
+  <xs:complexType name="trxSiteSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateInCharge" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductIDLive" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumberLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteIDLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxSiteSurvey" nillable="true" type="tns:trxSiteSurvey" />
+  <xs:complexType name="ArrayOftrxSiteSurvey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxSiteSurvey" nillable="true" type="tns:trxSiteSurvey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxSiteSurvey" nillable="true" type="tns:ArrayOftrxSiteSurvey" />
+  <xs:complexType name="vwSTIPApproval">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatusID" type="xs:int" />
+          <xs:element minOccurs="0" name="AreaOperation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedByID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeadAccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PIC" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PICType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLNPowerKVA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RFITargetDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RepeatOrder" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StipType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerTypeID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPApproval" nillable="true" type="tns:vwSTIPApproval" />
+  <xs:complexType name="ArrayOfvwSTIPApproval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPApproval" nillable="true" type="tns:vwSTIPApproval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPApproval" nillable="true" type="tns:ArrayOfvwSTIPApproval" />
+  <xs:complexType name="vmSTIPApprovalDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stipApprovalDetail" nillable="true" type="tns:vwSTIPApprovalDetail" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPApprovalDetail" nillable="true" type="tns:vmSTIPApprovalDetail" />
+  <xs:complexType name="vwSTIPApprovalDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BTSHotelStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Batch" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Capacity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColocationType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompensatedSONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Core" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CrossCompany" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CrossCustomer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DRMDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateInCharge" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Height" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MLADate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MLANumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumberOfAntenna" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NumberOfSectoral" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PLNPowerFrom" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PLNPowerKVA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLNPowerTo" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProjectInitiator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RFITargetDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SOWCustomerProduct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPInputRequestDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShelterType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteIDBTSHotel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TBGAsset" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TenantToBeRelocated" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TowerType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPApprovalDetail" nillable="true" type="tns:vwSTIPApprovalDetail" />
+  <xs:complexType name="vmSTIPApprovalReport">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stipApprovalReport" nillable="true" type="tns:vwSTIPApprovalReport" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPApprovalReport" nillable="true" type="tns:vmSTIPApprovalReport" />
+  <xs:complexType name="vwSTIPApprovalReport">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AMSignatureFileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AROSignatureFileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerSignature" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="AreaOperation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperationID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AreaOperationSignature" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="BTSHotelStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDateReport" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAMSignatureFileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerSignature" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="LeadPMSignatureFileContentType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerSignature" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLNPowerKVA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantToBeRelocated" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPApprovalReport" nillable="true" type="tns:vwSTIPApprovalReport" />
+  <xs:complexType name="ArrayOfvwSTIPApprovalHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPApprovalHistory" nillable="true" type="tns:vwSTIPApprovalHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPApprovalHistory" nillable="true" type="tns:ArrayOfvwSTIPApprovalHistory" />
+  <xs:complexType name="vwSTIPApprovalHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedByID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPApprovalHistory" nillable="true" type="tns:vwSTIPApprovalHistory" />
+  <xs:complexType name="vmSTIPApproval">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Action" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatusID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RepeatOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPApproval" nillable="true" type="tns:vmSTIPApproval" />
+  <xs:complexType name="vmSTIPInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BTSHotelSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BulkyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentOrderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberRelocation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="order" nillable="true" type="tns:mstOrder" />
+          <xs:element minOccurs="0" name="orderAdditional" nillable="true" type="tns:mstOrderAdditional" />
+          <xs:element minOccurs="0" name="orderAssetSupport" nillable="true" type="tns:mstOrderAssetSupport" />
+          <xs:element minOccurs="0" name="orderIBS" nillable="true" type="tns:mstOrderIBS" />
+          <xs:element minOccurs="0" name="orderMCP" nillable="true" type="tns:mstOrderMCP" />
+          <xs:element minOccurs="0" name="site" nillable="true" type="tns:mstSite" />
+          <xs:element minOccurs="0" name="stip" nillable="true" type="tns:trxSTIP" />
+          <xs:element minOccurs="0" name="stipCrossCompanyMLA" nillable="true" type="tns:trxSTIPCrossCompanyMLA" />
+          <xs:element minOccurs="0" name="stipInvoiceCustomer" nillable="true" type="tns:trxSTIPInvoiceCustomer" />
+          <xs:element minOccurs="0" name="tenant" nillable="true" type="tns:mstTenant" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPInput" nillable="true" type="tns:vmSTIPInput" />
+  <xs:complexType name="mstOrder">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLNPowerKVA" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SOWCustomerProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrder" nillable="true" type="tns:mstOrder" />
+  <xs:complexType name="mstOrderAdditional">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Area" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Capacity" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Core" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PLNPowerFrom" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PLNPowerTo" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrderAdditional" nillable="true" type="tns:mstOrderAdditional" />
+  <xs:complexType name="mstOrderAssetSupport">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BTSHotelStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrderAssetSupport" nillable="true" type="tns:mstOrderAssetSupport" />
+  <xs:complexType name="mstOrderIBS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NumberOfAntenna" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NumberOfSectoral" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrderIBS" nillable="true" type="tns:mstOrderIBS" />
+  <xs:complexType name="mstOrderMCP">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Capacity" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Core" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrderMCP" nillable="true" type="tns:mstOrderMCP" />
+  <xs:complexType name="mstSite">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Height" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LatitudeSitac" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LongitudeSitac" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ShelterTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerTypeID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstSite" nillable="true" type="tns:mstSite" />
+  <xs:complexType name="trxSTIP">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DRMDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MLADate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MLANumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OMPrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PriceAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PriceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProjectInitiator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RFITargetDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIRO" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="STIPInputRequestDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxSTIP" nillable="true" type="tns:trxSTIP" />
+  <xs:complexType name="trxSTIPCrossCompanyMLA">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CrossCompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="trxSTIPCrossCompanyMLAID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxSTIPCrossCompanyMLA" nillable="true" type="tns:trxSTIPCrossCompanyMLA" />
+  <xs:complexType name="trxSTIPInvoiceCustomer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InvoiceCustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="trxSTIPInvoiceCustomerID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxSTIPInvoiceCustomer" nillable="true" type="tns:trxSTIPInvoiceCustomer" />
+  <xs:complexType name="mstTenant">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstTenant" nillable="true" type="tns:mstTenant" />
+  <xs:complexType name="vmSTIPInputSiteSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BulkyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="siteSurvey" nillable="true" type="tns:trxSiteSurvey" />
+          <xs:element minOccurs="0" name="stipSiteSurvey" nillable="true" type="tns:trxSTIPSiteSurvey" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPInputSiteSurvey" nillable="true" type="tns:vmSTIPInputSiteSurvey" />
+  <xs:complexType name="trxSTIPSiteSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PriceAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPNumberLegacy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPSurveyRequestDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxSTIPSiteSurvey" nillable="true" type="tns:trxSTIPSiteSurvey" />
+  <xs:complexType name="vmSTIPInputRepeatOrder">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentOrderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="stip" nillable="true" type="tns:trxSTIP" />
+          <xs:element minOccurs="0" name="stipCrossCompanyMLA" nillable="true" type="tns:trxSTIPCrossCompanyMLA" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPInputRepeatOrder" nillable="true" type="tns:vmSTIPInputRepeatOrder" />
+  <xs:complexType name="vmSTIPInputCompensation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DocumentName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DocumentOrderID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="order" nillable="true" type="tns:mstOrder" />
+          <xs:element minOccurs="0" name="orderCompensation" nillable="true" type="tns:mstOrderCompensation" />
+          <xs:element minOccurs="0" name="orderCompensationItemList" nillable="true" type="tns:ArrayOfidxOrderCompensationItem" />
+          <xs:element minOccurs="0" name="site" nillable="true" type="tns:mstSite" />
+          <xs:element minOccurs="0" name="stip" nillable="true" type="tns:trxSTIP" />
+          <xs:element minOccurs="0" name="tenant" nillable="true" type="tns:mstTenant" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPInputCompensation" nillable="true" type="tns:vmSTIPInputCompensation" />
+  <xs:complexType name="mstOrderCompensation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompensatedSONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TBGAsset" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstOrderCompensation" nillable="true" type="tns:mstOrderCompensation" />
+  <xs:complexType name="ArrayOfidxOrderCompensationItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="idxOrderCompensationItem" nillable="true" type="tns:idxOrderCompensationItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfidxOrderCompensationItem" nillable="true" type="tns:ArrayOfidxOrderCompensationItem" />
+  <xs:complexType name="idxOrderCompensationItem">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompensationItemID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="idxOrderCompensationItemID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="idxOrderCompensationItem" nillable="true" type="tns:idxOrderCompensationItem" />
+  <xs:complexType name="vwSTIPUploadApprovalHeader">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BulkyCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LeadAccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalRejected" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSTIP" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalWaitingForApprovalAM" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalWaitingForApprovalLeadAM" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="UploadSequence" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPUploadApprovalHeader" nillable="true" type="tns:vwSTIPUploadApprovalHeader" />
+  <xs:complexType name="ArrayOfvwSTIPUploadApprovalHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPUploadApprovalHeader" nillable="true" type="tns:vwSTIPUploadApprovalHeader" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPUploadApprovalHeader" nillable="true" type="tns:ArrayOfvwSTIPUploadApprovalHeader" />
+  <xs:complexType name="vwSTIPUploadApprovalDetailSurvey">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatusID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BatchName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DirectorateInCharge" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPSurveyRequestDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyCustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UploadSequence" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPUploadApprovalDetailSurvey" nillable="true" type="tns:vwSTIPUploadApprovalDetailSurvey" />
+  <xs:complexType name="ArrayOfvwSTIPUploadApprovalDetailSurvey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPUploadApprovalDetailSurvey" nillable="true" type="tns:vwSTIPUploadApprovalDetailSurvey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPUploadApprovalDetailSurvey" nillable="true" type="tns:ArrayOfvwSTIPUploadApprovalDetailSurvey" />
+  <xs:complexType name="ArrayOfvmSTIPApproval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSTIPApproval" nillable="true" type="tns:vmSTIPApproval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSTIPApproval" nillable="true" type="tns:ArrayOfvmSTIPApproval" />
+  <xs:complexType name="vwSTIPUploadApprovalDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ApprovalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BatchID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="BatchName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColocationType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DRMDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LatitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeadProjectManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LongitudeMarketing" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MLADate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MLANumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLNPowerKVA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PriceAmount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ProjectInitiator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RFITargetDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SOWCustomerProduct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPApprovalStatus" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="STIPDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPInputRequestDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STIPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ShelterType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteSurveyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerHeight" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UploadSequence" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSTIPUploadApprovalDetail" nillable="true" type="tns:vwSTIPUploadApprovalDetail" />
+  <xs:complexType name="ArrayOfvwSTIPUploadApprovalDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSTIPUploadApprovalDetail" nillable="true" type="tns:vwSTIPUploadApprovalDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSTIPUploadApprovalDetail" nillable="true" type="tns:ArrayOfvwSTIPUploadApprovalDetail" />
+  <xs:complexType name="ArrayOfvmSTIPInputMainValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSTIPInputMainValidate" nillable="true" type="tns:vmSTIPInputMainValidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSTIPInputMainValidate" nillable="true" type="tns:ArrayOfvmSTIPInputMainValidate" />
+  <xs:complexType name="vmSTIPInputMainValidate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="strAccountManagerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strBatchName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strColocationType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strCompanyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strCustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strCustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strCustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDRMDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strLatitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strLeadProjectManager" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strLeasePeriod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strLongitude" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strMLADate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strMLANumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPLNPowerKVA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPriceAmount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strProjectInitiator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strRFITarget" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strRegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strRemark" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strSOWCustomerProduct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strSTIPInputRequestDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strShelterType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strSiteSurvey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strTowerHeight" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmSTIPInputMainValidate" nillable="true" type="tns:vmSTIPInputMainValidate" />
+  <xs:complexType name="vmResponseMainValidate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSTIPInputValidate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="STIPInputMainList" nillable="true" type="tns:ArrayOfvmSTIPInput" />
+          <xs:element minOccurs="0" name="STIPInputMainValidateList" nillable="true" type="tns:ArrayOfvmSTIPInputMainValidate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmResponseMainValidate" nillable="true" type="tns:vmResponseMainValidate" />
+  <xs:complexType name="BaseSTIPInputValidate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="ErrorInformationList" nillable="true" type="tns:ArrayOfvmResponseErrorInformation" />
+          <xs:element minOccurs="0" name="TotalFailed" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSuccess" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseSTIPInputValidate" nillable="true" type="tns:BaseSTIPInputValidate" />
+  <xs:complexType name="ArrayOfvmResponseErrorInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmResponseErrorInformation" nillable="true" type="tns:vmResponseErrorInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmResponseErrorInformation" nillable="true" type="tns:ArrayOfvmResponseErrorInformation" />
+  <xs:complexType name="vmResponseErrorInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vmResponseErrorInformation" nillable="true" type="tns:vmResponseErrorInformation" />
+  <xs:complexType name="ArrayOfvmSTIPInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSTIPInput" nillable="true" type="tns:vmSTIPInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSTIPInput" nillable="true" type="tns:ArrayOfvmSTIPInput" />
+  <xs:complexType name="ArrayOfvmSTIPInputSiteSurveyValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSTIPInputSiteSurveyValidate" nillable="true" type="tns:vmSTIPInputSiteSurveyValidate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSTIPInputSiteSurveyValidate" nillable="true" type="tns:ArrayOfvmSTIPInputSiteSurveyValidate" />
+  <xs:complexType name="vmSTIPInputSiteSurveyValidate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="strAccountManagerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strBatchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strCustomerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strCustomerSiteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strDirectoratName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strDrmDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strInputRequestDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strLatitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strLeadPM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strLongitude" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strRemark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strResidenceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strSitename" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="vmSTIPInputSiteSurveyValidate" nillable="true" type="tns:vmSTIPInputSiteSurveyValidate" />
+  <xs:complexType name="vmResponseSiteSurveyValidate">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseSTIPInputValidate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="STIPInputSiteSurveyList" nillable="true" type="tns:ArrayOfvmSTIPInputSiteSurvey" />
+          <xs:element minOccurs="0" name="STIPInputSiteSurveyValidateList" nillable="true" type="tns:ArrayOfvmSTIPInputSiteSurveyValidate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmResponseSiteSurveyValidate" nillable="true" type="tns:vmResponseSiteSurveyValidate" />
+  <xs:complexType name="ArrayOfvmSTIPInputSiteSurvey">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmSTIPInputSiteSurvey" nillable="true" type="tns:vmSTIPInputSiteSurvey" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmSTIPInputSiteSurvey" nillable="true" type="tns:ArrayOfvmSTIPInputSiteSurvey" />
+  <xs:complexType name="vwTenantSTIPInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColoType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantSTIPInput" nillable="true" type="tns:vwTenantSTIPInput" />
+  <xs:complexType name="ArrayOfvwTenantSTIPInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantSTIPInput" nillable="true" type="tns:vwTenantSTIPInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantSTIPInput" nillable="true" type="tns:ArrayOfvwTenantSTIPInput" />
+  <xs:complexType name="vwTenantSTIPRelocationInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsReloc" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelocationProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RelocationReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantSTIPRelocationInput" nillable="true" type="tns:vwTenantSTIPRelocationInput" />
+  <xs:complexType name="ArrayOfvwTenantSTIPRelocationInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantSTIPRelocationInput" nillable="true" type="tns:vwTenantSTIPRelocationInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantSTIPRelocationInput" nillable="true" type="tns:ArrayOfvwTenantSTIPRelocationInput" />
+  <xs:complexType name="vwTenantRelocation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CAFDismantleNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FPNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsReloc" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelocationProduct" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RelocationProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RelocationReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumberLive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteIDLive" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantRelocation" nillable="true" type="tns:vwTenantRelocation" />
+  <xs:complexType name="ArrayOfvwTenantRelocation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantRelocation" nillable="true" type="tns:vwTenantRelocation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantRelocation" nillable="true" type="tns:ArrayOfvwTenantRelocation" />
+  <xs:complexType name="vwTenantRepeatOrderInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ColoType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ColoTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDateBAPS" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FollowUp" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Latitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Longitude" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductSiteID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ProvinceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RepeatOrder" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STIPID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDateBAPS" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantRepeatOrderInput" nillable="true" type="tns:vwTenantRepeatOrderInput" />
+  <xs:complexType name="ArrayOfvwTenantRepeatOrderInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantRepeatOrderInput" nillable="true" type="tns:vwTenantRepeatOrderInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantRepeatOrderInput" nillable="true" type="tns:ArrayOfvwTenantRepeatOrderInput" />
+  <xs:complexType name="vmUserCredential">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserRoleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserCredential" nillable="true" type="tns:vmUserCredential" />
+  <xs:complexType name="ArrayOfvmUserTaskToDo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vmUserTaskToDo" nillable="true" type="tns:vmUserTaskToDo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvmUserTaskToDo" nillable="true" type="tns:ArrayOfvmUserTaskToDo" />
+  <xs:complexType name="vmUserTaskToDo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element minOccurs="0" name="TaskToDo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vmUserTaskToDo" nillable="true" type="tns:vmUserTaskToDo" />
+  <xs:complexType name="ArrayOfvwListLandDataPKS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwListLandDataPKS" nillable="true" type="tns:vwListLandDataPKS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwListLandDataPKS" nillable="true" type="tns:ArrayOfvwListLandDataPKS" />
+  <xs:complexType name="vwListLandDataPKS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BAKDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BAKNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDateLease" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FormType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandSizeArea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandSizeLength" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LandSizeWidth" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LandlordAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandlordName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePerYear" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LeasePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NumberOfPKS" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperatorSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OperatorSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RoadAccessArea" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RoadAccessLength" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RoadAccessWidth" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SiteAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteAvailable" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDateLease" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantTypeID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwListLandDataPKS" nillable="true" type="tns:vwListLandDataPKS" />
+  <xs:complexType name="ArrayOfvwBAKDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwBAKDetail" nillable="true" type="tns:vwBAKDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwBAKDetail" nillable="true" type="tns:ArrayOfvwBAKDetail" />
+  <xs:complexType name="vwBAKDetail">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BAKDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BAKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BAKType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePerYear" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LeasePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SONumb" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwBAKDetail" nillable="true" type="tns:vwBAKDetail" />
+  <xs:complexType name="ArrayOfvwASMPKS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKS" nillable="true" type="tns:vwASMPKS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKS" nillable="true" type="tns:ArrayOfvwASMPKS" />
+  <xs:complexType name="vwASMPKS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BAKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndLeaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExpiryDay" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LeasePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PKSEditReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSEditReasonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSForm" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSID" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RenewalCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SoNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartLeaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKS" nillable="true" type="tns:vwASMPKS" />
+  <xs:complexType name="ArrayOftrxASMPKSLeased">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxASMPKSLeased" nillable="true" type="tns:trxASMPKSLeased" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxASMPKSLeased" nillable="true" type="tns:ArrayOftrxASMPKSLeased" />
+  <xs:complexType name="trxASMPKSLeased">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccessRoadStatementLetterDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BAKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BMFee" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BankID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ContactPersonAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactPersonPhoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ElectricityFee" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EndLeaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FamilyApprovalLetterDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LandDocument" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandLength" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LandWidth" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LandlordAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandlordIDNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandlordName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePaymentPeriod" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasePricePerYear" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasePriceTotal" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NextPaymentDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NonDisputeLetterDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="NotaryAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotaryAgreement" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NotaryName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSEditReasonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSLeasedID" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSRestriction" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RenewalCode" type="xs:int" />
+          <xs:element minOccurs="0" name="RoadLength" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RoadWidth" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SHMNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteAvailabilityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteCategoryID" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartLeaseDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxASMPKSLeased" nillable="true" type="tns:trxASMPKSLeased" />
+  <xs:complexType name="ArrayOftrxASMPKSOwned">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="trxASMPKSOwned" nillable="true" type="tns:trxASMPKSOwned" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftrxASMPKSOwned" nillable="true" type="tns:ArrayOftrxASMPKSOwned" />
+  <xs:complexType name="trxASMPKSOwned">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BAKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LandOwnerAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandOwnerDistrictID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LandOwnerPostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LandOwnerProvinceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LandOwnerResidenceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LandOwnerVillageID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSEditReasonID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSOwnedID" type="xs:int" />
+          <xs:element minOccurs="0" name="PKSTypeID" type="xs:int" />
+          <xs:element minOccurs="0" name="RenewalCode" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteAvailabilityID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteCategoryID" type="xs:int" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerOwnerAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerOwnerCorrespondence" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerOwnerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TowerPostalCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="trxASMPKSOwned" nillable="true" type="tns:trxASMPKSOwned" />
+  <xs:complexType name="ArrayOfvwTenantDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwTenantDescription" nillable="true" type="tns:vwTenantDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwTenantDescription" nillable="true" type="tns:ArrayOfvwTenantDescription" />
+  <xs:complexType name="vwTenantDescription">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SONumb" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwTenantDescription" nillable="true" type="tns:vwTenantDescription" />
+  <xs:complexType name="ArrayOfvwBAKLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwBAKLog" nillable="true" type="tns:vwBAKLog" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwBAKLog" nillable="true" type="tns:ArrayOfvwBAKLog" />
+  <xs:complexType name="vwBAKLog">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BAKDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BAKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BAKType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LeasePerYear" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LeasePeriod" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LeasePrice" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SONumb" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwBAKLog" nillable="true" type="tns:vwBAKLog" />
+  <xs:complexType name="ArrayOfvwASMPKSExpiryStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKSExpiryStatistic" nillable="true" type="tns:vwASMPKSExpiryStatistic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKSExpiryStatistic" nillable="true" type="tns:ArrayOfvwASMPKSExpiryStatistic" />
+  <xs:complexType name="vwASMPKSExpiryStatistic">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn1Year" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Months" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Years" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn6Months" type="xs:int" />
+          <xs:element minOccurs="0" name="NotExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalPKS" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSite" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKSExpiryStatistic" nillable="true" type="tns:vwASMPKSExpiryStatistic" />
+  <xs:complexType name="ArrayOfvwASMPKSExpiryPerCompany">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKSExpiryPerCompany" nillable="true" type="tns:vwASMPKSExpiryPerCompany" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKSExpiryPerCompany" nillable="true" type="tns:ArrayOfvwASMPKSExpiryPerCompany" />
+  <xs:complexType name="vwASMPKSExpiryPerCompany">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageLeasePrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn1Year" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Years" type="xs:int" />
+          <xs:element minOccurs="0" name="NotExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalPKS" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSite" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKSExpiryPerCompany" nillable="true" type="tns:vwASMPKSExpiryPerCompany" />
+  <xs:complexType name="ArrayOfvwASMPKSExpiryPerRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKSExpiryPerRegion" nillable="true" type="tns:vwASMPKSExpiryPerRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKSExpiryPerRegion" nillable="true" type="tns:ArrayOfvwASMPKSExpiryPerRegion" />
+  <xs:complexType name="vwASMPKSExpiryPerRegion">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageLeasePrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn1Year" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Years" type="xs:int" />
+          <xs:element minOccurs="0" name="NotExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPKS" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSite" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKSExpiryPerRegion" nillable="true" type="tns:vwASMPKSExpiryPerRegion" />
+  <xs:complexType name="ArrayOfvwASMPKSAverageLeasePricePerResidence">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKSAverageLeasePricePerResidence" nillable="true" type="tns:vwASMPKSAverageLeasePricePerResidence" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKSAverageLeasePricePerResidence" nillable="true" type="tns:ArrayOfvwASMPKSAverageLeasePricePerResidence" />
+  <xs:complexType name="vwASMPKSAverageLeasePricePerResidence">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageLeasePrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn1Year" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Years" type="xs:int" />
+          <xs:element minOccurs="0" name="NotExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RegionName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidenceID" type="xs:int" />
+          <xs:element minOccurs="0" name="ResidenceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalPKS" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKSAverageLeasePricePerResidence" nillable="true" type="tns:vwASMPKSAverageLeasePricePerResidence" />
+  <xs:complexType name="ArrayOfvwOrdersByTenantType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwOrdersByTenantType" nillable="true" type="tns:vwOrdersByTenantType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwOrdersByTenantType" nillable="true" type="tns:ArrayOfvwOrdersByTenantType" />
+  <xs:complexType name="vwOrdersByTenantType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CustomerSiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SONumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TenantID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwOrdersByTenantType" nillable="true" type="tns:vwOrdersByTenantType" />
+  <xs:complexType name="ArrayOfvwASMPKSExpiryPerProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwASMPKSExpiryPerProduct" nillable="true" type="tns:vwASMPKSExpiryPerProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwASMPKSExpiryPerProduct" nillable="true" type="tns:ArrayOfvwASMPKSExpiryPerProduct" />
+  <xs:complexType name="vwASMPKSExpiryPerProduct">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageLeasePrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Expired" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn1Year" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpiredIn3Years" type="xs:int" />
+          <xs:element minOccurs="0" name="NotExpired" type="xs:int" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProductID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalPKS" type="xs:int" />
+          <xs:element minOccurs="0" name="TotalSite" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwASMPKSExpiryPerProduct" nillable="true" type="tns:vwASMPKSExpiryPerProduct" />
+  <xs:complexType name="ArrayOfvwPKSType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwPKSType" nillable="true" type="tns:vwPKSType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwPKSType" nillable="true" type="tns:ArrayOfvwPKSType" />
+  <xs:complexType name="vwPKSType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PKSFlag" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwPKSType" nillable="true" type="tns:vwPKSType" />
+  <xs:complexType name="ArrayOfvwSiteCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwSiteCategory" nillable="true" type="tns:vwSiteCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwSiteCategory" nillable="true" type="tns:ArrayOfvwSiteCategory" />
+  <xs:complexType name="vwSiteCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SiteCategory" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteCategoryID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwSiteCategory" nillable="true" type="tns:vwSiteCategory" />
+  <xs:complexType name="ArrayOfvwStatusAquisiton">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwStatusAquisiton" nillable="true" type="tns:vwStatusAquisiton" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwStatusAquisiton" nillable="true" type="tns:ArrayOfvwStatusAquisiton" />
+  <xs:complexType name="vwStatusAquisiton">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SiteAvailabilityID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwStatusAquisiton" nillable="true" type="tns:vwStatusAquisiton" />
+  <xs:complexType name="ArrayOfvwBankName">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="vwBankName" nillable="true" type="tns:vwBankName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvwBankName" nillable="true" type="tns:ArrayOfvwBankName" />
+  <xs:complexType name="vwBankName">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BankID" type="xs:int" />
+          <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="vwBankName" nillable="true" type="tns:vwBankName" />
+  <xs:complexType name="ArrayOfmstASMPKSEditReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mstASMPKSEditReason" nillable="true" type="tns:mstASMPKSEditReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmstASMPKSEditReason" nillable="true" type="tns:ArrayOfmstASMPKSEditReason" />
+  <xs:complexType name="mstASMPKSEditReason">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseClass">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PKSEditReasonID" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdatedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="mstASMPKSEditReason" nillable="true" type="tns:mstASMPKSEditReason" />
+</xs:schema>

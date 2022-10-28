@@ -1,0 +1,544 @@
+﻿@{
+    ViewBag.Title = "PICA RASystem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="panelTransaction">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject bold">PICA</span>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div id="divFileterElectricity">
+                        <div class="table-toolbar">
+                            <form class="form-horizontal " id="formFilterElectricity" role="form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblCompany">Company :</label>
+                                                <div class="col-md-4">
+                                                    <select id="ddlCompany" class="form-control select2"></select>
+                                                </div>
+                                                <div>
+                                                    <div>
+                                                        <label class="col-md-2 control-label" id="lblProductName">Product Name : </label>
+                                                        <div class="col-md-4">
+                                                            <select id="ddlProductName" class="form-control select2"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <label class="col-md-2 control-label" id="lblCustomer">Customer : </label>
+                                                            <div class="col-md-4">
+                                                                <select id="ddlCustomer" class="form-control select2"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <div>
+                                                            <label class="col-md-2 control-label" id="lblTypeBaps">Type BAPS : </label>
+                                                            <div class="col-md-4">
+                                                                <select id="ddlTypeBaps" class="form-control select2"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <label class="col-md-2 control-label" id="lblStipCategory">STIP Category : </label>
+                                                            <div class="col-md-4">
+                                                                <select id="ddlSTIPCategory" class="form-control select2"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <div>
+                                                            <label class="col-md-2 control-label" id="lblActivityStatus">Activity Status : </label>
+                                                            <div class="col-md-4">
+                                                                <select id="ddlActivityStatus" class="form-control select2"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <label class="control-label col-md-5">
+                            </label>
+
+                            <button class="btn blue btSearch" type="button" style="align-content:center; align-items:center; align-self: center">
+                                <i class="fa fa-search"></i>&nbsp;Search
+                            </button>
+                            <button class="btn green btnReset" type="button">
+                                <i class="fa fa-refresh"></i>&nbsp;Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pnlSummary">
+    <div class="row pnlSummary">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold">Summary</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover tblSummary" id="tblSummary" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="vertical-align:text-top">Action</th>
+                                <th class="text-center">  SO Number  </th>
+                                <th class="text-center">Site ID</th>
+                                <th class="text-center">Site Name</th>
+                                <th class="text-center">Site ID Opr</th>
+                                <th class="text-center">Site Name Opr</th>
+                                <th class="text-center">Customer</th>
+                                <th class="text-center">Company</th>
+                                <th class="text-center">STIP Siro</th>
+                                <th class="text-center">Baps Type</th>
+                                <th class="text-center">Start Date BAPS</th>
+                                <th class="text-center">End Date BAPS</th>
+                                <th class="text-center">Start Date Invoice</th>
+                                <th class="text-center">End Date Invoice</th>
+                                <th class="text-center">Rental Amount</th>
+                                <th class="text-center">Service Amount</th>
+                                <th class="text-center">Total Amount Invoice</th>
+                                <th class="text-center">Status Activity</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchDescription" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="text" id="tbxSearchSonumb" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="btn blue btnSearchSummary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchSourceData" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchSourceData" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchSourceData" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchSourceData" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchColumn" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearchDescription" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            @*<button class="btn blue btnSearch" type="button">
+                                                    <i class="fa fa-search"></i>
+                                                </button>*@
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control tbxSearch" type="hidden" id="tbxSearch" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="panelDetail">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject bold">PICA</span>
+                    </div>
+                </div>
+
+                <div class="portlet-body">
+                    <div id="divFileterDetail">
+                        <div class="table-toolbar">
+                            <form class="form-horizontal " id="formFilterDetail" role="form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portlet light bordered">
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblSoNumber">SONumber :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbSONumber" type="text" class="form-control col-md-4" name="from" placeholder="SONumber">
+                                                </div>
+
+                                                <label class="col-md-2 control-label" id="lblCustomerInv">Customer Inv :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbCustomerInv" type="text" class="form-control col-md-4" name="from" placeholder="Customer Inv">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblSiteID">Site ID :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbSiteId" type="text" class="form-control col-md-4" name="from" placeholder="Site ID">
+                                                </div>
+
+                                                <label class="col-md-2 control-label" id="lblCompanyInv">Company Inv :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbCompanyInv" type="text" class="form-control col-md-4" name="from" placeholder="Company Inv">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblSiteName">Site Name :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbSiteName" type="text" class="form-control col-md-4" name="from" placeholder="Site Name">
+                                                </div>
+
+                                                <label class="col-md-2 control-label" id="lblPeriodeBaps">Periode Baps :</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-large date-picker input-daterange">
+                                                        <input id="drPeriodeBapsFrom" type="text" class="form-control col-md-4" name="from" placeholder="From">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input id="drPeriodeBapsTo" type="text" class="form-control col-md-4" name="to" placeholder="To">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblSiteName">Site ID Opr :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbSiteIdOpr" type="text" class="form-control col-md-4" name="from" placeholder="Site ID Opr">
+                                                </div>
+
+                                                <label class="col-md-2 control-label" id="lblPeriodeInv">Periode Invoice :</label>
+                                                <div class="col-md-4">
+                                                    <div class="input-group input-large date-picker input-daterange">
+                                                        <input id="drPeriodeInvoiceFrom" type="text" class="form-control col-md-4" name="from" placeholder="From">
+                                                        <span class="input-group-addon"> to </span>
+                                                        <input id="drPeriodeInvoiceTo" type="text" class="form-control col-md-4" name="to" placeholder="To">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label" id="lblSiteNameOpr">Site Name Opr :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbSiteNameOpr" type="text" class="form-control col-md-4" name="from" placeholder="Site Name Opr">
+                                                </div>
+
+                                                <label class="col-md-2 control-label" id="lblStipSiro">Stip SIRO :</label>
+                                                <div class="col-md-4">
+                                                    <input id="tbStipSiro" type="text" class="form-control col-md-4" name="from" placeholder="Stip SIRO">
+                                                    <input id="tbBapsType" type="hidden" class="form-control col-md-4" name="from" placeholder="Stip SIRO">
+                                                    <input id="tbActivityID" type="hidden" class="form-control col-md-4" name="from" placeholder="Stip SIRO">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <label class="control-label col-md-6">
+                            </label>
+
+                            <button class="btn red btBack" type="button" style="align-content:center; align-items:center; align-self: center">
+                                <i class="fa fa-backward"></i>&nbsp;Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pnlSummaryDetail">
+    <div class="row pnlSummaryDetail">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject bold">Summary</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover tblSummaryDetail" id="tblSummaryDetail" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="vertical-align:text-top">No</th>
+                                <th class="text-center">Activity Name</th>
+                                <th class="text-center">Durasi</th>
+                                <th class="text-center">Start Target</th>
+                                <th class="text-center">End Target</th>
+                                @*<th class="text-center">Start Actual</th>*@
+                                <th class="text-center">Finish Actual</th>
+                                <th class="text-center">LT Actual</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                           
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject bold">Add PICA</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="portlet-body">
+                        <form class="form-horizontal" id="formPICA" role="form">
+                            <div class="form-actions">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" id="lblCategoryPICA">Category PICA</label>
+                                    <div class="col-md-6">
+                                        <select id="ddlCategoryPICA" class="form-control select2"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" id="lblCategoryPICA">PICA</label>
+                                    <div class="col-md-6">
+                                        <select id="ddlPICA" class="form-control select2"></select>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" id="lblSiteIdOpr">Detail PICA</label>
+                                    <div class="col-md-6">
+                                        <textarea type="text" id="tbDetailPICA" Class="form-control" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" id="lblSiteIdOpr">Target Closed PICA</label>
+                                    <div class="col-md-6">
+                                        <input id="drTargetPica" type="text" class="form-control col-md-4" name="from" placeholder="From">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="control-label col-md-5">
+                            </label>
+
+                            <button class="btn blue btSave" type="button" style="align-content:center; align-items:center; align-self: center">
+                                <i class="fa fa-upload"></i>&nbsp;Save
+                            </button>
+                            <button class="btn green btCancel" type="button">
+                                <i class="fa fa-close"></i>&nbsp;Cancel
+                            </button>
+
+                            @*<div class="form-actions">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label"></label>
+                                    <div class="col-md-5">
+                                        <button class="btn blue btSave" type="button">
+                                            <i class="fa fa-upload"></i>&nbsp;Save
+                                        </button>
+                                    </div>
+
+                                    <label class="col-md-2 control-label"></label>
+                                    <div class="col-md-3">
+                                        <button class="btn red btCancel" type="button">
+                                            <i class="fa fa-close"></i>&nbsp;Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>*@
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalHistoryPICA" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject bold">History PICA</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="portlet-body">
+                        <table class="table table-striped table-bordered table-hover tblHistoryPICA" id="tblHistoryPICA" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" style="vertical-align:text-top">No</th>
+                                    <th class="text-center">SO Number</th>
+                                    <th class="text-center">Site Id</th>
+                                    <th class="text-center">Site Name</th>
+                                    <th class="text-center">Site Id Opr.</th>
+                                    <th class="text-center">Site Name Opr.</th>
+                                    <th class="text-center">Activity Name</th>
+                                    <th class="text-center">Category PICA</th>
+                                    <th class="text-center">PICA</th>
+                                    <th class="text-center">Detail PICA</th>
+                                    <th class="text-center">Stip Siro</th>
+                                    <th class="text-center">Target PICA</th>
+                                    <th class="text-center">Created Date</th>
+                                    <th class="text-center">Created By</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="@Url.Content("~/scripts/PICARASystem/PICARA.js")" type="text/javascript"></script>
+

@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "Email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="pnlSummary">
+    @*Filter*@
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="collapse"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Email Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" id="tbSearchEmailName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Status</label>
+                                        <div class="col-md-9">
+                                            <div class="mt-radio-inline">
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbSearchIsActiveAll" name="rbIsActive" value="-1" checked> All
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbSearchIsActiveYes" name="rbIsActive" value="1"> Yes
+                                                    <span></span>
+                                                </label>
+                                                <label class="mt-radio">
+                                                    <input type="radio" id="rbSearchIsActiveNo" name="rbIsActive" value="0"> No
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button" data-style="zoom-in">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                            <button type="button" id="btReset" class="btn blue-oleo">
+                                <i class="fa fa-refresh"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_PanelSearchBegin")
+    @Html.Partial("_PanelSearchZero")
+
+    @*Search Result*@
+    <div class="row panelSearchResult ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject">Search Result</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover" id="tblSummaryData">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Email</th>
+                                <th>Is Active</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="pnlTransaction">
+    @*Panel Role Transaction*@
+    <div class="row panelTransaction ">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-edit"></i>
+                        <span class="caption-subject">Edit Email</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <form id="formTransaction" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Status</label>
+                                        <div class="col-md-4">
+                                            <input type="checkbox" id="chStatus" checked class="make-switch" data-on-text="Active" data-off-text="Inactive" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Email Name<i class="font-red">*</i></label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="tbEmailName" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Email Subject<i class="font-red">*</i></label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="tbSubject" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-3 col-md-4">
+                                            <button type="button" class="btn green" data-toggle="modal" href="#mdlEmailVariable">
+                                                <i class="fa fa-book"></i> Key Library
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Email Body<i class="font-red">*</i></label>
+                                        <div class="col-md-8">
+                                            <div id="snBody"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-4">
+                                            <button type="button" class="btn blue-oleo btCancel">
+                                                <i class="fa fa-chevron-left"></i> Cancel
+                                            </button>
+                                            <button type="submit" id="btSubmit" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                                <i class="fa fa-save"></i> Save
+                                            </button>
+                                        </div>
+                                        <div class="col-md-5"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- modal-content -->
+<div class="modal fade" id="mdlEmailVariable" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"Key Library</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-bordered table-hover" id="tblEmailVariable">
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue-oleo" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="hdAllowEdit" value="@ViewBag.AllowEdit" />
+
+<script src="@Url.Content("~/scripts/admin/email.js")" type="text/javascript"></script>

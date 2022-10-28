@@ -1,0 +1,291 @@
+﻿@model ARSystemFrontEnd.Domain.Models.uspARCashInForecastVsForecast
+@{
+
+    int currentQuarter = Convert.ToInt32(Math.Floor((decimal)((DateTime.Today.Month -1 ) + 2) / 3));
+    int numberOfMonthWithinQuarter = 0;
+    int startMonth = currentQuarter * 3 - 2;
+    for (int i = 0; i < 3; i++)
+    {
+        if ((DateTime.Now.Month - 1) == (startMonth + i))
+        {
+            numberOfMonthWithinQuarter = i + 1;
+        }
+    }
+    string[] monthsOfQuarters = (currentQuarter == 1) ? monthsOfQuarters = new string[] { "JAN", "FEB", "MAR" } : (currentQuarter == 2) ? monthsOfQuarters = new string[] { "APR", "MAY", "JUN" } :
+        (currentQuarter == 3) ? monthsOfQuarters = new string[] { "JUL", "AUG", "SEP" } : (currentQuarter == 4) ? monthsOfQuarters = new string[] { "OCT", "NOV", "DEC" } : new string[] { "", "", "" };
+
+}
+
+<div id="mdlUpdateForecastForecast" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Update Forecast Vs Forecast</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formForecastVsForecast" class="form-horizontal" role="form" name="formForecastVsForecast">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Operator<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="OperatorID" name="OperatorID" value="@Model.OperatorID" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Year<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="Year" name="Year" value="@Model.Year" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Quarter<i class="font-red"></i></label>
+                                    <div class="col-md-6">
+                                        <input type="text" readonly="readonly" class="col-md-6 form-control" id="Quarter" name="Quarter" value="@Model.Quarter" />
+                                    </div>
+                                </div>
+
+
+                                <hr />
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Forecast <span>@((monthsOfQuarters != null) ? monthsOfQuarters[0] : "M1")</span> <i class="font-red"></i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM1Idr" name="TotalForecastM1Idr" value="@Model.TotalForecastM1Idr"readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM1Usd" name="TotalForecastM1Usd" value="@Model.TotalForecastM1Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Forecast <span>@((monthsOfQuarters != null) ? monthsOfQuarters[1] : "M2")</span> <i class="font-red"></i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM2Idr" name="TotalForecastM2Idr" value="@Model.TotalForecastM2Idr" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM2Usd" name="TotalForecastM2Usd" value="@Model.TotalForecastM2Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Forecast <span>@((monthsOfQuarters != null) ? monthsOfQuarters[2] : "M3")</span><i class="font-red"></i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM3Idr" name="TotalForecastM3Idr" value="@Model.TotalForecastM3Idr" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalForecastM3Usd" name="TotalForecastM3Usd" value="@Model.TotalForecastM3Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Last Month Period<i class="font-red"></i></label>
+                                    @*<div class="col-md-6" style="padding:0">
+                                                    <input type="text" class="form-control" id="TotalLastPeriod" name="TotalLastPeriod" value="@Model.TotalLastPeriod" readonly="readonly"/>
+                                        </div>*@
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="VarianceIdr" name="VarianceIdr" value="@Model.TotalLastPeriodIdr" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="VarianceUsd" name="VarianceUsd" value="@Model.TotalLastPeriodUsd" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @* ================================================================================== *@
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Actual <span>@((monthsOfQuarters != null) ? monthsOfQuarters[0] : "M1")</span><i class="font-red"></i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalActualM1Idr" name="TotalActualM1Idr" value="@Model.TotalActualM1Idr"readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalActualM1Usd" name="TotalActualM1Usd" value="@Model.TotalActualM1Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Actual <span>@((monthsOfQuarters != null) ? monthsOfQuarters[1] : "M2")</span><i class="font-red"></i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalActualM2Idr" name="TotalActualM2Idr" value="@Model.TotalActualM2Idr" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalActualM2Usd" name="TotalActualM2Usd" value="@Model.TotalActualM2Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Actual <span>@((monthsOfQuarters != null) ? monthsOfQuarters[2] : "M3")</span><i class="font-red">*</i></label>
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalActualM3Idr" name="TotalActualM3Idr" value="@Model.TotalActualM3Idr" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalActualM3Usd" name="TotalActualM3Usd" value="@Model.TotalActualM3Usd" readonly="readonly"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Total Current Period<i class="font-red"></i></label>
+                                    @*<div class="col-md-6" style="padding:0">
+                                                    <input type="text" class="form-control" id="TotalCurrentPeriod" name="TotalCurrentPeriod" value="@Model.TotalCurrentPeriod" readonly="readonly"/>
+                                    </div>*@
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="TotalCurrentPeriodIdr" name="TotalCurrentPeriodIdr" value="@Model.TotalCurrentPeriodIdr" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="TotalCurrentPeriodUrl" name="TotalCurrentPeriodUrl" value="@Model.TotalCurrentPeriodUsd" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Variance<i class="font-red"></i></label>
+                                    @*<div class="col-md-6" style="padding:0">
+                                                    <input type="text" class="form-control" id="Variance" name="Variance" value="@Model.Variance" readonly="readonly"/>
+                                    </div>*@
+                                    <div class="col-md-6" style="padding:0">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">IDR</span>
+                                                    <input type="text" class="form-control" id="VarianceIdr" name="VarianceIdr" value="@Model.VarianceIdr" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">USD</span>
+                                                    <input type="text" class="form-control" id="VarianceUsd" name="VarianceUsd" value="@Model.VarianceUsd" readonly="readonly" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Remarks<i class="font-red">*</i></label>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <textarea class="col-md-6 form-control" id="Remarks" name="Remarks"  rows="7">@Model.Remarks</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn blue-oleo btCancelFormForecastForecast">
+                                            <i class="fa fa-chevron-left"></i> Cancel
+                                        </button>
+                                        <button type="submit" id="btSubmitFormForecastForecast" class="btn green-jungle mt-ladda-btn ladda-button" data-style="zoom-in">
+                                            <i class="fa fa-save"></i> Save
+                                        </button>
+                                    </div>
+                                    <div class="col-md-5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(function () {
+        $('#Variance').val(Common.Format.CommaSeparation('@Model.VarianceIdr'))
+        $('#Variance').val(Common.Format.CommaSeparation('@Model.VarianceUsd'))
+        $('#TotalCurrentPeriod').val(Common.Format.CommaSeparation('@Model.TotalCurrentPeriodIdr'))
+        $('#TotalCurrentPeriod').val(Common.Format.CommaSeparation('@Model.TotalCurrentPeriodUsd'))
+        $('#TotalLastPeriod').val(Common.Format.CommaSeparation('@Model.TotalLastPeriodIdr'))
+        $('#TotalLastPeriod').val(Common.Format.CommaSeparation('@Model.TotalLastPeriodUsd'))
+        $('#TotalActualM3Usd').val(Common.Format.CommaSeparation('@Model.TotalActualM3Usd'))
+        $('#TotalActualM2Usd').val(Common.Format.CommaSeparation('@Model.TotalActualM2Usd'))
+        $('#TotalActualM1Usd').val(Common.Format.CommaSeparation('@Model.TotalActualM1Usd'))
+        $('#TotalActualM3Idr').val(Common.Format.CommaSeparation('@Model.TotalActualM3Idr'))
+        $('#TotalActualM2Idr').val(Common.Format.CommaSeparation('@Model.TotalActualM2Idr'))
+        $('#TotalActualM1Idr').val(Common.Format.CommaSeparation('@Model.TotalActualM1Idr'))
+        $('#TotalForecastM3Usd').val(Common.Format.CommaSeparation('@Model.TotalForecastM3Usd'))
+        $('#TotalForecastM2Usd').val(Common.Format.CommaSeparation('@Model.TotalForecastM2Usd'))
+        $('#TotalForecastM1Usd').val(Common.Format.CommaSeparation('@Model.TotalForecastM1Usd'))
+        $('#TotalForecastM3Idr').val(Common.Format.CommaSeparation('@Model.TotalForecastM3Idr'))
+        $('#TotalForecastM2Idr').val(Common.Format.CommaSeparation('@Model.TotalForecastM2Idr'))
+        $('#TotalForecastM1Idr').val(Common.Format.CommaSeparation('@Model.TotalForecastM1Idr'))
+    })
+</script>

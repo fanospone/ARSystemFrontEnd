@@ -1,0 +1,58 @@
+﻿@using ARSystemFrontEnd.Helper
+
+<div class="row" style="margin-bottom:7px">
+    <div class="col-md-6" style="text-align: left">
+        <input class="make-switch" type="checkbox" data-size="small" data-width="100%" id="chkFrcAmount" checked="checked" data-on-color="default" data-off-color="info" data-on-text="OFF" data-off-text="ON">&nbsp; &nbsp; Amount Mode
+    </div>
+    <div class="col-md-6" style="text-align: right">
+        <button type="button" id="btnFrcExport" class="btn green btn-outline">
+            <i class="fa fa-file-excel-o"></i>&nbsp; Excel
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped table-bordered table-hover" id="tblForecast" cellspacing="0">
+            <thead>
+                <tr>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle" id="txtFrcGroup">Customer</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">Total</th>
+                    <th colspan="5" class="text-center">Selected Month</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M+1</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M+2</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M+3</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M+4</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M+5</th>
+                    <th rowspan="2" class="text-center" style="vertical-align:middle">M > 5</th>
+                </tr>
+                <tr>
+                    <th class="text-center">W1</th>
+                    <th class="text-center">W2</th>
+                    <th class="text-center">W3</th>
+                    <th class="text-center">W4</th>
+                    <th class="text-center">W5</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th style="text-align:center">Total:&nbsp;&nbsp;</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+<script src="@Url.ContentVersion("~/scripts/DashboardBAUK/_BAUKForecasting.js")"></script>

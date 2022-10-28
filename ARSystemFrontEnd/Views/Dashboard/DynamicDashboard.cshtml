@@ -1,0 +1,397 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+    table td {
+        font-size: 10px !important;
+    }
+    /* Start of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+
+    .panelSearchResult .table-scrollable {
+        border: none !important;
+    }
+
+    .c3-line, .c3-focused {
+        stroke-width: 3px !important;
+    }
+
+    .c3-bar {
+        stroke: white !important;
+        stroke-width: 1;
+    }
+
+    .c3 text {
+        font-size: 10px;
+        color: grey;
+    }
+
+    .tick line {
+        stroke: white;
+    }
+
+    .c3-axis path {
+        stroke: grey;
+    }
+
+    .c3-circle {
+        opacity: 1 !important;
+    }
+
+    .c3-xgrid-focus {
+        visibility: hidden !important;
+    }
+    /* End of CSS for fixing layouts in JQuery Datatables with Freeze Columns */
+</style>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/scripts/dist/css/c3_0.4.11_c3.min.css")">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/scripts/dist/css/pivot.css")">
+
+<div id="panelSummary">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools">
+                        <a href="" class="expand"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body form" style="display:none">
+                    <form id="formSearch" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Template Name</label>
+                                        <div class="col-md-8">
+                                            <input type="text" id="stbTemplateName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Data Source</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="sslDataSourceID"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-actions text-center">
+                        <button type="button" id="btSearch" class="btn blue mt-ladda-btn ladda-button NeedRounding" data-style="zoom-in">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                        <button type="button" id="btReset" class="btn blue-oleo">
+                            <i class="fa fa-refresh"></i> Reset
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-actions text-center btnAddNewTemplate">
+                <button type="button" id="btnAddNewTemplate" class="btn green mt-ladda-btn ladda-button" data-style="zoom-in">
+                    <i class="fa fa-plus"></i> Add New Template
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div id="dashboardTemlpate" style="overflow:scroll; height:800px">
+    </div>
+</div>
+
+
+<div id="panelDashboardDetail">
+    <div class="row filter">
+        <div class="col-md-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption font-white">
+                        <i class="fa fa-filter"></i>
+                        <span class="caption-subject">Filter</span>
+                    </div>
+                    <div class="tools" id="collapseTools">
+                        
+                    </div>
+                </div>
+                <div class="portlet-body form" id="formSearchDetail">
+                    <form id="formSearch2" class="form-horizontal" role="form">
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Data Source</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="sslDataSourceID2" required></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group companyid">
+                                        <label class="col-md-4 control-label">Company</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="companyid" required></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group customerid">
+                                        <label class="col-md-4 control-label">Customer</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="customerid" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group regionid">
+                                        <label class="col-md-4 control-label">REGION</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="regionid" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group productid">
+                                        <label class="col-md-4 control-label">Product</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="productid" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group stipid">
+                                        <label class="col-md-4 control-label">STIP</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="stipid" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group month">
+                                        <label class="col-md-4 control-label">Month</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="month" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group year">
+                                        <label class="col-md-4 control-label">Year</label>
+                                        <div class="col-md-8">
+                                            <select class="form-control" id="year" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="formFilter">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-actions text-center">
+                        <button type="button" id="btSearchDashboard" class="btn blue mt-ladda-btn ladda-button NeedRounding" data-style="zoom-in">
+                            <i class="fa fa-search"></i> Search
+                        </button>
+                        <button type="button" id="btResetDashboard" class="btn blue-oleo">
+                            <i class="fa fa-refresh"></i> Reset
+                        </button>
+                      
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row dashboadData">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+				<div class="col-md-6">
+                    <div class="caption font-blue-steel">
+                        <i class="fa fa-table"></i>
+                        <span class="caption-subject" id="spDashboardName"></span>
+						
+                    </div>
+					</div>
+					<div class="col-md-6 text-right">
+						  <button type="button" id="btBack" class="btn green">
+                            <i class="fa fa-backward"></i> Back
+                        </button>
+					</div>
+                </div>
+                <div class="portlet-body">
+					
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-left">
+                                <button type="button" id="btShowMdlSaveTemplate" class="btn btn-circle-right">
+                                    Save Template
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <button type="button" id="btnDownload" class="btn btn-circle">
+                                    Download Data
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-right">
+                                <button type="button" id="btExportPDF" class="btn btn-circle-left">
+                                    Export To PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="overflow:scroll">
+                                <div id="output"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlExportPDF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:25%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Export PDF</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSubmitApprBulky" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Page Size</label>
+                                    <div class="col-md-6">
+                                        <select id="slPageSize" class="form-control select2">
+                                            <option value="A4">A4</option>
+                                            <option value="Letter">Letter</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">Page Orientation</label>
+                                    <div class="col-md-6">
+                                        <select id="slOrientation" class="form-control select2">
+                                            <option value="Potrait">Potrait</option>
+                                            <option value="Landscape">Landscape</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" id="btExport" class="btn blue">
+                            <i class="fa fa-print"></i> Export
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btExportCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="mdlSaveTemplate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-lg" style="width:35%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Save Template</h4>
+            </div>
+            <div class="portlet-body form">
+                <form id="formSubmitApprBulky" class="form-horizontal" role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Renderer Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="tbRendererName" class="form-control select2" readonly />
+                                        <input type="hidden" id="tbTemplateID" />
+                                        <input type="hidden" id="tbDataSourceID" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Aggregator Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="tbAggregatorName" class="form-control select2" readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Aggregator Val</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="tbAggregatorVal" class="form-control select2" readonly />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Pivot Columns</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control select2" id="tbPivotCols" cols="10" rows="2" readonly></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Pivot Rows</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control select2" id="tbPivotRows" cols="10" rows="2" readonly></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Template Name</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="tbTemplateName" class="form-control select2" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Template Description</label>
+                                    <div class="col-md-8">
+                                        <textarea class="form-control select2" id="tbTemplateDesc" cols="10" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="button" id="btSaveTemplate" class="btn blue mt-ladda-btn ladda-button NeedRounding">
+                            <i class="fa fa-save"></i> Save
+                        </button>
+                        <button type="button" data-dismiss="modal" id="btTemplateCancel" class="btn blue-oleo">
+                            <i class="fa fa-chevron-left"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/papaparse.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/d3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/c3.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/pivot.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/c3_renderers.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/export_renderers.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/jquery.ui.touch-punch.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dist/js/jspdf.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/dashboard/DynamicDashboard.js")"></script>
+}
+

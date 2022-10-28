@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "RevenueSystem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("~/Views/Shared/Dashboard/_LeadTime.cshtml")
+
+@section Scripts
+{
+    <script src="@Url.Content("~/Content/global/plugins/amcharts/amcharts/amcharts.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/global/plugins/amcharts/amcharts/serial.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/scripts/dashboard/Index.js")" type="text/javascript"></script>
+}
